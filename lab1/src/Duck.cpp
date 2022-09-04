@@ -3,8 +3,10 @@
 #include "../include/Duck.h"
 
 Duck::Duck(std::unique_ptr<IFlyBehavior>&& flyBehavior,
-	std::unique_ptr<IQuackBehavior>&& quackBehavior)
-	: m_quackBehavior(std::move(quackBehavior))
+	std::unique_ptr<IQuackBehavior>&& quackBehavior,
+	std::unique_ptr<IDanceBehavior>&& danceBehavior)
+	: m_danceBehavior(std::move(danceBehavior))
+	, m_quackBehavior(std::move(quackBehavior))
 {
 	assert(m_quackBehavior);
 	SetFlyBehavior(std::move(flyBehavior));
@@ -27,7 +29,7 @@ void Duck::Fly() const
 
 void Duck::Dance() const
 {
-	std::cout << "I'm Dancing" << std::endl;
+	m_danceBehavior->Dance();
 }
 
 void Duck::SetFlyBehavior(std::unique_ptr<IFlyBehavior>&& flyBehavior)

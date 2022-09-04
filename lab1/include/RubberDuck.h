@@ -7,5 +7,4 @@ class RubberDuck : public Duck
 public:
 	RubberDuck();
 	void Display() const override;
-	void Dance() const override;
 };

@@ -136,6 +136,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\DanceBehavior.cpp" />
+    <ClCompile Include="src\DanceNoWay.cpp" />
     <ClCompile Include="src\DecoyDuck.cpp" />
     <ClCompile Include="src\Duck.cpp" />
     <ClCompile Include="src\FlyNoWay.cpp" />
@@ -150,10 +152,13 @@
     <ClCompile Include="src\SqueakBehavior.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\DanceBehavior.h" />
+    <ClInclude Include="include\DanceNoWay.h" />
     <ClInclude Include="include\DecoyDuck.h" />
     <ClInclude Include="include\Duck.h" />
     <ClInclude Include="include\FlyNoWay.h" />
     <ClInclude Include="include\FlyWithWings.h" />
+    <ClInclude Include="include\IDanceBehavior.h" />
     <ClInclude Include="include\IFlyBehavior.h" />
     <ClInclude Include="include\IQuackBehavior.h" />
     <ClInclude Include="include\MallardDuck.h" />

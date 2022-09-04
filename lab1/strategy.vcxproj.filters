@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Duck\QuackBehavior">
       <UniqueIdentifier>{0baafdd7-9789-4306-bd16-ed99e9a7078a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Duck\DanceBehavior">
+      <UniqueIdentifier>{376c8af1-6906-4500-aaaa-3d63ae9cc390}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Duck\DanceBehavior">
+      <UniqueIdentifier>{93e13ea0-10ce-430f-b29b-849fca1ec120}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -71,6 +77,12 @@
     </ClCompile>
     <ClCompile Include="src\ModelDuck.cpp">
       <Filter>Source Files\Duck</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DanceBehavior.cpp">
+      <Filter>Source Files\Duck\DanceBehavior</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DanceNoWay.cpp">
+      <Filter>Source Files\Duck\DanceBehavior</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +127,15 @@
     </ClInclude>
     <ClInclude Include="include\ModelDuck.h">
       <Filter>Header Files\Duck</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IDanceBehavior.h">
+      <Filter>Header Files\Duck\DanceBehavior</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DanceBehavior.h">
+      <Filter>Header Files\Duck\DanceBehavior</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DanceNoWay.h">
+      <Filter>Header Files\Duck\DanceBehavior</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
