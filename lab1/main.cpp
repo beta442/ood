@@ -1,11 +1,6 @@
 #include "include/pch.h"
 
 #include "include/FlyWithWings.h"
-#include "include/FlyNoWay.h"
-
-#include "include/MuteQuackBehavior.h"
-#include "include/QuackBehavior.h"
-#include "include/SqueakBehavior.h"
 
 #include "include/Duck.h"
 #include "include/MallardDuck.h"
