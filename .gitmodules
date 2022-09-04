@@ -1,0 +1,3 @@
+[submodule "ood_course"]
+	path = ood_course
+	url = https://github.com/alexey-malov/ood.git
