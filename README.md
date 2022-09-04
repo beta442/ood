@@ -1,2 +1,2 @@
 # ood
-object-oriented design course
+#### 05.09.22 - ...
