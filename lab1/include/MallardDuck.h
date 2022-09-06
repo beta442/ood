@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MALLARDDUCK_H
+#define MALLARDDUCK_H
 
 #include "Duck.h"
 
@@ -9,3 +10,5 @@ public:
 
 	void Display() const override;
 };
+
+#endif // !MALLARDDUCK_H

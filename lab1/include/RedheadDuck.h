@@ -1,4 +1,5 @@
-#pragma once
+#ifndef REDHEADDUCK_H
+#define REDHEADDUCK_H
 
 #include "Duck.h"
 
@@ -8,3 +9,5 @@ public:
 	RedheadDuck();
 	void Display() const override;
 };
+
+#endif // !REDHEADDUCK_H

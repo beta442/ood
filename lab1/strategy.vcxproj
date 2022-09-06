@@ -158,6 +158,7 @@
     <ClInclude Include="include\DanceNoWay.h" />
     <ClInclude Include="include\DecoyDuck.h" />
     <ClInclude Include="include\Duck.h" />
+    <ClInclude Include="include\DuckFunctions.h" />
     <ClInclude Include="include\FlyNoWay.h" />
     <ClInclude Include="include\FlyWithWings.h" />
     <ClInclude Include="include\IDanceBehavior.h" />

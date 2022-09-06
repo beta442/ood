@@ -1,31 +1,22 @@
 #include "include/pch.h"
 
-#include "include/FlyWithWings.h"
+#include "include/DuckFunctions.h"
 
+#include "include/DecoyDuck.h"
 #include "include/Duck.h"
 #include "include/MallardDuck.h"
-#include "include/RedheadDuck.h"
-#include "include/DecoyDuck.h"
-#include "include/RubberDuck.h"
 #include "include/ModelDuck.h"
+#include "include/RedheadDuck.h"
+#include "include/RubberDuck.h"
 
-void DrawDuck(Duck const& duck)
-{
-	duck.Display();
-}
-
-void PlayWithDuck(Duck& duck)
-{
-	DrawDuck(duck);
-	duck.Quack();
-	duck.Fly();
-	duck.Dance();
-	std::cout << std::endl;
-}
+#include "include/FlyWithWings.h"
+#include "include/DanceNoWay.h"
 
 int main()
 {
 	MallardDuck mallardDuck;
+	PlayWithDuck(mallardDuck);
+	mallardDuck.SetDanceBehavior(std::make_unique<DanceNoWay>());
 	PlayWithDuck(mallardDuck);
 
 	RedheadDuck redheadDuck;

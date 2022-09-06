@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DECOYDUCK_H
+#define DECOYDUCK_H
 
 #include "Duck.h"
 
@@ -8,3 +9,5 @@ public:
 	DecoyDuck();
 	void Display() const override;
 };
+
+#endif // !DECOYDUCK_H

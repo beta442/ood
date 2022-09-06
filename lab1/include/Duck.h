@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DUCK_H
+#define DUCK_H
 
 #include <memory>
 
@@ -33,3 +34,5 @@ private:
 	std::unique_ptr<ISwimBehavior> m_swimBehavior;
 	std::unique_ptr<IQuackBehavior> m_quackBehavior;
 };
+
+#endif // !DUCK_H

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FLYWITHWINGS_H
+#define FLYWITHWINGS_H
 
 #include "IFlyBehavior.h"
 
@@ -10,3 +11,5 @@ public:
 private:
 	static inline std::size_t m_flightCount = 0;
 };
+
+#endif // !FLYWITHWINGS_H

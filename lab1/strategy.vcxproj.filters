@@ -158,5 +158,8 @@
     <ClInclude Include="include\SwimNoWay.h">
       <Filter>Header Files\Duck\SwimBehavior</Filter>
     </ClInclude>
+    <ClInclude Include="include\DuckFunctions.h">
+      <Filter>Header Files\Duck</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

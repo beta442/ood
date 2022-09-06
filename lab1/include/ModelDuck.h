@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MODELDUCK_H
+#define MODELDUCK_H
 
 #include "Duck.h"
 
@@ -8,3 +9,5 @@ public:
 	ModelDuck();
 	void Display() const override;
 };
+
+#endif // !MODELDUCK_H
