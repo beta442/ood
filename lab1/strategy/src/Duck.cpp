@@ -17,22 +17,22 @@ Duck::Duck(std::unique_ptr<IDanceBehavior>&& danceBehavior,
 	assert(m_quackBehavior);
 }
 
-void Duck::Dance() const
+void Duck::PerformDance() const
 {
 	m_danceBehavior->Dance();
 }
 
-void Duck::Fly() const
+void Duck::PerfromFly() const
 {
 	m_flyBehavior->Fly();
 }
 
-void Duck::Swim() const
+void Duck::PerformSwim() const
 {
 	m_swimBehavior->Swim();
 }
 
-void Duck::Quack() const
+void Duck::PerformQuack() const
 {
 	m_quackBehavior->Quack();
 }

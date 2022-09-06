@@ -16,10 +16,10 @@ public:
 		std::unique_ptr<ISwimBehavior>&& swimBehavior,
 		std::unique_ptr<IQuackBehavior>&& quackBehavior);
 
-	void Dance() const;
-	void Fly() const;
-	void Swim() const;
-	void Quack() const;
+	void PerformDance() const;
+	void PerfromFly() const;
+	void PerformSwim() const;
+	void PerformQuack() const;
 	void SetDanceBehavior(std::unique_ptr<IDanceBehavior>&& danceBehavior);
 	void SetFlyBehavior(std::unique_ptr<IFlyBehavior>&& flyBehavior);
 	void SetSwimBehavior(std::unique_ptr<ISwimBehavior>&& swimBehavior);

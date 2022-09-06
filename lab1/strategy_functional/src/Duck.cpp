@@ -12,22 +12,22 @@ Duck::Duck(const Strategy& danceBehavior,
 {
 }
 
-void Duck::Dance() const
+void Duck::PerformDance() const
 {
 	m_danceBehavior();
 }
 
-void Duck::Fly()
+void Duck::PerformFly()
 {
 	m_flyBehavior(m_flightsCount);
 }
 
-void Duck::Swim() const
+void Duck::PerformSwim() const
 {
 	m_swimBehavior();
 }
 
-void Duck::Quack() const
+void Duck::PerformQuack() const
 {
 	m_quackBehavior();
 }

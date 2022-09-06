@@ -14,10 +14,10 @@ public:
 		const Strategy& swimBehavior,
 		const Strategy& quackBehavior);
 
-	void Dance() const;
-	void Fly();
-	void Swim() const;
-	void Quack() const;
+	void PerformDance() const;
+	void PerformFly();
+	void PerformSwim() const;
+	void PerformQuack() const;
 	void SetDanceBehavior(const Strategy& danceBehavior);
 	void SetFlyBehavior(const CountedFlyStrategy& flyBehavior);
 	void SetSwimBehavior(const Strategy& swimBehavior);

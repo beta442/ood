@@ -13,9 +13,9 @@ void DrawDuck(Duck const& duck)
 void PlayWithDuck(Duck& duck)
 {
 	DrawDuck(duck);
-	duck.Quack();
-	duck.Fly();
-	duck.Dance();
+	duck.PerformQuack();
+	duck.PerfromFly();
+	duck.PerformDance();
 	std::cout << std::endl;
 }
 
