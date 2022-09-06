@@ -4,10 +4,14 @@
 
 #include "../include/DanceNoWay.h"
 #include "../include/FlyNoWay.h"
+#include "../include/SwimNoWay.h"
 #include "../include/QuackBehavior.h"
 
 ModelDuck::ModelDuck()
-	: Duck(std::make_unique<FlyNoWay>(), std::make_unique<QuackBehavior>(), std::make_unique<DanceNoWay>())
+	: Duck(std::make_unique<DanceNoWay>(),
+		std::make_unique<FlyNoWay>(),
+		std::make_unique<SwimNoWay>(),
+		std::make_unique<QuackBehavior>())
 {
 }
 

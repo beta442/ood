@@ -150,6 +150,8 @@
     <ClCompile Include="src\RedheadDuck.cpp" />
     <ClCompile Include="src\RubberDuck.cpp" />
     <ClCompile Include="src\SqueakBehavior.cpp" />
+    <ClCompile Include="src\SwimBehavior.cpp" />
+    <ClCompile Include="src\SwimNoWay.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\DanceBehavior.h" />
@@ -161,6 +163,7 @@
     <ClInclude Include="include\IDanceBehavior.h" />
     <ClInclude Include="include\IFlyBehavior.h" />
     <ClInclude Include="include\IQuackBehavior.h" />
+    <ClInclude Include="include\ISwimBehavior.h" />
     <ClInclude Include="include\MallardDuck.h" />
     <ClInclude Include="include\ModelDuck.h" />
     <ClInclude Include="include\MuteQuackBehavior.h" />
@@ -169,6 +172,8 @@
     <ClInclude Include="include\RedheadDuck.h" />
     <ClInclude Include="include\RubberDuck.h" />
     <ClInclude Include="include\SqueakBehavior.h" />
+    <ClInclude Include="include\SwimBehavior.h" />
+    <ClInclude Include="include\SwimNoWay.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

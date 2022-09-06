@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Duck\DanceBehavior">
       <UniqueIdentifier>{93e13ea0-10ce-430f-b29b-849fca1ec120}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Duck\SwimBehavior">
+      <UniqueIdentifier>{d309d154-11db-452c-bbeb-4b809acf014c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Duck\SwimBehavior">
+      <UniqueIdentifier>{fe79e42b-37fa-4d52-9fae-edbf0c9c130f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -83,6 +89,12 @@
     </ClCompile>
     <ClCompile Include="src\DanceNoWay.cpp">
       <Filter>Source Files\Duck\DanceBehavior</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SwimBehavior.cpp">
+      <Filter>Source Files\Duck\SwimBehavior</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SwimNoWay.cpp">
+      <Filter>Source Files\Duck\SwimBehavior</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +148,15 @@
     </ClInclude>
     <ClInclude Include="include\DanceNoWay.h">
       <Filter>Header Files\Duck\DanceBehavior</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ISwimBehavior.h">
+      <Filter>Header Files\Duck\SwimBehavior</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SwimBehavior.h">
+      <Filter>Header Files\Duck\SwimBehavior</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SwimNoWay.h">
+      <Filter>Header Files\Duck\SwimBehavior</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

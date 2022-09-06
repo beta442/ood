@@ -5,9 +5,13 @@
 #include "../include/DanceNoWay.h"
 #include "../include/FlyNoWay.h"
 #include "../include/MuteQuackBehavior.h"
+#include "../include/SwimNoWay.h"
 
 DecoyDuck::DecoyDuck()
-	: Duck(std::make_unique<FlyNoWay>(), std::make_unique<MuteQuackBehavior>(), std::make_unique<DanceNoWay>())
+	: Duck(std::make_unique<DanceNoWay>(),
+		std::make_unique<FlyNoWay>(),
+		std::make_unique<SwimNoWay>(),
+		std::make_unique<MuteQuackBehavior>())
 {
 }
 
