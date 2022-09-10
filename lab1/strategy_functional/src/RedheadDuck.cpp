@@ -7,7 +7,7 @@
 
 RedheadDuck::RedheadDuck()
 	: Duck(danceBehavior,
-		countedFlyBehavior,
+		countedFlyBehavior(),
 		swimBehavior,
 		quackBehavior)
 {

@@ -1,6 +1,7 @@
 #include "include/pch.h"
 
 #include "include/DuckFunctions.h"
+#include "include/FlyBehavior.h"
 
 #include "include/MallardDuck.h"
 #include "include/ModelDuck.h"
@@ -11,7 +12,7 @@ int main()
 {
 	MallardDuck mallardDuck;
 	PlayWithDuck(mallardDuck);
-	mallardDuck.SetFlyBehavior([](std::size_t) { std::cout << "I'm too tired to fly today" << std::endl; });
+	mallardDuck.SetFlyBehavior(noFlyBehavior);
 	PlayWithDuck(mallardDuck);
 
 	ModelDuck modelDuck;

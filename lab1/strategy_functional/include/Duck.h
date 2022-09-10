@@ -7,10 +7,9 @@ class Duck
 {
 public:
 	using Strategy = std::function<void()>;
-	using CountedFlyStrategy = std::function<void(std::size_t&)>;
 
 	Duck(const Strategy& danceBehavior,
-		const CountedFlyStrategy& aFlyBehavior,
+		const Strategy& aFlyBehavior,
 		const Strategy& swimBehavior,
 		const Strategy& quackBehavior);
 
@@ -19,7 +18,7 @@ public:
 	void PerformSwim() const;
 	void PerformQuack() const;
 	void SetDanceBehavior(const Strategy& danceBehavior);
-	void SetFlyBehavior(const CountedFlyStrategy& flyBehavior);
+	void SetFlyBehavior(const Strategy& flyBehavior);
 	void SetSwimBehavior(const Strategy& swimBehavior);
 	void SetQuackBehavior(const Strategy& quackBehavior);
 
@@ -28,10 +27,8 @@ public:
 
 private:
 	Strategy m_danceBehavior;
-	CountedFlyStrategy m_flyBehavior;
+	Strategy m_flyBehavior;
 	Strategy m_swimBehavior;
 	Strategy m_quackBehavior;
-
-	std::size_t m_flightsCount;
 };
 #endif // !DUCK_H

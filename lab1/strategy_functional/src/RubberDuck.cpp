@@ -7,7 +7,7 @@
 
 RubberDuck::RubberDuck()
 	: Duck(noDanceBehavior,
-		countedFlyBehavior,
+		countedFlyBehavior(),
 		noSwimBehavior,
 		squeakBehavior)
 {

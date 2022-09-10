@@ -1,14 +1,13 @@
 #include "../include/Duck.h"
 
 Duck::Duck(const Strategy& danceBehavior,
-	const CountedFlyStrategy& flyBehavior,
+	const Strategy& flyBehavior,
 	const Strategy& swimBehavior,
 	const Strategy& quackBehavior)
 	: m_danceBehavior(danceBehavior)
 	, m_flyBehavior(flyBehavior)
 	, m_swimBehavior(swimBehavior)
 	, m_quackBehavior(quackBehavior)
-	, m_flightsCount()
 {
 }
 
@@ -19,7 +18,7 @@ void Duck::PerformDance() const
 
 void Duck::PerformFly()
 {
-	m_flyBehavior(m_flightsCount);
+	m_flyBehavior();
 }
 
 void Duck::PerformSwim() const
@@ -37,10 +36,9 @@ void Duck::SetDanceBehavior(const Strategy& danceBehavior)
 	m_danceBehavior = danceBehavior;
 }
 
-void Duck::SetFlyBehavior(const CountedFlyStrategy& flyBehavior)
+void Duck::SetFlyBehavior(const Strategy& flyBehavior)
 {
 	m_flyBehavior = flyBehavior;
-	m_flightsCount = 0;
 }
 
 void Duck::SetSwimBehavior(const Strategy& swimBehavior)
