@@ -2,6 +2,11 @@
 
 #include "../include/FlyWithWings.h"
 
+FlyWithWings::FlyWithWings()
+	: m_flightCount(0)
+{
+}
+
 void FlyWithWings::Fly()
 {
 	++m_flightCount;

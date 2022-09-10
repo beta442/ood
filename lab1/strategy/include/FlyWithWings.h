@@ -6,10 +6,12 @@
 class FlyWithWings : public IFlyBehavior
 {
 public:
+	FlyWithWings();
+
 	void Fly() final;
 
 private:
-	static inline std::size_t m_flightCount = 0;
+	std::size_t m_flightCount;
 };
 
 #endif // !FLYWITHWINGS_H
