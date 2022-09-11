@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "observer", "observer\observer.vcxproj", "{2822DAD2-299F-453E-AEB6-4A28DF68D8D9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "observer_full_stat", "observer_full_stat\observer_full_stat.vcxproj", "{6383F04C-53CD-4DE0-A3BA-03ECA9B8D99A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{2822DAD2-299F-453E-AEB6-4A28DF68D8D9}.Release|x64.Build.0 = Release|x64
 		{2822DAD2-299F-453E-AEB6-4A28DF68D8D9}.Release|x86.ActiveCfg = Release|Win32
 		{2822DAD2-299F-453E-AEB6-4A28DF68D8D9}.Release|x86.Build.0 = Release|Win32
+		{6383F04C-53CD-4DE0-A3BA-03ECA9B8D99A}.Debug|x64.ActiveCfg = Debug|x64
+		{6383F04C-53CD-4DE0-A3BA-03ECA9B8D99A}.Debug|x64.Build.0 = Debug|x64
+		{6383F04C-53CD-4DE0-A3BA-03ECA9B8D99A}.Debug|x86.ActiveCfg = Debug|Win32
+		{6383F04C-53CD-4DE0-A3BA-03ECA9B8D99A}.Debug|x86.Build.0 = Debug|Win32
+		{6383F04C-53CD-4DE0-A3BA-03ECA9B8D99A}.Release|x64.ActiveCfg = Release|x64
+		{6383F04C-53CD-4DE0-A3BA-03ECA9B8D99A}.Release|x64.Build.0 = Release|x64
+		{6383F04C-53CD-4DE0-A3BA-03ECA9B8D99A}.Release|x86.ActiveCfg = Release|Win32
+		{6383F04C-53CD-4DE0-A3BA-03ECA9B8D99A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
