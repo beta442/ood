@@ -10,15 +10,15 @@ int main()
 	WeatherData wd;
 
 	Display display;
-	wd.RegisterObserver(display);
+	wd.RegisterObserver(0, display);
 
 	StatsDisplay statsDisplay;
-	wd.RegisterObserver(statsDisplay);
+	wd.RegisterObserver(10, statsDisplay);
 
 	wd.SetMeasurements(3, 0.7, 760);
 	wd.SetMeasurements(4, 0.8, 761);
 
-	wd.RemoveObserver(statsDisplay);
+	wd.RemoveObserver(10, statsDisplay);
 
 	wd.SetMeasurements(10, 0.8, 761);
 	wd.SetMeasurements(-10, 0.8, 761);

@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "observer", "observer\observ
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "observer_full_stat", "observer_full_stat\observer_full_stat.vcxproj", "{6383F04C-53CD-4DE0-A3BA-03ECA9B8D99A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "observer_priority", "observer_priority\observer_priority.vcxproj", "{0BA8AAF9-33E7-465D-8BDC-159904814ABF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{6383F04C-53CD-4DE0-A3BA-03ECA9B8D99A}.Release|x64.Build.0 = Release|x64
 		{6383F04C-53CD-4DE0-A3BA-03ECA9B8D99A}.Release|x86.ActiveCfg = Release|Win32
 		{6383F04C-53CD-4DE0-A3BA-03ECA9B8D99A}.Release|x86.Build.0 = Release|Win32
+		{0BA8AAF9-33E7-465D-8BDC-159904814ABF}.Debug|x64.ActiveCfg = Debug|x64
+		{0BA8AAF9-33E7-465D-8BDC-159904814ABF}.Debug|x64.Build.0 = Debug|x64
+		{0BA8AAF9-33E7-465D-8BDC-159904814ABF}.Debug|x86.ActiveCfg = Debug|Win32
+		{0BA8AAF9-33E7-465D-8BDC-159904814ABF}.Debug|x86.Build.0 = Debug|Win32
+		{0BA8AAF9-33E7-465D-8BDC-159904814ABF}.Release|x64.ActiveCfg = Release|x64
+		{0BA8AAF9-33E7-465D-8BDC-159904814ABF}.Release|x64.Build.0 = Release|x64
+		{0BA8AAF9-33E7-465D-8BDC-159904814ABF}.Release|x86.ActiveCfg = Release|Win32
+		{0BA8AAF9-33E7-465D-8BDC-159904814ABF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
