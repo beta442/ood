@@ -3,24 +3,19 @@
 #include "../include/StatsDisplay.h"
 
 StatsDisplay::StatsDisplay()
-	: m_minTemperature(std::numeric_limits<double>::infinity())
-	, m_maxTemperature(-std::numeric_limits<double>::infinity())
-	, m_accTemperature(0.0)
-	, m_countAcc(0)
+	: m_humidityStatHolder("humidity")
+	, m_pressureStatHolder("pressure")
+	, m_temperatureStatHolder("temperature")
 {
 }
 
 void StatsDisplay::Update(const WeatherInfo& data)
 {
-	m_minTemperature = std::min(m_minTemperature, data.temperature);
-	m_maxTemperature = std::max(m_maxTemperature, data.temperature);
+	m_humidityStatHolder.TakeNextValue(data.humidity);
+	m_pressureStatHolder.TakeNextValue(data.pressure);
+	m_temperatureStatHolder.TakeNextValue(data.temperature);
 
-	m_accTemperature += data.temperature;
-
-	++m_countAcc;
-
-	std::cout << "Max Temp " << m_maxTemperature << std::endl;
-	std::cout << "Min Temp " << m_minTemperature << std::endl;
-	std::cout << "Average Temp " << (m_accTemperature / m_countAcc) << std::endl;
-	std::cout << "----------------" << std::endl;
+	std::cout << m_humidityStatHolder.ToString() + '\n' <<
+		m_pressureStatHolder.ToString() + '\n' <<
+		m_temperatureStatHolder.ToString() + '\n';
 }

@@ -130,6 +130,7 @@
     <ClInclude Include="include\Display.h" />
     <ClInclude Include="include\Observer.h" />
     <ClInclude Include="include\pch.h" />
+    <ClInclude Include="include\StatisticValueHolder.hpp" />
     <ClInclude Include="include\StatsDisplay.h" />
     <ClInclude Include="include\WeatherData.h" />
   </ItemGroup>
