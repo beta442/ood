@@ -1,14 +1,19 @@
 #include "../include/pch.h"
 
-#include "../include/FlyWithWings.h"
+#include "../include/CountedFly.h"
 
-FlyWithWings::FlyWithWings()
+CountedFly::CountedFly()
 	: m_flightCount(0)
 {
 }
 
-void FlyWithWings::Fly()
+void CountedFly::BumpCounter()
 {
 	++m_flightCount;
+}
+
+void CountedFly::Fly()
+{
+	BumpCounter();
 	std::cout << "I'm flying with wings!! My flight is " << m_flightCount << std::endl;
 }

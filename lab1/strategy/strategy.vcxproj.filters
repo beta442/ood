@@ -48,7 +48,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\FlyWithWings.cpp">
+    <ClCompile Include="src\CountedFly.cpp">
       <Filter>Source Files\Duck\FlyBehavior</Filter>
     </ClCompile>
     <ClCompile Include="src\FlyNoWay.cpp">
@@ -104,7 +104,7 @@
     <ClInclude Include="include\IFlyBehavior.h">
       <Filter>Header Files\Duck\FlyBehavior</Filter>
     </ClInclude>
-    <ClInclude Include="include\FlyWithWings.h">
+    <ClInclude Include="include\CountedFly.h">
       <Filter>Header Files\Duck\FlyBehavior</Filter>
     </ClInclude>
     <ClInclude Include="include\FlyNoWay.h">

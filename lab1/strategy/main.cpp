@@ -9,7 +9,7 @@
 #include "include/RedheadDuck.h"
 #include "include/RubberDuck.h"
 
-#include "include/FlyWithWings.h"
+#include "include/CountedFly.h"
 #include "include/DanceNoWay.h"
 
 int main()
@@ -30,6 +30,6 @@ int main()
 
 	ModelDuck modelDuck;
 	PlayWithDuck(modelDuck);
-	modelDuck.SetFlyBehavior(std::make_unique<FlyWithWings>());
+	modelDuck.SetFlyBehavior(std::make_unique<CountedFly>());
 	PlayWithDuck(modelDuck);
 }

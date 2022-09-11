@@ -141,7 +141,7 @@
     <ClCompile Include="src\DecoyDuck.cpp" />
     <ClCompile Include="src\Duck.cpp" />
     <ClCompile Include="src\FlyNoWay.cpp" />
-    <ClCompile Include="src\FlyWithWings.cpp" />
+    <ClCompile Include="src\CountedFly.cpp" />
     <ClCompile Include="src\MallardDuck.cpp" />
     <ClCompile Include="src\ModelDuck.cpp" />
     <ClCompile Include="src\MuteQuackBehavior.cpp" />
@@ -160,7 +160,7 @@
     <ClInclude Include="include\Duck.h" />
     <ClInclude Include="include\DuckFunctions.h" />
     <ClInclude Include="include\FlyNoWay.h" />
-    <ClInclude Include="include\FlyWithWings.h" />
+    <ClInclude Include="include\CountedFly.h" />
     <ClInclude Include="include\IDanceBehavior.h" />
     <ClInclude Include="include\IFlyBehavior.h" />
     <ClInclude Include="include\IQuackBehavior.h" />
