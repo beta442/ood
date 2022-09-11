@@ -19,6 +19,7 @@ void StatsDisplay::Update(const WeatherInfo& data)
 
 	++m_countAcc;
 
+	std::cout << ((data.sensorType == SensorType::INDOORS) ? "INDOORS" : "OUTDOORS") << " sensor:" << std::endl;
 	std::cout << "Max Temp " << m_maxTemperature << std::endl;
 	std::cout << "Min Temp " << m_minTemperature << std::endl;
 	std::cout << "Average Temp " << (m_accTemperature / m_countAcc) << std::endl;

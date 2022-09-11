@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2822dad2-299f-453e-aeb6-4a28df68d8d9}</ProjectGuid>
+    <ProjectGuid>{C8D4458D-F844-49FD-8917-67588BBF7055}</ProjectGuid>
     <RootNamespace>observer_duo</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>

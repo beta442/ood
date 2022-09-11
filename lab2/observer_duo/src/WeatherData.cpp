@@ -1,9 +1,10 @@
 #include "../include/WeatherData.h"
 
-WeatherData::WeatherData()
+WeatherData::WeatherData(SensorType sensorType)
 	: m_temperature(0.0)
 	, m_humidity(0.0)
 	, m_pressure(760.0)
+	, m_sensorType(sensorType)
 {
 }
 
@@ -36,11 +37,17 @@ void WeatherData::SetMeasurements(double temp, double humidity, double pressure)
 	MeasurementsChanged();
 }
 
+SensorType WeatherData::GetSensorType() const
+{
+	return m_sensorType;
+}
+
 WeatherInfo WeatherData::GetChangedData() const
 {
 	WeatherInfo info;
 	info.temperature = GetTemperature();
 	info.humidity = GetHumidity();
 	info.pressure = GetPressure();
+	info.sensorType = GetSensorType();
 	return info;
 }
