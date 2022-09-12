@@ -14,7 +14,7 @@ public:
 		const Strategy& quackBehavior);
 
 	void PerformDance() const;
-	void PerformFly();
+	void PerformFly() const;
 	void PerformSwim() const;
 	void PerformQuack() const;
 	void SetDanceBehavior(const Strategy& danceBehavior);

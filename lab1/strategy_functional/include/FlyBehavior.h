@@ -3,24 +3,20 @@
 
 #include "pch.h"
 
-const std::function<void()> flyWithWingsBehavior{
+static const std::function<void()> flyWithWingsBehavior{
 	[]() {
 		std::cout << "I'm flying with wings!" << std::endl;
 	}
 };
 
-const std::function<void()> noFlyBehavior{
+static const std::function<void()> noFlyBehavior{
 	[]() {}
 };
 
-const std::function<std::function<void()>()> countedFlyBehavior{
-	[]() {
-		static std::size_t flightCount = 0;
-
-		return [&]() {
-			++flightCount;
-			std::cout << "I'm flying with wings! I'm " << flightCount << std::endl;
-		};
+static const std::function<void()> countedFlyBehavior{
+	[flightCount = 0]() mutable -> void {
+		++flightCount;
+		std::cout << "I'm flying with wings! I'm " << flightCount << std::endl;
 	}
 };
 

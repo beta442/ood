@@ -3,13 +3,13 @@
 
 #include "pch.h"
 
-const std::function<void()> swimBehavior{
+static const std::function<void()> swimBehavior{
 	[]() {
 		std::cout << "I'm swimming!" << std::endl;
 	}
 };
 
-const std::function<void()> noSwimBehavior{
+static const std::function<void()> noSwimBehavior{
 	[]() {}
 };
 

@@ -16,7 +16,7 @@ void Duck::PerformDance() const
 	m_danceBehavior();
 }
 
-void Duck::PerformFly()
+void Duck::PerformFly() const
 {
 	m_flyBehavior();
 }

@@ -3,13 +3,13 @@
 
 #include "pch.h"
 
-const std::function<void()> danceBehavior{
+static const std::function<void()> danceBehavior{
 	[]() {
 		std::cout << "I'm dancing" << std::endl;
 	}
 };
 
-const std::function<void()> noDanceBehavior{
+static const std::function<void()> noDanceBehavior{
 	[]() {}
 };
 

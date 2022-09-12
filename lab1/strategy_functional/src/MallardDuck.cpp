@@ -6,7 +6,7 @@
 #include "../include/QuackBehavior.h"
 
 MallardDuck::MallardDuck()
-	: Duck(danceBehavior, countedFlyBehavior(), swimBehavior, quackBehavior)
+	: Duck(danceBehavior, countedFlyBehavior, swimBehavior, quackBehavior)
 {
 }
 

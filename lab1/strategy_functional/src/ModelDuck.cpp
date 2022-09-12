@@ -6,7 +6,7 @@
 #include "../include/QuackBehavior.h"
 
 ModelDuck::ModelDuck()
-	: Duck(noDanceBehavior, countedFlyBehavior(), noSwimBehavior, quackBehavior)
+	: Duck(noDanceBehavior, countedFlyBehavior, noSwimBehavior, quackBehavior)
 {
 }
 
