@@ -12,9 +12,10 @@ public:
 
 protected:
 	void BumpCounter();
+	size_t GetCounter() const;
 
 private:
-	std::size_t m_flightCount;
+	size_t m_flightCount;
 };
 
 #endif // !COUNTEDFLY_H

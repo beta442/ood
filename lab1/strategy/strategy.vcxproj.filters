@@ -96,6 +96,12 @@
     <ClCompile Include="src\SwimNoWay.cpp">
       <Filter>Source Files\Duck\SwimBehavior</Filter>
     </ClCompile>
+    <ClCompile Include="include\FlyWithWings.h">
+      <Filter>Header Files\Duck\FlyBehavior</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FlyWithWings.cpp">
+      <Filter>Source Files\Duck\FlyBehavior</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">

@@ -7,6 +7,11 @@ CountedFly::CountedFly()
 {
 }
 
+std::size_t CountedFly::GetCounter() const
+{
+	return m_flightCount;
+}
+
 void CountedFly::BumpCounter()
 {
 	++m_flightCount;
@@ -15,5 +20,4 @@ void CountedFly::BumpCounter()
 void CountedFly::Fly()
 {
 	BumpCounter();
-	std::cout << "I'm flying with wings!! My flight is " << m_flightCount << std::endl;
 }
