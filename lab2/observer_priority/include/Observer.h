@@ -29,7 +29,7 @@ static const void MapEraseIf(Map& m, F pred)
 }
 
 template <typename T, typename Comp = std::greater<std::size_t>>
-class Observable : public IPriorityObservable<T>
+class PrioritizedObservable : public IPriorityObservable<T>
 {
 public:
 	typedef IObserver<T> ObserverType;

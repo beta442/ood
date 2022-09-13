@@ -10,7 +10,7 @@ struct WeatherInfo
 	double pressure = 0;
 };
 
-class WeatherData : public Observable<WeatherInfo>
+class WeatherData : public PrioritizedObservable<WeatherInfo>
 {
 public:
 	WeatherData();
