@@ -62,8 +62,8 @@ CompareResult Compare(const T& lhs, const T& rhs)
 
 constexpr auto OBSERVERS_TEST_AMOUNT = 100;
 
-template <typename Data, typename Comp>
-static const void ValidatePriorityOrder(Comp comparator, CompareResult excpectedComporatorResult, size_t priorityStep = 1)
+template <typename Comp, typename Data = int>
+void ValidatePriorityOrder(CompareResult excpectedComporatorResult, size_t priorityStep = 1)
 {
 	ObservableSubject<Data, Comp> s{};
 	std::vector<Observer<Data>*> observersHolder;
@@ -93,15 +93,15 @@ static const void ValidatePriorityOrder(Comp comparator, CompareResult excpected
 
 BOOST_AUTO_TEST_CASE(UpdateObserversInNormalOrder)
 {
-	ValidatePriorityOrder<int>(std::greater<size_t>(), CompareResult::GREATER);
+	ValidatePriorityOrder<std::greater<size_t>>(CompareResult::GREATER);
 }
 
 BOOST_AUTO_TEST_CASE(UpdateObserversInReversedOrder)
 {
-	ValidatePriorityOrder<int>(std::less<size_t>(), CompareResult::LESS);
+	ValidatePriorityOrder<std::less<size_t>>(CompareResult::LESS);
 }
 
 BOOST_AUTO_TEST_CASE(UpdateObserversWithEqualPriority)
 {
-	ValidatePriorityOrder<int>(std::greater<size_t>(), CompareResult::EQUAL, 0);
+	ValidatePriorityOrder<std::greater<size_t>>(CompareResult::EQUAL, 0);
 }
