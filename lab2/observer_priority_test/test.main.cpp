@@ -1,5 +1,7 @@
 #include "include/pch.h"
 
+#include <vector>
+
 #include "../observer_priority/include/Observer.h"
 
 template <typename Data = int, typename Comp = std::greater<size_t>>
@@ -27,7 +29,7 @@ class Observer : public IObserver<Data>
 public:
 	using OnUpdateEventFuncType = std::function<void()>;
 
-	Observer(const OnUpdateEventFuncType& onUpdateEvent)
+	explicit Observer(const OnUpdateEventFuncType& onUpdateEvent)
 		: m_onUpdateEvent(onUpdateEvent)
 	{
 	}
@@ -41,46 +43,65 @@ private:
 	OnUpdateEventFuncType m_onUpdateEvent;
 };
 
-template <typename Comp>
-std::function<void()> Get(size_t lastPriority, size_t priority, bool compareResult, Comp comporator)
+enum class CompareResult
 {
-	return [=, localPriority = priority]() mutable -> void {
-		std::cout << lastPriority << " " << localPriority << '\n';
-		if (lastPriority != 0)
-		{
-			BOOST_TEST(compareResult == comparator(lastPriority, localPriority));
-		}
-		lastPriority = localPriority;
-	};
+	LESS = -1,
+	EQUAL = 0,
+	GREATER = 1,
+};
+
+template <typename T>
+CompareResult Compare(const T& lhs, const T& rhs)
+{
+	return (lhs == rhs)
+		? CompareResult::EQUAL
+		: (lhs < rhs)
+		? CompareResult::LESS
+		: CompareResult::GREATER;
 }
 
-template <typename Comp>
-void ValidatePriorityOrder(Comp comparator, bool compareResult)
-{
-	ObservableSubject<int, Comp> s{};
-	size_t lastPriority = 0;
+constexpr auto OBSERVERS_TEST_AMOUNT = 100;
 
-	for (size_t priority = 0; priority < 10; ++priority)
+template <typename Data, typename Comp>
+static const void ValidatePriorityOrder(Comp comparator, CompareResult excpectedComporatorResult, size_t priorityStep = 1)
+{
+	ObservableSubject<Data, Comp> s{};
+	std::vector<Observer<Data>*> observersHolder;
+	observersHolder.resize(OBSERVERS_TEST_AMOUNT);
+
+	size_t lastPriority = 0;
+	for (size_t priority = 0; priority < OBSERVERS_TEST_AMOUNT; ++priority)
 	{
-		Observer<int> observer{
-			[&, localPriority = priority]() {
-				std::cout << lastPriority << " " << localPriority << '\n';
+		auto observer = new Observer<Data>(
+			[&, localPriority = priority * priorityStep]() mutable -> void {
 				if (lastPriority != 0)
 				{
-					BOOST_TEST(compareResult == comparator(lastPriority, localPriority));
+					auto result = Compare(lastPriority, localPriority);
+
+					BOOST_TEST((result == excpectedComporatorResult));
 				}
 				lastPriority = localPriority;
-			}
-		};
-		s.RegisterObserver(priority, observer);
-		if (priority == 9)
-		{
-			s.NotifyObservers();
-		}
+			});
+		s.RegisterObserver(priority, *observer);
+		observersHolder[priority] = observer;
 	}
+	s.NotifyObservers();
+
+	std::for_each(std::begin(observersHolder), std::end(observersHolder), [&](auto& p) { s.RemoveObserver(*p); });
+	std::for_each(std::begin(observersHolder), std::end(observersHolder), [&](auto& p) { delete p; });
 }
 
-BOOST_AUTO_TEST_CASE(ObserverPriorityTestCase)
+BOOST_AUTO_TEST_CASE(UpdateObserversInNormalOrder)
 {
-	ValidatePriorityOrder(std::greater<size_t>(), false);
+	ValidatePriorityOrder<int>(std::greater<size_t>(), CompareResult::GREATER);
+}
+
+BOOST_AUTO_TEST_CASE(UpdateObserversInReversedOrder)
+{
+	ValidatePriorityOrder<int>(std::less<size_t>(), CompareResult::LESS);
+}
+
+BOOST_AUTO_TEST_CASE(UpdateObserversWithEqualPriority)
+{
+	ValidatePriorityOrder<int>(std::greater<size_t>(), CompareResult::EQUAL, 0);
 }
