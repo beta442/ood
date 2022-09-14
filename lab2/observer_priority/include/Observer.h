@@ -32,7 +32,7 @@ template <typename T, typename Comp = std::greater<std::size_t>>
 class PrioritizedObservable : public IPriorityObservable<T>
 {
 public:
-	typedef IObserver<T> ObserverType;
+	using ObserverType = IObserver<T>;
 
 	void RegisterObserver(std::size_t priority, ObserverType& observer) override
 	{
