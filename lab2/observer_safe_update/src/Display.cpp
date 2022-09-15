@@ -6,9 +6,12 @@
 
 void Display::Update(const WeatherInfo& data)
 {
-	for (auto& oAble : m_observables)
+	for (auto it = std::begin(m_observables), end = std::end(m_observables); it != end;)
 	{
-		oAble->RemoveObserver(*this);
+		if ((*it)->RemoveObserver(*this))
+		{
+			break;
+		}
 	}
 
 	std::cout << "Current Temp " << data.temperature << std::endl;

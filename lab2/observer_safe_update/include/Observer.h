@@ -43,8 +43,13 @@ protected:
 
 	bool RemoveObservable(Observable& observable) final
 	{
-		bool eraseRes = (m_observables.erase(&observable) == 1);
-		return eraseRes ? observable.RemoveObserver(*this) : eraseRes;
+		if (auto findIt = m_observables.find(&observable); findIt != m_observables.end())
+		{
+			m_observables.erase(findIt);
+			observable.RemoveObserver(*this);
+			return true;
+		}
+		return false;
 	}
 
 	std::set<Observable*> m_observables;
@@ -66,7 +71,8 @@ public:
 	{
 		T data = GetChangedData();
 
-		for (auto& observer : m_observers)
+		auto copyO = m_observers; // Update() may change m_observers
+		for (auto& observer : copyO)
 		{
 			observer->Update(data);
 		}
@@ -74,8 +80,13 @@ public:
 
 	bool RemoveObserver(ObserverType& observer) final
 	{
-		bool eraseRes = (m_observers.erase(&observer) == 1);
-		return eraseRes ? observer.RemoveObservable(*this) : eraseRes;
+		if (auto findIt = m_observers.find(&observer); findIt != m_observers.end())
+		{
+			m_observers.erase(findIt);
+			observer.RemoveObservable(*this);
+			return true;
+		}
+		return false;
 	}
 
 protected:
