@@ -7,26 +7,18 @@
 
 int main()
 {
-	WeatherData wdIn{ SensorType::INDOORS };
-	WeatherData wdOut{ SensorType::OUTDOORS };
+	WeatherData inWD, outWD;
 
-	Display display;
-	wdIn.RegisterObserver(display);
-	wdOut.RegisterObserver(display);
+	Display display{ &inWD, &outWD };
+	inWD.RegisterObserver(display);
 
-	StatsDisplay statsDisplay;
-	wdIn.RegisterObserver(statsDisplay);
-	wdOut.RegisterObserver(statsDisplay);
+	StatsDisplay statsDisplay{ &inWD, &outWD };
+	inWD.RegisterObserver(statsDisplay);
 
-	wdIn.SetMeasurements(1, 0.7, 760);
-	wdIn.SetMeasurements(2, 0.8, 761);
-	wdIn.SetMeasurements(3, 0.8, 761);
-	wdIn.SetMeasurements(-4, 0.8, 761);
-
-	wdOut.SetMeasurements(-1, 0.7, 760);
-	wdOut.SetMeasurements(-2, 0.8, 761);
-	wdOut.SetMeasurements(-3, 0.8, 761);
-	wdOut.SetMeasurements(4, 0.8, 761);
+	inWD.SetMeasurements(3, 0.7, 760);
+	inWD.SetMeasurements(1, 0.1, 730);
+	outWD.SetMeasurements(4, 0.8, 761);
+	outWD.SetMeasurements(3, 0.7, 760);
 
 	return 0;
 }

@@ -2,26 +2,29 @@
 
 #include "../include/StatsDisplay.h"
 
-StatsDisplay::StatsDisplay()
-	: m_minTemperature(std::numeric_limits<double>::infinity())
-	, m_maxTemperature(-std::numeric_limits<double>::infinity())
-	, m_accTemperature(0.0)
-	, m_countAcc(0)
+StatsDisplay::StatsDisplay(Observable* indoorsWD, Observable* outdoorsWD)
+	: m_updaterToStatisticMap({
+		{ indoorsWD, { StatisticValueHolder("humidity"), StatisticValueHolder("pressure"), StatisticValueHolder("temperature") } },
+		{ outdoorsWD, { StatisticValueHolder("humidity"), StatisticValueHolder("pressure"), StatisticValueHolder("temperature") } }
+	})
 {
 }
 
-void StatsDisplay::Update(const WeatherInfo& data)
+void StatsDisplay::StatsUpdate(WeatherStatistic& stats, const WeatherInfo& data)
 {
-	m_minTemperature = std::min(m_minTemperature, data.temperature);
-	m_maxTemperature = std::max(m_maxTemperature, data.temperature);
+	stats.m_humidityStatHolder.TakeNextValue(data.humidity);
+	stats.m_pressureStatHolder.TakeNextValue(data.pressure);
+	stats.m_temperatureStatHolder.TakeNextValue(data.temperature);
 
-	m_accTemperature += data.temperature;
+	std::cout << stats.m_humidityStatHolder.ToString() + '\n'
+			  << stats.m_pressureStatHolder.ToString() + '\n'
+			  << stats.m_temperatureStatHolder.ToString() + '\n';
+}
 
-	++m_countAcc;
-
-	std::cout << ((data.sensorType == SensorType::INDOORS) ? "INDOORS" : "OUTDOORS") << " sensor:" << std::endl;
-	std::cout << "Max Temp " << m_maxTemperature << std::endl;
-	std::cout << "Min Temp " << m_minTemperature << std::endl;
-	std::cout << "Average Temp " << (m_accTemperature / m_countAcc) << std::endl;
-	std::cout << "----------------" << std::endl;
+void StatsDisplay::Update(const WeatherInfo& data, Observable& updateInitiator)
+{
+	if (m_updaterToStatisticMap.find(&updateInitiator) != std::end(m_updaterToStatisticMap))
+	{
+		StatsUpdate(m_updaterToStatisticMap[&updateInitiator], data);
+	}
 }

@@ -1,21 +1,30 @@
 #ifndef STATSDISPLAY_H
 #define STATSDISPLAY_H
 
+#include <map>
+
 #include "Observer.h"
+#include "StatisticValueHolder.hpp"
 #include "WeatherData.h"
 
-class StatsDisplay : public IObserver<WeatherInfo>
+class StatsDisplay : public AbstractObserver<WeatherInfo>
 {
 public:
-	StatsDisplay();
+	StatsDisplay(Observable* indoorsWD, Observable* outdoorsWD);
 
 private:
-	void Update(const WeatherInfo& data) override;
+	void Update(const WeatherInfo& data, Observable& updateInitiator) override;
 
-	double m_minTemperature;
-	double m_maxTemperature;
-	double m_accTemperature;
-	unsigned m_countAcc;
+	struct WeatherStatistic
+	{
+		StatisticValueHolder<double> m_humidityStatHolder;
+		StatisticValueHolder<double> m_pressureStatHolder;
+		StatisticValueHolder<double> m_temperatureStatHolder;
+	};
+
+	void StatsUpdate(WeatherStatistic& stats, const WeatherInfo& data);
+
+	std::map<Observable*, WeatherStatistic> m_updaterToStatisticMap;
 };
 
 #endif // !STATSDISPLAY_H

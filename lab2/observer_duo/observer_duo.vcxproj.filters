@@ -45,6 +45,9 @@
     <ClInclude Include="include\WeatherData.h">
       <Filter>Header Files\WeatherData</Filter>
     </ClInclude>
+    <ClInclude Include="..\observer_full_stat\include\StatisticValueHolder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

@@ -1,13 +1,30 @@
+#include <algorithm>
+
 #include "../include/pch.h"
 
 #include "../include/Display.h"
 
-void Display::Update(const WeatherInfo& data)
+Display::Display(Observable* indoorsWD, Observable* outdoorsWD)
+	: m_indoorsWD(indoorsWD)
+	, m_outdoorsWD(outdoorsWD)
 {
-	std::cout << ((data.sensorType == SensorType::INDOORS) ? "INDOORS" : "OUTDOORS") << " sensor:" << std::endl;
-	std::cout << "Current Temp " << data.temperature << std::endl;
-	std::cout << "Current Hum " << data.humidity << std::endl;
-	std::cout << "Current Pressure " << data.pressure << std::endl;
-	std::cout << "----------------" << std::endl;
+	m_indoorsWD->RegisterObserver(*this);
+	m_outdoorsWD->RegisterObserver(*this);
 }
 
+void Display::Update(const WeatherInfo& data, Observable& updateInitiator)
+{
+	if (&updateInitiator == m_indoorsWD)
+	{
+	}
+	std::cout << ((&updateInitiator == m_indoorsWD)
+			? "INDOORS"
+			: (&updateInitiator == m_outdoorsWD) ? "OUTDOORS"
+												 : "UNKNOWN SOURCE")
+			  << ":\n";
+
+	std::cout << "Current Temp " << data.temperature << '\n';
+	std::cout << "Current Hum " << data.humidity << '\n';
+	std::cout << "Current Pressure " << data.pressure << '\n';
+	std::cout << "----------------" << '\n';
+}
