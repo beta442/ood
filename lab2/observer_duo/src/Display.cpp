@@ -14,9 +14,6 @@ Display::Display(Observable* indoorsWD, Observable* outdoorsWD)
 
 void Display::Update(const WeatherInfo& data, Observable& updateInitiator)
 {
-	if (&updateInitiator == m_indoorsWD)
-	{
-	}
 	std::cout << ((&updateInitiator == m_indoorsWD)
 			? "INDOORS"
 			: (&updateInitiator == m_outdoorsWD) ? "OUTDOORS"
