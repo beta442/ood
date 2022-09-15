@@ -2,7 +2,7 @@
 #define OBSERVER_H
 
 #include <functional>
-#include <set>
+#include <list>
 
 template <typename T>
 class IObservable;
@@ -37,17 +37,18 @@ protected:
 
 	bool RegisterObservable(Observable& observable) final
 	{
-		bool insertionResult = m_observables.insert(&observable).second;
+		m_observables.emplace_back(&observable);
+		bool insertionResult = (m_observables.unique() != 0); 
 		return insertionResult ? observable.RegisterObserver(*this) : insertionResult;
 	}
 
 	bool RemoveObservable(Observable& observable) final
 	{
-		bool eraseRes = (m_observables.erase(&observable) == 1);
+		bool eraseRes = (m_observables.remove(&observable) == 1);
 		return eraseRes ? observable.RemoveObserver(*this) : eraseRes;
 	}
 
-	std::set<Observable*> m_observables;
+	std::list<Observable*> m_observables;
 };
 
 template <typename T>
@@ -58,7 +59,8 @@ public:
 
 	bool RegisterObserver(ObserverType& observer) final
 	{
-		bool insertionResult = m_observers.insert(&observer).second;
+		m_observers.emplace_back(&observer);
+		bool insertionResult = (m_observers.unique() != 0); 
 		return insertionResult ? observer.RegisterObservable(*this) : insertionResult;
 	}
 
@@ -74,7 +76,7 @@ public:
 
 	bool RemoveObserver(ObserverType& observer) final
 	{
-		bool eraseRes = (m_observers.erase(&observer) == 1);
+		bool eraseRes = (m_observers.remove(&observer) == 1);
 		return eraseRes ? observer.RemoveObservable(*this) : eraseRes;
 	}
 
@@ -82,7 +84,7 @@ protected:
 	virtual T GetChangedData() const = 0;
 
 private:
-	std::set<ObserverType*> m_observers;
+	std::list<ObserverType*> m_observers;
 };
 
 #endif // !OBSERVER_H
