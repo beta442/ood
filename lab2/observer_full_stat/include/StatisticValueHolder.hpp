@@ -7,7 +7,7 @@ template <typename T = double>
 class StatisticValueHolder
 {
 public:
-	StatisticValueHolder(const std::string& valName = "%EMPTY_VAL_NAME%")
+	explicit StatisticValueHolder(const std::string& valName = "%EMPTY_VAL_NAME%")
 		: m_valName(valName)
 		, m_min(std::numeric_limits<T>::infinity())
 		, m_max(-std::numeric_limits<T>::infinity())
