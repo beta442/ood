@@ -4,7 +4,7 @@
 #include "Observer.h"
 #include "WeatherData.h"
 
-class StatsDisplay : public IObserver<WeatherInfo>
+class StatsDisplay : public AbstractObserver<WeatherInfo>
 {
 public:
 	StatsDisplay();

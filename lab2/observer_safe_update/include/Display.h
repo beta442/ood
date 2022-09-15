@@ -4,7 +4,7 @@
 #include "../include/Observer.h"
 #include "../include/WeatherData.h"
 
-class Display : public IObserver<WeatherInfo>
+class Display : public AbstractObserver<WeatherInfo>
 {
 	void Update(const WeatherInfo& data) override;
 };

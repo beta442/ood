@@ -5,9 +5,14 @@
 #include <set>
 
 template <typename T>
+class IObservable;
+
+template <typename T>
 class IObserver
 {
 public:
+	virtual bool RegisterObservable(IObservable<T>& observable) = 0;
+	virtual bool RemoveObservable(IObservable<T>& observable) = 0;
 	virtual void Update(const T& data) = 0;
 	virtual ~IObserver() = default;
 };
@@ -17,9 +22,32 @@ class IObservable
 {
 public:
 	virtual ~IObservable() = default;
-	virtual void RegisterObserver(IObserver<T>& observer) = 0;
+	virtual bool RegisterObserver(IObserver<T>& observer) = 0;
 	virtual void NotifyObservers() = 0;
-	virtual void RemoveObserver(IObserver<T>& observer) = 0;
+	virtual bool RemoveObserver(IObserver<T>& observer) = 0;
+};
+
+template <typename T>
+class AbstractObserver : public IObserver<T>
+{
+protected:
+	using Observable = IObservable<T>;
+
+	AbstractObserver() = default;
+
+	bool RegisterObservable(Observable& observable) final
+	{
+		bool insertionResult = m_observables.insert(&observable).second;
+		return insertionResult ? observable.RegisterObserver(*this) : insertionResult;
+	}
+
+	bool RemoveObservable(Observable& observable) final
+	{
+		bool eraseRes = (m_observables.erase(&observable) == 1);
+		return eraseRes ? observable.RemoveObserver(*this) : eraseRes;
+	}
+
+	std::set<Observable*> m_observables;
 };
 
 template <typename T>
@@ -28,23 +56,26 @@ class Observable : public IObservable<T>
 public:
 	typedef IObserver<T> ObserverType;
 
-	void RegisterObserver(ObserverType& observer) override
+	bool RegisterObserver(ObserverType& observer) final
 	{
-		m_observers.insert(&observer);
+		bool insertionResult = m_observers.insert(&observer).second;
+		return insertionResult ? observer.RegisterObservable(*this) : insertionResult;
 	}
 
 	void NotifyObservers() override
 	{
 		T data = GetChangedData();
+
 		for (auto& observer : m_observers)
 		{
 			observer->Update(data);
 		}
 	}
 
-	void RemoveObserver(ObserverType& observer) override
+	bool RemoveObserver(ObserverType& observer) final
 	{
-		m_observers.erase(&observer);
+		bool eraseRes = (m_observers.erase(&observer) == 1);
+		return eraseRes ? observer.RemoveObservable(*this) : eraseRes;
 	}
 
 protected:
