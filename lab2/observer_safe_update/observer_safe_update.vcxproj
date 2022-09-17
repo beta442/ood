@@ -147,6 +147,11 @@
     <ClCompile Include="src\StatsDisplay.cpp" />
     <ClCompile Include="src\WeatherData.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\test\observer_safe_update_test\observer_safe_update_test.vcxproj">
+      <Project>{15064f0f-0cc0-4af6-9ab9-6079bdc52ffb}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
