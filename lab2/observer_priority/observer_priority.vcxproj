@@ -151,6 +151,11 @@
     <ClCompile Include="src\StatsDisplay.cpp" />
     <ClCompile Include="src\WeatherData.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\test\observer_priority_test\observer_priority_test.vcxproj">
+      <Project>{0d3b8934-5ed8-40f9-94e3-80803f129c6f}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
