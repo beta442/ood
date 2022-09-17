@@ -39,11 +39,11 @@
     <ClInclude Include="include\StatsDisplay.h">
       <Filter>Header Files\Displays</Filter>
     </ClInclude>
-    <ClInclude Include="include\Observer.h">
-      <Filter>Header Files\Observer</Filter>
-    </ClInclude>
     <ClInclude Include="include\WeatherData.h">
       <Filter>Header Files\WeatherData</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Observer.h">
+      <Filter>Header Files\Observer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
