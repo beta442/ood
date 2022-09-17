@@ -1,6 +1,7 @@
 #ifndef STATISTICVALUEHOLDER_H
 #define STATISTICVALUEHOLDER_H
 
+#include <concepts>
 #include <string>
 
 template <typename T = double>
@@ -9,8 +10,12 @@ class StatisticValueHolder
 public:
 	explicit StatisticValueHolder(const std::string& valName = "%EMPTY_VAL_NAME%")
 		: m_valName(valName)
-		, m_min(std::numeric_limits<T>::infinity())
-		, m_max(-std::numeric_limits<T>::infinity())
+		, m_min((std::is_same<T, double>::value || std::is_same<T, long double>::value || std::is_same<T, float>::value)
+				  ? std::numeric_limits<T>::infinity()
+				  : std::numeric_limits<T>::max())
+		, m_max((std::is_same<T, double>::value || std::is_same<T, long double>::value || std::is_same<T, float>::value)
+				  ? -std::numeric_limits<T>::infinity()
+				  : std::numeric_limits<T>::min())
 		, m_accumulatedValue(0)
 		, m_takenCounter(0)
 	{
