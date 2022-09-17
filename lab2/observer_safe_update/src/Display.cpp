@@ -6,7 +6,7 @@
 
 void Display::Update(const WeatherInfo& data)
 {
-	for (auto it = std::begin(m_observables), end = std::end(m_observables); it != end;)
+	for (auto it = std::begin(m_observables), end = std::end(m_observables); it != end; ++it)
 	{
 		if ((*it)->RemoveObserver(*this))
 		{
