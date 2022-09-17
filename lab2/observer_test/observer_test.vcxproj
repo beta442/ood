@@ -22,8 +22,9 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{0d3b8934-5ed8-40f9-94e3-80803f129c6f}</ProjectGuid>
-    <RootNamespace>observerprioritytest</RootNamespace>
+    <RootNamespace>observer_test</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>observer_test</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -139,10 +140,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="test.main.cpp" />
+    <ClInclude Include="include\ObserverPriority.h" />
+    <ClInclude Include="include\ObserverSafeUpdate.h" />
+    <ClInclude Include="include\pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\pch.h" />
+    <ClCompile Include="main.test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

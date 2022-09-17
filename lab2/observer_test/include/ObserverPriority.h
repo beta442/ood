@@ -1,8 +1,9 @@
-#include "include/pch.h"
+#ifndef OBSERVERPRIORITY_H
+#define OBSERVERPRIORITY_H
 
 #include <vector>
 
-#include "../observer_priority/include/Observer.h"
+#include "../../observer_priority/include/Observer.h"
 
 template <typename Data = int, typename Comp = std::greater<size_t>>
 class ObservableSubject : public PrioritizedObservable<Data, Comp>
@@ -91,17 +92,4 @@ void ValidatePriorityOrder(CompareResult excpectedComporatorResult, size_t prior
 	std::for_each(std::begin(observersHolder), std::end(observersHolder), [&](auto& p) { delete p; });
 }
 
-BOOST_AUTO_TEST_CASE(UpdateObserversInNormalOrder)
-{
-	ValidatePriorityOrder<std::greater<size_t>>(CompareResult::GREATER);
-}
-
-BOOST_AUTO_TEST_CASE(UpdateObserversInReversedOrder)
-{
-	ValidatePriorityOrder<std::less<size_t>>(CompareResult::LESS);
-}
-
-BOOST_AUTO_TEST_CASE(UpdateObserversWithEqualPriority)
-{
-	ValidatePriorityOrder<std::greater<size_t>>(CompareResult::EQUAL, 0);
-}
+#endif // OBSERVERPRIORITY_H
