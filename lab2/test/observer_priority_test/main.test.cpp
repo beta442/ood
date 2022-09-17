@@ -3,6 +3,7 @@
 #include "include/ObserverPriority.h"
 
 BOOST_AUTO_TEST_SUITE(ObserverPriority);
+
 BOOST_AUTO_TEST_CASE(UpdateObserversInNormalOrder)
 {
 	ValidatePriorityOrder<std::greater<size_t>>(CompareResult::GREATER);

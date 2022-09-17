@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Safe Update">
-      <UniqueIdentifier>{1d1b4fc7-12fe-49ae-9f32-bc09790c9f97}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Priority">
       <UniqueIdentifier>{d4886e01-a2ac-4a98-a7da-a607e232e8c8}</UniqueIdentifier>
     </Filter>
@@ -26,9 +23,6 @@
     </ClInclude>
     <ClInclude Include="include\ObserverPriority.h">
       <Filter>Header Files\Priority</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ObserverSafeUpdate.h">
-      <Filter>Header Files\Safe Update</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
