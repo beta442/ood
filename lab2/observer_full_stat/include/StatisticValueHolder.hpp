@@ -1,6 +1,8 @@
 #ifndef STATISTICVALUEHOLDER_H
 #define STATISTICVALUEHOLDER_H
 
+#include <string>
+
 template <typename T = double>
 class StatisticValueHolder
 {
