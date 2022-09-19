@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\observer_full_stat\include\StatisticValueHolder.hpp" />
     <ClInclude Include="include\Display.h" />
     <ClInclude Include="include\Observer.h" />
     <ClInclude Include="include\pch.h" />

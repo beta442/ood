@@ -4,15 +4,9 @@
 
 #include "../include/Display.h"
 
-void Display::Update(const WeatherInfo& data)
+void Display::Update(const WeatherInfo& data, IObservable<WeatherInfo>& updateSource)
 {
-	for (auto it = std::begin(m_observables), end = std::end(m_observables); it != end; ++it)
-	{
-		if ((*it)->RemoveObserver(*this))
-		{
-			break;
-		}
-	}
+	updateSource.RemoveObserver(*this);
 
 	std::cout << "Current Temp " << data.temperature << std::endl;
 	std::cout << "Current Hum " << data.humidity << std::endl;

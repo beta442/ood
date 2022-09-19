@@ -36,14 +36,17 @@
     <ClInclude Include="include\Display.h">
       <Filter>Header Files\Displays</Filter>
     </ClInclude>
-    <ClInclude Include="include\StatsDisplay.h">
-      <Filter>Header Files\Displays</Filter>
-    </ClInclude>
     <ClInclude Include="include\WeatherData.h">
       <Filter>Header Files\WeatherData</Filter>
     </ClInclude>
     <ClInclude Include="include\Observer.h">
       <Filter>Header Files\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\observer_full_stat\include\StatisticValueHolder.hpp">
+      <Filter>Header Files\Displays</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StatsDisplay.h">
+      <Filter>Header Files\Displays</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -53,11 +56,11 @@
     <ClCompile Include="src\Display.cpp">
       <Filter>Source Files\Displays</Filter>
     </ClCompile>
-    <ClCompile Include="src\StatsDisplay.cpp">
-      <Filter>Source Files\Displays</Filter>
-    </ClCompile>
     <ClCompile Include="src\WeatherData.cpp">
       <Filter>Source Files\WeatherData</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StatsDisplay.cpp">
+      <Filter>Source Files\Displays</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
