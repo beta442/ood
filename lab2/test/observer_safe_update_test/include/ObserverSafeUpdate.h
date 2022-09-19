@@ -25,7 +25,7 @@ private:
 	Data m_data;
 };
 
-class TestingObserverSafeUpdate : public AbstractObserver<Data>
+class TestingObserverSafeUpdate : public IObserver<Data>
 {
 public:
 	using OnUpdateEvent = std::function<void()>;
@@ -36,16 +36,9 @@ public:
 	}
 
 private:
-	void Update(const Data& data) override
+	void Update(const Data& data, IObservable<Data>& updateSource) override
 	{
-		for (auto it = std::begin(m_observables), end = std::end(m_observables); it != end; ++it)
-		{
-			if ((*it)->RemoveObserver(*this))
-			{
-				break;
-			}
-		}
-
+		updateSource.RemoveObserver(*this);
 		m_event();
 	}
 
