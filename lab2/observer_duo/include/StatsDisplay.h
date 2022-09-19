@@ -4,7 +4,7 @@
 #include <map>
 
 #include "Observer.h"
-#include "StatisticValueHolder.hpp"
+#include "../../observer_full_stat/include/StatisticValueHolder.hpp"
 #include "WeatherData.h"
 
 class StatsDisplay : public AbstractObserver<WeatherInfo>

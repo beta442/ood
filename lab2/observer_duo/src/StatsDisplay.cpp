@@ -4,8 +4,8 @@
 
 StatsDisplay::StatsDisplay(Observable* indoorsWD, Observable* outdoorsWD)
 	: m_updaterToStatisticMap({
-		{ indoorsWD, { StatisticValueHolder("humidity"), StatisticValueHolder("pressure"), StatisticValueHolder("temperature") } },
-		{ outdoorsWD, { StatisticValueHolder("humidity"), StatisticValueHolder("pressure"), StatisticValueHolder("temperature") } }
+		{ indoorsWD, { StatisticValueHolder(), StatisticValueHolder(), StatisticValueHolder() } },
+		{ outdoorsWD, { StatisticValueHolder(), StatisticValueHolder(), StatisticValueHolder() } }
 	})
 {
 }
@@ -16,9 +16,9 @@ void StatsDisplay::StatsUpdate(WeatherStatistic& stats, const WeatherInfo& data)
 	stats.m_pressureStatHolder.TakeNextValue(data.pressure);
 	stats.m_temperatureStatHolder.TakeNextValue(data.temperature);
 
-	std::cout << stats.m_humidityStatHolder.ToString() + '\n'
-			  << stats.m_pressureStatHolder.ToString() + '\n'
-			  << stats.m_temperatureStatHolder.ToString() + '\n';
+	std::cout << StatHolderToString(stats.m_humidityStatHolder) + '\n'
+			  << StatHolderToString(stats.m_pressureStatHolder) + '\n'
+			  << StatHolderToString(stats.m_temperatureStatHolder) + '\n';
 }
 
 void StatsDisplay::Update(const WeatherInfo& data, Observable& updateInitiator)
