@@ -3,9 +3,9 @@
 #include "../include/StatsDisplay.h"
 
 StatsDisplay::StatsDisplay()
-	: m_humidityStatHolder("humidity")
-	, m_pressureStatHolder("pressure")
-	, m_temperatureStatHolder("temperature")
+	: m_humidityStatHolder()
+	, m_pressureStatHolder()
+	, m_temperatureStatHolder()
 {
 }
 
@@ -15,7 +15,7 @@ void StatsDisplay::Update(const WeatherInfo& data)
 	m_pressureStatHolder.TakeNextValue(data.pressure);
 	m_temperatureStatHolder.TakeNextValue(data.temperature);
 
-	std::cout << m_humidityStatHolder.ToString() + '\n' <<
-		m_pressureStatHolder.ToString() + '\n' <<
-		m_temperatureStatHolder.ToString() + '\n';
+	std::cout << "Humidity:\n" << StatHolderToString(m_humidityStatHolder)
+			  << "Pressure:\n" << StatHolderToString(m_pressureStatHolder)
+			  << "Temperature:\n" << StatHolderToString(m_temperatureStatHolder) + '\n';
 }
