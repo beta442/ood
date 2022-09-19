@@ -36,7 +36,7 @@ public:
 	}
 
 private:
-	void Update(const Data& data) override
+	void Update(const Data& data, IObservable<Data>& updateSource) override
 	{
 		m_onUpdateEvent();
 	}
