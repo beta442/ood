@@ -6,7 +6,7 @@
 
 class Display : public IObserver<WeatherInfo>
 {
-	void Update(const WeatherInfo& data) override;
+	void Update(const WeatherInfo& data, IObservable<WeatherInfo>& updateSource) override;
 };
 
 #endif // !DISPLAY_H

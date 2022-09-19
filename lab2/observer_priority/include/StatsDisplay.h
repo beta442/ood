@@ -1,6 +1,8 @@
 #ifndef STATSDISPLAY_H
 #define STATSDISPLAY_H
 
+#include "../../observer_full_stat/include/StatisticValueHolder.hpp"
+
 #include "Observer.h"
 #include "WeatherData.h"
 
@@ -10,12 +12,11 @@ public:
 	StatsDisplay();
 
 private:
-	void Update(const WeatherInfo& data) override;
+	void Update(const WeatherInfo& data, IObservable<WeatherInfo>& updateSource) override;
 
-	double m_minTemperature;
-	double m_maxTemperature;
-	double m_accTemperature;
-	unsigned m_countAcc;
+	StatisticValueHolder<double> m_humidityStatHolder;
+	StatisticValueHolder<double> m_pressureStatHolder;
+	StatisticValueHolder<double> m_temperatureStatHolder;
 };
 
 #endif // !STATSDISPLAY_H

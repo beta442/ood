@@ -3,24 +3,22 @@
 #include "../include/StatsDisplay.h"
 
 StatsDisplay::StatsDisplay()
-	: m_minTemperature(std::numeric_limits<double>::infinity())
-	, m_maxTemperature(-std::numeric_limits<double>::infinity())
-	, m_accTemperature(0.0)
-	, m_countAcc(0)
+	: m_humidityStatHolder()
+	, m_pressureStatHolder()
+	, m_temperatureStatHolder()
 {
 }
 
-void StatsDisplay::Update(const WeatherInfo& data)
+void StatsDisplay::Update(const WeatherInfo& data, IObservable<WeatherInfo>& updateSource)
 {
-	m_minTemperature = std::min(m_minTemperature, data.temperature);
-	m_maxTemperature = std::max(m_maxTemperature, data.temperature);
+	m_humidityStatHolder.TakeNextValue(data.humidity);
+	m_pressureStatHolder.TakeNextValue(data.pressure);
+	m_temperatureStatHolder.TakeNextValue(data.temperature);
 
-	m_accTemperature += data.temperature;
-
-	++m_countAcc;
-
-	std::cout << "Max Temp " << m_maxTemperature << std::endl;
-	std::cout << "Min Temp " << m_minTemperature << std::endl;
-	std::cout << "Average Temp " << (m_accTemperature / m_countAcc) << std::endl;
-	std::cout << "----------------" << std::endl;
+	std::cout << "Humidity:\n"
+			  << StatHolderToString(m_humidityStatHolder)
+			  << "Pressure:\n"
+			  << StatHolderToString(m_pressureStatHolder)
+			  << "Temperature:\n"
+			  << StatHolderToString(m_temperatureStatHolder) + '\n';
 }
