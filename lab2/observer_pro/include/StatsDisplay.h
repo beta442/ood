@@ -9,16 +9,17 @@ class StatsDisplay : public IObserver<WeatherInfo>
 {
 public:
 	StatsDisplay();
+	~StatsDisplay();
 
 private:
-	void Update(const WeatherInfo& data) override;
+	void Update(const WeatherInfo& data, const IObservable<WeatherInfo>& updateSource) override;
 
-	StatisticValueHolder<double> m_humidityStatHolder;
-	StatisticValueHolder<double> m_pressureStatHolder;
-	StatisticValueHolder<double> m_temperatureStatHolder;
+	IStatisticValueHolder<double>* m_humidityStatHolder;
+	IStatisticValueHolder<double>* m_pressureStatHolder;
+	IStatisticValueHolder<double>* m_temperatureStatHolder;
 
-	StatisticValueHolder<unsigned short> m_windAngleHolder;
-	StatisticValueHolder<unsigned short> m_windSpeedHolder;
+	IStatisticValueHolder<double>* m_windAngleHolder;
+	IStatisticValueHolder<unsigned short>* m_windSpeedHolder;
 };
 
 #endif // !STATSDISPLAY_H

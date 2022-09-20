@@ -7,7 +7,7 @@
 class WindSpeedDisplay : public IObserver<WeatherInfo>
 {
 private:
-	void Update(const WeatherInfo& data) override;
+	void Update(const WeatherInfo& data, const IObservable<WeatherInfo>& updateSource) override;
 };
 
 #endif // !WINDSPEEDDISPLAY_H

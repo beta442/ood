@@ -7,7 +7,7 @@
 class WindAngleDisplay : public IObserver<WeatherInfo>
 {
 private:
-	void Update(const WeatherInfo& data) override;
+	void Update(const WeatherInfo& data, const IObservable<WeatherInfo>& updateSource) override;
 };
 
 #endif // !WINDANGLEDISPLAY_H

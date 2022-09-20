@@ -32,17 +32,10 @@ void WeatherData::MeasurementsChanged()
 	NotifyObservers();
 }
 
-constexpr auto MAX_ANGLE = 360;
-
-unsigned short ValidateWindAngle(unsigned short angle)
-{
-	return angle % MAX_ANGLE;
-}
 
 void WeatherData::SetMeasurements(const WeatherInfo& info)
 {
-	m_windInfo.windAngle = ValidateWindAngle(info.windInfo.windAngle);
-	m_windInfo.windSpeed = info.windInfo.windSpeed;
+	m_windInfo = info.windInfo;
 
 	m_humidity = info.humidity;
 	m_temperature = info.temperature;

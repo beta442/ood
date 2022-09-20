@@ -5,10 +5,13 @@
 #include <set>
 
 template <typename T>
+class IObservable;
+
+template <typename T>
 class IObserver
 {
 public:
-	virtual void Update(const T& data) = 0;
+	virtual void Update(const T& data, const IObservable<T>& updateSource) = 0;
 	virtual ~IObserver() = default;
 };
 
@@ -28,21 +31,25 @@ class Observable : public IObservable<T>
 public:
 	typedef IObserver<T> ObserverType;
 
-	void RegisterObserver(ObserverType& observer) override
+	void RegisterObserver(ObserverType& observer) final
 	{
+		RemoveObserver(observer);
 		m_observers.insert(&observer);
 	}
 
 	void NotifyObservers() override
 	{
 		T data = GetChangedData();
-		for (auto& observer : m_observers)
+
+		for (auto it = std::begin(m_observers), end = std::end(m_observers); it != end;)
 		{
-			observer->Update(data);
+			auto slowIt = it;
+			++it;
+			(*slowIt)->Update(data, *this);
 		}
 	}
 
-	void RemoveObserver(ObserverType& observer) override
+	void RemoveObserver(ObserverType& observer) final
 	{
 		m_observers.erase(&observer);
 	}
