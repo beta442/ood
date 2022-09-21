@@ -11,6 +11,8 @@ struct WindInfo
 
 struct WeatherInfo
 {
+	WeatherInfo() = default;
+
 	WeatherInfo(double temperature, double humidity, double pressure)
 		: temperature(temperature)
 		, humidity(humidity)
@@ -25,6 +27,8 @@ struct WeatherInfo
 
 struct WeatherWindInfo
 {
+	WeatherWindInfo() = default;
+
 	WeatherWindInfo(unsigned short windSpeed, double angle, double temperature, double humidity, double pressure)
 		: weatherInfo({temperature, humidity, pressure})
 		, windInfo({windSpeed, angle})

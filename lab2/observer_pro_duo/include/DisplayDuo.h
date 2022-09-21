@@ -2,7 +2,7 @@
 #define DISPLAYDUO_H
 
 #include "../include/Observer.h"
-#include "../include/WeatherData.h"
+#include "../include/WeatherData.hpp"
 
 class DisplayDuo : public IObserver<WeatherWindInfo>
 {

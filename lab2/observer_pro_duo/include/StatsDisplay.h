@@ -3,7 +3,7 @@
 
 #include "Observer.h"
 #include "StatisticValueHolder.hpp"
-#include "WeatherData.h"
+#include "WeatherData.hpp"
 
 class StatsDisplay : public IObserver<WeatherWindInfo>
 {

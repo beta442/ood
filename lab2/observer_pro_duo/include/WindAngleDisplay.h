@@ -2,7 +2,7 @@
 #define WINDANGLEDISPLAY_H
 
 #include "Observer.h"
-#include "WeatherData.h"
+#include "WeatherData.hpp"
 
 class WindAngleDisplay : public IObserver<WeatherWindInfo>
 {

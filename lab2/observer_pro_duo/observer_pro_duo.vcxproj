@@ -140,7 +140,7 @@
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\StatisticValueHolder.hpp" />
     <ClInclude Include="include\StatsDisplay.h" />
-    <ClInclude Include="include\WeatherData.h" />
+    <ClInclude Include="include\WeatherData.hpp" />
     <ClInclude Include="include\WindAngleDisplay.h" />
     <ClInclude Include="include\WindSpeedDisplay.h" />
   </ItemGroup>
@@ -148,7 +148,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\DisplayDuo.cpp" />
     <ClCompile Include="src\StatsDisplay.cpp" />
-    <ClCompile Include="src\WeatherData.cpp" />
     <ClCompile Include="src\WindAngleDisplay.cpp" />
     <ClCompile Include="src\WindSpeedDisplay.cpp" />
   </ItemGroup>

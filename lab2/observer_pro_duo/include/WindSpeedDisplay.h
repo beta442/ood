@@ -2,7 +2,7 @@
 #define WINDSPEEDDISPLAY_H
 
 #include "Observer.h"
-#include "../include/WeatherData.h"
+#include "../include/WeatherData.hpp"
 
 class WindSpeedDisplay : public IObserver<WeatherWindInfo>
 {
