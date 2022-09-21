@@ -16,8 +16,11 @@ void StatsDisplay::StatsUpdate(WeatherStatistic& stats, const WeatherInfo& data)
 	stats.pressureStatHolder->TakeNextValue(data.pressure);
 	stats.temperatureStatHolder->TakeNextValue(data.temperature);
 
-	std::cout << StatHolderToString(*(stats.humidityStatHolder)) + '\n'
+	std::cout << "Humidity\n"
+			  << StatHolderToString(*(stats.humidityStatHolder)) + '\n'
+			  << "Pressure\n"
 			  << StatHolderToString(*(stats.pressureStatHolder)) + '\n'
+			  << "Temperature\n"
 			  << StatHolderToString(*(stats.temperatureStatHolder)) + '\n';
 }
 
