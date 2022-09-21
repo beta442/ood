@@ -2,29 +2,28 @@
 
 #include "../include/StatsDisplay.h"
 
-StatsDisplay::StatsDisplay(Observable* indoorsWD, Observable* outdoorsWD)
-	: m_updaterToStatisticMap({
-		{ indoorsWD, { StatisticValueHolder(), StatisticValueHolder(), StatisticValueHolder() } },
-		{ outdoorsWD, { StatisticValueHolder(), StatisticValueHolder(), StatisticValueHolder() } }
+StatsDisplay::StatsDisplay()
+	: m_statistics({
+		{ StatisticType::INDOORS, WeatherStatistic() },
+		{ StatisticType::OUTDOORS, WeatherStatistic() }
 	})
 {
 }
 
 void StatsDisplay::StatsUpdate(WeatherStatistic& stats, const WeatherInfo& data)
 {
-	stats.m_humidityStatHolder.TakeNextValue(data.humidity);
-	stats.m_pressureStatHolder.TakeNextValue(data.pressure);
-	stats.m_temperatureStatHolder.TakeNextValue(data.temperature);
+	stats.humidityStatHolder->TakeNextValue(data.humidity);
+	stats.pressureStatHolder->TakeNextValue(data.pressure);
+	stats.temperatureStatHolder->TakeNextValue(data.temperature);
 
-	std::cout << StatHolderToString(stats.m_humidityStatHolder) + '\n'
-			  << StatHolderToString(stats.m_pressureStatHolder) + '\n'
-			  << StatHolderToString(stats.m_temperatureStatHolder) + '\n';
+	std::cout << StatHolderToString(*(stats.humidityStatHolder)) + '\n'
+			  << StatHolderToString(*(stats.pressureStatHolder)) + '\n'
+			  << StatHolderToString(*(stats.temperatureStatHolder)) + '\n';
 }
 
 void StatsDisplay::Update(const WeatherInfo& data, Observable& updateInitiator)
 {
-	if (m_updaterToStatisticMap.find(&updateInitiator) != std::end(m_updaterToStatisticMap))
-	{
-		StatsUpdate(m_updaterToStatisticMap[&updateInitiator], data);
-	}
+	bool inDoors = (typeid(WeatherData<false>) == typeid(updateInitiator));
+
+	StatsUpdate(m_statistics[((inDoors) ? StatisticType::INDOORS : StatisticType::OUTDOORS)], data);
 }

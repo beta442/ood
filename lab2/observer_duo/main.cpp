@@ -1,19 +1,22 @@
 #include "include/pch.h"
 
-#include "include/WeatherData.h"
+#include "include/WeatherData.hpp"
 
 #include "include/Display.h"
 #include "include/StatsDisplay.h"
 
 int main()
 {
-	WeatherData inWD, outWD;
+	WeatherData<false> inWD;
+	WeatherData outWD;
 
-	Display display{ &inWD, &outWD };
+	Display display;
 	inWD.RegisterObserver(display);
+	outWD.RegisterObserver(display);
 
-	StatsDisplay statsDisplay{ &inWD, &outWD };
+	StatsDisplay statsDisplay;
 	inWD.RegisterObserver(statsDisplay);
+	outWD.RegisterObserver(statsDisplay);
 
 	inWD.SetMeasurements(3, 0.7, 760);
 	inWD.SetMeasurements(1, 0.1, 730);

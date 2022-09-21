@@ -25,9 +25,6 @@
     <Filter Include="Source Files\Displays">
       <UniqueIdentifier>{becf2bce-1a16-4d13-aacb-bf491fb11d8e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\WeatherData">
-      <UniqueIdentifier>{10a57ff7-7538-440d-99e7-06d0bf749a32}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">
@@ -42,8 +39,11 @@
     <ClInclude Include="include\Observer.h">
       <Filter>Header Files\Observer</Filter>
     </ClInclude>
-    <ClInclude Include="include\WeatherData.h">
+    <ClInclude Include="include\WeatherData.hpp">
       <Filter>Header Files\WeatherData</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StatisticValueHolder.hpp">
+      <Filter>Header Files\Displays</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -55,9 +55,6 @@
     </ClCompile>
     <ClCompile Include="src\StatsDisplay.cpp">
       <Filter>Source Files\Displays</Filter>
-    </ClCompile>
-    <ClCompile Include="src\WeatherData.cpp">
-      <Filter>Source Files\WeatherData</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

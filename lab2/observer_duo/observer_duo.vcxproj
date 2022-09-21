@@ -136,16 +136,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\Display.h" />
+    <ClInclude Include="include\StatisticValueHolder.hpp" />
     <ClInclude Include="include\Observer.h" />
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\StatsDisplay.h" />
-    <ClInclude Include="include\WeatherData.h" />
+    <ClInclude Include="include\WeatherData.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Display.cpp" />
     <ClCompile Include="src\StatsDisplay.cpp" />
-    <ClCompile Include="src\WeatherData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\test\observer_duo_test\observer_duo_test.vcxproj">
