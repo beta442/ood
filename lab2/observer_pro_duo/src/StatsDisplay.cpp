@@ -2,10 +2,8 @@
 
 #include "../include/StatsDisplay.h"
 
-StatsDisplay::StatsDisplay(Observable<WeatherWindInfo>& indoorsStation, Observable<WeatherWindInfo>& outdoorsStation)
-	: m_indoorsStation(&indoorsStation)
-	, m_outdoorsStation(&outdoorsStation)
-	, m_humidityStatHolder(new StatisticValueHolder())
+StatsDisplay::StatsDisplay()
+	: m_humidityStatHolder(new StatisticValueHolder())
 	, m_pressureStatHolder(new StatisticValueHolder())
 	, m_temperatureStatHolder(new StatisticValueHolder())
 	, m_windAngleHolder(new WindAngleStatisticHolder())
@@ -24,8 +22,8 @@ StatsDisplay::~StatsDisplay()
 
 void StatsDisplay::Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource)
 {
-	bool inDoors = m_indoorsStation == &updateSource;
-	bool outDoors = m_outdoorsStation == &updateSource;
+	bool inDoors = typeid(WeatherData<false>) == typeid(updateSource);
+	bool outDoors = typeid(WeatherData<true>) == typeid(updateSource);
 
 	m_humidityStatHolder->TakeNextValue(data.weatherInfo.humidity);
 	m_pressureStatHolder->TakeNextValue(data.weatherInfo.pressure);

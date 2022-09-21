@@ -18,11 +18,11 @@ int main()
 	wdOut.RegisterObserver(windSpeedDisplay);
 	wdOut.RegisterObserver(windAngleDisplay);
 
-	DisplayDuo display(wdIn, wdOut);
+	DisplayDuo display;
 	wdIn.RegisterObserver(display);
 	wdOut.RegisterObserver(display);
 
-	StatsDisplay statsDisplay(wdIn, wdOut);
+	StatsDisplay statsDisplay;
 	wdIn.RegisterObserver(statsDisplay);
 	wdOut.RegisterObserver(statsDisplay);
 
