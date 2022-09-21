@@ -9,8 +9,8 @@
 
 int main()
 {
-	WeatherData wdIn;
-	WeatherDataPro wdOut;
+	WeatherData<false> wdIn;
+	WeatherData wdOut;
 
 	WindSpeedDisplay windSpeedDisplay;
 	WindAngleDisplay windAngleDisplay;
