@@ -1,6 +1,6 @@
 #include "include/pch.h"
 
-#include "include/WeatherData.h"
+#include "include/WeatherData.hpp"
 
 #include "include/DisplayDuo.h"
 #include "include/StatsDisplay.h"
