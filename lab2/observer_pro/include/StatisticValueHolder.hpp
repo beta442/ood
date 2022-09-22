@@ -30,7 +30,7 @@ public:
 	{
 	}
 
-	void TakeNextValue(const T& nextVal) noexcept final
+	void TakeNextValue(const T& nextVal) noexcept override
 	{
 		m_min = std::min(m_min, nextVal);
 		m_max = std::max(m_max, nextVal);
@@ -50,12 +50,12 @@ public:
 		return m_max;
 	}
 
-	T GetAverage() const noexcept final
+	T GetAverage() const noexcept override
 	{
 		return (m_takenCounter != 0) ? m_accumulatedValue / m_takenCounter : T();
 	}
 
-private:
+protected:
 	T m_min;
 	T m_max;
 	T m_accumulatedValue;
@@ -66,7 +66,7 @@ constexpr auto MAX_ANGLE = 360;
 constexpr auto MAX_ANGLE_2 = 180;
 constexpr auto M_PI = 3.14159265358979323846;
 
-class WindAngleStatisticHolder : public IStatisticValueHolder<double>
+class WindAngleStatisticHolder : public StatisticValueHolder<double>
 {
 public:
 	void TakeNextValue(const double& nextVal) noexcept override
@@ -86,16 +86,6 @@ public:
 		return m_average;
 	}
 
-	double GetMin() const noexcept final
-	{
-		return m_min;
-	}
-
-	double GetMax() const noexcept final
-	{
-		return m_max;
-	}
-
 private:
 	double ToRadians(double degrees) const
 	{
@@ -107,8 +97,6 @@ private:
 		return MAX_ANGLE_2 * radians / M_PI;
 	}
 
-	double m_min = std::numeric_limits<double>::infinity();
-	double m_max = -std::numeric_limits<double>::infinity();
 	double m_sumOfSin = 0;
 	double m_sumOfCos = 0;
 	double m_average = 0;
