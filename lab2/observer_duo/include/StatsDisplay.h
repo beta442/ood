@@ -24,6 +24,7 @@ private:
 	{
 		INDOORS = 0,
 		OUTDOORS,
+		UNKNOWN,
 	};
 
 	struct WeatherStatistic

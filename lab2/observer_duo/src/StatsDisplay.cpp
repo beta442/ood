@@ -5,7 +5,8 @@
 StatsDisplay::StatsDisplay()
 	: m_statistics({
 		{ StatisticType::INDOORS, WeatherStatistic() },
-		{ StatisticType::OUTDOORS, WeatherStatistic() }
+		{ StatisticType::OUTDOORS, WeatherStatistic() },
+		{ StatisticType::UNKNOWN, WeatherStatistic() }
 	})
 {
 }
@@ -27,6 +28,11 @@ void StatsDisplay::StatsUpdate(WeatherStatistic& stats, const WeatherInfo& data)
 void StatsDisplay::Update(const WeatherInfo& data, Observable& updateInitiator)
 {
 	bool inDoors = (typeid(WeatherData<false>) == typeid(updateInitiator));
+	bool outDoors = (typeid(WeatherData<true>) == typeid(updateInitiator));
 
-	StatsUpdate(m_statistics[((inDoors) ? StatisticType::INDOORS : StatisticType::OUTDOORS)], data);
+	auto& stats = m_statistics[((inDoors)
+			? StatisticType::INDOORS
+			: (outDoors) ? StatisticType::OUTDOORS
+						 : StatisticType::UNKNOWN)];
+	StatsUpdate(stats, data);
 }
