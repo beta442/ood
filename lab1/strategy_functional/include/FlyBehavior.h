@@ -1,20 +1,20 @@
 #ifndef FLYBEHAVIOR_H
 #define FLYBEHAVIOR_H
 
-#include "pch.h"
+#include <iostream>
 
-static const std::function<void()> flyWithWingsBehavior{
+constexpr auto flyWithWingsBehavior{
 	[]() {
 		std::cout << "I'm flying with wings!" << std::endl;
 	}
 };
 
-static const std::function<void()> noFlyBehavior{
+constexpr auto noFlyBehavior{
 	[]() {}
 };
 
-static const std::function<void()> countedFlyBehavior{
-	[flightCount = 0]() mutable -> void {
+constexpr auto countedFlyBehavior{
+	[flightCount = 0]() mutable noexcept {
 		++flightCount;
 		std::cout << "I'm flying with wings! I'm " << flightCount << std::endl;
 	}

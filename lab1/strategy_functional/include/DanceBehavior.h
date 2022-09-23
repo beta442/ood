@@ -1,15 +1,15 @@
 #ifndef DANCEBEHAVIOR_H
 #define DANCEBEHAVIOR_H
 
-#include "pch.h"
+#include <iostream>
 
-static const std::function<void()> danceBehavior{
+constexpr auto danceBehavior{
 	[]() {
 		std::cout << "I'm dancing" << std::endl;
 	}
 };
 
-static const std::function<void()> noDanceBehavior{
+constexpr auto noDanceBehavior{
 	[]() {}
 };
 

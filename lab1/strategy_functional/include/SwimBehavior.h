@@ -1,15 +1,15 @@
 #ifndef SWIMBEHAVIOR_H
 #define SWIMBEHAVIOR_H
 
-#include "pch.h"
+#include <iostream>
 
-static const std::function<void()> swimBehavior{
+constexpr auto swimBehavior{
 	[]() {
 		std::cout << "I'm swimming!" << std::endl;
 	}
 };
 
-static const std::function<void()> noSwimBehavior{
+constexpr auto noSwimBehavior{
 	[]() {}
 };
 

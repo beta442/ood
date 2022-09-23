@@ -1,21 +1,21 @@
 #ifndef QUACKBEHAVIOR_H
 #define QUACKBEHAVIOR_H
 
-#include "pch.h"
+#include <iostream>
 
-static const std::function<void()> quackBehavior{
+constexpr auto quackBehavior{
 	[]() {
 		std::cout << "I'm quacking!" << std::endl;
 	}
 };
 
-static const std::function<void()> squeakBehavior{
+constexpr auto squeakBehavior{
 	[]() {
 		std::cout << "I'm squeaking!" << std::endl;
 	}
 };
 
-const std::function<void()> muteBehavior{
+constexpr auto muteBehavior{
 	[]() {}
 };
 
