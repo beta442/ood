@@ -56,7 +56,7 @@ class Observable : public IObservable<T>
 public:
 	typedef IObserver<T> ObserverType;
 
-	void RegisterObserver(ObserverType& observer, const Event& updateEvent) final
+	void RegisterObserver(ObserverType& observer, const Event& updateEvent = "OnUpdate") final
 	{
 		if (m_eventToObserversMap.find(updateEvent) == std::end(m_eventToObserversMap))
 		{
