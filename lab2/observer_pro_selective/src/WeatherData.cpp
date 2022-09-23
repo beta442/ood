@@ -61,44 +61,36 @@ std::vector<Event> WeatherData::GetUpdateEvents(const WeatherWindInfo& newInfo)
 	std::vector<Event> res;
 	res.reserve(EVENT_TYPE.size());
 
-	bool updateOccured = false;
 	if (m_weatherWindInfo.weatherInfo != newInfo.weatherInfo)
 	{
 		res.emplace_back(EVENT_TYPE.at(ON_WEATHER_UPDATE_EVENT_TYPE));
-		updateOccured = true;
 	}
 	if (m_weatherWindInfo.windInfo != newInfo.windInfo)
 	{
 		res.emplace_back(EVENT_TYPE.at(ON_WIND_UPDATE_EVENT_TYPE));
-		updateOccured = true;
 	}
 	if (m_weatherWindInfo.weatherInfo.humidity != newInfo.weatherInfo.humidity)
 	{
 		res.emplace_back(EVENT_TYPE.at(ON_HUMIDITY_UPDATE_EVENT_TYPE));
-		updateOccured = true;
 	}
 	if (m_weatherWindInfo.weatherInfo.pressure != newInfo.weatherInfo.pressure)
 	{
 		res.emplace_back(EVENT_TYPE.at(ON_PRESSURE_UPDATE_EVENT_TYPE));
-		updateOccured = true;
 	}
 	if (m_weatherWindInfo.weatherInfo.temperature != newInfo.weatherInfo.temperature)
 	{
 		res.emplace_back(EVENT_TYPE.at(ON_TEMPERATURE_UPDATE_EVENT_TYPE));
-		updateOccured = true;
 	}
 	if (m_weatherWindInfo.windInfo.windAngle != newInfo.windInfo.windAngle)
 	{
 		res.emplace_back(EVENT_TYPE.at(ON_WIND_ANGLE_UPDATE_EVENT_TYPE));
-		updateOccured = true;
 	}
 	if (m_weatherWindInfo.windInfo.windSpeed != newInfo.windInfo.windSpeed)
 	{
 		res.emplace_back(EVENT_TYPE.at(ON_WIND_SPEED_UPDATE_EVENT_TYPE));
-		updateOccured = true;
 	}
 
-	if (updateOccured)
+	if (res.size() != 0)
 	{
 		res.emplace_back(EVENT_TYPE.at(ON_UPDATE_EVENT_TYPE));
 	}
