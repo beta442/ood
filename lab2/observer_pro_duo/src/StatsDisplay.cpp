@@ -3,10 +3,9 @@
 #include "../include/StatsDisplay.h"
 
 StatsDisplay::StatsDisplay()
-	: m_statistics({
-		{ StatisticType::INDOORS, WeatherStatistic() },
-		{ StatisticType::OUTDOORS, WeatherStatistic() }
-	})
+	: m_statistics({ { StatisticType::INDOORS, WeatherStatistic() },
+		{ StatisticType::OUTDOORS, WeatherStatistic() },
+		{ StatisticType::OUTDOORS, WeatherStatistic() } })
 {
 }
 
@@ -25,8 +24,11 @@ void StatsDisplay::Update(const WeatherWindInfo& data, const IObservable<Weather
 	bool inDoors = (typeid(WeatherData<false>) == typeid(updateSource));
 	bool outDoors = (typeid(WeatherData<true>) == typeid(updateSource));
 
-	auto& stats = m_statistics[((inDoors) ? StatisticType::INDOORS : StatisticType::OUTDOORS)];
-	StatsUpdate(m_statistics[((inDoors) ? StatisticType::INDOORS : StatisticType::OUTDOORS)], data);
+	auto& stats = m_statistics[((inDoors)
+			? StatisticType::INDOORS
+			: (outDoors) ? StatisticType::OUTDOORS
+						 : StatisticType::UNKNOWN)];
+	StatsUpdate(stats, data);
 
 	std::cout << "Humidity:\n"
 			  << StatHolderToString(*(stats.humidityStatHolder))
@@ -34,8 +36,11 @@ void StatsDisplay::Update(const WeatherWindInfo& data, const IObservable<Weather
 			  << StatHolderToString(*(stats.pressureStatHolder))
 			  << "Temperature:\n"
 			  << StatHolderToString(*(stats.temperatureStatHolder))
-			  << ((!inDoors && outDoors)
-		? ("Wind angle:\n" + StatHolderToString(*(stats.windAngleHolder)) +
-			"Wind speed:\n" + StatHolderToString(*(stats.windSpeedHolder)) + '\n')
-		: "");
+			  << ((outDoors)
+						 ? ("Wind angle:\n"
+							 + StatHolderToString(*(stats.windAngleHolder))
+							 + "Wind speed:\n"
+							 + StatHolderToString(*(stats.windSpeedHolder))
+							 + '\n')
+						 : "");
 }
