@@ -2,10 +2,12 @@
 
 #include "../include/StatsDisplay.h"
 
-StatsDisplay::StatsDisplay()
+StatsDisplay::StatsDisplay(const IObservable<WeatherWindInfo>& inDoors, const IObservable<WeatherWindInfo>& outDoors)
 	: m_statistics({ { StatisticType::INDOORS, WeatherStatistic() },
 		{ StatisticType::OUTDOORS, WeatherStatistic() },
 		{ StatisticType::OUTDOORS, WeatherStatistic() } })
+	, m_inDoors(&inDoors)
+	, m_outDoors(&outDoors)
 {
 }
 
@@ -19,10 +21,10 @@ void StatsDisplay::StatsUpdate(WeatherStatistic& stats, const WeatherWindInfo& d
 	stats.windSpeedHolder->TakeNextValue(data.windInfo.windSpeed);
 }
 
-void StatsDisplay::Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource)
+void StatsDisplay::Update(const WeatherWindInfo& data, IObservable<WeatherWindInfo>& updateSource)
 {
-	bool inDoors = (typeid(WeatherData<false>) == typeid(updateSource));
-	bool outDoors = (typeid(WeatherData<true>) == typeid(updateSource));
+	bool inDoors = &updateSource == m_inDoors;
+	bool outDoors = &updateSource == m_outDoors;
 
 	auto& stats = m_statistics[((inDoors)
 			? StatisticType::INDOORS

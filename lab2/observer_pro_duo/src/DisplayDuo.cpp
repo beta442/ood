@@ -2,10 +2,16 @@
 
 #include "../include/DisplayDuo.h"
 
-void DisplayDuo::Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource)
+DisplayDuo::DisplayDuo(const IObservable<WeatherWindInfo>& inDoors, const IObservable<WeatherWindInfo>& outDoors)
+	: m_inDoors(&inDoors)
+	, m_outDoors(&outDoors)
 {
-	bool inDoors = typeid(WeatherData<false>) == typeid(updateSource);
-	bool outDoors = typeid(WeatherData<true>) == typeid(updateSource);
+}
+
+void DisplayDuo::Update(const WeatherWindInfo& data, IObservable<WeatherWindInfo>& updateSource)
+{
+	bool inDoors = &updateSource == m_inDoors;
+	bool outDoors = &updateSource == m_outDoors;
 
 	std::cout << (inDoors
 			? "INDOORS:\n"

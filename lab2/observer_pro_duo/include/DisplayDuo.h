@@ -6,8 +6,15 @@
 
 class DisplayDuo : public IObserver<WeatherWindInfo>
 {
+public:
+	DisplayDuo(const IObservable<WeatherWindInfo>& inDoors, const IObservable<WeatherWindInfo>& outDoors);
+
 private:
-	void Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource) override;
+	using ObservableType = const IObservable<WeatherWindInfo>*;
+
+	void Update(const WeatherWindInfo& data, IObservable<WeatherWindInfo>& updateSource) override;
+
+	ObservableType m_inDoors, m_outDoors;
 };
 
 #endif // !DISPLAYDUO_H

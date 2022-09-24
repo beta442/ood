@@ -11,10 +11,12 @@
 class StatsDisplay : public IObserver<WeatherWindInfo>
 {
 public:
-	StatsDisplay();
+	StatsDisplay(const IObservable<WeatherWindInfo>& inDoors, const IObservable<WeatherWindInfo>& outDoors);
 
 private:
-	void Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource) override;
+	using ObservableType = const IObservable<WeatherWindInfo>*;
+
+	void Update(const WeatherWindInfo& data, IObservable<WeatherWindInfo>& updateSource) override;
 
 	struct WeatherStatistic;
 	void StatsUpdate(WeatherStatistic& stats, const WeatherWindInfo& data);
@@ -46,6 +48,7 @@ private:
 	};
 
 	std::map<StatisticType, WeatherStatistic> m_statistics;
+	ObservableType m_inDoors, m_outDoors;
 };
 
 #endif // !STATSDISPLAY_H
