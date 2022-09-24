@@ -2,12 +2,14 @@
 
 #include "../include/StatsDisplay.h"
 
-StatsDisplay::StatsDisplay()
+StatsDisplay::StatsDisplay(const IObservable<WeatherInfo>& inDoors, const IObservable<WeatherInfo>& outDoors)
 	: m_statistics({
 		{ StatisticType::INDOORS, WeatherStatistic() },
 		{ StatisticType::OUTDOORS, WeatherStatistic() },
 		{ StatisticType::UNKNOWN, WeatherStatistic() }
 	})
+	, m_inDoors(&inDoors)
+	, m_outDoors(&outDoors)
 {
 }
 
@@ -25,10 +27,10 @@ void StatsDisplay::StatsUpdate(WeatherStatistic& stats, const WeatherInfo& data)
 			  << StatHolderToString(*(stats.temperatureStatHolder)) + '\n';
 }
 
-void StatsDisplay::Update(const WeatherInfo& data, Observable& updateInitiator)
+void StatsDisplay::Update(const WeatherInfo& data, IObservable<WeatherInfo>& updateInitiator)
 {
-	bool inDoors = (typeid(WeatherData<false>) == typeid(updateInitiator));
-	bool outDoors = (typeid(WeatherData<true>) == typeid(updateInitiator));
+	bool inDoors = &updateInitiator == m_inDoors;
+	bool outDoors = &updateInitiator == m_outDoors;
 
 	auto& stats = m_statistics[((inDoors)
 			? StatisticType::INDOORS

@@ -10,11 +10,11 @@ int main()
 	WeatherData<false> inWD;
 	WeatherData outWD;
 
-	Display display;
+	Display display{ inWD, outWD };
 	inWD.RegisterObserver(display);
 	outWD.RegisterObserver(display);
 
-	StatsDisplay statsDisplay;
+	StatsDisplay statsDisplay{ inWD, outWD };
 	inWD.RegisterObserver(statsDisplay);
 	outWD.RegisterObserver(statsDisplay);
 

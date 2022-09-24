@@ -4,10 +4,16 @@
 
 #include "../include/Display.h"
 
-void Display::Update(const WeatherInfo& data, Observable& updateInitiator)
+Display::Display(const IObservable<WeatherInfo>& inDoors, const IObservable<WeatherInfo>& outDoors)
+	: m_inDoors(&inDoors)
+	, m_outDoors(&outDoors)
 {
-	bool inDoors = typeid(WeatherData<false>) == typeid(updateInitiator);
-	bool outDoors = typeid(WeatherData<true>) == typeid(updateInitiator);
+}
+
+void Display::Update(const WeatherInfo& data, IObservable<WeatherInfo>& updateInitiator)
+{
+	bool inDoors = &updateInitiator == m_inDoors;
+	bool outDoors = &updateInitiator == m_outDoors;
 
 	std::cout << (inDoors
 			? "INDOORS"

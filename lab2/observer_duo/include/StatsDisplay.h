@@ -9,13 +9,15 @@
 #include "StatisticValueHolder.hpp"
 #include "WeatherData.hpp"
 
-class StatsDisplay : public AbstractObserver<WeatherInfo>
+class StatsDisplay : public IObserver<WeatherInfo>
 {
 public:
-	StatsDisplay();
+	StatsDisplay(const IObservable<WeatherInfo>& inDoors, const IObservable<WeatherInfo>& outDoors);
 
 private:
-	void Update(const WeatherInfo& data, Observable& updateInitiator) override;
+	using ObserverType = const IObservable<WeatherInfo>*;
+
+	void Update(const WeatherInfo& data, IObservable<WeatherInfo>& updateInitiator) override;
 
 	struct WeatherStatistic;
 	void StatsUpdate(WeatherStatistic& stats, const WeatherInfo& data);
@@ -42,6 +44,7 @@ private:
 	};
 
 	std::map<StatisticType, WeatherStatistic> m_statistics;
+	ObserverType m_inDoors, m_outDoors;
 };
 
 #endif // !STATSDISPLAY_H
