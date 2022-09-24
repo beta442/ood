@@ -7,7 +7,7 @@
 #include "include/WindAngleDisplay.h"
 #include "include/WindSpeedDisplay.h"
 
-#include "include/Value.hpp"
+#include "include/SignallingValue.hpp"
 
 #include <algorithm>
 
