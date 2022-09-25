@@ -2,8 +2,14 @@
 
 #include "../include/WindSpeedDisplay.h"
 
-void WindSpeedDisplay::Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource)
+constexpr auto onWindSpeedChange{
+	[](auto& _, auto& newWeatherInfo) noexcept {
+		std::cout << "Current Wind speed " << newWeatherInfo.GetWindSpeed() << '\n'
+				  << "----------------" << '\n';
+	}
+};
+
+WindSpeedDisplay::WindSpeedDisplay(WeatherInfoStation& stationOut)
 {
-	std::cout << "Current Wind speed " << data.windInfo.windSpeed << std::endl;
-	std::cout << "----------------" << std::endl;
+	stationOut.Connect(onWindSpeedChange);
 }

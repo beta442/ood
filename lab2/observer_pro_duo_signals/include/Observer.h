@@ -1,66 +1,54 @@
 #ifndef OBSERVER_H
 #define OBSERVER_H
 
-#include <functional>
 #include <set>
 
-#include <boost/signals2.hpp>
+#include "SignallingValue.hpp"
 
-template <typename T>
-class IObservable;
-
-template <typename T>
-class IObserver
+namespace Observer
 {
-public:
-	virtual void Update(const T& data, const IObservable<T>& updateSource) = 0;
-	virtual ~IObserver() = default;
-};
 
-template <typename T>
+template <typename T, typename SignalV = SignallingValue<T>>
 class IObservable
 {
 public:
+	using SignalValue = SignalV;
+	using Callback = typename SignalValue::Slot;
+
+	virtual void Connect(const Callback& onChange) = 0;
+	virtual void DisconnectAll() = 0;
 	virtual ~IObservable() = default;
-	virtual void RegisterObserver(IObserver<T>& observer) = 0;
-	virtual void NotifyObservers() = 0;
-	virtual void RemoveObserver(IObserver<T>& observer) = 0;
 };
 
 template <typename T>
 class Observable : public IObservable<T>
 {
 public:
-	typedef IObserver<T> ObserverType;
+	using SignalValue = typename IObservable<T>::SignalValue;
+	using Callback = typename IObservable<T>::Callback;
 
-	void RegisterObserver(ObserverType& observer) final
+	void Connect(const Callback& onChange) final
 	{
-		RemoveObserver(observer);
-		m_observers.insert(&observer);
+		m_signallingValue.Connect(onChange);
 	}
 
-	void NotifyObservers() override
+	void DisconnectAll() final
 	{
-		T data = GetChangedData();
-
-		for (auto it = std::begin(m_observers), end = std::end(m_observers); it != end;)
-		{
-			auto slowIt = it;
-			++it;
-			(*slowIt)->Update(data, *this);
-		}
-	}
-
-	void RemoveObserver(ObserverType& observer) final
-	{
-		m_observers.erase(&observer);
+		m_signallingValue.DisconnectAll();
 	}
 
 protected:
-	virtual T GetChangedData() const = 0;
+	Observable() = default;
 
-private:
-	std::set<ObserverType*> m_observers;
+	template <typename T>
+	Observable(T&& initValue)
+		: m_signallingValue(std::forward<T>(initValue))
+	{
+	}
+
+	SignalValue m_signallingValue;
 };
+
+} // namespace Observer
 
 #endif // !OBSERVER_H

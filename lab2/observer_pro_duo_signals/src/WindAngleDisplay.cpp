@@ -2,8 +2,14 @@
 
 #include "../include/WindAngleDisplay.h"
 
-void WindAngleDisplay::Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource)
+constexpr auto onWindChange{
+	[](auto& _, auto& newWeatherInfo) noexcept {
+		std::cout << "Current Wind angle " << newWeatherInfo.GetWindAngle() << '\n'
+				  << "----------------" << '\n';
+	}
+};
+
+WindAngleDisplay::WindAngleDisplay(WeatherInfoStation& stationOut)
 {
-	std::cout << "Current Wind angle " << data.windInfo.windAngle << std::endl;
-	std::cout << "----------------" << std::endl;
+	stationOut.Connect(onWindChange);
 }

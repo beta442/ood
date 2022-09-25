@@ -4,10 +4,12 @@
 #include "../include/Observer.h"
 #include "../include/WeatherData.hpp"
 
-class DisplayDuo : public IObserver<WeatherWindInfo>
+class DisplayDuo
 {
-private:
-	void Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource) override;
+public:
+	using WeatherInfoStation = Observer::IObservable<WeatherWindInfo>;
+
+	DisplayDuo(WeatherInfoStation& stationIn, WeatherInfoStation& stationOut);
 };
 
 #endif // !DISPLAYDUO_H

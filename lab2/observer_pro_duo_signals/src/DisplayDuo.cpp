@@ -2,24 +2,33 @@
 
 #include "../include/DisplayDuo.h"
 
-void DisplayDuo::Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource)
+constexpr auto OnWeatherChange(WeatherDataStationType wdStationType)
 {
-	bool inDoors = typeid(WeatherData<false>) == typeid(updateSource);
-	bool outDoors = typeid(WeatherData<true>) == typeid(updateSource);
+	return [=, stationType = wdStationType](auto& _, auto& currWeatherInfo) noexcept {
+		bool isSourceOutDoors = (wdStationType == WeatherDataStationType::OUTDOORS);
+		std::cout << "WeatherInfo source type:\n"
+				  << ((stationType == WeatherDataStationType::INDOORS)
+							 ? "INDOORS"
+							 : (isSourceOutDoors)
+							 ? "OUTDOORS"
+							 : "UNKNOWN")
+				  << '\n';
 
-	std::cout << (inDoors
-			? "INDOORS:\n"
-			: outDoors ? "OUTDOORS:\n"
-					   : "UNKOWN TYPE SOURCE:\n");
+		std::cout << "Current Temp: " << currWeatherInfo.GetTemperature() << '\n'
+				  << "Current Hum: " << currWeatherInfo.GetHumidity() << '\n'
+				  << "Current Pressure: " << currWeatherInfo.GetPressure() << '\n';
 
-	std::cout << "Current Temp: " << data.weatherInfo.temperature << '\n'
-			  << "Current Hum: " << data.weatherInfo.humidity << '\n'
-			  << "Current Pressure: " << data.weatherInfo.pressure << '\n';
+		if (isSourceOutDoors)
+		{
+			std::cout << "Current Wind angle: " << currWeatherInfo.GetWindAngle() << '\n'
+					  << "Current Wind speed: " << currWeatherInfo.GetWindSpeed() << '\n';
+		}
+		std::cout << "----------------" << '\n';
+	};
+};
 
-	if (outDoors)
-	{
-		std::cout << "Current Wind angle: " << data.windInfo.windAngle << '\n'
-				  << "Current Wind speed: " << data.windInfo.windSpeed << '\n';
-	}
-	std::cout << "----------------" << '\n';
+DisplayDuo::DisplayDuo(WeatherInfoStation& stationIn, WeatherInfoStation& stationOut)
+{
+	stationIn.Connect(OnWeatherChange(WeatherDataStationType::INDOORS));
+	stationOut.Connect(OnWeatherChange(WeatherDataStationType::OUTDOORS));
 }

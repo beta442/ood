@@ -4,10 +4,12 @@
 #include "Observer.h"
 #include "../include/WeatherData.hpp"
 
-class WindSpeedDisplay : public IObserver<WeatherWindInfo>
+class WindSpeedDisplay
 {
-private:
-	void Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource) override;
+public:
+	using WeatherInfoStation = Observer::IObservable<WeatherWindInfo>;
+
+	WindSpeedDisplay(WeatherInfoStation& stationOut);
 };
 
 #endif // !WINDSPEEDDISPLAY_H

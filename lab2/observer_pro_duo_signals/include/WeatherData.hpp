@@ -5,8 +5,8 @@
 
 struct WindInfo
 {
-	unsigned short windSpeed = 0;
-	double windAngle = 0;
+	double speed = 0;
+	double angle = 0;
 };
 
 struct WeatherInfo
@@ -33,91 +33,70 @@ struct WeatherWindInfo
 	{
 	}
 
-	WeatherWindInfo(unsigned short windSpeed, double angle, double temperature, double humidity, double pressure)
-		: weatherInfo({temperature, humidity, pressure})
-		, windInfo({windSpeed, angle})
+	WeatherWindInfo(double windSpeed, double windAngle, double temperature, double humidity, double pressure)
+		: weatherInfo({ temperature, humidity, pressure })
+		, windInfo({ windSpeed, windAngle })
 	{
+	}
+
+	double GetHumidity() const
+	{
+		return weatherInfo.humidity;
+	}
+
+	double GetTemperature() const
+	{
+		return weatherInfo.temperature;
+	}
+
+	double GetPressure() const
+	{
+		return weatherInfo.pressure;
+	}
+
+	double GetWindSpeed() const
+	{
+		return windInfo.speed;
+	}
+
+	double GetWindAngle() const
+	{
+		return windInfo.angle;
 	}
 
 	WindInfo windInfo;
 	WeatherInfo weatherInfo;
 };
 
+enum class WeatherDataStationType
+{
+	INDOORS = 0,
+	OUTDOORS,
+};
+
 template <bool HasWindSensors = true>
-class WeatherData : public Observable<WeatherWindInfo>
+class WeatherData : public Observer::Observable<WeatherWindInfo>
 {
 public:
+	using MyBase = Observer::Observable<WeatherWindInfo>;
+
 	WeatherData()
-		: m_weatherInfo()
+		: MyBase(std::move(WeatherWindInfo()))
 	{
-	}
-
-	double GetTemperature() const
-	{
-		return m_weatherInfo.weatherInfo.temperature;
-	}
-
-	double GetHumidity() const
-	{
-		return m_weatherInfo.weatherInfo.humidity;
-	}
-
-	double GetPressure() const
-	{
-		return m_weatherInfo.weatherInfo.pressure;
-	}
-
-	WeatherInfo GetWeatherInfo() const
-	{
-		return m_weatherInfo.weatherInfo;
-	}
-
-	WindInfo GetWindInfo() const
-	{
-		if constexpr (HasWindSensors)
-		{
-			return m_weatherInfo.windInfo;
-		}
-		else
-		{
-			return WindInfo();
-		}
-	}
-
-	void MeasurementsChanged()
-	{
-		NotifyObservers();
 	}
 
 	void SetMeasurements(const WeatherWindInfo& info)
 	{
-		m_weatherInfo = info;
-
-		MeasurementsChanged();
+		m_signallingValue.SetValue(info);
 	}
 
 	void SetMeasurements(const WeatherInfo& info)
 	{
-		m_weatherInfo.weatherInfo = info;
+		auto fullInfo = WeatherWindInfo();
+		fullInfo.weatherInfo = info;
 
-		MeasurementsChanged();
+		m_signallingValue.SetValue(fullInfo);
 	}
-
-protected:
-	WeatherWindInfo GetChangedData() const override
-	{
-		WeatherWindInfo info{};
-		
-		info.weatherInfo = GetWeatherInfo();
-		if constexpr (HasWindSensors)
-		{
-			info.windInfo = GetWindInfo();
-		}
-		return info;
-	}
-
-private:
-	WeatherWindInfo m_weatherInfo;
 };
 
 #endif // !WEATHERDATA_H

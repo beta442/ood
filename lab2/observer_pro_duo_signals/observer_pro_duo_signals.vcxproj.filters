@@ -51,7 +51,7 @@
     <ClInclude Include="include\WindAngleDisplay.h">
       <Filter>Header Files\Displays</Filter>
     </ClInclude>
-    <ClInclude Include="include\Value.hpp">
+    <ClInclude Include="include\SignallingValue.hpp">
       <Filter>Header Files\Observer</Filter>
     </ClInclude>
   </ItemGroup>

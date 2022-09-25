@@ -2,45 +2,69 @@
 
 #include "../include/StatsDisplay.h"
 
-StatsDisplay::StatsDisplay()
-	: m_statistics({ { StatisticType::INDOORS, WeatherStatistic() },
-		{ StatisticType::OUTDOORS, WeatherStatistic() },
-		{ StatisticType::OUTDOORS, WeatherStatistic() } })
+#include "../include/StatisticValueHolder.hpp"
+
+struct WeatherStatistic
 {
+	WeatherStatistic()
+		: humidityStatHolder(std::make_shared<StatisticValueHolder<double>>())
+		, pressureStatHolder(std::make_shared<StatisticValueHolder<double>>())
+		, temperatureStatHolder(std::make_shared<StatisticValueHolder<double>>())
+		, windAngleHolder(std::make_shared<WindAngleStatisticHolder>())
+		, windSpeedHolder(std::make_shared<StatisticValueHolder<double>>())
+	{
+	}
+
+	std::shared_ptr<StatisticValueHolder<double>> humidityStatHolder;
+	std::shared_ptr<StatisticValueHolder<double>> pressureStatHolder;
+	std::shared_ptr<StatisticValueHolder<double>> temperatureStatHolder;
+
+	std::shared_ptr<WindAngleStatisticHolder> windAngleHolder;
+	std::shared_ptr<StatisticValueHolder<double>> windSpeedHolder;
+};
+
+void StatsUpdate(WeatherStatistic& stats, const WeatherWindInfo& data)
+{
+	stats.humidityStatHolder->TakeNextValue(data.GetHumidity());
+	stats.pressureStatHolder->TakeNextValue(data.GetPressure());
+	stats.temperatureStatHolder->TakeNextValue(data.GetTemperature());
+
+	stats.windAngleHolder->TakeNextValue(data.GetWindAngle());
+	stats.windSpeedHolder->TakeNextValue(data.GetWindSpeed());
 }
 
-void StatsDisplay::StatsUpdate(WeatherStatistic& stats, const WeatherWindInfo& data)
+const auto OnWeatherInfoChange(WeatherDataStationType wdStationType)
 {
-	stats.humidityStatHolder->TakeNextValue(data.weatherInfo.humidity);
-	stats.pressureStatHolder->TakeNextValue(data.weatherInfo.pressure);
-	stats.temperatureStatHolder->TakeNextValue(data.weatherInfo.temperature);
+	return [=, weatherStats = WeatherStatistic(), wdType = wdStationType](auto& _, auto newWeatherInfo) mutable noexcept {
+		StatsUpdate(weatherStats, newWeatherInfo);
 
-	stats.windAngleHolder->TakeNextValue(data.windInfo.windAngle);
-	stats.windSpeedHolder->TakeNextValue(data.windInfo.windSpeed);
+		bool isSourceOutDoors = (wdStationType == WeatherDataStationType::OUTDOORS);
+		std::cout << "WeatherInfo source type:\n"
+				  << ((wdStationType == WeatherDataStationType::INDOORS)
+							 ? "INDOORS"
+							 : (isSourceOutDoors)
+							 ? "OUTDOORS"
+							 : "UNKNOWN")
+				  << '\n';
+
+		std::cout << "Humidity:\n"
+				  << StatHolderToString(*(weatherStats.humidityStatHolder))
+				  << "Pressure:\n"
+				  << StatHolderToString(*(weatherStats.pressureStatHolder))
+				  << "Temperature:\n"
+				  << StatHolderToString(*(weatherStats.temperatureStatHolder))
+				  << ((isSourceOutDoors)
+							 ? ("Wind angle:\n"
+								 + StatHolderToString(*(weatherStats.windAngleHolder))
+								 + "Wind speed:\n"
+								 + StatHolderToString(*(weatherStats.windSpeedHolder))
+								 + '\n')
+							 : "");
+	};
 }
 
-void StatsDisplay::Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource)
+StatsDisplay::StatsDisplay(WeatherInfoStation& stationIn, WeatherInfoStation& stationOut)
 {
-	bool inDoors = (typeid(WeatherData<false>) == typeid(updateSource));
-	bool outDoors = (typeid(WeatherData<true>) == typeid(updateSource));
-
-	auto& stats = m_statistics[((inDoors)
-			? StatisticType::INDOORS
-			: (outDoors) ? StatisticType::OUTDOORS
-						 : StatisticType::UNKNOWN)];
-	StatsUpdate(stats, data);
-
-	std::cout << "Humidity:\n"
-			  << StatHolderToString(*(stats.humidityStatHolder))
-			  << "Pressure:\n"
-			  << StatHolderToString(*(stats.pressureStatHolder))
-			  << "Temperature:\n"
-			  << StatHolderToString(*(stats.temperatureStatHolder))
-			  << ((outDoors)
-						 ? ("Wind angle:\n"
-							 + StatHolderToString(*(stats.windAngleHolder))
-							 + "Wind speed:\n"
-							 + StatHolderToString(*(stats.windSpeedHolder))
-							 + '\n')
-						 : "");
+	stationIn.Connect(OnWeatherInfoChange(WeatherDataStationType::INDOORS));
+	stationOut.Connect(OnWeatherInfoChange(WeatherDataStationType::OUTDOORS));
 }

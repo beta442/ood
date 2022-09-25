@@ -142,9 +142,9 @@
     <ClInclude Include="include\DisplayDuo.h" />
     <ClInclude Include="include\Observer.h" />
     <ClInclude Include="include\pch.h" />
+    <ClInclude Include="include\SignallingValue.hpp" />
     <ClInclude Include="include\StatisticValueHolder.hpp" />
     <ClInclude Include="include\StatsDisplay.h" />
-    <ClInclude Include="include\Value.hpp" />
     <ClInclude Include="include\WeatherData.hpp" />
     <ClInclude Include="include\WindAngleDisplay.h" />
     <ClInclude Include="include\WindSpeedDisplay.h" />

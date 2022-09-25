@@ -7,20 +7,19 @@ namespace Observer
 {
 namespace value_detail
 {
-// source: https://stackoverflow.com/questions/6534041/how-to-check-whether-operator-exists
+// detail's explanation https://stackoverflow.com/questions/6534041/how-to-check-whether-operator-exists
 struct No
 {
 };
-
 template <typename T, typename Arg>
 No operator==(const T&, const Arg&);
 
 template <typename T, typename Arg = T>
-struct HasEqualOperator
+struct EqualExists
 {
 	enum
 	{
-		value = !std::is_same<decltype(*(T*)(0) == *(Arg*)(0)), No>::value
+		value = !std::is_same<decltype(std::declval<T>() == std::declval<Arg>()), No>::value
 	};
 };
 } // namespace value_detail
@@ -46,19 +45,20 @@ public:
 	template <typename T>
 	void SetValue(T&& newValue)
 	{
-		T incomingValue(std::forward<T>(newValue));
-		if constexpr (value_detail::HasEqualOperator<T>::value)
+		if constexpr (value_detail::EqualExists<T>::value)
 		{
+			T incomingValue(std::forward<T>(newValue));
 			if (m_value != incomingValue)
 			{
 				std::swap(m_value, incomingValue);
-				onChange(incomingValue, m_value); // _1 holds old, _2 - new
+				onChange(incomingValue, m_value);
 			}
 		}
 		else
 		{
-			std::swap(m_value, incomingValue);
-			onChange(incomingValue, m_value);
+			auto prevVal = m_value;
+			m_value = std::forward<T>(newValue);
+			onChange(prevVal, m_value);
 		}
 	}
 
@@ -68,9 +68,21 @@ public:
 		m_value = T(std::forward<T>(newValue));
 	}
 
-	boost::signals2::connection Connect(const Slot& slot)
+	template <typename Slot>
+	boost::signals2::connection Connect(Slot&& slot)
 	{
-		return onChange.connect(slot);
+		return onChange.connect(std::forward<Slot>(slot));
+	}
+
+	template <typename Slot>
+	void Disconnect(Slot&& slot)
+	{
+		onChange.disconnect(std::forward<Slot>(slot));
+	}
+
+	void DisconnectAll()
+	{
+		onChange.disconnect_all_slots();
 	}
 
 	explicit operator T() const { return m_value; }
@@ -87,7 +99,7 @@ public:
 protected:
 	T m_value = T();
 
-	Signal onChange;
+	Signal onChange; // SignalT()(_1, _2) _1 holds old, _2 - new
 };
 
 } // namespace Observer
