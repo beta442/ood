@@ -29,6 +29,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "observer_pro_selective", "o
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "observer_pro_duo_signals", "observer_pro_duo_signals\observer_pro_duo_signals.vcxproj", "{312A1196-0314-45FB-823B-42821A85450F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "o_pro_duo_signal_test", "test\o_pro_duo_signal_test\o_pro_duo_signal_test.vcxproj", "{1624A554-0FD1-45EF-A8C7-5ADCD95ACE3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -133,6 +135,14 @@ Global
 		{312A1196-0314-45FB-823B-42821A85450F}.Release|x64.Build.0 = Release|x64
 		{312A1196-0314-45FB-823B-42821A85450F}.Release|x86.ActiveCfg = Release|Win32
 		{312A1196-0314-45FB-823B-42821A85450F}.Release|x86.Build.0 = Release|Win32
+		{1624A554-0FD1-45EF-A8C7-5ADCD95ACE3E}.Debug|x64.ActiveCfg = Debug|x64
+		{1624A554-0FD1-45EF-A8C7-5ADCD95ACE3E}.Debug|x64.Build.0 = Debug|x64
+		{1624A554-0FD1-45EF-A8C7-5ADCD95ACE3E}.Debug|x86.ActiveCfg = Debug|Win32
+		{1624A554-0FD1-45EF-A8C7-5ADCD95ACE3E}.Debug|x86.Build.0 = Debug|Win32
+		{1624A554-0FD1-45EF-A8C7-5ADCD95ACE3E}.Release|x64.ActiveCfg = Release|x64
+		{1624A554-0FD1-45EF-A8C7-5ADCD95ACE3E}.Release|x64.Build.0 = Release|x64
+		{1624A554-0FD1-45EF-A8C7-5ADCD95ACE3E}.Release|x86.ActiveCfg = Release|Win32
+		{1624A554-0FD1-45EF-A8C7-5ADCD95ACE3E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,6 +151,7 @@ Global
 		{0D3B8934-5ED8-40F9-94E3-80803F129C6F} = {1B5AEAF2-76F0-4BE1-9768-32788F1DD0FA}
 		{15064F0F-0CC0-4AF6-9AB9-6079BDC52FFB} = {1B5AEAF2-76F0-4BE1-9768-32788F1DD0FA}
 		{BC4A195C-0592-41D4-A18E-573079739B36} = {1B5AEAF2-76F0-4BE1-9768-32788F1DD0FA}
+		{1624A554-0FD1-45EF-A8C7-5ADCD95ACE3E} = {1B5AEAF2-76F0-4BE1-9768-32788F1DD0FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECDC3B30-3A02-45DE-AE22-16B187E45C86}
