@@ -7,7 +7,7 @@
 
 int main()
 {
-	WeatherData<false> inWD;
+	WeatherData inWD;
 	WeatherData outWD;
 
 	Display display{ inWD, outWD };

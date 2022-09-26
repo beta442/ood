@@ -1,7 +1,6 @@
 #ifndef OBSERVER_H
 #define OBSERVER_H
 
-#include <functional>
 #include <set>
 
 template <typename T>
@@ -41,11 +40,10 @@ public:
 	{
 		T data = GetChangedData();
 
-		for (auto it = std::begin(m_observers), end = std::end(m_observers); it != end;)
+		auto oCopy = m_observers;
+		for (auto& o : oCopy)
 		{
-			auto slowIt = it;
-			++it;
-			(*slowIt)->Update(data, *this);
+			o->Update(data, *this);
 		}
 	}
 

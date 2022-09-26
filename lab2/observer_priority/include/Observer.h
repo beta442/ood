@@ -1,7 +1,6 @@
 #ifndef OBSERVER_H
 #define OBSERVER_H
 
-#include <functional>
 #include <map>
 
 template <typename T>
@@ -47,11 +46,10 @@ public:
 	{
 		T data = GetChangedData();
 
-		for (auto it = std::begin(m_prioritizedObservers), end = std::end(m_prioritizedObservers); it != end;)
+		auto oCopy = m_prioritizedObservers;
+		for (auto& o : oCopy)
 		{
-			auto slowIt = it;
-			auto& [_, observerPtr] = *it;
-			++it;
+			auto& [_, observerPtr] = o;
 			observerPtr->Update(data, *this);
 		}
 	}
@@ -65,7 +63,7 @@ protected:
 	virtual T GetChangedData() const = 0;
 
 private:
-	using PrioritizedObserverMultiMap = std::multimap<std::size_t, ObserverType*, Comp>;
+	using PrioritizedObserverMultiMap = std::map<std::size_t, ObserverType*, Comp>;
 
 	PrioritizedObserverMultiMap m_prioritizedObservers;
 };

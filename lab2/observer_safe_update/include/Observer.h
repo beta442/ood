@@ -33,7 +33,6 @@ public:
 
 	void RegisterObserver(ObserverType& observer) final
 	{
-		RemoveObserver(observer);
 		m_observers.insert(&observer);
 	}
 
@@ -41,11 +40,10 @@ public:
 	{
 		T data = GetChangedData();
 
-		for (auto it = std::begin(m_observers), end = std::end(m_observers); it != end;)
+		auto oCopy = m_observers;
+		for (auto& o : m_observers)
 		{
-			auto slowIt = it;
-			++it;
-			(*slowIt)->Update(data, *this);
+			o->Update(data, *this);
 		}
 	}
 

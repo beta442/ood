@@ -55,7 +55,7 @@ const auto OnWeatherInfoChange(WeatherDataStationType wdStationType)
 				  << StatHolderToString(*(weatherStats.temperatureStatHolder))
 				  << ((isSourceOutDoors)
 							 ? ("Wind angle:\n"
-								 + StatHolderToString(*(weatherStats.windAngleHolder))
+								 + WindAngleStatHolderToString(*(weatherStats.windAngleHolder))
 								 + "Wind speed:\n"
 								 + StatHolderToString(*(weatherStats.windSpeedHolder))
 								 + '\n')

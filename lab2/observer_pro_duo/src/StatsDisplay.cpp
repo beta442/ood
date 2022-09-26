@@ -40,7 +40,7 @@ void StatsDisplay::Update(const WeatherWindInfo& data, IObservable<WeatherWindIn
 			  << StatHolderToString(*(stats.temperatureStatHolder))
 			  << ((outDoors)
 						 ? ("Wind angle:\n"
-							 + StatHolderToString(*(stats.windAngleHolder))
+							 + WindAngleStatHolderToString(*(stats.windAngleHolder))
 							 + "Wind speed:\n"
 							 + StatHolderToString(*(stats.windSpeedHolder))
 							 + '\n')

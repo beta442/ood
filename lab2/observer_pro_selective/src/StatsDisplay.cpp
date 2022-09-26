@@ -7,7 +7,7 @@ StatsDisplay::StatsDisplay()
 	, m_pressureStatHolder(new StatisticValueHolder())
 	, m_temperatureStatHolder(new StatisticValueHolder())
 	, m_windAngleHolder(new WindAngleStatisticHolder())
-	, m_windSpeedHolder(new StatisticValueHolder<unsigned short>())
+	, m_windSpeedHolder(new StatisticValueHolder())
 {
 }
 
@@ -35,7 +35,7 @@ void StatsDisplay::Update(const WeatherWindInfo& data, const IObservable<Weather
 			  << "Temperature:\n"
 			  << StatHolderToString(*m_temperatureStatHolder) + '\n'
 			  << "Wind angle:\n"
-			  << StatHolderToString(*m_windAngleHolder) + '\n'
+			  << WindAngleStatHolderToString(*m_windAngleHolder) + '\n'
 			  << "Wind speed:\n"
 			  << StatHolderToString(*m_windSpeedHolder) + '\n';
 }

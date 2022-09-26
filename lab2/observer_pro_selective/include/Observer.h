@@ -68,17 +68,17 @@ public:
 	void NotifyObservers(const Event& updateEvent) final
 	{
 		auto data = GetChangedData();
+
 		for (auto& [_updateEvent, _observers] : m_eventToObserversMap)
 		{
 			if (_updateEvent == updateEvent)
 			{
-				for (auto it = std::begin(_observers), end = std::end(_observers); it != end;)
+				auto oCopy = _observers;
+				for (auto& o : oCopy)
 				{
-					auto slowIt = it;
-					++it;
-					(*slowIt)->Update(data, *this);
+					o->Update(data, *this);
 				}
-			}
+			}			
 		}
 	}
 

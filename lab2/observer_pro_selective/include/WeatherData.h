@@ -95,4 +95,14 @@ private:
 	std::vector<Event> m_updateEventTypes;
 };
 
+constexpr std::string_view UNKNOWN_EVENT_TYPE = "Unknown";
+constexpr std::string_view ON_UPDATE_EVENT_TYPE = "OnUpdate";
+constexpr std::string_view ON_WEATHER_UPDATE_EVENT_TYPE = "OnWeatherUpdate";
+constexpr std::string_view ON_WIND_UPDATE_EVENT_TYPE = "OnWindUpdate";
+constexpr std::string_view ON_TEMPERATURE_UPDATE_EVENT_TYPE = "OnTemperatureUpdate";
+constexpr std::string_view ON_HUMIDITY_UPDATE_EVENT_TYPE = "OnHumidityUpdate";
+constexpr std::string_view ON_PRESSURE_UPDATE_EVENT_TYPE = "OnPressureUpdate";
+constexpr std::string_view ON_WIND_SPEED_UPDATE_EVENT_TYPE = "OnWindSpeedUpdate";
+constexpr std::string_view ON_WIND_ANGLE_UPDATE_EVENT_TYPE = "OnWindAngleUpdate";
+
 #endif // !WEATHERDATA_H

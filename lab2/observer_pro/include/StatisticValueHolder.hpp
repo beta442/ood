@@ -1,21 +1,12 @@
 #ifndef STATISTICVALUEHOLDER_H
 #define STATISTICVALUEHOLDER_H
 
+#define _USE_MATH_DEFINES
+#include <math.h>
 #include <string>
 
 template <typename T = double>
-class IStatisticValueHolder
-{
-public:
-	virtual void TakeNextValue(const T& nextVal) noexcept = 0;
-
-	virtual T GetMin() const noexcept = 0;
-	virtual T GetMax() const noexcept = 0;
-	virtual T GetAverage() const noexcept = 0;
-};
-
-template <typename T = double>
-class StatisticValueHolder : public IStatisticValueHolder<T>
+class StatisticValueHolder final
 {
 public:
 	StatisticValueHolder()
@@ -30,7 +21,7 @@ public:
 	{
 	}
 
-	void TakeNextValue(const T& nextVal) noexcept override
+	void TakeNextValue(const T& nextVal) noexcept
 	{
 		m_min = std::min(m_min, nextVal);
 		m_max = std::max(m_max, nextVal);
@@ -40,40 +31,36 @@ public:
 		++m_takenCounter;
 	}
 
-	T GetMin() const noexcept override final
+	T GetMin() const noexcept
 	{
 		return m_min;
 	}
 
-	T GetMax() const noexcept override final
+	T GetMax() const noexcept
 	{
 		return m_max;
 	}
 
-	T GetAverage() const noexcept override
+	T GetAverage() const noexcept
 	{
 		return (m_takenCounter != 0) ? m_accumulatedValue / m_takenCounter : T();
 	}
 
-protected:
+private:
+	T m_accumulatedValue;
 	T m_min;
 	T m_max;
-	T m_accumulatedValue;
 	T m_takenCounter;
 };
 
 constexpr auto MAX_ANGLE = 360;
 constexpr auto MAX_ANGLE_2 = 180;
-constexpr auto M_PI = 3.14159265358979323846;
 
-class WindAngleStatisticHolder : public StatisticValueHolder<double>
+class WindAngleStatisticHolder
 {
 public:
-	void TakeNextValue(const double& nextVal) noexcept override
+	void TakeNextValue(const double& nextVal) noexcept
 	{
-		m_min = std::min(m_min, std::fmod(nextVal, MAX_ANGLE));
-		m_max = std::max(m_max, std::fmod(nextVal, MAX_ANGLE));
-
 		m_sumOfSin = m_sumOfSin + std::sin(ToRadians(nextVal));
 		m_sumOfCos = m_sumOfCos + std::cos(ToRadians(nextVal));
 
@@ -81,7 +68,7 @@ public:
 		m_average = std::fmod(x, MAX_ANGLE);
 	}
 
-	double GetAverage() const noexcept final
+	double GetAverage() const noexcept
 	{
 		return m_average;
 	}
@@ -103,11 +90,18 @@ private:
 };
 
 template <typename T>
-static std::string StatHolderToString(const IStatisticValueHolder<T>& holder)
+static std::string StatHolderToString(const StatisticValueHolder<T>& holder)
 {
 	return std::string(
 		"Max: " + std::to_string(holder.GetMax()) + '\n' +
 		"Min: " + std::to_string(holder.GetMin()) + '\n' +
+		"Average: " + std::to_string(holder.GetAverage()) + '\n'
+	);
+}
+
+static std::string WindAngleStatHolderToString(const WindAngleStatisticHolder& holder)
+{
+	return std::string(
 		"Average: " + std::to_string(holder.GetAverage()) + '\n'
 	);
 }

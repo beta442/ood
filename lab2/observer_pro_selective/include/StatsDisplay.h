@@ -14,12 +14,12 @@ public:
 private:
 	void Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource) override;
 
-	IStatisticValueHolder<double>* m_humidityStatHolder;
-	IStatisticValueHolder<double>* m_pressureStatHolder;
-	IStatisticValueHolder<double>* m_temperatureStatHolder;
+	StatisticValueHolder<double>* m_humidityStatHolder;
+	StatisticValueHolder<double>* m_pressureStatHolder;
+	StatisticValueHolder<double>* m_temperatureStatHolder;
 
-	IStatisticValueHolder<double>* m_windAngleHolder;
-	IStatisticValueHolder<unsigned short>* m_windSpeedHolder;
+	WindAngleStatisticHolder* m_windAngleHolder;
+	StatisticValueHolder<double>* m_windSpeedHolder;
 };
 
 #endif // !STATSDISPLAY_H

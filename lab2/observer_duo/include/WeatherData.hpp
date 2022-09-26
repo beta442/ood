@@ -10,7 +10,6 @@ struct WeatherInfo
 	double pressure = 0;
 };
 
-template <bool OutDoors = true>
 class WeatherData : public Observable<WeatherInfo>
 {
 public:

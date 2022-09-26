@@ -74,7 +74,6 @@ enum class WeatherDataStationType
 	OUTDOORS,
 };
 
-template <bool HasWindSensors = true>
 class WeatherData : public Observer::Observable<WeatherWindInfo>
 {
 public:

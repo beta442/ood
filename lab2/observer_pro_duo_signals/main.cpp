@@ -11,7 +11,7 @@
 
 int main()
 {
-	WeatherData<false> wdIn;
+	WeatherData wdIn;
 	WeatherData wdOut;
 
 	DisplayDuo display{ wdIn, wdOut };
@@ -19,6 +19,9 @@ int main()
 
 	WindSpeedDisplay windSpeedDisplay{ wdOut };
 	WindAngleDisplay windAngleDisplay{ wdOut };
+
+	/*WeatherWindInfo w1, w2;
+	w1 != w2;*/
 
 	wdIn.SetMeasurements({ 3, 0.7, 760 });
 	wdIn.SetMeasurements({ 3, 0.7, 760 });

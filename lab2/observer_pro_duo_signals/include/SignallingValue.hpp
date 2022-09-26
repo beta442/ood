@@ -12,23 +12,23 @@ struct No
 {
 };
 template <typename T, typename Arg>
-No operator==(const T&, const Arg&);
+No operator!=(const T&, const Arg&);
 
 template <typename T, typename Arg = T>
-struct EqualExists
+struct NotEqualExists
 {
 	enum
 	{
-		value = !std::is_same<decltype(std::declval<T>() == std::declval<Arg>()), No>::value
+		value = !std::is_same<decltype(std::declval<T>() != std::declval<Arg>()), No>::value
 	};
 };
 } // namespace value_detail
 
-template <typename T, typename SignalSignature = void(const T&, const T&)>
+template <typename T>
 class SignallingValue
 {
 public:
-	using Signal = boost::signals2::signal<SignalSignature>;
+	using Signal = boost::signals2::signal<void(const T&, const T&)>;
 	using Slot = typename Signal::slot_type;
 
 	SignallingValue() = default;
@@ -45,20 +45,16 @@ public:
 	template <typename T>
 	void SetValue(T&& newValue)
 	{
-		if constexpr (value_detail::EqualExists<T>::value)
+		if constexpr (value_detail::NotEqualExists<T>::value)
 		{
-			T incomingValue(std::forward<T>(newValue));
-			if (m_value != incomingValue)
+			if (m_value != newValue)
 			{
-				std::swap(m_value, incomingValue);
-				onChange(incomingValue, m_value);
+				SetWithEmit<T>(std::forward<T>(newValue));
 			}
 		}
 		else
 		{
-			auto prevVal = m_value;
-			m_value = std::forward<T>(newValue);
-			onChange(prevVal, m_value);
+			SetWithEmit<T>(std::forward<T>(newValue));
 		}
 	}
 
@@ -72,12 +68,6 @@ public:
 	boost::signals2::connection Connect(Slot&& slot)
 	{
 		return onChange.connect(std::forward<Slot>(slot));
-	}
-
-	template <typename Slot>
-	void Disconnect(Slot&& slot)
-	{
-		onChange.disconnect(std::forward<Slot>(slot));
 	}
 
 	void DisconnectAll()
@@ -100,6 +90,15 @@ protected:
 	T m_value = T();
 
 	Signal onChange; // SignalT()(_1, _2) _1 holds old, _2 - new
+
+private:
+	template <typename T>
+	void SetWithEmit(T&& source)
+	{
+		auto prevVal = m_value;
+		m_value = source;
+		onChange(prevVal, m_value);
+	}
 };
 
 } // namespace Observer

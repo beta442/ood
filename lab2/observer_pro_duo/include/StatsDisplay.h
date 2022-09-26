@@ -35,7 +35,7 @@ private:
 			, pressureStatHolder(std::make_shared<StatisticValueHolder<double>>())
 			, temperatureStatHolder(std::make_shared<StatisticValueHolder<double>>())
 			, windAngleHolder(std::make_shared<WindAngleStatisticHolder>())
-			, windSpeedHolder(std::make_shared<StatisticValueHolder<unsigned short>>())
+			, windSpeedHolder(std::make_shared<StatisticValueHolder<double>>())
 		{
 		}
 
@@ -44,7 +44,7 @@ private:
 		std::shared_ptr<StatisticValueHolder<double>> temperatureStatHolder;
 
 		std::shared_ptr<WindAngleStatisticHolder> windAngleHolder;
-		std::shared_ptr<StatisticValueHolder<unsigned short>> windSpeedHolder;
+		std::shared_ptr<StatisticValueHolder<double>> windSpeedHolder;
 	};
 
 	std::map<StatisticType, WeatherStatistic> m_statistics;
