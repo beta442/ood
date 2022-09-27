@@ -62,17 +62,19 @@ public:
 		if constexpr (std::is_same<WeatherInfo, Info>::value)
 		{
 			fullInfo.weatherInfo = weatherInfo;
+			EventHolder<WeatherInfo>::NotifyListeners(std::forward<WeatherInfo>(weatherInfo));
 		}
 		if constexpr (std::is_same<WindInfo, Info>::value)
 		{
 			fullInfo.windInfo = weatherInfo;
+			EventHolder<WindInfo>::NotifyListeners(std::forward<WindInfo>(weatherInfo));
 		}
 		if constexpr (std::is_same<WeatherWindInfo, Info>::value)
 		{
 			fullInfo = weatherInfo;
 		}
 		m_weatherWindInfo = fullInfo;
-		EventHolder<Info>::NotifyListeners(std::forward<Info>(weatherInfo));
+		EventHolder<WeatherWindInfo>::NotifyListeners(std::forward<WeatherWindInfo>(m_weatherWindInfo));
 	}
 
 private:
