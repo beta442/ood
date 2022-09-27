@@ -70,11 +70,6 @@ public:
 		return onChange.connect(std::forward<Slot>(slot));
 	}
 
-	void DisconnectAll()
-	{
-		onChange.disconnect_all_slots();
-	}
-
 	explicit operator T() const { return m_value; }
 	explicit operator const T&() const { return m_value; }
 	const T& operator*() const { return m_value; }

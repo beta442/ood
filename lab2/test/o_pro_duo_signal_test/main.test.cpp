@@ -36,7 +36,7 @@ BOOST_AUTO_TEST_SUITE(ObserverWithSignalingValue)
 
 	BOOST_AUTO_TEST_CASE(SignallingValueHasntCompareOp)
 	{
-		int initialV = 10, newV = 10;
+		const int initialV = 10, newV = 10;
 		TestingObservable<ValueWithoutCompareOp> oAble{ ValueWithoutCompareOp(initialV) };
 		size_t emittingCount = 0;
 
@@ -50,7 +50,7 @@ BOOST_AUTO_TEST_SUITE(ObserverWithSignalingValue)
 
 	BOOST_AUTO_TEST_CASE(ObserverEmittingSignal)
 	{
-		int initV = 2, newV = 5;
+		const int initV = 2, newV = 5;
 		TestingObservable oAble(initV);
 
 		oAble.Connect([&](auto& _oldV, auto& _newV) noexcept {
@@ -62,7 +62,7 @@ BOOST_AUTO_TEST_SUITE(ObserverWithSignalingValue)
 
 	BOOST_AUTO_TEST_CASE(ObserverDoesntEmittingSignalAfterDisconnect)
 	{
-		int initV = 2, newV = 5;
+		const int initV = 2, newV = 5;
 		TestingObservable oAble(initV);
 		size_t signalsAmount = 0;
 
@@ -80,15 +80,15 @@ BOOST_AUTO_TEST_SUITE(ObserverWithSignalingValue)
 
 	BOOST_AUTO_TEST_CASE(ObserverDoesntEmittingSignalIfNewValueIsSame)
 	{
-		int initV = 2;
-		TestingObservable oAble(initV);
+		const int value = 2;
+		TestingObservable oAble(value);
 		size_t signalsAmount = 0;
 
 		const auto& connection = oAble.Connect([&](auto& _oldV, auto& _newV) noexcept {
 			++signalsAmount;
 		});
 
-		oAble.Set(initV);
+		oAble.Set(value);
 
 		BOOST_CHECK(signalsAmount == 0);
 	}

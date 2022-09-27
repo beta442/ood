@@ -16,7 +16,6 @@ public:
 	using Callback = typename SignalValue::Slot;
 
 	virtual boost::signals2::connection Connect(const Callback& onChange) = 0;
-	virtual void DisconnectAll() = 0;
 	virtual ~IObservable() = default;
 };
 
@@ -30,11 +29,6 @@ public:
 	boost::signals2::connection Connect(const Callback& onChange) final
 	{
 		return m_signallingValue.Connect(onChange);
-	}
-
-	void DisconnectAll() final
-	{
-		m_signallingValue.DisconnectAll();
 	}
 
 protected:
