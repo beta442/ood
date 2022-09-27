@@ -1,6 +1,8 @@
 #include "../include/pch.h"
 
+#include "../include/EventHolder.hpp"
 #include "../include/StatsDisplay.h"
+#include "../include/WeatherData.hpp"
 
 StatsDisplay::StatsDisplay()
 	: m_humidityStatHolder(new StatisticValueHolder())

@@ -6,15 +6,17 @@
 #include "include/StatsDisplay.h"
 #include "include/WindAngleDisplay.h"
 #include "include/WindSpeedDisplay.h"
+#include "include/SimpleDisplay.h"
 
 int main()
 {
 	WeatherData wd;
 	
 	Display display;
+	SimpleDisplay simpleDisplay;
 	StatsDisplay statsDisplay;
-	WindSpeedDisplay windSpeedDisplay;
 	WindAngleDisplay windAngleDisplay;
+	WindSpeedDisplay windSpeedDisplay;
 
 	wd.SetMeasurements(std::move(WeatherWindInfo{ 40, 370, 3, 0.7, 760 }));
 	wd.SetMeasurements(std::move(WindInfo{ 40, 370 }));

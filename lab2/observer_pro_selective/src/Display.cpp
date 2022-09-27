@@ -1,6 +1,8 @@
 #include "../include/pch.h"
 
 #include "../include/Display.h"
+#include "../include/EventHolder.hpp"
+#include "../include/WeatherData.hpp"
 
 constexpr auto onWeatherWindInfoChange{
 	[](auto& data) {

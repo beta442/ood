@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include "../include/EventHolder.hpp"
+#include "../include/WeatherData.hpp"
 #include "../include/WindAngleDisplay.h"
 
 constexpr auto onWindInfoChange{

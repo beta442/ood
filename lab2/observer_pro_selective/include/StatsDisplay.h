@@ -1,9 +1,7 @@
 #ifndef STATSDISPLAY_H
 #define STATSDISPLAY_H
 
-#include "EventHolder.hpp"
 #include "StatisticValueHolder.hpp"
-#include "WeatherData.hpp"
 
 class StatsDisplay
 {
