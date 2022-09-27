@@ -41,7 +41,7 @@ public:
 		T data = GetChangedData();
 
 		auto oCopy = m_observers;
-		for (auto& o : m_observers)
+		for (auto& o : oCopy)
 		{
 			o->Update(data, *this);
 		}
