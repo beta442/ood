@@ -2,8 +2,14 @@
 
 #include "../include/WindAngleDisplay.h"
 
-void WindAngleDisplay::Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource)
+constexpr auto onWindInfoChange{
+	[](auto& data) {
+		std::cout << "Current Wind angle " << data.windAngle << '\n'
+				  << "----------------" << '\n';
+	}
+};
+
+WindAngleDisplay::WindAngleDisplay()
 {
-	std::cout << "Current Wind angle " << data.windInfo.windAngle << '\n'
-			  << "----------------" << '\n';
+	EventHolder<WindInfo>::AddListener(onWindInfoChange);
 }

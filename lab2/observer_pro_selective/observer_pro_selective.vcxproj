@@ -136,11 +136,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\Display.h" />
-    <ClInclude Include="include\Observer.h" />
+    <ClInclude Include="include\EventHolder.hpp" />
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\StatisticValueHolder.hpp" />
     <ClInclude Include="include\StatsDisplay.h" />
-    <ClInclude Include="include\WeatherData.h" />
+    <ClInclude Include="include\WeatherData.hpp" />
     <ClInclude Include="include\WindAngleDisplay.h" />
     <ClInclude Include="include\WindSpeedDisplay.h" />
   </ItemGroup>
@@ -148,7 +148,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Display.cpp" />
     <ClCompile Include="src\StatsDisplay.cpp" />
-    <ClCompile Include="src\WeatherData.cpp" />
     <ClCompile Include="src\WindAngleDisplay.cpp" />
     <ClCompile Include="src\WindSpeedDisplay.cpp" />
   </ItemGroup>

@@ -2,8 +2,14 @@
 
 #include "../include/WindSpeedDisplay.h"
 
-void WindSpeedDisplay::Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource)
+constexpr auto onWindInfoChange{
+	[](auto& data) {
+		std::cout << "Current Wind speed " << data.windSpeed << '\n'
+				  << "----------------" << '\n';
+	}
+};
+
+WindSpeedDisplay::WindSpeedDisplay()
 {
-	std::cout << "Current Wind speed " << data.windInfo.windSpeed << '\n'
-			  << "----------------" << '\n';
+	EventHolder<WindInfo>::AddListener(onWindInfoChange);
 }

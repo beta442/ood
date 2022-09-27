@@ -1,13 +1,13 @@
 #ifndef WINDANGLEDISPLAY_H
 #define WINDANGLEDISPLAY_H
 
-#include "Observer.h"
-#include "WeatherData.h"
+#include "EventHolder.hpp"
+#include "WeatherData.hpp"
 
-class WindAngleDisplay : public IObserver<WeatherWindInfo>
+class WindAngleDisplay
 {
-private:
-	void Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource) override;
+public:
+	WindAngleDisplay();
 };
 
 #endif // !WINDANGLEDISPLAY_H

@@ -1,12 +1,13 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
-#include "../include/Observer.h"
-#include "../include/WeatherData.h"
+#include "../include/EventHolder.hpp"
+#include "../include/WeatherData.hpp"
 
-class Display : public IObserver<WeatherWindInfo>
+class Display
 {
-	void Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource) override;
+public:
+	Display();
 };
 
 #endif // !DISPLAY_H

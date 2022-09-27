@@ -2,12 +2,18 @@
 
 #include "../include/Display.h"
 
-void Display::Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource)
+constexpr auto onWeatherWindInfoChange{
+	[](auto& data) {
+		std::cout << "Current Temp: " << data.weatherInfo.temperature << '\n'
+				  << "Current Hum: " << data.weatherInfo.humidity << '\n'
+				  << "Current Pressure: " << data.weatherInfo.pressure << '\n'
+				  << "Current Wind angle: " << data.windInfo.windAngle << '\n'
+				  << "Current Wind speed: " << data.windInfo.windSpeed << '\n'
+				  << "----------------" << '\n';
+	}
+};
+
+Display::Display()
 {
-	std::cout << "Current Temp: " << data.weatherInfo.temperature << '\n'
-			  << "Current Hum: " << data.weatherInfo.humidity << '\n'
-			  << "Current Pressure: " << data.weatherInfo.pressure << '\n'
-			  << "Current Wind angle: " << data.windInfo.windAngle << '\n'
-			  << "Current Wind speed: " << data.windInfo.windSpeed << '\n'
-			  << "----------------" << '\n';
+	EventHolder<WeatherWindInfo>::AddListener(onWeatherWindInfoChange);
 }

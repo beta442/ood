@@ -1,13 +1,13 @@
 #ifndef WINDSPEEDDISPLAY_H
 #define WINDSPEEDDISPLAY_H
 
-#include "Observer.h"
-#include "../include/WeatherData.h"
+#include "EventHolder.hpp"
+#include "WeatherData.hpp"
 
-class WindSpeedDisplay : public IObserver<WeatherWindInfo>
+class WindSpeedDisplay
 {
-private:
-	void Update(const WeatherWindInfo& data, const IObservable<WeatherWindInfo>& updateSource) override;
+public:
+	WindSpeedDisplay();
 };
 
 #endif // !WINDSPEEDDISPLAY_H
