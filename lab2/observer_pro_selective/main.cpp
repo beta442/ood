@@ -11,7 +11,7 @@
 int main()
 {
 	WeatherData wd;
-	
+
 	Display display;
 	SimpleDisplay simpleDisplay;
 	StatsDisplay statsDisplay;

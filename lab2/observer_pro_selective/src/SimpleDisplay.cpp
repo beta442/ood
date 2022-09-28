@@ -17,3 +17,8 @@ SimpleDisplay::SimpleDisplay()
 {
 	EventHolder<WeatherInfo>::AddListener(onWeatherInfoChange);
 }
+
+SimpleDisplay::~SimpleDisplay()
+{
+	EventHolder<WeatherInfo>::RemoveListener(onWeatherInfoChange);
+}

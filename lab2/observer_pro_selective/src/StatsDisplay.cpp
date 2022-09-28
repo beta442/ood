@@ -11,7 +11,9 @@ StatsDisplay::StatsDisplay()
 	, m_windAngleHolder(new WindAngleStatisticHolder())
 	, m_windSpeedHolder(new StatisticValueHolder())
 {
-	EventHolder<WeatherWindInfo>::AddListener(OnWeatherWindInfoChange());
+	m_unsubscriber = EventHolder<WeatherWindInfo>::AddListener([this](auto& data) {
+		UpdateStatistics(data);
+	});
 }
 
 StatsDisplay::~StatsDisplay()
@@ -21,4 +23,26 @@ StatsDisplay::~StatsDisplay()
 	delete m_temperatureStatHolder;
 	delete m_windAngleHolder;
 	delete m_windSpeedHolder;
+
+	m_unsubscriber();
+}
+
+void StatsDisplay::UpdateStatistics(const WeatherWindInfo& info)
+{
+	m_humidityStatHolder->TakeNextValue(info.weatherInfo.humidity);
+	m_pressureStatHolder->TakeNextValue(info.weatherInfo.pressure);
+	m_temperatureStatHolder->TakeNextValue(info.weatherInfo.temperature);
+	m_windAngleHolder->TakeNextValue(info.windInfo.windAngle);
+	m_windSpeedHolder->TakeNextValue(info.windInfo.windSpeed);
+
+	std::cout << "Humidity:\n"
+			  << StatHolderToString(*m_humidityStatHolder)
+			  << "Pressure:\n"
+			  << StatHolderToString(*m_pressureStatHolder)
+			  << "Temperature:\n"
+			  << StatHolderToString(*m_temperatureStatHolder) + '\n'
+			  << "Wind angle:\n"
+			  << WindAngleStatHolderToString(*m_windAngleHolder) + '\n'
+			  << "Wind speed:\n"
+			  << StatHolderToString(*m_windSpeedHolder) + '\n';
 }

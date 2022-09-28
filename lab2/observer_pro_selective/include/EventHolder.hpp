@@ -1,6 +1,9 @@
 #ifndef EVENTHOLDER_HPP
 #define EVENTHOLDER_HPP
 
+#include <boost/uuid/random_generator.hpp>
+#include <boost/uuid/uuid.hpp>
+
 #include <functional>
 #include <list>
 
@@ -32,20 +35,29 @@ struct EqualExists
 };
 } // namespace value_detail
 
+using Unsubscriber = std::function<void()>;
+
 template <typename T>
 class EventHolder
 {
 public:
 	using Action = std::function<void(T&)>;
+	class ActionWrapper;
 
 	template <typename OnChange = Action>
-	static void AddListener(OnChange&& listener, bool instantNotify = false)
+	static Unsubscriber AddListener(OnChange&& listener, bool instantNotify = false)
 	{
-		s_listeners.emplace_back(std::forward<OnChange>(listener));
+		auto actionWrapper = ActionWrapper(std::forward<OnChange>(listener));
+		s_listeners.push_back(actionWrapper);
+
 		if (instantNotify)
 		{
 			listener(s_currentState);
 		}
+
+		return [aW = actionWrapper]() {
+			RemoveListener(aW);
+		};
 	}
 
 	template <typename T>
@@ -58,6 +70,7 @@ public:
 				return;
 			}
 		}
+
 		s_currentState = std::forward<T>(newState);
 
 		auto lCopy = s_listeners;
@@ -67,16 +80,40 @@ public:
 		}
 	}
 
-	template <typename OnChange = Action>
-	static void RemoveListener(OnChange&& listener)
+private:
+	static void RemoveListener(const ActionWrapper& listener)
 	{
-		s_listeners.remove(std::forward<OnChange>(listener));
+		s_listeners.remove(listener);
 	}
 
-private:
-	static inline T s_currentState = T();
+	class ActionWrapper
+	{
+	public:
+		bool operator==(const ActionWrapper& other) const noexcept
+		{
+			return m_tag == other.m_tag;
+		}
 
-	static inline std::list<Action> s_listeners{};
+		template <typename A = Action>
+		ActionWrapper(A&& action)
+			: m_action(std::forward<A>(action))
+			, m_tag(boost::uuids::random_generator()())
+		{
+		}
+
+		template <typename T>
+		void operator()(T&& newState) const
+		{
+			m_action(std::forward<T>(newState));
+		}
+
+	private:
+		boost::uuids::uuid m_tag;
+		Action m_action;
+	};
+
+	static inline T s_currentState = T();
+	static inline std::list<ActionWrapper> s_listeners{};
 };
 
 #endif // !EVENTHOLDER_HPP

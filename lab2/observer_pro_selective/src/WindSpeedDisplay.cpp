@@ -13,5 +13,10 @@ constexpr auto onWindInfoChange{
 
 WindSpeedDisplay::WindSpeedDisplay()
 {
-	EventHolder<WindInfo>::AddListener(onWindInfoChange);
+	m_unsubscriber = EventHolder<WindInfo>::AddListener(onWindInfoChange);
+}
+
+WindSpeedDisplay::~WindSpeedDisplay()
+{
+	m_unsubscriber();
 }

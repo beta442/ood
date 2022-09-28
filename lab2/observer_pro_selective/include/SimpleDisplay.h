@@ -5,6 +5,7 @@ class SimpleDisplay
 {
 public:
 	SimpleDisplay();
+	~SimpleDisplay();
 };
 
 #endif // !SIMPLEDISPLAY_H
