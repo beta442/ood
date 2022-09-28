@@ -12,14 +12,14 @@ struct No
 {
 };
 template <typename T, typename Arg>
-No operator!=(const T&, const Arg&);
+No operator==(const T&, const Arg&);
 
 template <typename T, typename Arg = T>
 struct NotEqualExists
 {
 	enum
 	{
-		value = !std::is_same<decltype(std::declval<T>() != std::declval<Arg>()), No>::value
+		value = !std::is_same<decltype(std::declval<T>() == std::declval<Arg>()), No>::value
 	};
 };
 } // namespace value_detail
@@ -47,15 +47,12 @@ public:
 	{
 		if constexpr (value_detail::NotEqualExists<T>::value)
 		{
-			if (m_value != newValue)
+			if (m_value == newValue)
 			{
-				SetWithEmit<T>(std::forward<T>(newValue));
+				return;
 			}
 		}
-		else
-		{
-			SetWithEmit<T>(std::forward<T>(newValue));
-		}
+		SetWithEmit<T>(std::forward<T>(newValue));
 	}
 
 	template <typename T>
@@ -91,7 +88,7 @@ private:
 	void SetWithEmit(T&& source)
 	{
 		auto prevVal = m_value;
-		m_value = source;
+		m_value = std::forward<T>(source);
 		onChange(prevVal, m_value);
 	}
 };

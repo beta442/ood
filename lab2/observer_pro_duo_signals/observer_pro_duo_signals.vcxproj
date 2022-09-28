@@ -156,6 +156,11 @@
     <ClCompile Include="src\WindAngleDisplay.cpp" />
     <ClCompile Include="src\WindSpeedDisplay.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\test\o_pro_duo_signal_test\o_pro_duo_signal_test.vcxproj">
+      <Project>{1624a554-0fd1-45ef-a8c7-5adcd95ace3e}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
