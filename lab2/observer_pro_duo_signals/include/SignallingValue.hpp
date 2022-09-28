@@ -15,7 +15,7 @@ template <typename T, typename Arg>
 No operator==(const T&, const Arg&);
 
 template <typename T, typename Arg = T>
-struct NotEqualExists
+struct EqualExists
 {
 	enum
 	{
@@ -45,7 +45,7 @@ public:
 	template <typename T>
 	void SetValue(T&& newValue)
 	{
-		if constexpr (value_detail::NotEqualExists<T>::value)
+		if constexpr (value_detail::EqualExists<T>::value)
 		{
 			if (m_value == newValue)
 			{
