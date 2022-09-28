@@ -13,6 +13,25 @@ struct OverloadedLamda : Ts...
 template <class... Ts>
 OverloadedLamda(Ts...) -> OverloadedLamda<Ts...>;
 
+namespace value_detail
+{
+// detail's explanation https://stackoverflow.com/questions/6534041/how-to-check-whether-operator-exists
+struct No
+{
+};
+template <typename T, typename Arg>
+No operator==(const T&, const Arg&);
+
+template <typename T, typename Arg = T>
+struct EqualExists
+{
+	enum
+	{
+		value = !std::is_same<decltype(std::declval<T>() == std::declval<Arg>()), No>::value
+	};
+};
+} // namespace value_detail
+
 template <typename T>
 class EventHolder
 {
@@ -32,6 +51,13 @@ public:
 	template <typename T>
 	static void NotifyListeners(T&& newState)
 	{
+		if constexpr (value_detail::EqualExists<T>::value)
+		{
+			if (s_currentState == newState)
+			{
+				return;
+			}
+		}
 		s_currentState = std::forward<T>(newState);
 
 		auto lCopy = s_listeners;

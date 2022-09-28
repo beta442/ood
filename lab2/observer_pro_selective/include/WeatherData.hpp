@@ -12,8 +12,17 @@ struct WindInfo
 	{
 	}
 
-	double windSpeed = 0;
+	bool operator==(const WindInfo& other) const
+	{
+		return (windAngle == other.windAngle) && (windSpeed == other.windSpeed);
+	}
+	bool operator!=(const WindInfo& other) const
+	{
+		return !(*this == other);
+	}
+
 	double windAngle = 0;
+	double windSpeed = 0;
 };
 
 struct WeatherInfo
@@ -26,9 +35,18 @@ struct WeatherInfo
 	{
 	}
 
-	double temperature = 0;
+	bool operator==(const WeatherInfo& other) const
+	{
+		return (humidity == other.humidity) && (pressure == other.pressure) && (temperature == other.temperature);
+	}
+	bool operator!=(const WeatherInfo& other) const
+	{
+		return !(*this == other);
+	}
+
 	double humidity = 0;
 	double pressure = 0;
+	double temperature = 0;
 };
 
 struct WeatherWindInfo
@@ -45,6 +63,14 @@ struct WeatherWindInfo
 	{
 	}
 
+	bool operator==(const WeatherWindInfo& other) const
+	{
+		return (weatherInfo == other.weatherInfo) && (windInfo == other.windInfo);
+	}
+	bool operator!=(const WeatherWindInfo& other) const
+	{
+		return !(*this == other);
+	}
 
 	WeatherInfo weatherInfo{};
 	WindInfo windInfo{};
