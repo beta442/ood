@@ -13,5 +13,66 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Stream">
+      <UniqueIdentifier>{aca0ba91-e08e-4df6-a6db-53bde5b671cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Stream">
+      <UniqueIdentifier>{bddaa4fc-eec1-4a72-8e44-9275e0f9ae2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Stream\Input">
+      <UniqueIdentifier>{d6ff623f-8389-4aea-9583-606e151d2adc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Stream\Input">
+      <UniqueIdentifier>{3318f937-c11a-4f0e-ad32-8789b842fd70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Stream\Output">
+      <UniqueIdentifier>{9628a17d-8e95-4d2b-829d-4ff938459155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Stream\Output">
+      <UniqueIdentifier>{fd9c2a7b-caea-43ea-a51f-7437ed450da3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\pch.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FileInputStream.cpp">
+      <Filter>Source Files\Stream\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MemoryInputStream.cpp">
+      <Filter>Source Files\Stream\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FileOutputStream.cpp">
+      <Filter>Source Files\Stream\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MemoryOutputStream.cpp">
+      <Filter>Source Files\Stream\Output</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IOutputDataStream.h">
+      <Filter>Header Files\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IInputDataStream.h">
+      <Filter>Header Files\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FileInputStream.h">
+      <Filter>Header Files\Stream\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MemoryInputStream.h">
+      <Filter>Header Files\Stream\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FileOutputStream.h">
+      <Filter>Header Files\Stream\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MemoryOutputStream.h">
+      <Filter>Header Files\Stream\Output</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
