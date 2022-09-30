@@ -7,39 +7,19 @@
 #include "include/Milkshake.h"
 #include "include/Tea.h"
 
+#include "include/Chocolate.h"
 #include "include/CoconutFlakes.h"
+#include "include/Cream.h"
+#include "include/Liquor.h"
 #include "include/Syrup.h"
 
 int main(int, char*)
 {
 	{
 		auto beverage = std::make_unique<Latte>(LattePortionSize::DOUBLE)
-			<< MakeCondiment<Syrup>(SyrupType::Chocolate)
-			<< MakeCondiment<CoconutFlakes>(1);
-
-		std::cout << beverage->GetDescription() << " costs " << beverage->GetCost() << '\n';
-	}
-
-	{
-		auto beverage = std::make_unique<Cappuccino>(CappuccinoPortionSize::DOUBLE);
-
-		std::cout << beverage->GetDescription() << " costs " << beverage->GetCost() << '\n';
-	}
-
-	{
-		auto beverage = std::make_unique<Cappuccino>(CappuccinoPortionSize::DOUBLE);
-
-		std::cout << beverage->GetDescription() << " costs " << beverage->GetCost() << '\n';
-	}
-
-	{
-		auto beverage = std::make_unique<Tea>(TeaType::OOLONG);
-
-		std::cout << beverage->GetDescription() << " costs " << beverage->GetCost() << '\n';
-	}
-
-	{
-		auto beverage = std::make_unique<Milkshake>(MilkshakePortionSize::MEDIUM);
+			<< MakeCondiment<Cream>()
+			<< MakeCondiment<Chocolate>(4)
+			<< MakeCondiment<Liquor>(LiquorType::CHOCOLATE);
 
 		std::cout << beverage->GetDescription() << " costs " << beverage->GetCost() << '\n';
 	}

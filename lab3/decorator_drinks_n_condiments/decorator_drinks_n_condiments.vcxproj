@@ -139,14 +139,17 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\BeverageImpl.cpp" />
     <ClCompile Include="src\Cappuccino.cpp" />
+    <ClCompile Include="src\Chocolate.cpp" />
     <ClCompile Include="src\ChocolateCrumbs.cpp" />
     <ClCompile Include="src\Cinnamon.cpp" />
     <ClCompile Include="src\CoconutFlakes.cpp" />
     <ClCompile Include="src\Coffe.cpp" />
     <ClCompile Include="src\CondimentDecoratorBase.cpp" />
+    <ClCompile Include="src\Cream.cpp" />
     <ClCompile Include="src\IceCube.cpp" />
     <ClCompile Include="src\Latte.cpp" />
     <ClCompile Include="src\Lemon.cpp" />
+    <ClCompile Include="src\Liquor.cpp" />
     <ClCompile Include="src\Milkshake.cpp" />
     <ClCompile Include="src\Syrup.cpp" />
     <ClCompile Include="src\Tea.cpp" />
@@ -154,16 +157,19 @@
   <ItemGroup>
     <ClInclude Include="include\BeverageImpl.h" />
     <ClInclude Include="include\Cappuccino.h" />
+    <ClInclude Include="include\Chocolate.h" />
     <ClInclude Include="include\ChocolateCrumbs.h" />
     <ClInclude Include="include\Cinnamon.h" />
     <ClInclude Include="include\CoconutFlakes.h" />
     <ClInclude Include="include\Coffee.h" />
     <ClInclude Include="include\CondimentDecoratorBase.h" />
+    <ClInclude Include="include\Cream.h" />
     <ClInclude Include="include\DecoratorHelpers.hpp" />
     <ClInclude Include="include\IBeverage.h" />
     <ClInclude Include="include\IceCube.h" />
     <ClInclude Include="include\Latte.h" />
     <ClInclude Include="include\Lemon.h" />
+    <ClInclude Include="include\Liquor.h" />
     <ClInclude Include="include\Milkshake.h" />
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\Syrup.h" />

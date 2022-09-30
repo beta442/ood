@@ -84,6 +84,15 @@
     <ClCompile Include="src\CoconutFlakes.cpp">
       <Filter>Source Files\Condiment\ConcreteCondiment</Filter>
     </ClCompile>
+    <ClCompile Include="src\Cream.cpp">
+      <Filter>Source Files\Condiment\ConcreteCondiment</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chocolate.cpp">
+      <Filter>Source Files\Condiment\ConcreteCondiment</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Liquor.cpp">
+      <Filter>Source Files\Condiment\ConcreteCondiment</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">
@@ -133,6 +142,15 @@
     </ClInclude>
     <ClInclude Include="include\DecoratorHelpers.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Cream.h">
+      <Filter>Header Files\Condiment\ConcreteCondiment</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Chocolate.h">
+      <Filter>Header Files\Condiment\ConcreteCondiment</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Liquor.h">
+      <Filter>Header Files\Condiment\ConcreteCondiment</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
