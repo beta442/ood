@@ -2,7 +2,7 @@
 
 #include "../include/Lemon.h"
 
-Lemon::Lemon(IBeveragePtr&& beverage, unsigned quantity = 1)
+Lemon::Lemon(IBeveragePtr&& beverage, unsigned quantity)
 	: CondimentDecoratorBase(std::move(beverage))
 	, m_quantity(quantity)
 {

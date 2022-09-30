@@ -2,7 +2,7 @@
 
 #include "../include/IceCube.h"
 
-IceCube::IceCube(IBeveragePtr&& beverage, unsigned quantity, IceCubeType type = IceCubeType::Water)
+IceCube::IceCube(IBeveragePtr&& beverage, unsigned quantity, IceCubeType type)
 	: CondimentDecoratorBase(std::move(beverage))
 	, m_quantity(quantity)
 	, m_type(type)

@@ -159,6 +159,7 @@
     <ClInclude Include="include\CoconutFlakes.h" />
     <ClInclude Include="include\Coffee.h" />
     <ClInclude Include="include\CondimentDecoratorBase.h" />
+    <ClInclude Include="include\DecoratorHelpers.hpp" />
     <ClInclude Include="include\IBeverage.h" />
     <ClInclude Include="include\IceCube.h" />
     <ClInclude Include="include\Latte.h" />

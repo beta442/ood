@@ -131,5 +131,8 @@
     <ClInclude Include="include\CoconutFlakes.h">
       <Filter>Header Files\Condiment\ConcreteCondiment</Filter>
     </ClInclude>
+    <ClInclude Include="include\DecoratorHelpers.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

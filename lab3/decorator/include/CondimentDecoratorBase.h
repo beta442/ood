@@ -10,10 +10,7 @@ public:
 	double GetCost() const override;
 
 protected:
-	CondimentDecoratorBase(IBeveragePtr&& beverage)
-		: m_beverage(std::move(beverage))
-	{
-	}
+	CondimentDecoratorBase(IBeveragePtr&& beverage);
 
 	virtual std::string GetCondimentDescription() const = 0;
 	virtual double GetCondimentCost() const = 0;
