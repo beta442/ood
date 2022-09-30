@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Beverage">
+      <UniqueIdentifier>{622e8cd8-a9eb-4cfb-8155-5aa55676e01b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Beverage">
+      <UniqueIdentifier>{cc864df0-8fee-4e1f-b407-58909c4e462e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Beverage\ConcreteBeverage">
+      <UniqueIdentifier>{6abb9858-6044-43a3-a40a-3a59d9eccbc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Beverage\ConcreteBeverage">
+      <UniqueIdentifier>{5cc5ff52-206c-4180-8a7d-2a058438f8e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Condiment">
+      <UniqueIdentifier>{0c90b9ca-4233-4b0d-9139-b0eb2e0b31ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Condiment">
+      <UniqueIdentifier>{18bf2fdb-caae-474a-aa58-f28d6f97a072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Condiment\ConcreteCondiment">
+      <UniqueIdentifier>{28fa4758-fa4a-42a6-85f0-793d1613ff73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Condiment\ConcreteCondiment">
+      <UniqueIdentifier>{23910b2f-4060-4160-97cb-aef4b8bc13a9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BeverageImpl.cpp">
+      <Filter>Source Files\Beverage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Coffe.cpp">
+      <Filter>Source Files\Beverage\ConcreteBeverage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cappuccino.cpp">
+      <Filter>Source Files\Beverage\ConcreteBeverage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Latte.cpp">
+      <Filter>Source Files\Beverage\ConcreteBeverage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tea.cpp">
+      <Filter>Source Files\Beverage\ConcreteBeverage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Milkshake.cpp">
+      <Filter>Source Files\Beverage\ConcreteBeverage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CondimentDecoratorBase.cpp">
+      <Filter>Source Files\Condiment</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cinnamon.cpp">
+      <Filter>Source Files\Condiment\ConcreteCondiment</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Lemon.cpp">
+      <Filter>Source Files\Condiment\ConcreteCondiment</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IceCube.cpp">
+      <Filter>Source Files\Condiment\ConcreteCondiment</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Syrup.cpp">
+      <Filter>Source Files\Condiment\ConcreteCondiment</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ChocolateCrumbs.cpp">
+      <Filter>Source Files\Condiment\ConcreteCondiment</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CoconutFlakes.cpp">
+      <Filter>Source Files\Condiment\ConcreteCondiment</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IBeverage.h">
+      <Filter>Header Files\Beverage</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BeverageImpl.h">
+      <Filter>Header Files\Beverage</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Coffee.h">
+      <Filter>Header Files\Beverage\ConcreteBeverage</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Cappuccino.h">
+      <Filter>Header Files\Beverage\ConcreteBeverage</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Latte.h">
+      <Filter>Header Files\Beverage\ConcreteBeverage</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Tea.h">
+      <Filter>Header Files\Beverage\ConcreteBeverage</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Milkshake.h">
+      <Filter>Header Files\Beverage\ConcreteBeverage</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CondimentDecoratorBase.h">
+      <Filter>Header Files\Condiment</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Cinnamon.h">
+      <Filter>Header Files\Condiment\ConcreteCondiment</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Lemon.h">
+      <Filter>Header Files\Condiment\ConcreteCondiment</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IceCube.h">
+      <Filter>Header Files\Condiment\ConcreteCondiment</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Syrup.h">
+      <Filter>Header Files\Condiment\ConcreteCondiment</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ChocolateCrumbs.h">
+      <Filter>Header Files\Condiment\ConcreteCondiment</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CoconutFlakes.h">
+      <Filter>Header Files\Condiment\ConcreteCondiment</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DecoratorHelpers.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
