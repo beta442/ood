@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "decorator", "decorator\deco
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "decorator_drinks", "decorator_drinks\decorator_drinks.vcxproj", "{D76FB19C-A749-4E5B-A71D-AE7853C16389}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "decorator_drinks_n_condiments", "decorator_drinks_n_condiments\decorator_drinks_n_condiments.vcxproj", "{BAD3753C-DAB1-468D-95F7-9FB9249B4127}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{D76FB19C-A749-4E5B-A71D-AE7853C16389}.Release|x64.Build.0 = Release|x64
 		{D76FB19C-A749-4E5B-A71D-AE7853C16389}.Release|x86.ActiveCfg = Release|Win32
 		{D76FB19C-A749-4E5B-A71D-AE7853C16389}.Release|x86.Build.0 = Release|Win32
+		{BAD3753C-DAB1-468D-95F7-9FB9249B4127}.Debug|x64.ActiveCfg = Debug|x64
+		{BAD3753C-DAB1-468D-95F7-9FB9249B4127}.Debug|x64.Build.0 = Debug|x64
+		{BAD3753C-DAB1-468D-95F7-9FB9249B4127}.Debug|x86.ActiveCfg = Debug|Win32
+		{BAD3753C-DAB1-468D-95F7-9FB9249B4127}.Debug|x86.Build.0 = Debug|Win32
+		{BAD3753C-DAB1-468D-95F7-9FB9249B4127}.Release|x64.ActiveCfg = Release|x64
+		{BAD3753C-DAB1-468D-95F7-9FB9249B4127}.Release|x64.Build.0 = Release|x64
+		{BAD3753C-DAB1-468D-95F7-9FB9249B4127}.Release|x86.ActiveCfg = Release|Win32
+		{BAD3753C-DAB1-468D-95F7-9FB9249B4127}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
