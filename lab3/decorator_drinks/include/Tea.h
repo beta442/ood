@@ -3,14 +3,23 @@
 
 #include "BeverageImpl.h"
 
-constexpr auto TEA_DESCRIPTION = "Tea";
+enum class TeaType
+{
+	BLACK = 0,
+	GREEN,
+	OOLONG,
+	WHITE,
+};
 
 class Tea : public BeverageImpl
 {
 public:
-	Tea(const std::string& description = TEA_DESCRIPTION);
+	Tea(TeaType type);
 
 	double GetCost() const override;
+
+private:
+	double m_cost;
 };
 
 #endif // !TEA_H

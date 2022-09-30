@@ -10,7 +10,7 @@ public:
 
 	std::string GetDescription() const;
 
-private:
+protected:
 	std::string m_description;
 };
 

@@ -3,14 +3,21 @@
 
 #include "BeverageImpl.h"
 
-constexpr auto LATTE_DESCRIPTION = "Latte";
+enum class LattePortionSize
+{
+	STANDARD = 0,
+	DOUBLE,
+};
 
 class Latte : public BeverageImpl
 {
 public:
-	Latte(const std::string& description = LATTE_DESCRIPTION);
+	Latte(LattePortionSize size = LattePortionSize::STANDARD);
 
 	double GetCost() const override;
+
+private:
+	double m_cost;
 };
 
 #endif // !LATTE_H

@@ -3,14 +3,21 @@
 
 #include "BeverageImpl.h"
 
-constexpr auto CAPPUCCINO_DESCRIPTION = "Cappuccino";
+enum class CappuccinoPortionSize
+{
+	STANDART = 0,
+	DOUBLE,
+};
 
 class Cappuccino : public BeverageImpl
 {
 public:
-	Cappuccino(const std::string& description = CAPPUCCINO_DESCRIPTION);
+	Cappuccino(CappuccinoPortionSize size = CappuccinoPortionSize::STANDART);
 
 	double GetCost() const override;
+
+private:
+	double m_cost;
 };
 
 #endif // !CAPPUCCINO_H

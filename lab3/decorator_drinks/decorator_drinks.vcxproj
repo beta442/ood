@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2ef5ae1b-7ab9-4549-900c-d362e50c19e4}</ProjectGuid>
+    <ProjectGuid>{D76FB19C-A749-4E5B-A71D-AE7853C16389}</ProjectGuid>
     <RootNamespace>decorator_drinks</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>

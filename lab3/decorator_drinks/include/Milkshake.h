@@ -3,14 +3,22 @@
 
 #include "BeverageImpl.h"
 
-constexpr auto MILKSHAKE_DESCRIPTION = "Milkshake";
+enum class MilkshakePortionSize
+{
+	SMALL = 0,
+	MEDIUM,
+	LARGE,
+};
 
 class Milkshake : public BeverageImpl
 {
 public:
-	Milkshake(const std::string& description = MILKSHAKE_DESCRIPTION);
+	Milkshake(MilkshakePortionSize size);
 
 	double GetCost() const override;
+
+private:
+	double m_cost;
 };
 
 #endif // !MILKSHAKE_H
