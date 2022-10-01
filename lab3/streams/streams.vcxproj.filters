@@ -74,5 +74,8 @@
     <ClInclude Include="include\MemoryOutputStream.h">
       <Filter>Header Files\Stream\Output</Filter>
     </ClInclude>
+    <ClInclude Include="include\FileExists.hpp">
+      <Filter>Header Files\Stream</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

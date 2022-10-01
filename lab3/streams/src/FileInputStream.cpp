@@ -1,16 +1,5 @@
 #include "../include/FileInputStream.h"
-
-constexpr auto DEFAULT_STREAM_OPEN_MODE = std::ios_base::in;
-
-template <typename FileNameT>
-void FileExists(std::ifstream& stream, FileNameT&& fileName)
-{
-	stream.open(fileName, DEFAULT_STREAM_OPEN_MODE);
-	if (!stream.is_open())
-	{
-		throw std::ios_base::failure("Failed to open '" + std::string(std::forward<FileNameT>(fileName)) + "' file");
-	}
-}
+#include "../include/FileExists.hpp"
 
 FileInputStream::FileInputStream(const char* fileName)
 	: m_ifStream()

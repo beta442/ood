@@ -143,6 +143,7 @@
     <ClCompile Include="src\MemoryOutputStream.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\FileExists.hpp" />
     <ClInclude Include="include\FileInputStream.h" />
     <ClInclude Include="include\FileOutputStream.h" />
     <ClInclude Include="include\IInputDataStream.h" />
