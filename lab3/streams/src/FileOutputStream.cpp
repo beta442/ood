@@ -20,14 +20,7 @@ constexpr auto WRITE_BYTE_FAILURE_MSG = "Failed write byte attempt";
 
 void FileOutputStream::WriteByte(uint8_t data)
 {
-	try
-	{
-		WriteBlock(&data, 1);
-	}
-	catch (...)
-	{
-		throw std::ios_base::failure(WRITE_BYTE_FAILURE_MSG);
-	}
+	WriteBlock(&data, 1);
 }
 
 constexpr auto WRITE_BLOCK_FAILURE_MSG = "Failed write block attempt";
