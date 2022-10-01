@@ -11,6 +11,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "decorator_drinks_n_condimen
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "streams", "streams\streams.vcxproj", "{2E835056-742C-4129-B66C-36BF40DD8F29}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2357BFFC-7EEB-4291-8EDF-2B4282BB7F04}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "streams_test", "streams_test\streams_test.vcxproj", "{C8B1D65F-4ACB-41F7-89F6-0C7E52F4D9CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,9 +55,20 @@ Global
 		{2E835056-742C-4129-B66C-36BF40DD8F29}.Release|x64.Build.0 = Release|x64
 		{2E835056-742C-4129-B66C-36BF40DD8F29}.Release|x86.ActiveCfg = Release|Win32
 		{2E835056-742C-4129-B66C-36BF40DD8F29}.Release|x86.Build.0 = Release|Win32
+		{C8B1D65F-4ACB-41F7-89F6-0C7E52F4D9CF}.Debug|x64.ActiveCfg = Debug|x64
+		{C8B1D65F-4ACB-41F7-89F6-0C7E52F4D9CF}.Debug|x64.Build.0 = Debug|x64
+		{C8B1D65F-4ACB-41F7-89F6-0C7E52F4D9CF}.Debug|x86.ActiveCfg = Debug|Win32
+		{C8B1D65F-4ACB-41F7-89F6-0C7E52F4D9CF}.Debug|x86.Build.0 = Debug|Win32
+		{C8B1D65F-4ACB-41F7-89F6-0C7E52F4D9CF}.Release|x64.ActiveCfg = Release|x64
+		{C8B1D65F-4ACB-41F7-89F6-0C7E52F4D9CF}.Release|x64.Build.0 = Release|x64
+		{C8B1D65F-4ACB-41F7-89F6-0C7E52F4D9CF}.Release|x86.ActiveCfg = Release|Win32
+		{C8B1D65F-4ACB-41F7-89F6-0C7E52F4D9CF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8B1D65F-4ACB-41F7-89F6-0C7E52F4D9CF} = {2357BFFC-7EEB-4291-8EDF-2B4282BB7F04}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C247AEA-F612-4CF7-9F74-953AD0D76037}
