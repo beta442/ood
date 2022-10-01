@@ -27,6 +27,11 @@ constexpr auto READ_BYTE_FAILURE_MSG = "Failed byte read attempt";
 
 uint8_t FileInputStream::ReadByte()
 {
+	if (IsEOF())
+	{
+		throw std::ios_base::failure(READ_BYTE_FAILURE_MSG);
+	}
+
 	uint8_t byte;
 	try
 	{
@@ -40,7 +45,7 @@ uint8_t FileInputStream::ReadByte()
 }
 
 constexpr auto READ_BLOCK_FAILURE_MSG = "Failed read block attempt";
-constexpr auto READ_BLOCK_FAILURE_NULLPTR_MSG = "Failed read block attempt. Got nullptr in _1 parameter";
+constexpr auto READ_BLOCK_FAILURE_NULLPTR_MSG = "Failed read block attempt. nullptr in _1 parameter is provided";
 
 std::streamsize FileInputStream::ReadBlock(void* dstBuffer, std::streamsize size)
 {
