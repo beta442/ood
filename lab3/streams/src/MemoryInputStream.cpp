@@ -29,8 +29,6 @@ uint8_t MemoryInputStream::ReadByte()
 	return m_iStringStream[m_offset++];
 }
 
-constexpr auto READ_BLOCK_FAILURE_MSG = "Failed block read attempt";
-
 std::streamsize MemoryInputStream::ReadBlock(void* dstBuffer, std::streamsize size)
 {
 	size = std::min(size, static_cast<std::streamsize>(m_iStringStream.size() - m_offset - 1));
