@@ -137,16 +137,23 @@
   <ItemGroup>
     <ClCompile Include="include\pch.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\CryptTableGenerator.cpp" />
+    <ClCompile Include="src\InputStreamDeCrypter.cpp" />
     <ClCompile Include="src\FileInputStream.cpp" />
     <ClCompile Include="src\FileOutputStream.cpp" />
+    <ClCompile Include="src\InputStreamDecoratorBase.cpp" />
     <ClCompile Include="src\MemoryInputStream.cpp" />
     <ClCompile Include="src\MemoryOutputStream.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\CryptTableGenerator.h" />
+    <ClInclude Include="include\DecoratorHelpers.hpp" />
+    <ClInclude Include="include\InputStreamDeCrypter.h" />
     <ClInclude Include="include\FileExists.hpp" />
     <ClInclude Include="include\FileInputStream.h" />
     <ClInclude Include="include\FileOutputStream.h" />
     <ClInclude Include="include\IInputDataStream.h" />
+    <ClInclude Include="include\InputStreamDecoratorBase.h" />
     <ClInclude Include="include\IOutputDataStream.h" />
     <ClInclude Include="include\MemoryInputStream.h" />
     <ClInclude Include="include\MemoryOutputStream.h" />

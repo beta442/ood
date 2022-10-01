@@ -3,22 +3,25 @@
 #include "include/FileInputStream.h"
 #include "include/FileOutputStream.h"
 
-#include <sstream>
+#include "include/DecoratorHelpers.hpp"
+
+#include "include/InputStreamDeCrypter.h"
 
 int main(int, char*)
 {
 	try
 	{
-		/*FileInputStream fIStream{ "main.cpp" };
-		char* dest[100];
-		std::cout << fIStream.ReadBlock(dest, 100) << '\n'
-				  << dest + '\0' << '\n';*/
+		auto handler = std::make_unique<FileInputStream>("input.txt") << DecorateStream<InputStreamDeCrypter>(10) << DecorateStream<InputStreamDeCrypter>(50);
 
-		//FileOutputStream fOStream{ "lock.txt" };
-		//fOStream.WriteByte('1');
-		std::istringstream ss{};
+		while (!handler->IsEOF())
+		{
+			std::cout << handler->ReadByte() << std::endl;
+		}
+		/*auto des = new uint8_t[9];
+		handler->ReadBlock(des, 7);
 
-		std::cout << "'" << ss.get() << "'" << std::endl;
+		std::copy(des, des + 9, std::ostream_iterator<uint8_t>(std::cout, "|"));
+		delete[] des;*/
 	}
 	catch (std::exception& ex)
 	{

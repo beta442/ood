@@ -31,6 +31,18 @@
     <Filter Include="Header Files\Stream\Output">
       <UniqueIdentifier>{fd9c2a7b-caea-43ea-a51f-7437ed450da3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Stream\Decorator">
+      <UniqueIdentifier>{675492b9-30c0-4b66-a7d9-8958e49a76a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Stream\Decorator">
+      <UniqueIdentifier>{4907ade9-f2c8-4437-a4ee-4ae0d4e6975a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Stream\Decorator\Crypt">
+      <UniqueIdentifier>{920838c0-d08a-4f63-b360-f8740b8ab81d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Stream\Decorator\Crypt">
+      <UniqueIdentifier>{b22ac123-b460-4907-baf5-f5e74b44d8ce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -50,6 +62,15 @@
     </ClCompile>
     <ClCompile Include="src\MemoryOutputStream.cpp">
       <Filter>Source Files\Stream\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputStreamDecoratorBase.cpp">
+      <Filter>Source Files\Stream\Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputStreamDeCrypter.cpp">
+      <Filter>Source Files\Stream\Decorator\Crypt</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CryptTableGenerator.cpp">
+      <Filter>Source Files\Stream\Decorator\Crypt</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +97,18 @@
     </ClInclude>
     <ClInclude Include="include\FileExists.hpp">
       <Filter>Header Files\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="include\InputStreamDecoratorBase.h">
+      <Filter>Header Files\Stream\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DecoratorHelpers.hpp">
+      <Filter>Header Files\Stream\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="include\InputStreamDeCrypter.h">
+      <Filter>Header Files\Stream\Decorator\Crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CryptTableGenerator.h">
+      <Filter>Header Files\Stream\Decorator\Crypt</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
