@@ -20,7 +20,7 @@ FileInputStream::~FileInputStream()
 
 bool FileInputStream::IsEOF() const
 {
-	return m_ifStream.rdstate() & std::ios_base::eofbit;
+	return m_ifStream.eof();
 }
 
 constexpr auto READ_BYTE_FAILURE_MSG = "Failed byte read attempt";

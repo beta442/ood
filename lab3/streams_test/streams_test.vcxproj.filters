@@ -54,6 +54,9 @@
     <ClCompile Include="..\streams\src\MemoryOutputStream.cpp">
       <Filter>Source Files\Stream\Output</Filter>
     </ClCompile>
+    <ClCompile Include="unit\MemoryInputStream.test.cpp">
+      <Filter>Source Files\Unit</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">

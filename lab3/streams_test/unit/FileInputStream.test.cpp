@@ -56,7 +56,7 @@ BOOST_AUTO_TEST_SUITE(FileInputStreamTests)
 	{
 		auto handler = FileInputStream{ EMPTY_FILE_NAME };
 		const auto READ_SIZE = 10000;
-		char* chars[READ_SIZE];
+		char* chars[READ_SIZE]{};
 
 		BOOST_CHECK(handler.ReadBlock(chars, READ_SIZE) == 0);
 	}
@@ -65,7 +65,7 @@ BOOST_AUTO_TEST_SUITE(FileInputStreamTests)
 	{
 		auto handler = FileInputStream{ FILE_WITH_CONTENT_NAME };
 		const auto READ_SIZE = 10000;
-		char* chars[READ_SIZE];
+		char* chars[READ_SIZE]{};
 
 		BOOST_CHECK(handler.ReadBlock(chars, READ_SIZE) == 12);
 	}
@@ -74,7 +74,7 @@ BOOST_AUTO_TEST_SUITE(FileInputStreamTests)
 	{
 		auto handler = FileInputStream{ FILE_WITH_CONTENT_NAME };
 		const auto READ_SIZE = 5;
-		char* chars[READ_SIZE];
+		char* chars[READ_SIZE]{};
 
 		BOOST_CHECK(handler.ReadBlock(chars, READ_SIZE) == 5);
 	}
