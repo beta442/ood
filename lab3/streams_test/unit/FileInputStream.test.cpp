@@ -1,6 +1,6 @@
-#include "../../streams/include/FileInputStream.h"
-
 #include "../include/pch.h"
+
+#include "../../streams/include/FileInputStream.h"
 
 constexpr auto FILE_NAME_THAT_DOESNT_EXISTS = "some_file_that_doesnt_exists.trash.brash.sash";
 constexpr auto EMPTY_FILE_NAME = "empty.txt";
