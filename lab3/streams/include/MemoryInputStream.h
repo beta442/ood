@@ -19,7 +19,7 @@ public:
 
 private:
 	std::streamoff m_offset;
-	std::vector<uint8_t> m_iStringStream;
+	std::vector<uint8_t> m_iMemoryStream;
 };
 
 #endif // !MEMORYINPUTSTREAM_H

@@ -12,6 +12,9 @@ public:
 	explicit FileOutputStream(const std::string& fileName);
 	~FileOutputStream();
 
+	FileOutputStream(const FileOutputStream&) = delete;
+	FileOutputStream(FileOutputStream&&) = delete;
+
 	void WriteByte(uint8_t data);
 	void WriteBlock(const void* srcData, std::streamsize size);
 

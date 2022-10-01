@@ -169,6 +169,7 @@
     <ClCompile Include="unit\FileInputStream.test.cpp" />
     <ClCompile Include="unit\FileOutputStream.test.cpp" />
     <ClCompile Include="unit\MemoryInputStream.test.cpp" />
+    <ClCompile Include="unit\MemoryOutputStream.test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h" />
