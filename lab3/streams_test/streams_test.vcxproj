@@ -159,6 +159,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\streams\src\CreateFileHandler.cpp" />
     <ClCompile Include="..\streams\src\FileInputStream.cpp" />
     <ClCompile Include="..\streams\src\FileOutputStream.cpp" />
     <ClCompile Include="..\streams\src\MemoryInputStream.cpp" />
