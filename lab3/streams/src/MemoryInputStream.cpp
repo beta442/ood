@@ -28,8 +28,15 @@ uint8_t MemoryInputStream::ReadByte()
 	return m_iMemoryStream[m_offset++];
 }
 
+constexpr auto READ_BLOCK_FAILURE_NULLPTR_MSG = "Failed read block attempt. nullptr in _1 parameter is provided";
+
 std::streamsize MemoryInputStream::ReadBlock(void* dstBuffer, std::streamsize size)
 {
+	if (dstBuffer == nullptr)
+	{
+		throw std::ios_base::failure(READ_BLOCK_FAILURE_NULLPTR_MSG);
+	}
+
 	size = std::min(size, static_cast<std::streamsize>(m_iMemoryStream.size() - m_offset - 1));
 
 	std::copy(m_iMemoryStream.begin(), m_iMemoryStream.begin() + size, static_cast<uint8_t*>(dstBuffer));

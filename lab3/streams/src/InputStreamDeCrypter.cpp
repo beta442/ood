@@ -11,14 +11,14 @@ InputStreamDeCrypter::InputStreamDeCrypter(IInputDataStreamPtr&& inputStreamPtr,
 
 uint8_t InputStreamDeCrypter::ReadByte()
 {
-	auto byte = m_wrappee->ReadByte();
+	auto byte = m_wrappedStream->ReadByte();
 
 	return m_deCryptTable[byte];
 }
 
 std::streamsize InputStreamDeCrypter::ReadBlock(void* dstBuffer, std::streamsize size)
 {
-	auto res = m_wrappee->ReadBlock(dstBuffer, size);
+	auto res = m_wrappedStream->ReadBlock(dstBuffer, size);
 
 	std::for_each(static_cast<uint8_t*>(dstBuffer), static_cast<uint8_t*>(dstBuffer) + res, [this](auto& val) {
 		val = m_deCryptTable[val];

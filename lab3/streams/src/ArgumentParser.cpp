@@ -2,7 +2,7 @@
 
 argparse::ArgumentParser ParseArgs(int argc, char* argv[])
 {
-	argparse::ArgumentParser program("transform");
+	argparse::ArgumentParser program("transform", "0.0.1");
 
 	program.add_argument(ENCRYPT_FLAG)
 		.help("encrypts <input-file>'s content into <output-file> with provided key. May be provided multiple times")
@@ -17,6 +17,16 @@ argparse::ArgumentParser ParseArgs(int argc, char* argv[])
 		.default_value<std::vector<unsigned char>>({})
 		.scan<'d', unsigned char>()
 		.append();
+
+	program.add_argument(ÑOMPRESS_FLAG)
+		.help("compresses <input-file>'s content into <output-file>")
+		.default_value(false)
+		.implicit_value(true);
+
+	program.add_argument(DECOMPRESS_FLAG)
+		.help("decompresses <input-file>'s content into <output-file>")
+		.default_value(false)
+		.implicit_value(true);
 
 	program.add_argument(INPUT_FILE_PAR)
 		.help("source file to be transformed")

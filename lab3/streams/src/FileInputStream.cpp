@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "../include/FileInputStream.h"
 #include "../include/TryOpenFile.hpp"
 
@@ -25,10 +27,14 @@ bool FileInputStream::IsEOF() const
 
 constexpr auto READ_BYTE_FAILURE_MSG = "Failed byte read attempt";
 
+size_t count = 0;
+
 uint8_t FileInputStream::ReadByte()
 {
+	++count;
 	if (IsEOF())
 	{
+		std::cout << count << std::endl;
 		throw std::ios_base::failure(READ_BYTE_FAILURE_MSG);
 	}
 

@@ -43,6 +43,12 @@
     <Filter Include="Source Files\Stream\Decorator\Crypt">
       <UniqueIdentifier>{b22ac123-b460-4907-baf5-f5e74b44d8ce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Stream\Decorator\Compress">
+      <UniqueIdentifier>{725ac835-223d-4521-9156-01f53e688810}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Stream\Decorator\Compress">
+      <UniqueIdentifier>{1d047c22-1f08-4bd2-95e5-fa24825f758a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -77,6 +83,15 @@
     </ClCompile>
     <ClCompile Include="src\ArgumentParser.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputStreamRLEDeCompressor.cpp">
+      <Filter>Source Files\Stream\Decorator\Compress</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OutputStreamRLECompressor.cpp">
+      <Filter>Source Files\Stream\Decorator\Compress</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CreateFileHandler.cpp">
+      <Filter>Source Files\Stream</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +142,15 @@
     </ClInclude>
     <ClInclude Include="include\CreateFileHandler.h">
       <Filter>Header Files\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="include\InputStreamRLEDeCompressor.h">
+      <Filter>Header Files\Stream\Decorator\Compress</Filter>
+    </ClInclude>
+    <ClInclude Include="include\OutputStreamRLECompressor.h">
+      <Filter>Header Files\Stream\Decorator\Compress</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ByteSequenceInfo.hpp">
+      <Filter>Header Files\Stream\Decorator\Compress</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -11,7 +11,7 @@ public:
 protected:
 	InputStreamDecoratorBase(IInputDataStreamPtr&& inputStreamPtr);
 
-	IInputDataStreamPtr m_wrappee;
+	IInputDataStreamPtr m_wrappedStream;
 };
 
 #endif // !INPUT_STREAM_DECORATOR_BASE_H
