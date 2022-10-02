@@ -1,16 +1,16 @@
 #include "../include/FileInputStream.h"
-#include "../include/FileExists.hpp"
+#include "../include/TryOpenFile.hpp"
 
 FileInputStream::FileInputStream(const char* fileName)
 	: m_ifStream()
 {
-	FileExists(m_ifStream, fileName);
+	TryOpenFile(m_ifStream, fileName);
 }
 
 FileInputStream::FileInputStream(const std::string& fileName)
 	: m_ifStream()
 {
-	FileExists(m_ifStream, fileName);
+	TryOpenFile(m_ifStream, fileName);
 }
 
 FileInputStream::~FileInputStream()

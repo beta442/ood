@@ -1,12 +1,11 @@
 #include <algorithm>
 
-#include "../include/CryptTableGenerator.h"
+#include "../include/CryptTableGenerator.hpp"
 #include "../include/InputStreamDeCrypter.h"
 
 InputStreamDeCrypter::InputStreamDeCrypter(IInputDataStreamPtr&& inputStreamPtr, unsigned char key)
 	: InputStreamDecoratorBase(std::move(inputStreamPtr))
-	, m_deCryptTable(std::move(GenerateTable(key)))
-	, m_key(key)
+	, m_deCryptTable(std::move(GenerateCryptTable<CryptMode::DECRYPT>(key)))
 {
 }
 

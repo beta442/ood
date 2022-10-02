@@ -1,14 +1,14 @@
 #include "../include/FileOutputStream.h"
-#include "../include/FileExists.hpp"
+#include "../include/TryOpenFile.hpp"
 
 FileOutputStream::FileOutputStream(const char* fileName)
 {
-	FileExists(m_ofStream, fileName);
+	TryOpenFile(m_ofStream, fileName);
 }
 
 FileOutputStream::FileOutputStream(const std::string& fileName)
 {
-	FileExists(m_ofStream, fileName);
+	TryOpenFile(m_ofStream, fileName);
 }
 
 FileOutputStream::~FileOutputStream()

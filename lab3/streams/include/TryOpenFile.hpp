@@ -1,10 +1,10 @@
-#ifndef FILE_EXISTS_HPP
-#define FILE_EXISTS_HPP
+#ifndef TRY_OPEN_FILE_HPP
+#define TRY_OPEN_FILE_HPP
 
 #include <fstream>
 
-template <typename FileType, typename FileNameT>
-void FileExists(FileType& stream, FileNameT&& fileName)
+template <typename StreamT, typename FileNameT>
+void TryOpenFile(StreamT& stream, FileNameT&& fileName)
 {
 	stream.open(fileName);
 	if (!stream.is_open())
@@ -13,4 +13,4 @@ void FileExists(FileType& stream, FileNameT&& fileName)
 	}
 }
 
-#endif // !FILE_EXISTS_HPP
+#endif // !TRY_OPEN_FILE_HPP

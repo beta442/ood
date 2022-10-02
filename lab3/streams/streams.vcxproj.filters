@@ -69,8 +69,14 @@
     <ClCompile Include="src\InputStreamDeCrypter.cpp">
       <Filter>Source Files\Stream\Decorator\Crypt</Filter>
     </ClCompile>
-    <ClCompile Include="src\CryptTableGenerator.cpp">
+    <ClCompile Include="src\OutputStreamDecoratorBase.cpp">
+      <Filter>Source Files\Stream\Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OutputStreamEnCrypter.cpp">
       <Filter>Source Files\Stream\Decorator\Crypt</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ArgumentParser.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,7 +101,7 @@
     <ClInclude Include="include\MemoryOutputStream.h">
       <Filter>Header Files\Stream\Output</Filter>
     </ClInclude>
-    <ClInclude Include="include\FileExists.hpp">
+    <ClInclude Include="include\TryOpenFile.hpp">
       <Filter>Header Files\Stream</Filter>
     </ClInclude>
     <ClInclude Include="include\InputStreamDecoratorBase.h">
@@ -107,8 +113,20 @@
     <ClInclude Include="include\InputStreamDeCrypter.h">
       <Filter>Header Files\Stream\Decorator\Crypt</Filter>
     </ClInclude>
-    <ClInclude Include="include\CryptTableGenerator.h">
+    <ClInclude Include="include\CryptTableGenerator.hpp">
       <Filter>Header Files\Stream\Decorator\Crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="include\OutputStreamDecoratorBase.h">
+      <Filter>Header Files\Stream\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="include\OutputStreamEnCrypter.h">
+      <Filter>Header Files\Stream\Decorator\Crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ArgumentsParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CreateFileHandler.h">
+      <Filter>Header Files\Stream</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,31 +1,31 @@
 #include "include/pch.h"
 
-#include "include/FileInputStream.h"
-#include "include/FileOutputStream.h"
+#include "include/ArgumentsParser.h"
+#include "include/CreateFileHandler.h"
 
-#include "include/DecoratorHelpers.hpp"
-
-#include "include/InputStreamDeCrypter.h"
-
-int main(int, char*)
+int main(int argc, char* argv[])
 {
+	auto program = ParseArgs(argc, argv);
+
 	try
 	{
-		auto handler = std::make_unique<FileInputStream>("input.txt") << DecorateStream<InputStreamDeCrypter>(10) << DecorateStream<InputStreamDeCrypter>(50);
+		auto inputFileHandler = CreateInputFileHandler(program.get(INPUT_FILE_PAR), program.get<std::vector<unsigned char>>(DECRYPT_FLAG));
+		auto outputFileHandler = CreateOutputFileHandler(program.get(OUTPUT_FILE_PAR), program.get<std::vector<unsigned char>>(ENCRYPT_FLAG));
 
-		while (!handler->IsEOF())
+		while (true)
 		{
-			std::cout << handler->ReadByte() << std::endl;
+			auto byte = inputFileHandler->ReadByte();
+			if (inputFileHandler->IsEOF())
+			{
+				break;
+			}
+			outputFileHandler->WriteByte(byte);
 		}
-		/*auto des = new uint8_t[9];
-		handler->ReadBlock(des, 7);
-
-		std::copy(des, des + 9, std::ostream_iterator<uint8_t>(std::cout, "|"));
-		delete[] des;*/
 	}
-	catch (std::exception& ex)
+	catch (std::exception& e)
 	{
-		std::cout << ex.what() << std::endl;
+		std::cout << e.what() << std::endl;
+		std::exit(1);
 	}
 
 	return 0;

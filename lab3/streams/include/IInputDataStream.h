@@ -2,6 +2,7 @@
 #define IINPUTDATASTREAM_H
 
 #include <cstdint>
+#include <memory>
 #include <string>
 
 class IInputDataStream
@@ -13,5 +14,7 @@ public:
 
 	virtual ~IInputDataStream() = default;
 };
+
+using IInputDataStreamPtr = std::unique_ptr<IInputDataStream>;
 
 #endif // !IINPUTDATASTREAM_H

@@ -3,6 +3,9 @@
 
 #include <memory>
 
+namespace decorator_helpers
+{
+
 template <typename Decorator, typename... Args>
 auto DecorateStream(const Args&... args)
 {
@@ -15,6 +18,8 @@ template <typename Component, typename Decorator>
 auto operator<<(Component&& component, const Decorator& decorate)
 {
 	return decorate(std::forward<Component>(component));
+}
+
 }
 
 #endif // !DECORATOR_HELPERS_HPP

@@ -15,7 +15,6 @@ public:
 
 private:
 	std::vector<uint8_t> m_deCryptTable;
-	unsigned char m_key;
 };
 
 #endif // !INPUT_STREAM_DE_CRYPTER_H
