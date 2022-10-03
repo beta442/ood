@@ -3,7 +3,7 @@
 
 #include <boost/signals2.hpp>
 
-namespace Observer
+namespace Signal
 {
 namespace value_detail
 {
@@ -23,6 +23,8 @@ struct EqualExists
 	};
 };
 } // namespace value_detail
+
+using Connection = boost::signals2::connection;
 
 template <typename T>
 class SignallingValue
@@ -52,7 +54,7 @@ public:
 				return;
 			}
 		}
-		SetWithEmit<T>(std::forward<T>(newValue));
+		SetWithEmit(std::forward<T>(newValue));
 	}
 
 	template <typename T>
@@ -62,7 +64,7 @@ public:
 	}
 
 	template <typename Slot>
-	boost::signals2::connection Connect(Slot&& slot)
+	Connection Connect(Slot&& slot)
 	{
 		return onChange.connect(std::forward<Slot>(slot));
 	}

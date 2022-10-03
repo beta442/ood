@@ -6,7 +6,7 @@
 class WindSpeedDisplay
 {
 public:
-	WindSpeedDisplay();
+	WindSpeedDisplay(IEventInitiator* weatherData);
 	~WindSpeedDisplay();
 
 private:

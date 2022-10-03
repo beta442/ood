@@ -12,11 +12,11 @@ int main()
 {
 	WeatherData wd;
 
-	Display display;
-	SimpleDisplay simpleDisplay;
-	StatsDisplay statsDisplay;
-	WindAngleDisplay windAngleDisplay;
-	WindSpeedDisplay windSpeedDisplay;
+	Display display{ &wd };
+	SimpleDisplay simpleDisplay{ &wd };
+	StatsDisplay statsDisplay{ &wd };
+	WindAngleDisplay windAngleDisplay{ &wd };
+	WindSpeedDisplay windSpeedDisplay{ &wd };
 
 	wd.SetMeasurements(std::move(WeatherWindInfo{ 40, 370, 3, 0.7, 760 }));
 	wd.SetMeasurements(std::move(WindInfo{ 40, 370 }));

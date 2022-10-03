@@ -13,12 +13,12 @@ constexpr auto onWeatherInfoChange{
 	}
 };
 
-SimpleDisplay::SimpleDisplay()
+SimpleDisplay::SimpleDisplay(IEventInitiator* weatherData)
 {
-	EventHolder<WeatherInfo>::AddListener(onWeatherInfoChange);
+	m_unsubscriber = EventHolder<WeatherInfo>::AddListener(weatherData, onWeatherInfoChange);
 }
 
 SimpleDisplay::~SimpleDisplay()
 {
-	EventHolder<WeatherInfo>::RemoveListener(onWeatherInfoChange);
+	m_unsubscriber();
 }

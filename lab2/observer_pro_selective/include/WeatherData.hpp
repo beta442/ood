@@ -76,7 +76,7 @@ struct WeatherWindInfo
 	WindInfo windInfo{};
 };
 
-class WeatherData
+class WeatherData : public IEventInitiator
 {
 public:
 	WeatherData() = default;
@@ -88,19 +88,19 @@ public:
 		if constexpr (std::is_same<WeatherInfo, Info>::value)
 		{
 			fullInfo.weatherInfo = weatherInfo;
-			EventHolder<WeatherInfo>::NotifyListeners(std::forward<WeatherInfo>(weatherInfo));
+			EventHolder<WeatherInfo>::NotifyListeners(this, std::forward<WeatherInfo>(weatherInfo));
 		}
 		if constexpr (std::is_same<WindInfo, Info>::value)
 		{
 			fullInfo.windInfo = weatherInfo;
-			EventHolder<WindInfo>::NotifyListeners(std::forward<WindInfo>(weatherInfo));
+			EventHolder<WindInfo>::NotifyListeners(this, std::forward<WindInfo>(weatherInfo));
 		}
 		if constexpr (std::is_same<WeatherWindInfo, Info>::value)
 		{
 			fullInfo = weatherInfo;
 		}
 		m_weatherWindInfo = fullInfo;
-		EventHolder<WeatherWindInfo>::NotifyListeners(std::forward<WeatherWindInfo>(m_weatherWindInfo));
+		EventHolder<WeatherWindInfo>::NotifyListeners(this, std::forward<WeatherWindInfo>(m_weatherWindInfo));
 	}
 
 private:

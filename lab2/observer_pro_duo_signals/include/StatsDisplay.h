@@ -1,18 +1,17 @@
 #ifndef STATSDISPLAY_H
 #define STATSDISPLAY_H
 
-#include <map>
-#include <memory>
-
-#include "Observer.h"
+#include "SignallingValue.hpp"
 #include "WeatherData.hpp"
 
 class StatsDisplay
 {
 public:
-	using WeatherInfoStation = Observer::IObservable<WeatherWindInfo>;
+	StatsDisplay(WeatherData*, WeatherData*);
+	~StatsDisplay();
 
-	StatsDisplay(WeatherInfoStation& stationIn, WeatherInfoStation& stationOut);
+private:
+	Signal::Connection m_connectionStationIn, m_connectionStationOut;
 };
 
 #endif // !STATSDISPLAY_H

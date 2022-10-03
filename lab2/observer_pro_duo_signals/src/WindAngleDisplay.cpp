@@ -2,14 +2,19 @@
 
 #include "../include/WindAngleDisplay.h"
 
-constexpr auto onWindChange{
-	[](auto& _, auto& newWeatherInfo) noexcept {
-		std::cout << "Current Wind angle " << newWeatherInfo.GetWindAngle() << '\n'
-				  << "----------------" << '\n';
+constexpr auto onWindAngleChange{
+	[](auto& _, auto& windAngle) noexcept {
+		std::cout << "Current Wind angle: " << windAngle << '\n'
+				  << "---------------------------------------------\n";
 	}
 };
 
-WindAngleDisplay::WindAngleDisplay(WeatherInfoStation& stationOut)
+WindAngleDisplay::WindAngleDisplay(WeatherData* station)
 {
-	stationOut.Connect(onWindChange);
+	m_stationConnection = station->OnWindAngleChange(onWindAngleChange);
+}
+
+WindAngleDisplay::~WindAngleDisplay()
+{
+	m_stationConnection.disconnect();
 }

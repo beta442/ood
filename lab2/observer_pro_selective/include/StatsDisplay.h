@@ -8,7 +8,7 @@
 class StatsDisplay
 {
 public:
-	StatsDisplay();
+	StatsDisplay(IEventInitiator* weatherData);
 	~StatsDisplay();
 
 private:

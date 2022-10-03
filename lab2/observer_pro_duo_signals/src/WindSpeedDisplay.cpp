@@ -3,13 +3,18 @@
 #include "../include/WindSpeedDisplay.h"
 
 constexpr auto onWindSpeedChange{
-	[](auto& _, auto& newWeatherInfo) noexcept {
-		std::cout << "Current Wind speed " << newWeatherInfo.GetWindSpeed() << '\n'
-				  << "----------------" << '\n';
+	[](auto& _, auto& windSpeed) noexcept {
+		std::cout << "Current Wind speed: " << windSpeed << '\n'
+				  << "---------------------------------------------\n";
 	}
 };
 
-WindSpeedDisplay::WindSpeedDisplay(WeatherInfoStation& stationOut)
+WindSpeedDisplay::WindSpeedDisplay(WeatherData* station)
 {
-	stationOut.Connect(onWindSpeedChange);
+	m_stationConnection = station->OnWindSpeedChange(onWindSpeedChange);
+}
+
+WindSpeedDisplay::~WindSpeedDisplay()
+{
+	m_stationConnection.disconnect();
 }

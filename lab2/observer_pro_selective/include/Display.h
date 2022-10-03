@@ -6,7 +6,7 @@
 class Display
 {
 public:
-	Display();
+	Display(IEventInitiator* weatherData);
 	~Display();
 
 private:

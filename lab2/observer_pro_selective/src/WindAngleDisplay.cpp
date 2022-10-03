@@ -11,9 +11,9 @@ constexpr auto onWindInfoChange{
 	}
 };
 
-WindAngleDisplay::WindAngleDisplay()
+WindAngleDisplay::WindAngleDisplay(IEventInitiator* weatherData)
 {
-	m_unsubscriber = EventHolder<WindInfo>::AddListener(onWindInfoChange);
+	m_unsubscriber = EventHolder<WindInfo>::AddListener(weatherData, onWindInfoChange);
 }
 
 WindAngleDisplay::~WindAngleDisplay()

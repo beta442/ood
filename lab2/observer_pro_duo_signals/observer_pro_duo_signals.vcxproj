@@ -140,7 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\DisplayDuo.h" />
-    <ClInclude Include="include\Observer.h" />
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\SignallingValue.hpp" />
     <ClInclude Include="include\StatisticValueHolder.hpp" />

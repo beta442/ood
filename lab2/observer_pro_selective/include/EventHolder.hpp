@@ -6,6 +6,7 @@
 
 #include <functional>
 #include <list>
+#include <map>
 
 template <class... Ts>
 struct OverloadedLamda : Ts...
@@ -37,6 +38,12 @@ struct EqualExists
 
 using Unsubscriber = std::function<void()>;
 
+class IEventInitiator
+{
+public:
+	virtual ~IEventInitiator() = default;
+};
+
 template <typename T>
 class EventHolder
 {
@@ -45,23 +52,23 @@ public:
 	class ActionWrapper;
 
 	template <typename OnChange = Action>
-	static Unsubscriber AddListener(OnChange&& listener, bool instantNotify = false)
+	static Unsubscriber AddListener(IEventInitiator* updateInitiator, OnChange&& listener, bool instantNotify = false)
 	{
 		auto actionWrapper = ActionWrapper(std::forward<OnChange>(listener));
-		s_listeners.push_back(actionWrapper);
+		SaveListener(updateInitiator, std::forward<OnChange>(listener));
 
 		if (instantNotify)
 		{
 			listener(s_currentState);
 		}
 
-		return [aW = actionWrapper]() {
-			RemoveListener(aW);
+		return [uI = updateInitiator, aW = actionWrapper]() {
+			RemoveListener(uI, aW);
 		};
 	}
 
 	template <typename T>
-	static void NotifyListeners(T&& newState)
+	static void NotifyListeners(IEventInitiator* updateInitiator, T&& newState)
 	{
 		if constexpr (value_detail::EqualExists<T>::value)
 		{
@@ -73,7 +80,13 @@ public:
 
 		s_currentState = std::forward<T>(newState);
 
-		auto lCopy = s_listeners;
+		auto it = s_listeners.find(updateInitiator);
+		if (it == s_listeners.end())
+		{
+			return;
+		}
+		
+		auto [_, lCopy] = *it;
 		for (auto& listener : lCopy)
 		{
 			listener(s_currentState);
@@ -81,9 +94,29 @@ public:
 	}
 
 private:
-	static void RemoveListener(const ActionWrapper& listener)
+	static void RemoveListener(IEventInitiator* updateInitiator, const ActionWrapper& listener)
 	{
-		s_listeners.remove(listener);
+		auto it = s_listeners.find(updateInitiator);
+		if (it == s_listeners.end())
+		{
+			return;
+		}
+
+		auto& [_, _actionList] = *it;
+		_actionList.remove(listener);
+	}
+
+	template <typename OnChange = Action>
+	static void SaveListener(IEventInitiator* updateInitiator, OnChange&& listener)
+	{
+		auto it = s_listeners.find(updateInitiator);
+		if (it == s_listeners.end())
+		{
+			it = s_listeners.insert({ updateInitiator, ActionList() }).first;
+		}
+		
+		auto& [_, actionList] = *it;
+		actionList.emplace_back(std::forward<OnChange>(listener));
 	}
 
 	class ActionWrapper
@@ -112,8 +145,10 @@ private:
 		Action m_action;
 	};
 
+	using ActionList = std::list<ActionWrapper>;
+
 	static inline T s_currentState = T();
-	static inline std::list<ActionWrapper> s_listeners{};
+	static inline std::map<IEventInitiator*, ActionList> s_listeners{};
 };
 
 #endif // !EVENTHOLDER_HPP

@@ -2,33 +2,39 @@
 
 #include "../include/DisplayDuo.h"
 
-constexpr auto OnWeatherChange(WeatherDataStationType wdStationType)
-{
-	return [=, stationType = wdStationType](auto& _, auto& currWeatherInfo) noexcept {
-		bool isSourceOutDoors = (wdStationType == WeatherDataStationType::OUTDOORS);
-		std::cout << "WeatherInfo source type:\n"
-				  << ((stationType == WeatherDataStationType::INDOORS)
-							 ? "INDOORS"
-							 : (isSourceOutDoors)
-							 ? "OUTDOORS"
-							 : "UNKNOWN")
-				  << '\n';
+constexpr auto onWeatherChange{
+	[](auto& _, auto& currWeatherInfo) noexcept {
+		std::cout << "INDOORS\n";
 
-		std::cout << "Current Temp: " << currWeatherInfo.GetTemperature() << '\n'
-				  << "Current Hum: " << currWeatherInfo.GetHumidity() << '\n'
-				  << "Current Pressure: " << currWeatherInfo.GetPressure() << '\n';
-
-		if (isSourceOutDoors)
-		{
-			std::cout << "Current Wind angle: " << currWeatherInfo.GetWindAngle() << '\n'
-					  << "Current Wind speed: " << currWeatherInfo.GetWindSpeed() << '\n';
-		}
-		std::cout << "----------------" << '\n';
-	};
+		std::cout << "Current Temp: " << currWeatherInfo.temperature << '\n'
+				  << "Current Hum: " << currWeatherInfo.humidity << '\n'
+				  << "Current Pressure: " << currWeatherInfo.pressure << '\n'
+				  << "---------------------------------------------\n"; 
+	}
 };
 
-DisplayDuo::DisplayDuo(WeatherInfoStation& stationIn, WeatherInfoStation& stationOut)
+constexpr auto onWeatherWindChange{
+	[](auto& _, auto& currWeatherWindInfo) noexcept {
+		std::cout << "OUTDOORS\n";
+
+		std::cout << "Current Temp: " << currWeatherWindInfo.weatherInfo.temperature << '\n'
+				  << "Current Hum: " << currWeatherWindInfo.weatherInfo.humidity << '\n'
+				  << "Current Pressure: " << currWeatherWindInfo.weatherInfo.pressure << '\n';
+
+		std::cout << "Current Wind angle: " << currWeatherWindInfo.windInfo.angle << '\n'
+				  << "Current Wind speed: " << currWeatherWindInfo.windInfo.speed << '\n'
+				  << "---------------------------------------------\n";
+	}
+};
+
+DisplayDuo::DisplayDuo(WeatherData* stationIn, WeatherData* stationOut)
 {
-	stationIn.Connect(OnWeatherChange(WeatherDataStationType::INDOORS));
-	stationOut.Connect(OnWeatherChange(WeatherDataStationType::OUTDOORS));
+	m_connectionStationIn = stationIn->OnWeatherChange(onWeatherChange);
+	m_connectionStationOut = stationOut->OnWeatherWindChange(onWeatherWindChange);
+}
+
+DisplayDuo::~DisplayDuo()
+{
+	m_connectionStationIn.disconnect();
+	m_connectionStationOut.disconnect();
 }

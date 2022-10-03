@@ -1,6 +1,8 @@
 #include "../include/CryptTableGenerator.hpp"
 #include "../include/OutputStreamEnCrypter.h"
 
+#include <fstream>
+
 OutputStreamEnCrypter::OutputStreamEnCrypter(IOutputDataStreamPtr&& outputStreamPtr, unsigned char key)
 	: OutputStreamDecoratorBase(std::move(outputStreamPtr))
 	, m_enCryptTable(GenerateCryptTable(key))

@@ -25,27 +25,22 @@ struct WeatherStatistic
 
 void StatsUpdate(WeatherStatistic& stats, const WeatherWindInfo& data)
 {
-	stats.humidityStatHolder->TakeNextValue(data.GetHumidity());
-	stats.pressureStatHolder->TakeNextValue(data.GetPressure());
-	stats.temperatureStatHolder->TakeNextValue(data.GetTemperature());
+	stats.humidityStatHolder->TakeNextValue(data.weatherInfo.humidity);
+	stats.pressureStatHolder->TakeNextValue(data.weatherInfo.pressure);
+	stats.temperatureStatHolder->TakeNextValue(data.weatherInfo.pressure);
 
-	stats.windAngleHolder->TakeNextValue(data.GetWindAngle());
-	stats.windSpeedHolder->TakeNextValue(data.GetWindSpeed());
+	stats.windAngleHolder->TakeNextValue(data.windInfo.angle);
+	stats.windSpeedHolder->TakeNextValue(data.windInfo.speed);
 }
 
-const auto OnWeatherInfoChange(WeatherDataStationType wdStationType)
-{
-	return [=, weatherStats = WeatherStatistic(), wdType = wdStationType](auto& _, auto newWeatherInfo) mutable noexcept {
-		StatsUpdate(weatherStats, newWeatherInfo);
+auto onWeatherChange{
+	[weatherStats = WeatherStatistic()](auto& _, auto& newWeatherInfo) mutable noexcept {
+		std::cout << "INDOORS\n";
 
-		bool isSourceOutDoors = (wdStationType == WeatherDataStationType::OUTDOORS);
-		std::cout << "WeatherInfo source type:\n"
-				  << ((wdStationType == WeatherDataStationType::INDOORS)
-							 ? "INDOORS"
-							 : (isSourceOutDoors)
-							 ? "OUTDOORS"
-							 : "UNKNOWN")
-				  << '\n';
+		auto weatherWindInfo = WeatherWindInfo();
+		weatherWindInfo.weatherInfo = newWeatherInfo;
+
+		StatsUpdate(weatherStats, weatherWindInfo);
 
 		std::cout << "Humidity:\n"
 				  << StatHolderToString(*(weatherStats.humidityStatHolder))
@@ -53,18 +48,38 @@ const auto OnWeatherInfoChange(WeatherDataStationType wdStationType)
 				  << StatHolderToString(*(weatherStats.pressureStatHolder))
 				  << "Temperature:\n"
 				  << StatHolderToString(*(weatherStats.temperatureStatHolder))
-				  << ((isSourceOutDoors)
-							 ? ("Wind angle:\n"
-								 + WindAngleStatHolderToString(*(weatherStats.windAngleHolder))
-								 + "Wind speed:\n"
-								 + StatHolderToString(*(weatherStats.windSpeedHolder))
-								 + '\n')
-							 : "");
-	};
+				  << "---------------------------------------------\n";
+	}
+};
+
+auto onWeatherWindChange{
+	[weatherStats = WeatherStatistic()](auto& _, auto& newWeatherWindInfo) mutable noexcept {
+		std::cout << "OUTDOORS\n";
+
+		StatsUpdate(weatherStats, newWeatherWindInfo);
+
+		std::cout << "Humidity:\n"
+				  << StatHolderToString(*(weatherStats.humidityStatHolder))
+				  << "Pressure:\n"
+				  << StatHolderToString(*(weatherStats.pressureStatHolder))
+				  << "Temperature:\n"
+				  << StatHolderToString(*(weatherStats.temperatureStatHolder))
+				  << "Wind angle:\n"
+				  << WindAngleStatHolderToString(*(weatherStats.windAngleHolder))
+				  << "Wind speed:\n"
+				  << StatHolderToString(*(weatherStats.windSpeedHolder))
+				  << "---------------------------------------------\n";
+	}
+};
+
+StatsDisplay::StatsDisplay(WeatherData* stationIn, WeatherData* stationOut)
+{
+	m_connectionStationIn = stationIn->OnWeatherChange(onWeatherChange);
+	m_connectionStationOut = stationOut->OnWeatherWindChange(onWeatherWindChange);
 }
 
-StatsDisplay::StatsDisplay(WeatherInfoStation& stationIn, WeatherInfoStation& stationOut)
+StatsDisplay::~StatsDisplay()
 {
-	stationIn.Connect(OnWeatherInfoChange(WeatherDataStationType::INDOORS));
-	stationOut.Connect(OnWeatherInfoChange(WeatherDataStationType::OUTDOORS));
+	m_connectionStationIn.disconnect();
+	m_connectionStationOut.disconnect();
 }

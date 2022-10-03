@@ -1,15 +1,17 @@
 #ifndef WINDSPEEDDISPLAY_H
 #define WINDSPEEDDISPLAY_H
 
-#include "Observer.h"
+#include "SignallingValue.hpp"
 #include "../include/WeatherData.hpp"
 
 class WindSpeedDisplay
 {
 public:
-	using WeatherInfoStation = Observer::IObservable<WeatherWindInfo>;
+	WindSpeedDisplay(WeatherData*);
+	~WindSpeedDisplay();
 
-	WindSpeedDisplay(WeatherInfoStation& stationOut);
+private:
+	Signal::Connection m_stationConnection;
 };
 
 #endif // !WINDSPEEDDISPLAY_H

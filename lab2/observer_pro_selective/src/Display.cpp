@@ -15,9 +15,9 @@ constexpr auto onWeatherWindInfoChange{
 	}
 };
 
-Display::Display()
+Display::Display(IEventInitiator* weatherData)
 {
-	m_unsubscriber = EventHolder<WeatherWindInfo>::AddListener(onWeatherWindInfoChange);
+	m_unsubscriber = EventHolder<WeatherWindInfo>::AddListener(weatherData, onWeatherWindInfoChange);
 }
 
 Display::~Display()

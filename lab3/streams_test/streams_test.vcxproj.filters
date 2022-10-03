@@ -17,13 +17,22 @@
       <UniqueIdentifier>{9452b3e5-373d-436e-8d21-c35651842227}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Stream">
-      <UniqueIdentifier>{d448191e-6b8e-4546-888c-c1b9aa676bd5}</UniqueIdentifier>
+      <UniqueIdentifier>{7c641ef8-7ec2-4692-9b59-f1369c1aa773}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Stream\Input">
-      <UniqueIdentifier>{ee796356-8b3b-47b0-ba1a-90b6813d51e4}</UniqueIdentifier>
+      <UniqueIdentifier>{59a0214b-6073-4b78-b371-a95f41a6dce0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Stream\Output">
-      <UniqueIdentifier>{6e08a28d-69ce-49fb-8740-30f38b9e5505}</UniqueIdentifier>
+      <UniqueIdentifier>{c1e88a84-d9c0-41c3-a71c-44e8c4c24f73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Stream\Decorator">
+      <UniqueIdentifier>{0eecb3ca-9ce0-45e7-b7f1-9bfd3cfbc7db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Stream\Decorator\Crypt">
+      <UniqueIdentifier>{d0e23938-db02-47ed-a481-7f107c864d58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Stream\Decorator\Compress">
+      <UniqueIdentifier>{e056e729-9bca-43dd-a66c-d81f8f228cc9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +51,15 @@
     <ClCompile Include="unit\FileExists.test.cpp">
       <Filter>Source Files\Unit</Filter>
     </ClCompile>
+    <ClCompile Include="unit\MemoryInputStream.test.cpp">
+      <Filter>Source Files\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="unit\MemoryOutputStream.test.cpp">
+      <Filter>Source Files\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\streams\src\CreateFileHandler.cpp">
+      <Filter>Source Files\Stream</Filter>
+    </ClCompile>
     <ClCompile Include="..\streams\src\FileInputStream.cpp">
       <Filter>Source Files\Stream\Input</Filter>
     </ClCompile>
@@ -54,14 +72,23 @@
     <ClCompile Include="..\streams\src\MemoryOutputStream.cpp">
       <Filter>Source Files\Stream\Output</Filter>
     </ClCompile>
-    <ClCompile Include="unit\MemoryInputStream.test.cpp">
-      <Filter>Source Files\Unit</Filter>
+    <ClCompile Include="..\streams\src\InputStreamDecoratorBase.cpp">
+      <Filter>Source Files\Stream\Decorator</Filter>
     </ClCompile>
-    <ClCompile Include="unit\MemoryOutputStream.test.cpp">
-      <Filter>Source Files\Unit</Filter>
+    <ClCompile Include="..\streams\src\OutputStreamDecoratorBase.cpp">
+      <Filter>Source Files\Stream\Decorator</Filter>
     </ClCompile>
-    <ClCompile Include="..\streams\src\CreateFileHandler.cpp">
-      <Filter>Source Files\Stream</Filter>
+    <ClCompile Include="..\streams\src\InputStreamDeCrypter.cpp">
+      <Filter>Source Files\Stream\Decorator\Crypt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\streams\src\OutputStreamEnCrypter.cpp">
+      <Filter>Source Files\Stream\Decorator\Crypt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\streams\src\InputStreamRLEDeCompressor.cpp">
+      <Filter>Source Files\Stream\Decorator\Compress</Filter>
+    </ClCompile>
+    <ClCompile Include="..\streams\src\OutputStreamRLECompressor.cpp">
+      <Filter>Source Files\Stream\Decorator\Compress</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

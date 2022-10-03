@@ -1,15 +1,17 @@
 #ifndef WINDANGLEDISPLAY_H
 #define WINDANGLEDISPLAY_H
 
-#include "Observer.h"
+#include "SignallingValue.hpp"
 #include "WeatherData.hpp"
 
 class WindAngleDisplay
 {
 public:
-	using WeatherInfoStation = Observer::IObservable<WeatherWindInfo>;
+	WindAngleDisplay(WeatherData*);
+	~WindAngleDisplay();
 
-	WindAngleDisplay(WeatherInfoStation& stationOut);
+private:
+	Signal::Connection m_stationConnection;
 };
 
 #endif // !WINDANGLEDISPLAY_H

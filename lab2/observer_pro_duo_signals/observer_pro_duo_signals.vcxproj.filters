@@ -16,9 +16,6 @@
     <Filter Include="Header Files\Displays">
       <UniqueIdentifier>{9f96249b-8c95-44d6-a24c-da1e2c497d09}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Observer">
-      <UniqueIdentifier>{b9be9182-7566-44b1-8495-7d9cdbf1fe81}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\WeatherData">
       <UniqueIdentifier>{10871440-60f8-457b-b146-d9f2fe52f579}</UniqueIdentifier>
     </Filter>
@@ -36,9 +33,6 @@
     <ClInclude Include="include\StatsDisplay.h">
       <Filter>Header Files\Displays</Filter>
     </ClInclude>
-    <ClInclude Include="include\Observer.h">
-      <Filter>Header Files\Observer</Filter>
-    </ClInclude>
     <ClInclude Include="include\WeatherData.hpp">
       <Filter>Header Files\WeatherData</Filter>
     </ClInclude>
@@ -52,7 +46,7 @@
       <Filter>Header Files\Displays</Filter>
     </ClInclude>
     <ClInclude Include="include\SignallingValue.hpp">
-      <Filter>Header Files\Observer</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

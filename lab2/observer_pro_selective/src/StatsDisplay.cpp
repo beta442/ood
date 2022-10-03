@@ -4,14 +4,14 @@
 #include "../include/StatsDisplay.h"
 #include "../include/WeatherData.hpp"
 
-StatsDisplay::StatsDisplay()
+StatsDisplay::StatsDisplay(IEventInitiator* weatherData)
 	: m_humidityStatHolder(new StatisticValueHolder())
 	, m_pressureStatHolder(new StatisticValueHolder())
 	, m_temperatureStatHolder(new StatisticValueHolder())
 	, m_windAngleHolder(new WindAngleStatisticHolder())
 	, m_windSpeedHolder(new StatisticValueHolder())
 {
-	m_unsubscriber = EventHolder<WeatherWindInfo>::AddListener([this](auto& data) {
+	m_unsubscriber = EventHolder<WeatherWindInfo>::AddListener(weatherData, [this](auto& data) {
 		UpdateStatistics(data);
 	});
 }

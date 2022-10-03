@@ -23,12 +23,12 @@ void StatsDisplay::StatsUpdate(WeatherStatistic& stats, const WeatherWindInfo& d
 
 void StatsDisplay::Update(const WeatherWindInfo& data, IObservable<WeatherWindInfo>& updateSource)
 {
-	bool inDoors = &updateSource == m_inDoors;
-	bool outDoors = &updateSource == m_outDoors;
+	bool isInDoors = &updateSource == m_inDoors;
+	bool isOutDoors = &updateSource == m_outDoors;
 
-	auto& stats = m_statistics[((inDoors)
+	auto& stats = m_statistics[((isInDoors)
 			? StatisticType::INDOORS
-			: (outDoors) ? StatisticType::OUTDOORS
+			: (isOutDoors) ? StatisticType::OUTDOORS
 						 : StatisticType::UNKNOWN)];
 	StatsUpdate(stats, data);
 
@@ -38,7 +38,7 @@ void StatsDisplay::Update(const WeatherWindInfo& data, IObservable<WeatherWindIn
 			  << StatHolderToString(*(stats.pressureStatHolder))
 			  << "Temperature:\n"
 			  << StatHolderToString(*(stats.temperatureStatHolder))
-			  << ((outDoors)
+			  << ((isOutDoors)
 						 ? ("Wind angle:\n"
 							 + WindAngleStatHolderToString(*(stats.windAngleHolder))
 							 + "Wind speed:\n"

@@ -6,7 +6,7 @@
 class WindAngleDisplay
 {
 public:
-	WindAngleDisplay();
+	WindAngleDisplay(IEventInitiator* weatherData);
 	~WindAngleDisplay();
 
 private:

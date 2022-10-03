@@ -14,17 +14,14 @@ int main()
 	WeatherData wdIn;
 	WeatherData wdOut;
 
-	DisplayDuo display{ wdIn, wdOut };
-	StatsDisplay statsDisplay{ wdIn, wdOut };
+	DisplayDuo display{ &wdIn, &wdOut };
+	StatsDisplay statsDisplay{ &wdIn, &wdOut };
 
-	WindSpeedDisplay windSpeedDisplay{ wdOut };
-	WindAngleDisplay windAngleDisplay{ wdOut };
+	WindSpeedDisplay windSpeedDisplay{ &wdOut };
+	WindAngleDisplay windAngleDisplay{ &wdOut };
 
-	/*WeatherWindInfo w1, w2;
-	w1 != w2;*/
-
-	wdIn.SetMeasurements({ 3, 0.7, 760 });
-	wdIn.SetMeasurements({ 3, 0.7, 760 });
+	wdIn.SetMeasurements<WeatherInfo>({ 3, 0.7, 760 });
+	wdIn.SetMeasurements<WeatherInfo>({ 3, 0.7, 760 });
 	wdOut.SetMeasurements({ 40, 355, 3, 0.7, 760 });
 	wdOut.SetMeasurements({ 900, 359, 3, 0.7, 760 });
 
