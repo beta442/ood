@@ -58,14 +58,13 @@ BOOST_AUTO_TEST_SUITE(MemoryInputStreamTests)
 		const std::vector<uint8_t> initialV = { 70, 71, 72, 73, 74, 75, 76, 77, 78 };
 		MemoryInputStream mS(initialV);
 		const auto size = 20, expectedSize = 9;
-		uint8_t* dest = new uint8_t[size];
+		uint8_t dest[size]{};
 
 		BOOST_CHECK(mS.ReadBlock(dest, size) == expectedSize);
 		std::for_each(initialV.begin(), initialV.end(), [&, counter = 0](auto& val) mutable noexcept {
 			BOOST_CHECK(val == dest[counter++]);
 		});
 		BOOST_CHECK(mS.IsEOF());
-		delete[] dest;
 	}
 
 BOOST_AUTO_TEST_SUITE_END();

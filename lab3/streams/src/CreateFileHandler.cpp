@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "../include/CreateFileHandler.h"
 
 #include "../include/DecoratorHelpers.hpp"
@@ -38,9 +40,9 @@ IOutputDataStreamPtr CreateOutputFileHandler(const std::string& fileName, const 
 
 		using namespace decorator_helpers;
 
-		for (auto& key : enCryptKeys)
+		for (auto it = enCryptKeys.crbegin(), endIt = enCryptKeys.crend(); it != endIt; ++it)
 		{
-			handler = std::move((std::move(handler) << DecorateStream<OutputStreamEnCrypter>(key)));
+			handler = std::move((std::move(handler) << DecorateStream<OutputStreamEnCrypter>(*it)));
 		}
 
 		if (compress)

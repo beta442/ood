@@ -17,25 +17,25 @@
       <UniqueIdentifier>{9452b3e5-373d-436e-8d21-c35651842227}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Stream">
-      <UniqueIdentifier>{7c641ef8-7ec2-4692-9b59-f1369c1aa773}</UniqueIdentifier>
+      <UniqueIdentifier>{8c38d7a4-688f-470a-9998-a548a1ff56ac}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Stream\Input">
-      <UniqueIdentifier>{59a0214b-6073-4b78-b371-a95f41a6dce0}</UniqueIdentifier>
+      <UniqueIdentifier>{022cef5b-e92a-4dc3-964d-009f0831eedd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Stream\Output">
-      <UniqueIdentifier>{c1e88a84-d9c0-41c3-a71c-44e8c4c24f73}</UniqueIdentifier>
+      <UniqueIdentifier>{405ddac4-fc8b-43ce-8a9e-58f757d1ffea}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Stream\Decorator">
-      <UniqueIdentifier>{0eecb3ca-9ce0-45e7-b7f1-9bfd3cfbc7db}</UniqueIdentifier>
+      <UniqueIdentifier>{a28b9616-c6f7-44ba-8e71-a1f3008dfe44}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Stream\Decorator\Crypt">
-      <UniqueIdentifier>{d0e23938-db02-47ed-a481-7f107c864d58}</UniqueIdentifier>
+      <UniqueIdentifier>{a006797c-ec45-4cc9-924a-6bf2b93fbf96}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Stream\Decorator\Compress">
-      <UniqueIdentifier>{e056e729-9bca-43dd-a66c-d81f8f228cc9}</UniqueIdentifier>
+      <UniqueIdentifier>{cb7a47d6-d051-460f-9f10-8cebab9af2d3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Stream\StreamHelpers">
-      <UniqueIdentifier>{235b7f80-5d76-4fcc-9017-403dbeff1de3}</UniqueIdentifier>
+      <UniqueIdentifier>{4090827d-7637-4972-9ba5-6911f4c9c3ed}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +60,12 @@
     <ClCompile Include="unit\MemoryOutputStream.test.cpp">
       <Filter>Source Files\Unit</Filter>
     </ClCompile>
+    <ClCompile Include="unit\FileInputStreamDeCrypted.test.cpp">
+      <Filter>Source Files\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\streams\src\InputStreamBase.cpp">
+      <Filter>Source Files\Stream\Input</Filter>
+    </ClCompile>
     <ClCompile Include="..\streams\src\FileInputStream.cpp">
       <Filter>Source Files\Stream\Input</Filter>
     </ClCompile>
@@ -70,6 +76,9 @@
       <Filter>Source Files\Stream\Output</Filter>
     </ClCompile>
     <ClCompile Include="..\streams\src\MemoryOutputStream.cpp">
+      <Filter>Source Files\Stream\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\streams\src\OutputStreamBase.cpp">
       <Filter>Source Files\Stream\Output</Filter>
     </ClCompile>
     <ClCompile Include="..\streams\src\InputStreamDecoratorBase.cpp">
@@ -90,14 +99,14 @@
     <ClCompile Include="..\streams\src\OutputStreamRLECompressor.cpp">
       <Filter>Source Files\Stream\Decorator\Compress</Filter>
     </ClCompile>
-    <ClCompile Include="..\streams\src\InputStreamBase.cpp">
-      <Filter>Source Files\Stream\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="..\streams\src\OutputStreamBase.cpp">
-      <Filter>Source Files\Stream\Output</Filter>
-    </ClCompile>
     <ClCompile Include="..\streams\src\CreateFileHandler.cpp">
       <Filter>Source Files\Stream\StreamHelpers</Filter>
+    </ClCompile>
+    <ClCompile Include="unit\WritingReadingCrpyt.test.cpp">
+      <Filter>Source Files\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="unit\WritingReadingCompress.test.cpp">
+      <Filter>Source Files\Unit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

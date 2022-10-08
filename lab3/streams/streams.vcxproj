@@ -191,6 +191,11 @@
     <ClInclude Include="include\MemoryOutputStream.h" />
     <ClInclude Include="include\pch.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\streams_test\streams_test.vcxproj">
+      <Project>{c8b1d65f-4acb-41f7-89f6-0c7e52f4d9cf}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

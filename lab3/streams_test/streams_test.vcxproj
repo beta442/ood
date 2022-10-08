@@ -86,8 +86,9 @@
       <AdditionalLibraryDirectories>$(BOOST_DIR)\stage\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>$(TargetPath)</Command>
+      <Message>
+      </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -110,8 +111,9 @@
       <AdditionalLibraryDirectories>$(BOOST_DIR)\stage\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>$(TargetPath)</Command>
+      <Message>
+      </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -130,8 +132,9 @@
       <AdditionalLibraryDirectories>$(BOOST_DIR)\stage\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>$(TargetPath)</Command>
+      <Message>
+      </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -154,8 +157,9 @@
       <AdditionalLibraryDirectories>$(BOOST_DIR)\stage\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>$(TargetPath)</Command>
+      <Message>
+      </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -176,7 +180,10 @@
     <ClCompile Include="main.test.cpp" />
     <ClCompile Include="unit\FileExists.test.cpp" />
     <ClCompile Include="unit\FileInputStream.test.cpp" />
+    <ClCompile Include="unit\FileInputStreamDeCrypted.test.cpp" />
     <ClCompile Include="unit\FileOutputStream.test.cpp" />
+    <ClCompile Include="unit\WritingReadingCompress.test.cpp" />
+    <ClCompile Include="unit\WritingReadingCrpyt.test.cpp" />
     <ClCompile Include="unit\MemoryInputStream.test.cpp" />
     <ClCompile Include="unit\MemoryOutputStream.test.cpp" />
   </ItemGroup>
