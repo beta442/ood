@@ -2,16 +2,16 @@
 
 #include "../include/WindSpeedDisplay.h"
 
-constexpr auto onWindSpeedChange{
-	[](auto& _, auto& windSpeed) noexcept {
-		std::cout << "Current Wind speed: " << windSpeed << '\n'
+constexpr auto onWeatherWindChange{
+	[](auto& _, auto& data) noexcept {
+		std::cout << "Current Wind speed: " << data.windInfo.speed << '\n'
 				  << "---------------------------------------------\n";
 	}
 };
 
 WindSpeedDisplay::WindSpeedDisplay(WeatherData* station)
 {
-	m_stationConnection = station->OnWindSpeedChange(onWindSpeedChange);
+	m_stationConnection = station->OnWeatherWindChange(onWeatherWindChange);
 }
 
 WindSpeedDisplay::~WindSpeedDisplay()

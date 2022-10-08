@@ -6,9 +6,9 @@ constexpr auto onWeatherChange{
 	[](auto& _, auto& currWeatherInfo) noexcept {
 		std::cout << "INDOORS\n";
 
-		std::cout << "Current Temp: " << currWeatherInfo.temperature << '\n'
-				  << "Current Hum: " << currWeatherInfo.humidity << '\n'
-				  << "Current Pressure: " << currWeatherInfo.pressure << '\n'
+		std::cout << "Current Temp: " << currWeatherInfo.weatherInfo.temperature << '\n'
+				  << "Current Hum: " << currWeatherInfo.weatherInfo.humidity << '\n'
+				  << "Current Pressure: " << currWeatherInfo.weatherInfo.pressure << '\n'
 				  << "---------------------------------------------\n"; 
 	}
 };
@@ -29,7 +29,7 @@ constexpr auto onWeatherWindChange{
 
 DisplayDuo::DisplayDuo(WeatherData* stationIn, WeatherData* stationOut)
 {
-	m_connectionStationIn = stationIn->OnWeatherChange(onWeatherChange);
+	m_connectionStationIn = stationIn->OnWeatherWindChange(onWeatherChange);
 	m_connectionStationOut = stationOut->OnWeatherWindChange(onWeatherWindChange);
 }
 

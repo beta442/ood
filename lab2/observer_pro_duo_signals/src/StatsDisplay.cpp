@@ -37,10 +37,7 @@ auto onWeatherChange{
 	[weatherStats = WeatherStatistic()](auto& _, auto& newWeatherInfo) mutable noexcept {
 		std::cout << "INDOORS\n";
 
-		auto weatherWindInfo = WeatherWindInfo();
-		weatherWindInfo.weatherInfo = newWeatherInfo;
-
-		StatsUpdate(weatherStats, weatherWindInfo);
+		StatsUpdate(weatherStats, newWeatherInfo);
 
 		std::cout << "Humidity:\n"
 				  << StatHolderToString(*(weatherStats.humidityStatHolder))
@@ -74,7 +71,7 @@ auto onWeatherWindChange{
 
 StatsDisplay::StatsDisplay(WeatherData* stationIn, WeatherData* stationOut)
 {
-	m_connectionStationIn = stationIn->OnWeatherChange(onWeatherChange);
+	m_connectionStationIn = stationIn->OnWeatherWindChange(onWeatherChange);
 	m_connectionStationOut = stationOut->OnWeatherWindChange(onWeatherWindChange);
 }
 
