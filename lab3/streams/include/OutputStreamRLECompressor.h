@@ -10,10 +10,11 @@ public:
 	OutputStreamRLECompressor(IOutputDataStreamPtr&& outputStreamPtr);
 	~OutputStreamRLECompressor();
 
-	void WriteByte(uint8_t data) override;
-	void WriteBlock(const void* srcData, std::streamsize size) override;
+	void WriteByte(uint8_t data) final;
 
 private:
+	void DerivedWriteBlock(const void* srcData, std::streamsize) final;
+
 	void Flush();
 
 	ByteSequenceInfo m_byteSequenceInfo;

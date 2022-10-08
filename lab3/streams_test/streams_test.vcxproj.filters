@@ -34,6 +34,9 @@
     <Filter Include="Source Files\Stream\Decorator\Compress">
       <UniqueIdentifier>{e056e729-9bca-43dd-a66c-d81f8f228cc9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Stream\StreamHelpers">
+      <UniqueIdentifier>{235b7f80-5d76-4fcc-9017-403dbeff1de3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.test.cpp">
@@ -56,9 +59,6 @@
     </ClCompile>
     <ClCompile Include="unit\MemoryOutputStream.test.cpp">
       <Filter>Source Files\Unit</Filter>
-    </ClCompile>
-    <ClCompile Include="..\streams\src\CreateFileHandler.cpp">
-      <Filter>Source Files\Stream</Filter>
     </ClCompile>
     <ClCompile Include="..\streams\src\FileInputStream.cpp">
       <Filter>Source Files\Stream\Input</Filter>
@@ -89,6 +89,15 @@
     </ClCompile>
     <ClCompile Include="..\streams\src\OutputStreamRLECompressor.cpp">
       <Filter>Source Files\Stream\Decorator\Compress</Filter>
+    </ClCompile>
+    <ClCompile Include="..\streams\src\InputStreamBase.cpp">
+      <Filter>Source Files\Stream\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\streams\src\OutputStreamBase.cpp">
+      <Filter>Source Files\Stream\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\streams\src\CreateFileHandler.cpp">
+      <Filter>Source Files\Stream\StreamHelpers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

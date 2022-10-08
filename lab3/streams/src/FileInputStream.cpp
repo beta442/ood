@@ -4,7 +4,8 @@
 #include "../include/TryOpenFile.hpp"
 
 FileInputStream::FileInputStream(const char* fileName)
-	: m_ifStream()
+	: InputStreamBase()
+	, m_ifStream()
 {
 	TryOpenFile(m_ifStream, fileName);
 }
@@ -27,17 +28,8 @@ bool FileInputStream::IsEOF() const
 
 constexpr auto READ_BYTE_FAILURE_MSG = "Failed byte read attempt";
 
-size_t count = 0;
-
-uint8_t FileInputStream::ReadByte()
+uint8_t FileInputStream::DerivedReadByte()
 {
-	++count;
-	if (IsEOF())
-	{
-		std::cout << count << std::endl;
-		throw std::ios_base::failure(READ_BYTE_FAILURE_MSG);
-	}
-
 	uint8_t byte;
 	try
 	{
@@ -51,15 +43,9 @@ uint8_t FileInputStream::ReadByte()
 }
 
 constexpr auto READ_BLOCK_FAILURE_MSG = "Failed read block attempt";
-constexpr auto READ_BLOCK_FAILURE_NULLPTR_MSG = "Failed read block attempt. nullptr in _1 parameter is provided";
 
-std::streamsize FileInputStream::ReadBlock(void* dstBuffer, std::streamsize size)
+std::streamsize FileInputStream::DerivedReadBlock(void* dstBuffer, std::streamsize size)
 {
-	if (dstBuffer == nullptr)
-	{
-		throw std::ios_base::failure(READ_BLOCK_FAILURE_NULLPTR_MSG);
-	}
-
 	try
 	{
 		m_ifStream.read(static_cast<char*>(dstBuffer), size);

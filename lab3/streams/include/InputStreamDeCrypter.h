@@ -10,10 +10,10 @@ class InputStreamDeCrypter : public InputStreamDecoratorBase
 public:
 	InputStreamDeCrypter(IInputDataStreamPtr&& inputStreamPtr, unsigned char key);
 
-	uint8_t ReadByte() override;
-	std::streamsize ReadBlock(void* dstBuffer, std::streamsize size) override;
-
 private:
+	uint8_t DerivedReadByte() final;
+	std::streamsize DerivedReadBlock(void* dstBuffer, std::streamsize size) final;
+
 	std::vector<uint8_t> m_deCryptTable;
 };
 

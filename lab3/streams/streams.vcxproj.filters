@@ -49,6 +49,12 @@
     <Filter Include="Source Files\Stream\Decorator\Compress">
       <UniqueIdentifier>{1d047c22-1f08-4bd2-95e5-fa24825f758a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Stream\StreamHelpers">
+      <UniqueIdentifier>{2d626d79-5b86-48f8-9907-3f1f798b9b51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Stream\StreamHelpers">
+      <UniqueIdentifier>{2c072a1e-53e0-4559-91ce-a5f5b50f379a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -69,14 +75,8 @@
     <ClCompile Include="src\MemoryOutputStream.cpp">
       <Filter>Source Files\Stream\Output</Filter>
     </ClCompile>
-    <ClCompile Include="src\InputStreamDecoratorBase.cpp">
-      <Filter>Source Files\Stream\Decorator</Filter>
-    </ClCompile>
     <ClCompile Include="src\InputStreamDeCrypter.cpp">
       <Filter>Source Files\Stream\Decorator\Crypt</Filter>
-    </ClCompile>
-    <ClCompile Include="src\OutputStreamDecoratorBase.cpp">
-      <Filter>Source Files\Stream\Decorator</Filter>
     </ClCompile>
     <ClCompile Include="src\OutputStreamEnCrypter.cpp">
       <Filter>Source Files\Stream\Decorator\Crypt</Filter>
@@ -90,8 +90,20 @@
     <ClCompile Include="src\OutputStreamRLECompressor.cpp">
       <Filter>Source Files\Stream\Decorator\Compress</Filter>
     </ClCompile>
+    <ClCompile Include="src\InputStreamDecoratorBase.cpp">
+      <Filter>Source Files\Stream\Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OutputStreamDecoratorBase.cpp">
+      <Filter>Source Files\Stream\Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputStreamBase.cpp">
+      <Filter>Source Files\Stream\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OutputStreamBase.cpp">
+      <Filter>Source Files\Stream\Output</Filter>
+    </ClCompile>
     <ClCompile Include="src\CreateFileHandler.cpp">
-      <Filter>Source Files\Stream</Filter>
+      <Filter>Source Files\Stream\StreamHelpers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,9 +128,6 @@
     <ClInclude Include="include\MemoryOutputStream.h">
       <Filter>Header Files\Stream\Output</Filter>
     </ClInclude>
-    <ClInclude Include="include\TryOpenFile.hpp">
-      <Filter>Header Files\Stream</Filter>
-    </ClInclude>
     <ClInclude Include="include\InputStreamDecoratorBase.h">
       <Filter>Header Files\Stream\Decorator</Filter>
     </ClInclude>
@@ -140,9 +149,6 @@
     <ClInclude Include="include\ArgumentsParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\CreateFileHandler.h">
-      <Filter>Header Files\Stream</Filter>
-    </ClInclude>
     <ClInclude Include="include\InputStreamRLEDeCompressor.h">
       <Filter>Header Files\Stream\Decorator\Compress</Filter>
     </ClInclude>
@@ -151,6 +157,18 @@
     </ClInclude>
     <ClInclude Include="include\ByteSequenceInfo.hpp">
       <Filter>Header Files\Stream\Decorator\Compress</Filter>
+    </ClInclude>
+    <ClInclude Include="include\InputStreamBase.h">
+      <Filter>Header Files\Stream\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="include\OutputStreamBase.h">
+      <Filter>Header Files\Stream\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TryOpenFile.hpp">
+      <Filter>Header Files\Stream\StreamHelpers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CreateFileHandler.h">
+      <Filter>Header Files\Stream\StreamHelpers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

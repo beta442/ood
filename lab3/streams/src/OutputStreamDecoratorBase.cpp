@@ -1,6 +1,9 @@
+#include <ios>
+
 #include "../include/OutputStreamDecoratorBase.h"
 
 OutputStreamDecoratorBase::OutputStreamDecoratorBase(IOutputDataStreamPtr&& outputStreamPtr)
-	: m_wrappedStream(std::move(outputStreamPtr))
+	: OutputStreamBase()
+	, m_wrappedStream(std::move(outputStreamPtr))
 {
 }

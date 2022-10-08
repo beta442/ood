@@ -1,7 +1,10 @@
+#include <ios>
+
 #include "../include/InputStreamDecoratorBase.h"
 
 InputStreamDecoratorBase::InputStreamDecoratorBase(IInputDataStreamPtr&& inputStreamPtr)
-	: m_wrappedStream(std::move(inputStreamPtr))
+	: InputStreamBase()
+	, m_wrappedStream(std::move(inputStreamPtr))
 {
 }
 

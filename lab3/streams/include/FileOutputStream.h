@@ -3,9 +3,9 @@
 
 #include <fstream>
 
-#include "IOutputDataStream.h"
+#include "OutputStreamBase.h"
 
-class FileOutputStream : public IOutputDataStream
+class FileOutputStream : public OutputStreamBase
 {
 public:
 	explicit FileOutputStream(const char* fileName);
@@ -15,10 +15,11 @@ public:
 	FileOutputStream(const FileOutputStream&) = delete;
 	FileOutputStream(FileOutputStream&&) = delete;
 
-	void WriteByte(uint8_t data);
-	void WriteBlock(const void* srcData, std::streamsize size);
+	void WriteByte(uint8_t data) final;
 
 private:
+	void DerivedWriteBlock(const void* srcData, std::streamsize size) final;
+
 	std::ofstream m_ofStream;
 };
 

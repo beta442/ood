@@ -3,9 +3,9 @@
 
 #include <vector>
 
-#include "IOutputDataStream.h"
+#include "OutputStreamBase.h"
 
-class MemoryOutputStream : public IOutputDataStream
+class MemoryOutputStream : public OutputStreamBase
 {
 public:
 	MemoryOutputStream();
@@ -13,10 +13,11 @@ public:
 	MemoryOutputStream(const MemoryOutputStream&) = delete;
 	MemoryOutputStream(MemoryOutputStream&&) = delete;
 
-	void WriteByte(uint8_t data);
-	void WriteBlock(const void* srcData, std::streamsize size);
+	void WriteByte(uint8_t data) final;
 
 private:
+	void DerivedWriteBlock(const void* srcData, std::streamsize size) final;
+
 	std::vector<uint8_t> m_oMemoryStream;
 };
 

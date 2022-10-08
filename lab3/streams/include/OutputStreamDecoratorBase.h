@@ -1,9 +1,9 @@
 #ifndef OUTPUT_STREAM_DECORATOR_BASE_H
 #define OUTPUT_STREAM_DECORATOR_BASE_H
 
-#include "IOutputDataStream.h"
+#include "OutputStreamBase.h"
 
-class OutputStreamDecoratorBase : public IOutputDataStream
+class OutputStreamDecoratorBase : public OutputStreamBase
 {
 protected:
 	OutputStreamDecoratorBase(IOutputDataStreamPtr&& outputStreamPtr);

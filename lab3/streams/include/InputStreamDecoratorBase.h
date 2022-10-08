@@ -1,12 +1,12 @@
 #ifndef INPUT_STREAM_DECORATOR_BASE_H
 #define INPUT_STREAM_DECORATOR_BASE_H
 
-#include "IInputDataStream.h"
+#include "InputStreamBase.h"
 
-class InputStreamDecoratorBase : public IInputDataStream
+class InputStreamDecoratorBase : public InputStreamBase
 {
 public:
-	bool IsEOF() const override;
+	bool IsEOF() const final;
 
 protected:
 	InputStreamDecoratorBase(IInputDataStreamPtr&& inputStreamPtr);

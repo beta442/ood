@@ -1,5 +1,3 @@
-#include <ios>
-
 #include "../include/OutputStreamRLECompressor.h"
 
 OutputStreamRLECompressor::OutputStreamRLECompressor(IOutputDataStreamPtr&& outputStreamPtr)
@@ -32,15 +30,8 @@ void OutputStreamRLECompressor::WriteByte(uint8_t data)
 	m_byteSequenceInfo = { 1, data };
 }
 
-constexpr auto WRITE_BLOCK_FAILURE_NULLPTR_MSG = "Failed write block attempt. nullptr in _1 parameter is provided";
-
-void OutputStreamRLECompressor::WriteBlock(const void* srcData, std::streamsize size)
+void OutputStreamRLECompressor::DerivedWriteBlock(const void* srcData, std::streamsize size)
 {
-	if (srcData == nullptr)
-	{
-		throw std::ios_base::failure(WRITE_BLOCK_FAILURE_NULLPTR_MSG);
-	}
-
 	auto buffer = static_cast<const uint8_t*>(srcData);
 
 	for (std::streamsize index = 0; index < size; ++index)

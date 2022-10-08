@@ -155,6 +155,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\ArgumentParser.cpp" />
     <ClCompile Include="src\CreateFileHandler.cpp" />
+    <ClCompile Include="src\InputStreamBase.cpp" />
     <ClCompile Include="src\InputStreamRLEDeCompressor.cpp" />
     <ClCompile Include="src\InputStreamDeCrypter.cpp" />
     <ClCompile Include="src\FileInputStream.cpp" />
@@ -162,6 +163,7 @@
     <ClCompile Include="src\InputStreamDecoratorBase.cpp" />
     <ClCompile Include="src\MemoryInputStream.cpp" />
     <ClCompile Include="src\MemoryOutputStream.cpp" />
+    <ClCompile Include="src\OutputStreamBase.cpp" />
     <ClCompile Include="src\OutputStreamDecoratorBase.cpp" />
     <ClCompile Include="src\OutputStreamEnCrypter.cpp" />
     <ClCompile Include="src\OutputStreamRLECompressor.cpp" />
@@ -172,8 +174,10 @@
     <ClInclude Include="include\CreateFileHandler.h" />
     <ClInclude Include="include\CryptTableGenerator.hpp" />
     <ClInclude Include="include\DecoratorHelpers.hpp" />
+    <ClInclude Include="include\InputStreamBase.h" />
     <ClInclude Include="include\InputStreamRLEDeCompressor.h" />
     <ClInclude Include="include\InputStreamDeCrypter.h" />
+    <ClInclude Include="include\OutputStreamBase.h" />
     <ClInclude Include="include\OutputStreamDecoratorBase.h" />
     <ClInclude Include="include\OutputStreamEnCrypter.h" />
     <ClInclude Include="include\OutputStreamRLECompressor.h" />

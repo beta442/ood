@@ -32,4 +32,13 @@ BOOST_AUTO_TEST_SUITE(FileOutputStreamTests)
 		handler.WriteBlock(block, blockSizeTwice);
 	}
 
+	BOOST_AUTO_TEST_CASE(Write_from_nullptr_test)
+	{
+		auto handler = FileOutputStream{ TEST_FILE_NAME };
+		const auto blockSize = 10;
+		const char* block = nullptr;
+
+		BOOST_CHECK_THROW(handler.WriteBlock(block, blockSize), std::ios_base::failure);
+	}
+
 BOOST_AUTO_TEST_SUITE_END();

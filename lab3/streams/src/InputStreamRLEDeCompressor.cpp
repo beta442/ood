@@ -1,16 +1,14 @@
 #include "../include/InputStreamRLEDeCompressor.h"
 
-#include <ios>
-
 InputStreamRLEDeCompressor::InputStreamRLEDeCompressor(IInputDataStreamPtr&& inputStreamPtr)
 	: InputStreamDecoratorBase(std::move(inputStreamPtr))
 	, m_byteSequenceInfo()
 {
 }
 
-uint8_t InputStreamRLEDeCompressor::ReadByte()
+uint8_t InputStreamRLEDeCompressor::DerivedReadByte()
 {
-	if (m_byteSequenceInfo.size == 0 && m_wrappedStream->IsEOF() == false)
+	if (m_byteSequenceInfo.size == 0)
 	{
 		m_byteSequenceInfo.size = m_wrappedStream->ReadByte();
 		if (m_wrappedStream->IsEOF() == false)
@@ -24,15 +22,8 @@ uint8_t InputStreamRLEDeCompressor::ReadByte()
 	return m_byteSequenceInfo.byte;
 }
 
-constexpr auto READ_BLOCK_FAILURE_NULLPTR_MSG = "Failed read block attempt. nullptr in _1 parameter is provided";
-
-std::streamsize InputStreamRLEDeCompressor::ReadBlock(void* dstBuffer, std::streamsize size)
+std::streamsize InputStreamRLEDeCompressor::DerivedReadBlock(void* dstBuffer, std::streamsize size)
 {
-	if (dstBuffer == nullptr)
-	{
-		throw std::ios_base::failure(READ_BLOCK_FAILURE_NULLPTR_MSG);
-	}
-
 	auto buffer = static_cast<uint8_t*>(dstBuffer);
 
 	for (std::streamsize i = 0; i < size; ++i, ++buffer)
