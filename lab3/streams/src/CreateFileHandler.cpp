@@ -15,14 +15,14 @@ IInputDataStreamPtr CreateInputFileHandler(const std::string& fileName, const st
 
 		using namespace decorator_helpers;
 
-		for (auto& key : deCryptKeys)
-		{
-			handler = std::move((std::move(handler) << DecorateStream<InputStreamDeCrypter>(key)));
-		}
-
 		if (deCompress)
 		{
 			handler = std::move((std::move(handler) << DecorateStream<InputStreamRLEDeCompressor>()));
+		}
+
+		for (auto& key : deCryptKeys)
+		{
+			handler = std::move((std::move(handler) << DecorateStream<InputStreamDeCrypter>(key)));
 		}
 
 		return handler;
