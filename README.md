@@ -5,4 +5,5 @@
 1. Strategy
 2. Observer
 3. Decorator
-4. Command
+4. Factory
+5. Command
