@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 	auto decryptKeys = program.get<std::vector<unsigned char>>(DECRYPT_FLAG);
 	auto encryptKeys = program.get<std::vector<unsigned char>>(ENCRYPT_FLAG);
 
-	bool shouldCompress = program.get<bool>(ÑOMPRESS_FLAG);
+	bool shouldCompress = program.get<bool>(COMPRESS_FLAG);
 	bool shouldDeCompress = program.get<bool>(DECOMPRESS_FLAG);
 
 	try
