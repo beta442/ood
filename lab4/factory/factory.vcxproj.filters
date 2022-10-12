@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Shapes">
+      <UniqueIdentifier>{3b104639-bdff-4a4d-bed1-2ea0f690b91c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Canvas">
+      <UniqueIdentifier>{60cc2c6d-6360-4372-8b01-6ef176e3d9b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shapes">
+      <UniqueIdentifier>{c1ee77ff-e870-493d-b4eb-14f01d5d4d06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shapes\ConcreteShapes">
+      <UniqueIdentifier>{9388acf5-fcbb-41b9-9f96-2bd76fa2b466}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shapes\ConcreteShapes">
+      <UniqueIdentifier>{1dd0d8b6-7e68-4c8e-9f89-49b8113bf6a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shapes\Common">
+      <UniqueIdentifier>{69029a81-a598-48ff-ace2-9d0b7ecf04c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shapes\Util">
+      <UniqueIdentifier>{4de1334f-a8c9-4bcc-b0cf-54242c71f756}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shape\Shape.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shape\Rectangle.cpp">
+      <Filter>Source Files\Shapes\ConcreteShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shape\Triangle.cpp">
+      <Filter>Source Files\Shapes\ConcreteShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shape\Ellipse.cpp">
+      <Filter>Source Files\Shapes\ConcreteShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shape\RegularPolygon.cpp">
+      <Filter>Source Files\Shapes\ConcreteShapes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IDesigner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Canvas\ICanvas.h">
+      <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shapes\Shape.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shapes\IShape.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shapes\Rectangle.h">
+      <Filter>Header Files\Shapes\ConcreteShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shapes\Triangle.h">
+      <Filter>Header Files\Shapes\ConcreteShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shapes\Ellipse.h">
+      <Filter>Header Files\Shapes\ConcreteShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shapes\RegularPolygon.h">
+      <Filter>Header Files\Shapes\ConcreteShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shapes\Color.h">
+      <Filter>Header Files\Shapes\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shapes\Point.hpp">
+      <Filter>Header Files\Shapes\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shapes\RegularPolygonChecker.hpp">
+      <Filter>Header Files\Shapes\Util</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
