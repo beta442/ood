@@ -78,6 +78,8 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -94,6 +96,8 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -110,6 +114,8 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,6 +132,8 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,9 +143,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\Draft\PictureDraft.h" />
     <ClCompile Include="include\pch.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Designer\Designer.cpp" />
+    <ClCompile Include="src\Draft\PictureDraft.cpp" />
+    <ClCompile Include="src\Painter\Painter.cpp" />
     <ClCompile Include="src\Shape\Ellipse.cpp" />
+    <ClCompile Include="src\Shape\Factory\ShapeFactory.cpp" />
     <ClCompile Include="src\Shape\Rectangle.cpp" />
     <ClCompile Include="src\Shape\RegularPolygon.cpp" />
     <ClCompile Include="src\Shape\Shape.cpp" />
@@ -145,17 +158,23 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Canvas\ICanvas.h" />
-    <ClInclude Include="include\IDesigner.h" />
+    <ClInclude Include="include\Designer\Designer.h" />
+    <ClInclude Include="include\Designer\IDesigner.h" />
+    <ClInclude Include="include\Painter\Painter.h" />
     <ClInclude Include="include\pch.h" />
-    <ClInclude Include="include\Shapes\Color.h" />
+    <ClInclude Include="include\Shapes\Color.hpp" />
     <ClInclude Include="include\Shapes\Ellipse.h" />
+    <ClInclude Include="include\Shapes\Factory\ShapeFactory.h" />
+    <ClInclude Include="include\Shapes\Factory\IShapeFactory.h" />
     <ClInclude Include="include\Shapes\IShape.h" />
     <ClInclude Include="include\Shapes\Point.hpp" />
     <ClInclude Include="include\Shapes\Rectangle.h" />
     <ClInclude Include="include\Shapes\RegularPolygon.h" />
     <ClInclude Include="include\Shapes\RegularPolygonChecker.hpp" />
     <ClInclude Include="include\Shapes\Shape.h" />
+    <ClInclude Include="include\Shapes\ShapeType.hpp" />
     <ClInclude Include="include\Shapes\Triangle.h" />
+    <ClInclude Include="include\utility\IEqualString.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

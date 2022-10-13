@@ -34,6 +34,33 @@
     <Filter Include="Header Files\Shapes\Util">
       <UniqueIdentifier>{4de1334f-a8c9-4bcc-b0cf-54242c71f756}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Designer">
+      <UniqueIdentifier>{be8c1e6c-2ba9-470c-8e04-b3bc4f6a1b3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Draft">
+      <UniqueIdentifier>{94cb5326-2b9f-47ef-b20b-6c97ed6138bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Draft">
+      <UniqueIdentifier>{f593acdc-5902-4657-a0ef-623e3dc5c42f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Painter">
+      <UniqueIdentifier>{63877b81-4f35-47d4-932a-759d4a5a77ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Painter">
+      <UniqueIdentifier>{81424945-9d61-4e86-b9b4-9ca2cb917779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Designer">
+      <UniqueIdentifier>{31ac2ae0-2f61-48a0-a3f2-9ab1bd896f30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shapes\Factory">
+      <UniqueIdentifier>{b7100163-7f86-40dd-b687-9db4e1c5bdac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shapes\Factory">
+      <UniqueIdentifier>{7254a823-3eb5-4145-b426-826344706d32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utility">
+      <UniqueIdentifier>{349e5127-c53f-4d80-bc07-46917f47a9ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -57,12 +84,24 @@
     <ClCompile Include="src\Shape\RegularPolygon.cpp">
       <Filter>Source Files\Shapes\ConcreteShapes</Filter>
     </ClCompile>
+    <ClCompile Include="include\Draft\PictureDraft.h">
+      <Filter>Header Files\Draft</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Draft\PictureDraft.cpp">
+      <Filter>Source Files\Draft</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Painter\Painter.cpp">
+      <Filter>Source Files\Painter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Designer\Designer.cpp">
+      <Filter>Source Files\Designer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shape\Factory\ShapeFactory.cpp">
+      <Filter>Source Files\Shapes\Factory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\IDesigner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Canvas\ICanvas.h">
@@ -86,7 +125,7 @@
     <ClInclude Include="include\Shapes\RegularPolygon.h">
       <Filter>Header Files\Shapes\ConcreteShapes</Filter>
     </ClInclude>
-    <ClInclude Include="include\Shapes\Color.h">
+    <ClInclude Include="include\Shapes\Color.hpp">
       <Filter>Header Files\Shapes\Common</Filter>
     </ClInclude>
     <ClInclude Include="include\Shapes\Point.hpp">
@@ -94,6 +133,27 @@
     </ClInclude>
     <ClInclude Include="include\Shapes\RegularPolygonChecker.hpp">
       <Filter>Header Files\Shapes\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Painter\Painter.h">
+      <Filter>Header Files\Painter</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Designer\IDesigner.h">
+      <Filter>Header Files\Designer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Designer\Designer.h">
+      <Filter>Header Files\Designer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shapes\Factory\IShapeFactory.h">
+      <Filter>Header Files\Shapes\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shapes\Factory\ShapeFactory.h">
+      <Filter>Header Files\Shapes\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utility\IEqualString.hpp">
+      <Filter>Header Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shapes\ShapeType.hpp">
+      <Filter>Header Files\Shapes\Common</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
