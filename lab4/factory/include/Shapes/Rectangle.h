@@ -19,6 +19,9 @@ public:
 		}
 	}
 
+	const Point& GetLeftTop() const noexcept;
+	const Point& GetRightBottom() const noexcept;
+
 	void Draw(ICanvas* canvas) const final;
 
 private:

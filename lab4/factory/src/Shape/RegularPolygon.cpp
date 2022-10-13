@@ -1,6 +1,6 @@
 #include "../../include/Shapes/RegularPolygon.h"
 
-const Point& RegularPolygon::GetCenter() const
+const Point& RegularPolygon::GetCenter() const noexcept
 {
 	if (!m_center.has_value())
 	{
@@ -10,7 +10,7 @@ const Point& RegularPolygon::GetCenter() const
 	return *m_center;
 }
 
-const double& RegularPolygon::GetRadius() const noexcept
+double RegularPolygon::GetRadius() const noexcept
 {
 	if (!m_radius.has_value())
 	{

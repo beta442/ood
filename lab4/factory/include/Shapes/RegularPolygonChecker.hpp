@@ -12,13 +12,13 @@
 template <typename Points>
 Point GetCenterPointFromPoints(Points&& points)
 {
-	auto pointsQuantity = points.size();
-
 	Point res{};
 
 	std::for_each(points.begin(), points.end(), [&res](const auto& p) noexcept {
 		res += p;
 	});
+
+	auto pointsQuantity = points.size();
 
 	res.x /= pointsQuantity;
 	res.y /= pointsQuantity;
@@ -43,7 +43,7 @@ bool ArePointsOnSameDistanceWithCertainPoint(Points&& points, const Point& p)
 
 template <typename Points>
 bool ArePointsRepresentRegularPolygon(Points&& points)
-{
+{// see explanation at https://stackoverflow.com/questions/25866309/find-if-a-set-of-points-can-form-a-regular-polygon-or-not
 	auto pointsQuantity = points.size();
 	if (pointsQuantity == 0)
 	{

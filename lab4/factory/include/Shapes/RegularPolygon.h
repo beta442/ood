@@ -23,8 +23,8 @@ public:
 		m_points = std::forward<Points>(points);
 	}
 
-	const Point& GetCenter() const;
-	const double& GetRadius() const noexcept;
+	const Point& GetCenter() const noexcept;
+	double GetRadius() const noexcept;
 
 	void Draw(ICanvas* canvas) const final;
 

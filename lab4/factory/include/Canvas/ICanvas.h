@@ -1,7 +1,9 @@
 #ifndef CANVAS_ICANVAS_H_
 #define CANVAS_ICANVAS_H_
 
-#include "../Shapes/Color.h"
+#include <memory>
+
+#include "../Shapes/Color.hpp"
 #include "../Shapes/Point.hpp"
 
 class ICanvas
@@ -13,5 +15,7 @@ public:
 
 	virtual ~ICanvas() = default;
 };
+
+using CanvasSharedPtr = std::shared_ptr<ICanvas>;
 
 #endif // !CANVAS_ICANVAS_H_

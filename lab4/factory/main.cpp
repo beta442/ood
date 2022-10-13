@@ -1,17 +1,17 @@
 #include "include/pch.h"
 
-#include "include/Shapes/RegularPolygon.h"
+#include "include/Designer/Designer.h"
+#include "include/Painter/Painter.h"
 
 int main(int, char**)
 {
 	try
 	{
-		RegularPolygon p{ std::initializer_list<Point>{ { 0, 0 }, { 1, 0 }, { 1, 1 }, { 0, 1 } }, Color::BLACK };
+		Designer designer{};
+		auto draft = designer.CreateDraft(std::cin);
 
-		auto c = p.GetCenter();
-		auto r = p.GetRadius();
-		std::cout << "Center: " << c.x << " " << c.y << '\n'
-				  << "Radius: " << r << '\n';
+		Painter painter{};
+		painter.DrawPicture(draft, );
 	}
 	catch (std::exception& e)
 	{

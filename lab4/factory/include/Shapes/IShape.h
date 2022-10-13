@@ -1,10 +1,12 @@
 #ifndef SHAPES_ISHAPE_H_
 #define SHAPES_ISHAPE_H_
 
+#include <memory>
+
 #include "../Canvas/ICanvas.h"
 
 #include "Point.hpp"
-#include "Color.h"
+#include "Color.hpp"
 
 class IShape
 {
@@ -15,5 +17,7 @@ public:
 
 	virtual ~IShape() = default;
 };
+
+using ShapeSharedPtr = std::shared_ptr<IShape>;
 
 #endif // !SHAPES_ISHAPE_H_
