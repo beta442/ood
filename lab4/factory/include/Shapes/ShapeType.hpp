@@ -8,10 +8,10 @@
 
 enum class ShapeType
 {
-	RECTANGLE = 0,
-	TRIANGLE,
-	ELLIPSE,
+	ELLIPSE = 0,
+	RECTANGLE,
 	REGULAR_POLYGON,
+	TRIANGLE,
 	UNKNOWN,
 };
 
@@ -26,7 +26,7 @@ constexpr std::string_view REGULAR_POLYGON_TYPE = "regular-polygon";
 }; // namespace shapes_string_types
 
 template <typename StringT>
-ShapeType StringToShapeType(StringT&& str)
+inline ShapeType StringToShapeType(StringT&& str)
 {
 	using namespace shapes_string_types;
 
@@ -49,18 +49,23 @@ ShapeType StringToShapeType(StringT&& str)
 	return ShapeType::UNKNOWN;
 }
 
-std::istream& operator>>(std::istream& lhs, ShapeType rhs)
+inline std::istream& operator>>(std::istream& lhs, ShapeType& rhs)
 {
 	if (!std::istream::sentry(lhs))
 	{
-		rhs = ShapeType::UNKNOWN;
 		return lhs;
 	}
 
 	std::string src;
 	lhs >> src;
 
-	rhs = StringToShapeType(std::move(src));
+	auto res = StringToShapeType(std::move(src));
+	if (res == ShapeType::UNKNOWN)
+	{
+		lhs.setstate(std::ios_base::failbit);
+		return lhs;
+	}
+	rhs = res;
 
 	return lhs;
 }

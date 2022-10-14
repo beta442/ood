@@ -1,4 +1,4 @@
-rectangle red 45.99 0.99 100 12
 eLlIpsE GrEEn 26 70 20 40
-triangle black 10 0 10 10 0 5
+rectangle red 45.99 0.99 100 12
 regular-polygon pink 0 0 0 10 10 10 10 0
+triangle black 10 0 10 10 0 5

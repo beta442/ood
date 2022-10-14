@@ -2,6 +2,7 @@
 #define SHAPES_POINT_HPP_
 
 #include <cmath>
+#include <istream>
 
 struct Point
 {
@@ -43,5 +44,32 @@ struct Point
 
 	double x{}, y{};
 };
+
+inline std::istream& operator>>(std::istream& lhs, Point& rhs)
+{
+	if (!std::istream::sentry(lhs))
+	{
+		return lhs;
+	}
+
+	double x{}, y{};
+
+	lhs >> x;
+	if (lhs.fail())
+	{
+		return lhs;
+	}
+
+	lhs >> y;
+	if (lhs.fail())
+	{
+		return lhs;
+	}
+
+	rhs.x = x;
+	rhs.y = y;
+
+	return lhs;
+}
 
 #endif // !SHAPES_POINT_HPP_

@@ -58,14 +58,17 @@ bool ArePointsRepresentRegularPolygon(Points&& points)
 	}
 
 	std::vector<double> angles{};
-	angles.resize(pointsQuantity);
-	std::for_each(points.begin(), points.end(), [counter = 0, center, &angles](const auto& p) mutable noexcept {
-		angles[counter++] = std::atan2(p.y - center.y, p.x - center.x);
+	angles.reserve(pointsQuantity);
+	std::for_each(points.begin(), points.end(), [center, &angles](const auto& p) noexcept {
+		angles.emplace_back(std::atan2(p.y - center.y, p.x - center.x));
 	});
+	std::sort(angles.begin(), angles.end(), std::less<double>());
 
 	return std::all_of(angles.begin(), angles.end(),
-		[anglesDifferenceMultiplier = 2. * M_PI / pointsQuantity, counter = 1](const auto& a) mutable noexcept {
-			return (a >= -M_PI && a < (-M_PI + counter++ * anglesDifferenceMultiplier));
+		[anglesDifferenceMultiplier = 2. * M_PI / pointsQuantity, counter = 0](const auto& a) mutable noexcept {
+			auto _1 = (-M_PI + counter * anglesDifferenceMultiplier);
+			auto _2 = (-M_PI + ++counter * anglesDifferenceMultiplier);
+			return ((_1 <= a) && (a < _2));
 		});
 }
 

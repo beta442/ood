@@ -2,4 +2,5 @@
 
 PictureDraft Designer::CreateDraft(std::istream& istream) const
 {
+	return PictureDraft{};
 }

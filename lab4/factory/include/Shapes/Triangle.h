@@ -14,6 +14,21 @@ public:
 	{
 	}
 
+	template <typename Points>
+	Triangle(Points&& points, Color color)
+		: Shape(points.size() > 0 ? *points.begin() : Point{}, color)
+		, m_vertex2()
+		, m_vertex3()
+	{
+		if (points.size() < 3)
+		{
+			throw std::invalid_argument("Failed to construct triangle. Not enough points were given {3 required}");
+		}
+
+		m_vertex2 = *(++points.begin());
+		m_vertex3 = *(++(++points.begin()));
+	}
+
 	const Point& GetVertex1() const noexcept;
 	const Point& GetVertex2() const noexcept;
 	const Point& GetVertex3() const noexcept;

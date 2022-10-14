@@ -8,12 +8,12 @@
 
 enum class Color
 {
-	GREEN = 0,
-	RED,
+	BLACK = 0,
 	BLUE,
-	YELLOW,
+	GREEN,
 	PINK,
-	BLACK,
+	RED,
+	YELLOW,
 	UNKNOWN,
 };
 
@@ -30,49 +30,54 @@ constexpr std::string_view BLACK_TYPE = "black";
 }; // namespace color_string_types
 
 template <typename StringT>
-Color StringToColor(StringT&& str)
+inline Color StringToColor(StringT&& str)
 {
 	using namespace color_string_types;
 
-	if (IEqualStrings(std::forward<StringT>(str), GREEN_TYPE))
+	if (IEqualStrings(std::forward<StringT>(str), BLACK_TYPE))
 	{
-		return Color::GREEN;
-	}
-	if (IEqualStrings(std::forward<StringT>(str), RED_TYPE))
-	{
-		return Color::RED;
+		return Color::BLACK;
 	}
 	if (IEqualStrings(std::forward<StringT>(str), BLUE_TYPE))
 	{
 		return Color::BLUE;
 	}
-	if (IEqualStrings(std::forward<StringT>(str), YELLOW_TYPE))
+	if (IEqualStrings(std::forward<StringT>(str), GREEN_TYPE))
 	{
-		return Color::YELLOW;
+		return Color::GREEN;
 	}
 	if (IEqualStrings(std::forward<StringT>(str), PINK_TYPE))
 	{
 		return Color::PINK;
 	}
-	if (IEqualStrings(std::forward<StringT>(str), BLACK_TYPE))
+	if (IEqualStrings(std::forward<StringT>(str), RED_TYPE))
 	{
-		return Color::BLACK;
+		return Color::RED;
+	}
+	if (IEqualStrings(std::forward<StringT>(str), YELLOW_TYPE))
+	{
+		return Color::YELLOW;
 	}
 	return Color::UNKNOWN;
 }
 
-std::istream& operator>>(std::istream& lhs, Color rhs)
+inline std::istream& operator>>(std::istream& lhs, Color& rhs)
 {
 	if (!std::istream::sentry(lhs))
 	{
-		rhs = Color::UNKNOWN;
 		return lhs;
 	}
 
 	std::string src;
 	lhs >> src;
 
-	rhs = StringToColor(std::move(src));
+	auto res = StringToColor(std::move(src));
+	if (res == Color::UNKNOWN)
+	{
+		lhs.setstate(std::ios_base::failbit);
+		return lhs;
+	}
+	rhs = res;
 
 	return lhs;
 }
