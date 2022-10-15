@@ -1,0 +1,27 @@
+eLlIpsE black 145 40 38 21
+eLlIpsE blUe 147 41 36 20
+eLlIpsE green 149 42 34 19
+eLlIpsE PiNK 151 43 32 18
+eLlIpsE rEd 153 44 30 17
+eLlIpsE yellow 155 45 28 16
+
+rectangle black 0 0 100 12
+rectangle blue 1 10 90 11
+rectangle green 2 20 80 10
+rectangle pink 3 30 70 9
+rectangle red 4 40 60 8
+rectangle yellow 5 50 50 7
+
+triangle black 140 140 365 144 143 400
+triangle blue 145 145 360 149 143 600
+triangle green 140 140 365 244 143 700
+triangle pink 140 140 365 344 143 400
+triangle red 140 140 365 444 143 800
+triangle yellow 140 140 365 544 143 900
+
+regular-polygon black 400 400 100 15
+regular-polygon blue 400 400 90 16
+regular-polygon green 400 400 80 17
+regular-polygon pink 400 400 70 18
+regular-polygon red 400 400 60 19
+regular-polygon yellow 400 400 50 20
