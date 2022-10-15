@@ -7,4 +7,5 @@
 ## Usage
 1. target.exe < input.txt
 2. Wait for output.svg in same folder
+
 See `Input` format at `examples` folder
