@@ -1,5 +1,5 @@
-#ifndef IEQUAL_STRINGS_HPP_
-#define IEQUAL_STRINGS_HPP_
+#ifndef UTILITY_IEQUAL_STRINGS_HPP_
+#define UTILITY_IEQUAL_STRINGS_HPP_
 
 template <typename StringSource, typename StringTest>
 bool IEqualStrings(StringSource&& str1, StringTest&& str2)
@@ -13,4 +13,4 @@ bool IEqualStrings(StringSource&& str1, StringTest&& str2)
 	}));
 }
 
-#endif // !IEQUAL_STRINGS_HPP_
+#endif // !UTILITY_IEQUAL_STRINGS_HPP_

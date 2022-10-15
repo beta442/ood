@@ -1,5 +1,5 @@
-#ifndef SHAPES_SHAPE_TYPE_HPP_
-#define SHAPES_SHAPE_TYPE_HPP_
+#ifndef SHAPES_COMMON_SHAPE_TYPE_HPP_
+#define SHAPES_COMMON_SHAPE_TYPE_HPP_
 
 #include <sstream>
 #include <string>
@@ -70,4 +70,4 @@ inline std::istream& operator>>(std::istream& lhs, ShapeType& rhs)
 	return lhs;
 }
 
-#endif // !SHAPES_SHAPE_TYPE_HPP_
+#endif // !SHAPES_COMMON_SHAPE_TYPE_HPP_

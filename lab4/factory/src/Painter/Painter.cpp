@@ -1,5 +1,9 @@
 #include "../../include/Painter/Painter.h"
 
-void Painter::DrawPicture(const PictureDraft& draft, const CanvasSharedPtr& canvas)
+void Painter::DrawPicture(const PictureDraft& draft, const ICanvasSharedPtr& canvas)
 {
+	for (auto& figure : draft)
+	{
+		figure->Draw(canvas);
+	}
 }

@@ -1,5 +1,5 @@
-#ifndef SHAPES_RECTANGLE_H_
-#define SHAPES_RECTANGLE_H_
+#ifndef SHAPES_CONCRETE_SHAPES_RECTANGLE_H_
+#define SHAPES_CONCRETE_SHAPES_RECTANGLE_H_
 
 #include <stdexcept>
 
@@ -9,23 +9,19 @@ class Rectangle : public Shape
 {
 public:
 	template <typename Point = Point>
-	Rectangle(Point&& leftTop, double width, double height, Color color)
+	Rectangle(Point&& leftTop, unsigned int width, unsigned int height, Color color)
 		: Shape(std::forward<Point>(leftTop), color)
 		, m_rightBottom(leftTop.x + width, leftTop.y + height)
 	{
-		if (width < 0 || height < 0)
-		{
-			throw std::invalid_argument("Failed to construct rectangle. Negative arguments were given");
-		}
 	}
 
 	const Point& GetLeftTop() const noexcept;
 	const Point& GetRightBottom() const noexcept;
 
-	void Draw(ICanvas* canvas) const final;
+	void Draw(const ICanvasSharedPtr& canvas) const final;
 
 private:
 	Point m_rightBottom;
 };
 
-#endif // !SHAPES_RECTANGLE_H_
+#endif // !SHAPES_CONCRETE_SHAPES_RECTANGLE_H_

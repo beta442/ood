@@ -31,9 +31,6 @@
     <Filter Include="Header Files\Shapes\Common">
       <UniqueIdentifier>{69029a81-a598-48ff-ace2-9d0b7ecf04c9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Shapes\Util">
-      <UniqueIdentifier>{4de1334f-a8c9-4bcc-b0cf-54242c71f756}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Designer">
       <UniqueIdentifier>{be8c1e6c-2ba9-470c-8e04-b3bc4f6a1b3e}</UniqueIdentifier>
     </Filter>
@@ -61,6 +58,12 @@
     <Filter Include="Header Files\utility">
       <UniqueIdentifier>{349e5127-c53f-4d80-bc07-46917f47a9ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Canvas">
+      <UniqueIdentifier>{9453047c-7c6b-4eec-98c9-b6c1b4bfbdaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shapes\Util">
+      <UniqueIdentifier>{6e58efad-339f-4b08-90a3-f571f026bebb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -84,9 +87,6 @@
     <ClCompile Include="src\Shape\RegularPolygon.cpp">
       <Filter>Source Files\Shapes\ConcreteShapes</Filter>
     </ClCompile>
-    <ClCompile Include="include\Draft\PictureDraft.h">
-      <Filter>Header Files\Draft</Filter>
-    </ClCompile>
     <ClCompile Include="src\Draft\PictureDraft.cpp">
       <Filter>Source Files\Draft</Filter>
     </ClCompile>
@@ -98,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="src\Shape\Factory\ShapeFactory.cpp">
       <Filter>Source Files\Shapes\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Canvas\SVGCanvas.cpp">
+      <Filter>Source Files\Canvas</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,9 +134,6 @@
     <ClInclude Include="include\Shapes\Point.hpp">
       <Filter>Header Files\Shapes\Common</Filter>
     </ClInclude>
-    <ClInclude Include="include\Shapes\RegularPolygonChecker.hpp">
-      <Filter>Header Files\Shapes\Util</Filter>
-    </ClInclude>
     <ClInclude Include="include\Painter\Painter.h">
       <Filter>Header Files\Painter</Filter>
     </ClInclude>
@@ -154,6 +154,15 @@
     </ClInclude>
     <ClInclude Include="include\Shapes\ShapeType.hpp">
       <Filter>Header Files\Shapes\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Draft\PictureDraft.h">
+      <Filter>Header Files\Draft</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Canvas\SVGCanvas.h">
+      <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shapes\Util\RegularPolygonVertexesCreator.hpp">
+      <Filter>Header Files\Shapes\Util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

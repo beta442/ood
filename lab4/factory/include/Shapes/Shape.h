@@ -5,6 +5,8 @@
 
 #include "IShape.h"
 
+#include "Point.hpp"
+
 class Shape : public IShape
 {
 public:

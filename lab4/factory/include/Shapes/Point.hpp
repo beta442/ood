@@ -1,23 +1,25 @@
-#ifndef SHAPES_POINT_HPP_
-#define SHAPES_POINT_HPP_
+#ifndef SHAPES_COMMON_POINT_HPP_
+#define SHAPES_COMMON_POINT_HPP_
 
 #include <cmath>
 #include <istream>
 
 struct Point
 {
+	int x{}, y{};
+
 	Point() = default;
 
-	Point(double x, double y)
+	Point(int x, int y)
 		: x(x)
 		, y(y)
 	{
 	}
 
-	double Distance(const Point& other) const noexcept
+	/*int Distance(const Point& other) const noexcept
 	{
-		return std::sqrt((other.x - x) * (other.x - x) + (other.y - y) * (other.y - y));
-	}
+		return  std::round(std::sqrt((other.x - x) * (other.x - x) + (other.y - y) * (other.y - y)));
+	}*/
 
 	Point operator+(const Point& other) const
 	{
@@ -41,8 +43,6 @@ struct Point
 	{
 		return !(*this == other);
 	}
-
-	double x{}, y{};
 };
 
 inline std::istream& operator>>(std::istream& lhs, Point& rhs)
@@ -52,7 +52,7 @@ inline std::istream& operator>>(std::istream& lhs, Point& rhs)
 		return lhs;
 	}
 
-	double x{}, y{};
+	int x{}, y{};
 
 	lhs >> x;
 	if (lhs.fail())
@@ -72,4 +72,4 @@ inline std::istream& operator>>(std::istream& lhs, Point& rhs)
 	return lhs;
 }
 
-#endif // !SHAPES_POINT_HPP_
+#endif // !SHAPES_COMMON_POINT_HPP_

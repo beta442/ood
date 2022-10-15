@@ -1,4 +1,4 @@
-eLlIpsE GrEEn 26 70 20 40
-rectangle red 45.99 0.99 100 12
-regular-polygon pink 0 0 0 10 10 10 10 0
-triangle black 10 0 10 10 0 5
+eLlIpsE green 145 40 38 21
+rectangle red 45 0 100 12
+regular-polygon pink 400 400 100 15
+triangle black 140 140 365 144 143 400

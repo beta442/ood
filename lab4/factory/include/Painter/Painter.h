@@ -7,9 +7,7 @@
 class Painter
 {
 public:
-	Painter() = default;
-
-	void DrawPicture(const PictureDraft& draft, const CanvasSharedPtr& canvas);
+	void DrawPicture(const PictureDraft& draft, const ICanvasSharedPtr& canvas);
 };
 
 #endif // !PAINTER_PAINTER_H_

@@ -1,5 +1,5 @@
-#ifndef SHAPES_COLOR_HPP_
-#define SHAPES_COLOR_HPP_
+#ifndef SHAPES_COMMON_COLOR_HPP_
+#define SHAPES_COMMON_COLOR_HPP_
 
 #include <sstream>
 #include <string>
@@ -38,23 +38,23 @@ inline Color StringToColor(StringT&& str)
 	{
 		return Color::BLACK;
 	}
-	if (IEqualStrings(std::forward<StringT>(str), BLUE_TYPE))
+	else if (IEqualStrings(std::forward<StringT>(str), BLUE_TYPE))
 	{
 		return Color::BLUE;
 	}
-	if (IEqualStrings(std::forward<StringT>(str), GREEN_TYPE))
+	else if (IEqualStrings(std::forward<StringT>(str), GREEN_TYPE))
 	{
 		return Color::GREEN;
 	}
-	if (IEqualStrings(std::forward<StringT>(str), PINK_TYPE))
+	else if (IEqualStrings(std::forward<StringT>(str), PINK_TYPE))
 	{
 		return Color::PINK;
 	}
-	if (IEqualStrings(std::forward<StringT>(str), RED_TYPE))
+	else if (IEqualStrings(std::forward<StringT>(str), RED_TYPE))
 	{
 		return Color::RED;
 	}
-	if (IEqualStrings(std::forward<StringT>(str), YELLOW_TYPE))
+	else if (IEqualStrings(std::forward<StringT>(str), YELLOW_TYPE))
 	{
 		return Color::YELLOW;
 	}
@@ -82,4 +82,4 @@ inline std::istream& operator>>(std::istream& lhs, Color& rhs)
 	return lhs;
 }
 
-#endif // !SHAPES_COLOR_HPP_
+#endif // !SHAPES_COMMON_COLOR_HPP_
