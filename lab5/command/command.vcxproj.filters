@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Document">
+      <UniqueIdentifier>{ce8c8836-976e-466f-bf3b-4a1479c8519b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Document\Elements">
+      <UniqueIdentifier>{59138e91-5003-4898-a73f-1316707d1195}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Document\Elements\Paragraph">
+      <UniqueIdentifier>{76be5658-2cad-4356-9116-247f66ef0336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Document\Elements\Image">
+      <UniqueIdentifier>{9c493cfd-c989-4f54-ae2b-d7a4bed2f7b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Document\Elements\ConstDocumentItems">
+      <UniqueIdentifier>{0a0f5958-c109-4412-b0be-7f308dbd4b0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Document">
+      <UniqueIdentifier>{6f832577-c1c7-4e78-a236-c11918ecef35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Document\Elements">
+      <UniqueIdentifier>{23e6fd32-a190-4674-af89-09086418d34f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Document\Elements\ConstDocumentItems">
+      <UniqueIdentifier>{4a3e1252-db3a-43b3-90f2-539d11e92cad}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Document\Elements\DocumentItem.cpp">
+      <Filter>Source Files\Document\Elements\ConstDocumentItems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Document\Elements\ConstDocumentItem.cpp">
+      <Filter>Source Files\Document\Elements\ConstDocumentItems</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\IDocument.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Elements\IParagraph.h">
+      <Filter>Header Files\Document\Elements\Paragraph</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Elements\IImage.h">
+      <Filter>Header Files\Document\Elements\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Elements\ConstDocumentItem.h">
+      <Filter>Header Files\Document\Elements\ConstDocumentItems</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Elements\DocumentItem.h">
+      <Filter>Header Files\Document\Elements\ConstDocumentItems</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
