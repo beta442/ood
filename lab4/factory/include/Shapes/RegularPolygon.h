@@ -12,8 +12,9 @@ public:
 	template <typename Point = Point>
 	RegularPolygon(Point&& center, unsigned int radius, size_t vertexCount, Color color)
 		: Shape(center, color)
+		, m_points(std::move(CreateRegularPolygonVertexes(std::forward<Point>(center), radius, vertexCount)))
+		, m_radius(radius)
 	{
-		m_points = CreateRegularPolygonVertexes(std::forward<Point>(center), radius, vertexCount);
 	}
 
 	const Point& GetCenter() const noexcept;
@@ -23,8 +24,8 @@ public:
 	void Draw(const ICanvasSharedPtr& canvas) const final;
 
 private:
-	std::vector<Point> m_points;
 	unsigned int m_radius;
+	std::vector<Point> m_points;
 };
 
 #endif // !SHAPES_CONCRETE_SHAPES_REGULAR_POLYGON_H_

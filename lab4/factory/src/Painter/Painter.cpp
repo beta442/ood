@@ -2,7 +2,7 @@
 
 void Painter::DrawPicture(const PictureDraft& draft, const ICanvasSharedPtr& canvas)
 {
-	for (auto& figure : draft)
+	for (const auto& figure : draft)
 	{
 		figure->Draw(canvas);
 	}

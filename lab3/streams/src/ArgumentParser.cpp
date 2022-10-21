@@ -18,7 +18,7 @@ argparse::ArgumentParser ParseArgs(int argc, char* argv[])
 		.scan<'d', unsigned char>()
 		.append();
 
-	program.add_argument(ÑOMPRESS_FLAG)
+	program.add_argument(COMPRESS_FLAG)
 		.help("compresses <input-file>'s content into <output-file>")
 		.default_value(false)
 		.implicit_value(true);

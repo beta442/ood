@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -21,21 +21,21 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{c8b1d65f-4acb-41f7-89f6-0c7e52f4d9cf}</ProjectGuid>
-    <RootNamespace>streamstest</RootNamespace>
+    <ProjectGuid>{2a00c600-6d5b-48d1-a113-7804df45a24a}</ProjectGuid>
+    <RootNamespace>test</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -48,7 +48,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -70,26 +70,29 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(BOOST_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(BOOST_DIR)\stage\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
     </Link>
-    <PostBuildEvent>
-      <Command>$(TargetPath)</Command>
-      <Message>
-      </Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -99,22 +102,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(BOOST_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(BOOST_DIR)\stage\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
     </Link>
-    <PostBuildEvent>
-      <Command>$(TargetPath)</Command>
-      <Message>
-      </Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -122,19 +116,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\s1200501078\source\repos\boost_1_80_0;C:\Users\s1200501078\source\repos\wxWidgets-3.2.1\include;C:\Users\s1200501078\source\repos\wxWidgets-3.2.1\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>C:\Users\s1200501078\source\repos\boost_1_80_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\s1200501078\source\repos\boost_1_80_0\stage\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\s1200501078\source\repos\boost_1_80_0\stage\lib;C:\Users\s1200501078\source\repos\wxWidgets-3.2.1\lib\vc_x64_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>$(TargetPath)</Command>
-      <Message>
-      </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -145,47 +136,31 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(BOOST_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(BOOST_DIR)\stage\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
     </Link>
-    <PostBuildEvent>
-      <Command>$(TargetPath)</Command>
-      <Message>
-      </Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\streams\src\CreateFileHandler.cpp" />
-    <ClCompile Include="..\streams\src\FileInputStream.cpp" />
-    <ClCompile Include="..\streams\src\FileOutputStream.cpp" />
-    <ClCompile Include="..\streams\src\InputStreamBase.cpp" />
-    <ClCompile Include="..\streams\src\InputStreamDecoratorBase.cpp" />
-    <ClCompile Include="..\streams\src\InputStreamDeCrypter.cpp" />
-    <ClCompile Include="..\streams\src\InputStreamRLEDeCompressor.cpp" />
-    <ClCompile Include="..\streams\src\MemoryInputStream.cpp" />
-    <ClCompile Include="..\streams\src\MemoryOutputStream.cpp" />
-    <ClCompile Include="..\streams\src\OutputStreamBase.cpp" />
-    <ClCompile Include="..\streams\src\OutputStreamDecoratorBase.cpp" />
-    <ClCompile Include="..\streams\src\OutputStreamEnCrypter.cpp" />
-    <ClCompile Include="..\streams\src\OutputStreamRLECompressor.cpp" />
+    <ClCompile Include="..\src\Designer\Designer.cpp" />
+    <ClCompile Include="..\src\Draft\PictureDraft.cpp" />
+    <ClCompile Include="..\src\Painter\Painter.cpp" />
+    <ClCompile Include="..\src\Shape\Ellipse.cpp" />
+    <ClCompile Include="..\src\Shape\Factory\ShapeFactory.cpp" />
+    <ClCompile Include="..\src\Shape\Rectangle.cpp" />
+    <ClCompile Include="..\src\Shape\RegularPolygon.cpp" />
+    <ClCompile Include="..\src\Shape\Shape.cpp" />
+    <ClCompile Include="..\src\Shape\Triangle.cpp" />
     <ClCompile Include="include\pch.cpp" />
-    <ClCompile Include="main.test.cpp" />
-    <ClCompile Include="unit\FileExists.test.cpp" />
-    <ClCompile Include="unit\FileInputStream.test.cpp" />
-    <ClCompile Include="unit\FileInputStreamDeCrypted.test.cpp" />
-    <ClCompile Include="unit\FileOutputStream.test.cpp" />
-    <ClCompile Include="unit\WritingReadingCompress.test.cpp" />
-    <ClCompile Include="unit\WritingReadingCrpyt.test.cpp" />
-    <ClCompile Include="unit\MemoryInputStream.test.cpp" />
-    <ClCompile Include="unit\MemoryOutputStream.test.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Unit\Designer.test.cpp" />
+    <ClCompile Include="Unit\Painter.test.cpp" />
+    <ClCompile Include="Unit\PictureDraft.test.cpp" />
+    <ClCompile Include="Unit\Shapes.test.cpp" />
+    <ClCompile Include="Unit\ShapesFactory.test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h" />

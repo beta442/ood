@@ -1,7 +1,7 @@
 #ifndef DRAFT_PICTURE_DRAFT_H_
 #define DRAFT_PICTURE_DRAFT_H_
 
-#include <deque>
+#include <vector>
 #include <stdexcept>
 
 #include "../Shapes/IShape.h"
@@ -29,7 +29,7 @@ public:
 	}
 
 private:
-	std::deque<ShapeSharedPtr> m_shapes{};
+	std::vector<ShapeSharedPtr> m_shapes{};
 };
 
 #endif // !DRAFT_PICTURE_DRAFT_H_

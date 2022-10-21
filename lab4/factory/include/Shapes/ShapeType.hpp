@@ -30,19 +30,19 @@ inline ShapeType StringToShapeType(StringT&& str)
 {
 	using namespace shapes_string_types;
 
-	if (IEqualStrings(std::forward<StringT>(str), RECTANGLE_TYPE))
+	if (IEqualStrings(str, RECTANGLE_TYPE))
 	{
 		return ShapeType::RECTANGLE;
 	}
-	if (IEqualStrings(std::forward<StringT>(str), TRIANGLE_TYPE))
+	if (IEqualStrings(str, TRIANGLE_TYPE))
 	{
 		return ShapeType::TRIANGLE;
 	}
-	if (IEqualStrings(std::forward<StringT>(str), ELLIPSE_TYPE))
+	if (IEqualStrings(str, ELLIPSE_TYPE))
 	{
 		return ShapeType::ELLIPSE;
 	}
-	if (IEqualStrings(std::forward<StringT>(str), REGULAR_POLYGON_TYPE))
+	if (IEqualStrings(str, REGULAR_POLYGON_TYPE))
 	{
 		return ShapeType::REGULAR_POLYGON;
 	}

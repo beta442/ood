@@ -16,11 +16,6 @@ struct Point
 	{
 	}
 
-	/*int Distance(const Point& other) const noexcept
-	{
-		return  std::round(std::sqrt((other.x - x) * (other.x - x) + (other.y - y) * (other.y - y)));
-	}*/
-
 	Point operator+(const Point& other) const
 	{
 		return Point{ x + other.x, y + other.y };

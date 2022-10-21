@@ -34,27 +34,27 @@ inline Color StringToColor(StringT&& str)
 {
 	using namespace color_string_types;
 
-	if (IEqualStrings(std::forward<StringT>(str), BLACK_TYPE))
+	if (IEqualStrings(str, BLACK_TYPE))
 	{
 		return Color::BLACK;
 	}
-	else if (IEqualStrings(std::forward<StringT>(str), BLUE_TYPE))
+	else if (IEqualStrings(str, BLUE_TYPE))
 	{
 		return Color::BLUE;
 	}
-	else if (IEqualStrings(std::forward<StringT>(str), GREEN_TYPE))
+	else if (IEqualStrings(str, GREEN_TYPE))
 	{
 		return Color::GREEN;
 	}
-	else if (IEqualStrings(std::forward<StringT>(str), PINK_TYPE))
+	else if (IEqualStrings(str, PINK_TYPE))
 	{
 		return Color::PINK;
 	}
-	else if (IEqualStrings(std::forward<StringT>(str), RED_TYPE))
+	else if (IEqualStrings(str, RED_TYPE))
 	{
 		return Color::RED;
 	}
-	else if (IEqualStrings(std::forward<StringT>(str), YELLOW_TYPE))
+	else if (IEqualStrings(str, YELLOW_TYPE))
 	{
 		return Color::YELLOW;
 	}
