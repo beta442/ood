@@ -37,6 +37,21 @@
     <Filter Include="Source Files\Document\Elements\ConstDocumentItems">
       <UniqueIdentifier>{4a3e1252-db3a-43b3-90f2-539d11e92cad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Commands">
+      <UniqueIdentifier>{6b3e9d8a-62d5-4aa2-998c-6c1cf3684784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Document\Commands">
+      <UniqueIdentifier>{771d515a-bb9f-47a9-bbdb-8ff84bfc8869}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands">
+      <UniqueIdentifier>{9d30689a-a91b-4680-b6ce-7521ce1716a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Document\Commands">
+      <UniqueIdentifier>{b7ddac1a-d4be-44ab-a98f-354b7033ab76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menu">
+      <UniqueIdentifier>{eaf5575b-0d7a-4680-a710-2f075d4276ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -50,6 +65,21 @@
     </ClCompile>
     <ClCompile Include="src\Document\Elements\ConstDocumentItem.cpp">
       <Filter>Source Files\Document\Elements\ConstDocumentItems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Commands\AbstractUndoableEdit.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Document\Commands\CSetTitle.cpp">
+      <Filter>Source Files\Document\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Document\HTMLDocument.cpp">
+      <Filter>Source Files\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Commands\CompoundEdit.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Commands\UndoManager.cpp">
+      <Filter>Source Files\Commands</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +100,39 @@
     </ClInclude>
     <ClInclude Include="include\Document\Elements\DocumentItem.h">
       <Filter>Header Files\Document\Elements\ConstDocumentItems</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\IUndoableEdit.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\IUndoableEdit_fwd.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\AbstractUndoableEdit.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Commands\CSetTitle.h">
+      <Filter>Header Files\Document\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\IDocument_fwd.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Commands\common.h">
+      <Filter>Header Files\Document\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\HTMLDocument.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\CompoundEdit.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\UndoManager.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\common.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Menu\Menu.h">
+      <Filter>Header Files\Menu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

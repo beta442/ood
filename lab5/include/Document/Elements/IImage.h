@@ -5,7 +5,7 @@ class IImage
 {
 public:
 	// ¬озвращает путь относительно каталога документа
-	virtual Path GetPath() const = 0;
+	//virtual Path GetPath() const = 0;
 
 	// Ўирина изображени€ в пиксел€х
 	virtual int GetWidth() const = 0;
