@@ -1,6 +1,6 @@
 #include "../../include/pch.h"
 
-#include "../../include/Document/Commands/CInsertDocumentItem.h"
+#include "../../include/Document/Commands/CInsertDocumentItem.hpp"
 #include "../../include/Document/Commands/CSetTitle.h"
 #include "../../include/Document/Elements/Paragraph.h"
 #include "../../include/Document/HTMLDocument.h"

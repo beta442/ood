@@ -164,8 +164,11 @@
     <ClInclude Include="include\utility.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Document\Commands\CInsertDocumentItem.h">
+    <ClInclude Include="include\Document\Commands\CInsertDocumentItem.hpp">
       <Filter>Header Files\Document\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Commands\CDeleteDocumentItem.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
