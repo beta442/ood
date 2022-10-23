@@ -149,6 +149,7 @@
     <ClCompile Include="src\Commands\CompoundEdit.cpp" />
     <ClCompile Include="src\Commands\UndoManager.cpp" />
     <ClCompile Include="src\Document\Commands\CSetTitle.cpp" />
+    <ClCompile Include="src\Document\Elements\Image.cpp" />
     <ClCompile Include="src\Document\Elements\Paragraph.cpp" />
     <ClCompile Include="src\Document\HTMLDocument.cpp" />
     <ClCompile Include="src\Document\Elements\DocumentItem.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="include\Document\common.h" />
     <ClInclude Include="include\Document\Elements\IElement.h" />
     <ClInclude Include="include\Document\Elements\IElement_fwd.h" />
+    <ClInclude Include="include\Document\Elements\Image.h" />
     <ClInclude Include="include\Document\Elements\Image_fwd.h" />
     <ClInclude Include="include\Document\Elements\IParagraph_fwd.h" />
     <ClInclude Include="include\Document\Elements\Paragraph.h" />

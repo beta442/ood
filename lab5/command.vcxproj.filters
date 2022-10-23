@@ -58,6 +58,9 @@
     <Filter Include="Source Files\Document\Elements\Paragraph">
       <UniqueIdentifier>{314b86ec-5936-4528-8247-c51c27d603b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Document\Elements\Image">
+      <UniqueIdentifier>{2afc115c-21b6-44b4-afc7-55751a47e50c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -92,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="src\Document\Elements\DocumentItem.cpp">
       <Filter>Source Files\Document\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Document\Elements\Image.cpp">
+      <Filter>Source Files\Document\Elements\Image</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +178,9 @@
     </ClInclude>
     <ClInclude Include="include\Document\Commands\CDeleteDocumentItem.hpp">
       <Filter>Header Files\Document\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Elements\Image.h">
+      <Filter>Header Files\Document\Elements\Image</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
