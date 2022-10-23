@@ -8,10 +8,10 @@
 class IImage : public IElement
 {
 public:
-	virtual StdPath GetPath() const = 0;
+	virtual const StdPath& GetPath() const = 0;
 
-	virtual int GetWidth() const = 0;
-	virtual int GetHeight() const = 0;
+	virtual size_t GetWidth() const = 0;
+	virtual size_t GetHeight() const = 0;
 
 	virtual void Resize(size_t width, size_t height) = 0;
 };
