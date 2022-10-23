@@ -8,6 +8,7 @@ using namespace document_commands;
 namespace editor_commands
 {
 
+constexpr auto DELETE_CMND = DELETE_DOCUMENT_ITEM_COMMAND_NAME;
 constexpr auto EXIT_CMND = "Exit";
 constexpr auto HELP_CMND = "Help";
 constexpr auto INSERT_PARAGRAPH_CMND = "InsertParagraph";
@@ -17,9 +18,12 @@ constexpr auto RENAME_CMND = SET_TITLE_COMMAND_NAME;
 constexpr auto SAVE_CMND = "Save";
 constexpr auto UNDO_CMND = "Undo";
 
+constexpr auto INSERT_END_ARG = "end";
+
 namespace descriptions
 {
 
+constexpr auto DELETE_CMND_DSCRP = "Deletes item at certain <pos>. Args: {pos}";
 constexpr auto EXIT_CMND_DSCRP = "Stops editing document";
 constexpr auto HELP_CMND_DSCRP = "Shows list of available commands";
 constexpr auto INSERT_PARAGRAPH_CMND_DSCRP = "Inserts a paragraph before <pos>. Args: {end|<pos>}";
@@ -41,6 +45,9 @@ Editor::Editor(IDocumentPtr&& document, std::istream& inputS, std::ostream& outp
 	using namespace editor_commands;
 	using namespace descriptions;
 
+	m_menu.AddItem(DELETE_CMND, DELETE_CMND_DSCRP, [this](std::istream& is) {
+		DeleteItem(is);
+	});
 	m_menu.AddItem(EXIT_CMND, EXIT_CMND_DSCRP, [&menu = m_menu](std::istream&) {
 		menu.Exit();
 	});
@@ -65,6 +72,35 @@ Editor::Editor(IDocumentPtr&& document, std::istream& inputS, std::ostream& outp
 	m_menu.AddItem(UNDO_CMND, UNDO_CMND_DSCRP, [this](std::istream&) {
 		Undo();
 	});
+}
+
+constexpr auto BAD_STREAM_MSG = "Failed to read argument. Input stream is bad\n";
+
+void Editor::DeleteItem(std::istream& is)
+{
+	if (!std::istream::sentry(is))
+	{
+		m_outputEcho << BAD_STREAM_MSG;
+		return;
+	}
+
+	std::string index{};
+	if (!(is >> index))
+	{
+		m_outputEcho << "Failed to read position argument\n";
+		return;
+	}
+
+	try
+	{
+		m_document->DeleteItem(IEqualStrings(index, editor_commands::INSERT_END_ARG)
+				? m_document->GetItemsCount() - 1
+				: std::stoi(index));
+	}
+	catch (const std::exception& e)
+	{
+		m_outputEcho << e.what() << std::endl;
+	}
 }
 
 void Editor::Start()
@@ -94,29 +130,25 @@ void Editor::Undo()
 	m_document->Undo();
 }
 
-constexpr auto BAD_STREAM_MSG = "Failed to read argument. Input stream is bad\n";
-
-constexpr auto INSERT_END_ARG = "end";
-
-IParagraphSharedPtr Editor::InsertParagparh(std::istream& is)
+void Editor::InsertParagparh(std::istream& is)
 {
 	if (!std::istream::sentry(is))
 	{
 		m_outputEcho << BAD_STREAM_MSG;
-		return nullptr;
+		return;
 	}
 
-	std::string paragraphIndex, text{};
+	std::string text{}, paragraphIndex{};
 	if (!(is >> paragraphIndex) || !(is >> text))
 	{
 		m_outputEcho << "Failed to read text or insert position arguments\n";
-		return nullptr;
+		return;
 	}
 
 	try
 	{
-		return m_document->InsertParagraph(text,
-			IEqualStrings(paragraphIndex, INSERT_END_ARG)
+		m_document->InsertParagraph(text,
+			IEqualStrings(paragraphIndex, editor_commands::INSERT_END_ARG)
 				? m_document->GetItemsCount()
 				: std::stoi(paragraphIndex));
 	}
@@ -124,8 +156,6 @@ IParagraphSharedPtr Editor::InsertParagparh(std::istream& is)
 	{
 		m_outputEcho << exception.what() << std::endl;
 	}
-
-	return nullptr;
 }
 
 std::string GetDetailInfoAboutDocumentItem(const DocumentItem& item)

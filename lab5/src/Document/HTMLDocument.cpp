@@ -1,5 +1,6 @@
 #include "../../include/pch.h"
 
+#include "../../include/Document/Commands/CDeleteDocumentItem.hpp"
 #include "../../include/Document/Commands/CInsertDocumentItem.hpp"
 #include "../../include/Document/Commands/CSetTitle.h"
 #include "../../include/Document/Elements/Paragraph.h"
@@ -45,9 +46,8 @@ void HTMLDocument::DeleteItem(size_t index)
 	{
 		throw std::out_of_range("Failed to delete item in HTMLDocument. Given index is out of range");
 	}
-	auto it = m_items.begin();
-	std::advance(it, index);
-	m_items.erase(it);
+
+	m_undoManager.AddAndExecuteEdit(std::make_shared<CDeleteDocumentItem<decltype(m_items)>>(m_items, GetItem(index), index));
 }
 
 const std::string& HTMLDocument::GetTitle() const

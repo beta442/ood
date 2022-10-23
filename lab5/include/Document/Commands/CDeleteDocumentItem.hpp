@@ -1,20 +1,18 @@
-#ifndef COMMAND_DOCUMENT_COMMANDS_INSERT_DOCUMENT_ITEM_HPP_
-#define COMMAND_DOCUMENT_COMMANDS_INSERT_DOCUMENT_ITEM_HPP_
-
-#include <string>
+#ifndef COMMAND_DOCUMENT_COMMANDS_CDELETE_DOCUMENT_ITEM_HPP_
+#define COMMAND_DOCUMENT_COMMANDS_CDELETE_DOCUMENT_ITEM_HPP_
 
 #include "../../Commands/AbstractUndoableEdit.h"
 #include "../Elements/DocumentItem.h"
 #include "common.h"
 
 template <typename DocumentInnerContainerT>
-class CInsertDocumentItem : public AbstractUndoableEdit
+class CDeleteDocumentItem : public AbstractUndoableEdit
 {
 public:
-	CInsertDocumentItem(DocumentInnerContainerT& target, const DocumentItem& docItem, size_t index)
-		: AbstractUndoableEdit(document_commands::INSERT_DOCUMENT_ITEM_COMMAND_NAME)
+	CDeleteDocumentItem(DocumentInnerContainerT& target, const DocumentItem& item, size_t index)
+		: AbstractUndoableEdit(document_commands::DELETE_DOCUMENT_ITEM_COMMAND_NAME)
 		, m_target(target)
-		, m_state(docItem)
+		, m_state(item)
 		, m_index(index)
 	{
 	}
@@ -24,13 +22,13 @@ private:
 	{
 		if (m_index > m_target.size())
 		{
-			throw std::out_of_range("Failed to insert an item into Document. Given index is out of range");
+			throw std::out_of_range("Failed to delete an item from Document. Given index is out of range");
 		}
 
 		auto it = m_target.begin();
 		std::advance(it, m_index);
 
-		m_target.emplace(it, m_state);
+		m_target.erase(it);
 
 		return true;
 	}
@@ -40,7 +38,7 @@ private:
 		auto it = m_target.begin();
 		std::advance(it, m_index);
 
-		m_target.erase(it);
+		m_target.emplace(it, m_state);
 
 		return true;
 	}
@@ -56,4 +54,4 @@ private:
 	DocumentItem m_state;
 };
 
-#endif // !COMMAND_DOCUMENT_COMMANDS_INSERT_PARAGRAPH_HPP_
+#endif // !COMMAND_DOCUMENT_COMMANDS_CDELETE_DOCUMENT_ITEM_HPP_

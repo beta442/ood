@@ -17,7 +17,8 @@ private:
 	void Redo();
 	void Undo();
 
-	IParagraphSharedPtr InsertParagparh(std::istream& is);
+	void DeleteItem(std::istream& is);
+	void InsertParagparh(std::istream& is);
 	void ListDocument();
 	void Save(std::istream& is);
 	void SetTitle(std::istream& is);

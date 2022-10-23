@@ -170,5 +170,8 @@
     <ClInclude Include="include\Document\Commands\CDeleteDocumentItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Document\Commands\CDeleteDocumentItem.hpp">
+      <Filter>Header Files\Document\Commands</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
