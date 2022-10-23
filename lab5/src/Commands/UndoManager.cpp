@@ -34,7 +34,7 @@ void UndoManager::AddAndExecuteEdit(const IUndoableEditSharedPtr& edit)
 	{
 		edit->Execute();
 
-		m_edits.resize(m_nextEditIndex++);
+		m_edits.resize(++m_nextEditIndex);
 		m_edits.back() = edit;
 	}
 	else

@@ -1,6 +1,6 @@
-#include "../../include/Menu/Menu.h"
+#include "../../include/pch.h"
 
-#include <sstream>
+#include "../../include/Menu/Menu.h"
 
 Menu::Menu(std::istream& inputS, std::ostream& outputS)
 	: m_input(inputS)
@@ -32,6 +32,7 @@ void Menu::ShowInstructions()
 	{
 		m_output << "--" << item.shortcut << ": " << item.description << "\n";
 	}
+	m_output << std::endl;
 }
 
 void Menu::Exit()
@@ -47,7 +48,7 @@ bool Menu::ExecuteCommand(const std::string& command)
 
 	m_exit = false;
 	auto it = std::find_if(m_items.begin(), m_items.end(), [&name](const Item& item) {
-		return item.shortcut == name;
+		return IEqualStrings(item.shortcut, name);
 	});
 
 	if (it != m_items.end())

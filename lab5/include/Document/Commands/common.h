@@ -5,6 +5,7 @@ namespace document_commands
 {
 
 constexpr auto SET_TITLE_COMMAND_NAME = "SetTitle";
+constexpr auto INSERT_DOCUMENT_ITEM_COMMAND_NAME = "InsertDocumentItem";
 
 }; // namespace document_commands
 

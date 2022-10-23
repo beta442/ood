@@ -1,15 +1,17 @@
 #ifndef COMMAND_DOCUMENT_ELEMENTS_IPARAGRAPH_H_
 #define COMMAND_DOCUMENT_ELEMENTS_IPARAGRAPH_H_
 
+#include <ostream>
 #include <string>
 
-class IParagraph
+#include "IElement.h"
+#include "IParagraph_fwd.h"
+
+class IParagraph : public IElement
 {
 public:
-	virtual std::string GetText()const = 0;
+	virtual const std::string& GetText() const noexcept = 0;
 	virtual void SetText(const std::string& text) = 0;
-
-	virtual ~IParagraph() = default;
 };
 
 #endif // !COMMAND_DOCUMENT_ELEMENTS_IPARAGRAPH_H_

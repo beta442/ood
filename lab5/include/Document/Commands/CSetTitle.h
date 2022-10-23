@@ -4,7 +4,6 @@
 #include <string>
 
 #include "../../Commands/AbstractUndoableEdit.h"
-#include "../../Document/IDocument.h"
 #include "common.h"
 
 class CSetTitle : public AbstractUndoableEdit

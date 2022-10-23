@@ -9,7 +9,6 @@ bool CSetTitle::DerivedExecute()
 
 bool CSetTitle::DerivedUndo()
 {
-
 	return DerivedExecute();
 }
 

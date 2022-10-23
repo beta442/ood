@@ -1,4 +1,4 @@
-#include <algorithm>
+#include "../../include/pch.h"
 
 #include "../../include/Commands/CompoundEdit.h"
 

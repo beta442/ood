@@ -1,61 +1,61 @@
 #ifndef COMMAND_DOCUMENT_H_
 #define COMMAND_DOCUMENT_H_
 
+#include <iterator>
 #include <memory>
 #include <optional>
 #include <string>
 
 #include "common.h"
 
+#include "Elements/DocumentItem.h"
+#include "Elements/IImage.h"
+#include "Elements/IParagraph.h"
 #include "IDocument_fwd.h"
 
 class IDocument
 {
 public:
-	// Вставляет параграф текста в указанную позицию (сдвигая последующие элементы)
-	// Если параметр position не указан, вставка происходит в конец документа
-	/*virtual std::shared_ptr<IParagraph> InsertParagraph(const std::string& text,
-		std::optional<size_t> position = std::nullopt)
-		= 0;*/
+	using Path = StdPath;
 
-	// Вставляет изображение в указанную позицию (сдвигая последующие элементы)
-	// Параметр path задает путь к вставляемому изображению
+	virtual IParagraphSharedPtr InsertParagraph(const std::string& text,
+		std::optional<size_t> position = std::nullopt)
+		= 0;
+
 	// При вставке изображение должно копироваться в подкаталог images
 	// под автоматически сгенерированным именем
-	/*virtual std::shared_ptr<IImage> InsertImage(const Path& path, int width, int height,
+	virtual IImageSharedPtr InsertImage(const Path& path, size_t width, size_t height,
 		std::optional<size_t> position = std::nullopt)
-		= 0;*/
+		= 0;
 
-	// Возвращает количество элементов в документе
-	//virtual size_t GetItemsCount() const = 0;
+	virtual size_t GetItemsCount() const = 0;
 
-	// Доступ к элементам изображения
-	//virtual ConstDocumentItem GetItem(size_t index) const = 0;
-	//virtual DocumentItem GetItem(size_t index) = 0;
+	virtual const DocumentItem& GetItem(size_t index) const = 0;
 
-	// Удаляет элемент из документа
-	//virtual void DeleteItem(size_t index) = 0;
+	virtual void DeleteItem(size_t index) = 0;
 
-	// Возвращает заголовок документа
 	virtual const std::string& GetTitle() const = 0;
-	// Изменяет заголовок документа
 	virtual void SetTitle(const std::string& title) = 0;
 
-	// Сообщает о доступности операции Undo
 	virtual bool CanUndo() const = 0;
-	// Отменяет команду редактирования
 	virtual void Undo() = 0;
 
-	// Сообщает о доступности операции Redo
 	virtual bool CanRedo() const = 0;
-	// Выполняет отмененную команду редактирования
 	virtual void Redo() = 0;
 
 	// Сохраняет документ в формате html. Изображения сохраняются в подкаталог images.
 	// Пути к изображениям указываются относительно пути к сохраняемому HTML файлу
-	virtual void Save(const StdPath& path) const = 0;
+	virtual void Save(const Path& path) const = 0;
 
 	virtual ~IDocument() = default;
 };
+
+namespace document_item_types
+{
+
+constexpr auto PARAGRAPH_TYPE_STR = "Paragraph";
+constexpr auto IMAGE_TYPE_STR = "Image";
+
+}; // namespace html_document_item_types
 
 #endif

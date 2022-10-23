@@ -25,17 +25,11 @@
     <Filter Include="Header Files\Document\Elements\Image">
       <UniqueIdentifier>{9c493cfd-c989-4f54-ae2b-d7a4bed2f7b6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Document\Elements\ConstDocumentItems">
-      <UniqueIdentifier>{0a0f5958-c109-4412-b0be-7f308dbd4b0c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Document">
       <UniqueIdentifier>{6f832577-c1c7-4e78-a236-c11918ecef35}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Document\Elements">
       <UniqueIdentifier>{23e6fd32-a190-4674-af89-09086418d34f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Document\Elements\ConstDocumentItems">
-      <UniqueIdentifier>{4a3e1252-db3a-43b3-90f2-539d11e92cad}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Commands">
       <UniqueIdentifier>{6b3e9d8a-62d5-4aa2-998c-6c1cf3684784}</UniqueIdentifier>
@@ -52,6 +46,18 @@
     <Filter Include="Header Files\Menu">
       <UniqueIdentifier>{eaf5575b-0d7a-4680-a710-2f075d4276ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{587628f8-ce03-46c4-a3ec-f5d54dad15db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Editor">
+      <UniqueIdentifier>{d607b73b-b077-489c-acf9-42e64dd88bdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Editor">
+      <UniqueIdentifier>{1e155b56-c054-4613-b576-8d5be40dd9a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Document\Elements\Paragraph">
+      <UniqueIdentifier>{314b86ec-5936-4528-8247-c51c27d603b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -59,12 +65,6 @@
     </ClCompile>
     <ClCompile Include="include\pch.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Document\Elements\DocumentItem.cpp">
-      <Filter>Source Files\Document\Elements\ConstDocumentItems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Document\Elements\ConstDocumentItem.cpp">
-      <Filter>Source Files\Document\Elements\ConstDocumentItems</Filter>
     </ClCompile>
     <ClCompile Include="src\Commands\AbstractUndoableEdit.cpp">
       <Filter>Source Files\Commands</Filter>
@@ -81,6 +81,18 @@
     <ClCompile Include="src\Commands\UndoManager.cpp">
       <Filter>Source Files\Commands</Filter>
     </ClCompile>
+    <ClCompile Include="src\Menu\Menu.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Editor\Editor.cpp">
+      <Filter>Source Files\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Document\Elements\Paragraph.cpp">
+      <Filter>Source Files\Document\Elements\Paragraph</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Document\Elements\DocumentItem.cpp">
+      <Filter>Source Files\Document\Elements</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">
@@ -94,12 +106,6 @@
     </ClInclude>
     <ClInclude Include="include\Document\Elements\IImage.h">
       <Filter>Header Files\Document\Elements\Image</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Document\Elements\ConstDocumentItem.h">
-      <Filter>Header Files\Document\Elements\ConstDocumentItems</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Document\Elements\DocumentItem.h">
-      <Filter>Header Files\Document\Elements\ConstDocumentItems</Filter>
     </ClInclude>
     <ClInclude Include="include\Commands\IUndoableEdit.h">
       <Filter>Header Files\Commands</Filter>
@@ -133,6 +139,33 @@
     </ClInclude>
     <ClInclude Include="include\Menu\Menu.h">
       <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Editor\Editor.h">
+      <Filter>Header Files\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Elements\Paragraph.h">
+      <Filter>Header Files\Document\Elements\Paragraph</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Elements\IElement.h">
+      <Filter>Header Files\Document\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Elements\IElement_fwd.h">
+      <Filter>Header Files\Document\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Elements\Image_fwd.h">
+      <Filter>Header Files\Document\Elements\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Elements\IParagraph_fwd.h">
+      <Filter>Header Files\Document\Elements\Paragraph</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Elements\DocumentItem.h">
+      <Filter>Header Files\Document\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utility.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Document\Commands\CInsertDocumentItem.h">
+      <Filter>Header Files\Document\Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

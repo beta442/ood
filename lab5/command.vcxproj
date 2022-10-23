@@ -149,9 +149,11 @@
     <ClCompile Include="src\Commands\CompoundEdit.cpp" />
     <ClCompile Include="src\Commands\UndoManager.cpp" />
     <ClCompile Include="src\Document\Commands\CSetTitle.cpp" />
+    <ClCompile Include="src\Document\Elements\Paragraph.cpp" />
     <ClCompile Include="src\Document\HTMLDocument.cpp" />
-    <ClCompile Include="src\Document\Elements\ConstDocumentItem.cpp" />
     <ClCompile Include="src\Document\Elements\DocumentItem.cpp" />
+    <ClCompile Include="src\Editor\Editor.cpp" />
+    <ClCompile Include="src\Menu\Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Commands\AbstractUndoableEdit.h" />
@@ -159,18 +161,25 @@
     <ClInclude Include="include\Commands\IUndoableEdit.h" />
     <ClInclude Include="include\Commands\IUndoableEdit_fwd.h" />
     <ClInclude Include="include\Commands\UndoManager.h" />
+    <ClInclude Include="include\Document\Commands\CInsertDocumentItem.h" />
     <ClInclude Include="include\Document\Commands\common.h" />
     <ClInclude Include="include\Document\Commands\CSetTitle.h" />
     <ClInclude Include="include\Document\common.h" />
+    <ClInclude Include="include\Document\Elements\IElement.h" />
+    <ClInclude Include="include\Document\Elements\IElement_fwd.h" />
+    <ClInclude Include="include\Document\Elements\Image_fwd.h" />
+    <ClInclude Include="include\Document\Elements\IParagraph_fwd.h" />
+    <ClInclude Include="include\Document\Elements\Paragraph.h" />
     <ClInclude Include="include\Document\HTMLDocument.h" />
-    <ClInclude Include="include\Document\Elements\ConstDocumentItem.h" />
     <ClInclude Include="include\Document\Elements\DocumentItem.h" />
     <ClInclude Include="include\Document\Elements\IImage.h" />
     <ClInclude Include="include\Document\Elements\IParagraph.h" />
     <ClInclude Include="include\Document\IDocument.h" />
     <ClInclude Include="include\Document\IDocument_fwd.h" />
+    <ClInclude Include="include\Editor\Editor.h" />
     <ClInclude Include="include\Menu\Menu.h" />
     <ClInclude Include="include\pch.h" />
+    <ClInclude Include="include\utility.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,6 +5,8 @@
 
 class IDocument;
 
+using IDocumentRawPtr = IDocument*;
+
 using IDocumentPtr = std::unique_ptr<IDocument>;
 using IDocumentSharedPtr = std::shared_ptr<IDocument>;
 using IDocumentWeakPtr = std::weak_ptr<IDocument>;

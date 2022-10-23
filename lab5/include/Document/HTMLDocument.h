@@ -1,9 +1,13 @@
 #ifndef COMMAND_DOCUMENT_HTML_DOCUMENT_H_
 #define COMMAND_DOCUMENT_HTML_DOCUMENT_H_
 
+#include <deque>
 #include <string>
 
 #include "../Commands/UndoManager.h"
+#include "Elements/DocumentItem.h"
+#include "Elements/IImage.h"
+#include "Elements/IParagraph.h"
 #include "IDocument.h"
 
 class HTMLDocument : public IDocument
@@ -11,12 +15,24 @@ class HTMLDocument : public IDocument
 public:
 	HTMLDocument() = default;
 
-	template <typename Title = std::string>
-	HTMLDocument(Title&& string)
-		: m_title(std::forward<Title>(string))
+	template <typename StringT = std::string>
+	HTMLDocument(StringT&& string)
+		: m_title(std::forward<StringT>(string))
 		, m_undoManager()
 	{
 	}
+
+	IParagraphSharedPtr InsertParagraph(const std::string& text,
+		std::optional<size_t> position = std::nullopt) final;
+
+	IImageSharedPtr InsertImage(const Path& path, size_t width, size_t height,
+		std::optional<size_t> position = std::nullopt) final;
+
+	size_t GetItemsCount() const final;
+
+	const DocumentItem& GetItem(size_t index) const final;
+
+	void DeleteItem(size_t index) final;
 
 	const std::string& GetTitle() const final;
 	void SetTitle(const std::string& title) final;
@@ -29,7 +45,8 @@ public:
 	void Save(const StdPath& path) const final;
 
 private:
-	std::string m_title{};
+	std::string m_title = "Title";
+	std::deque<DocumentItem> m_items{};
 
 	UndoManager m_undoManager{};
 };
