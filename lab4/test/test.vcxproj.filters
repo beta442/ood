@@ -1,96 +1,96 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Исходные файлы">
+    <Filter Include="Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Файлы заголовков">
+    <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Файлы ресурсов">
+    <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Файлы ресурсов\Unit">
-      <UniqueIdentifier>{c5ca5686-9c61-4dbb-9b53-dd758fbace35}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы ресурсов\Testing Source">
+    <Filter Include="Source Files\Testing Source">
       <UniqueIdentifier>{d715b093-609c-4d16-9ac8-277a10e5a04a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы ресурсов\Testing Source\Designer">
+    <Filter Include="Source Files\Testing Source\Designer">
       <UniqueIdentifier>{e3622a5e-d087-4451-b2cf-6ea9acbb4d84}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы ресурсов\Testing Source\Draft">
+    <Filter Include="Source Files\Testing Source\Draft">
       <UniqueIdentifier>{473b8e50-edcc-4571-a152-ad1d339d921a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы ресурсов\Testing Source\Painter">
+    <Filter Include="Source Files\Testing Source\Painter">
       <UniqueIdentifier>{ddf574c1-4799-425e-94dc-a2bd1e03bdf5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы ресурсов\Testing Source\Shapes">
+    <Filter Include="Source Files\Testing Source\Shapes">
       <UniqueIdentifier>{c3461576-4754-4d32-ba14-79cf74cb4bf7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы ресурсов\Testing Source\Shapes\ConcreteShapes">
+    <Filter Include="Source Files\Testing Source\Shapes\ConcreteShapes">
       <UniqueIdentifier>{5f9264fc-6ee4-48dd-989d-d961c058f30b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы ресурсов\Testing Source\Shapes\Factory">
+    <Filter Include="Source Files\Testing Source\Shapes\Factory">
       <UniqueIdentifier>{01776df8-d1c5-4ab7-9880-03ddd74f5b49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Unit">
+      <UniqueIdentifier>{c5ca5686-9c61-4dbb-9b53-dd758fbace35}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
-    <ClCompile Include="include\pch.cpp">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
     <ClCompile Include="Unit\Shapes.test.cpp">
-      <Filter>Файлы ресурсов\Unit</Filter>
+      <Filter>Source Files\Unit</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Designer\Designer.cpp">
-      <Filter>Файлы ресурсов\Testing Source\Designer</Filter>
+      <Filter>Source Files\Testing Source\Designer</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Draft\PictureDraft.cpp">
-      <Filter>Файлы ресурсов\Testing Source\Draft</Filter>
+      <Filter>Source Files\Testing Source\Draft</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Painter\Painter.cpp">
-      <Filter>Файлы ресурсов\Testing Source\Painter</Filter>
+      <Filter>Source Files\Testing Source\Painter</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Shape\Shape.cpp">
-      <Filter>Файлы ресурсов\Testing Source\Shapes</Filter>
+      <Filter>Source Files\Testing Source\Shapes</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Shape\Ellipse.cpp">
-      <Filter>Файлы ресурсов\Testing Source\Shapes\ConcreteShapes</Filter>
+      <Filter>Source Files\Testing Source\Shapes\ConcreteShapes</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Shape\Rectangle.cpp">
-      <Filter>Файлы ресурсов\Testing Source\Shapes\ConcreteShapes</Filter>
+      <Filter>Source Files\Testing Source\Shapes\ConcreteShapes</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Shape\RegularPolygon.cpp">
-      <Filter>Файлы ресурсов\Testing Source\Shapes\ConcreteShapes</Filter>
+      <Filter>Source Files\Testing Source\Shapes\ConcreteShapes</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Shape\Triangle.cpp">
-      <Filter>Файлы ресурсов\Testing Source\Shapes\ConcreteShapes</Filter>
+      <Filter>Source Files\Testing Source\Shapes\ConcreteShapes</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Shape\Factory\ShapeFactory.cpp">
-      <Filter>Файлы ресурсов\Testing Source\Shapes\Factory</Filter>
+      <Filter>Source Files\Testing Source\Shapes\Factory</Filter>
     </ClCompile>
     <ClCompile Include="Unit\PictureDraft.test.cpp">
-      <Filter>Файлы ресурсов\Unit</Filter>
+      <Filter>Source Files\Unit</Filter>
     </ClCompile>
     <ClCompile Include="Unit\ShapesFactory.test.cpp">
-      <Filter>Файлы ресурсов\Unit</Filter>
+      <Filter>Source Files\Unit</Filter>
     </ClCompile>
     <ClCompile Include="Unit\Designer.test.cpp">
-      <Filter>Файлы ресурсов\Unit</Filter>
+      <Filter>Source Files\Unit</Filter>
     </ClCompile>
     <ClCompile Include="Unit\Painter.test.cpp">
-      <Filter>Файлы ресурсов\Unit</Filter>
+      <Filter>Source Files\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\pch.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -40,9 +40,23 @@ BOOST_AUTO_TEST_SUITE(Designer_tests)
 			std::string("eLlIpsE black 145 40 38 21\n") +
 			"rectangle green 0 0 100 12\n" +
 			"triangle blue 140 140 365 144 143 400\n" +
-			"regular-polygon grEEn 400 400 100 15\n"
+			"regular-polygon grEEn 400 400 100 3\n"
 		};
-		const Point expectedEllipseP{ 145, 40 }, expectedRegularPolyP{ 400, 400 };
+		const std::string expectedResult = std::string("color\n") +
+			"145 40 38 21\n" +
+			"color\n" +
+			"0 0\n" +
+			"100 0\n" +
+			"100 12\n" +
+			"0 12\n" +
+			"color\n" +
+			"140 140\n" +
+			"365 144\n" +
+			"143 400\n" +
+			"color\n" +
+			"500 400\n" +
+			"350 487\n" +
+			"350 313\n";
 
 		Designer d{ std::move(std::make_shared<ShapeFactory>()) };
 		auto draft = d.CreateDraft(iss);
@@ -51,7 +65,7 @@ BOOST_AUTO_TEST_SUITE(Designer_tests)
 		auto canvas = std::make_shared<MockCanvas>();
 		p.DrawPicture(draft, canvas);
 
-		std::cout << canvas->ssCanvas.str();
+		BOOST_CHECK_EQUAL(expectedResult, canvas->ssCanvas.str());
 	}
 
 BOOST_AUTO_TEST_SUITE_END();
