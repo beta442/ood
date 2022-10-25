@@ -61,6 +61,9 @@
     <Filter Include="Source Files\Document\Elements\Image">
       <UniqueIdentifier>{2afc115c-21b6-44b4-afc7-55751a47e50c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Iterator">
+      <UniqueIdentifier>{339b937e-d61c-4504-b84a-6663494b4cca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -181,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="include\Document\Elements\Image.h">
       <Filter>Header Files\Document\Elements\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Iterator\Iterator.hpp">
+      <Filter>Header Files\Iterator</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -13,12 +13,15 @@
 class HTMLDocument : public IDocument
 {
 public:
+	using Container = std::deque<DocumentItem>;
+
 	HTMLDocument() = default;
 
 	template <typename StringT = std::string>
 	HTMLDocument(StringT&& string)
 		: m_title(std::forward<StringT>(string))
 		, m_undoManager()
+		, m_items()
 	{
 	}
 
@@ -44,9 +47,14 @@ public:
 
 	void Save(const StdPath& path) const final;
 
+	Iterator begin() final;
+	//ConstIterator& begin() const final;
+	Iterator end() final;
+	//ConstIterator& end() const final;
+
 private:
 	std::string m_title = "Title";
-	std::deque<DocumentItem> m_items{};
+	Container m_items{};
 
 	UndoManager m_undoManager{};
 };

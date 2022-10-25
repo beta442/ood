@@ -1,31 +1,13 @@
 #include "../../include/Commands/UndoManager.h"
 
-bool UndoManager::CanUndo() const noexcept
+bool UndoManager::CanUndo() const
 {
 	return m_nextEditIndex != 0;
 }
 
-bool UndoManager::CanRedo() const noexcept
+bool UndoManager::CanRedo() const
 {
 	return m_nextEditIndex != m_edits.size();
-}
-
-void UndoManager::Undo()
-{
-	if (CanUndo())
-	{
-		m_edits[m_nextEditIndex - 1]->Undo();
-		--m_nextEditIndex;
-	}
-}
-
-void UndoManager::Redo()
-{
-	if (CanRedo())
-	{
-		m_edits[m_nextEditIndex]->Redo();
-		++m_nextEditIndex;
-	}
 }
 
 void UndoManager::AddAndExecuteEdit(const IUndoableEditSharedPtr& edit)
@@ -63,10 +45,16 @@ bool UndoManager::DerivedExecute()
 
 bool UndoManager::DerivedUndo()
 {
-	return false;
+	m_edits[m_nextEditIndex - 1]->Undo();
+	--m_nextEditIndex;
+
+	return true;
 }
 
 bool UndoManager::DerivedRedo()
 {
-	return false;
+	m_edits[m_nextEditIndex]->Redo();
+	++m_nextEditIndex;
+
+	return true;
 }

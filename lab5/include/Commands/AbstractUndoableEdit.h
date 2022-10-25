@@ -10,8 +10,8 @@ class AbstractUndoableEdit : public IUndoableEdit
 public:
 	void Execute() final;
 
-	bool CanUndo() const noexcept override;
-	bool CanRedo() const noexcept override;
+	bool CanUndo() const override;
+	bool CanRedo() const override;
 
 	void Undo() override;
 	void Redo() override;
@@ -19,7 +19,7 @@ public:
 	bool AddEdit(const IUndoableEditSharedPtr& edit) override;
 	bool ReplaceEdit(const IUndoableEditSharedPtr& edit) override;
 
-	const std::string_view& GetName() const noexcept final;
+	const std::string& GetName() const final;
 
 	void operator()() final;
 
@@ -43,7 +43,7 @@ protected:
 
 private:
 	bool m_wasExecuted = false;
-	std::string m_name{};
+	const std::string m_name{};
 };
 
 #endif // !COMMAND_COMMANDS_ABSTRACT_UNDOABLE_EDIT_H_

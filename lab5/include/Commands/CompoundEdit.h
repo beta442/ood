@@ -9,6 +9,9 @@
 class CompoundEdit : protected AbstractUndoableEdit
 {
 public:
+	using AbstractUndoableEdit::Execute;
+	using AbstractUndoableEdit::operator();
+
 	template <typename EditName = std::string>
 	CompoundEdit(EditName&& editName)
 		: AbstractUndoableEdit(std::forward<EditName>(editName))

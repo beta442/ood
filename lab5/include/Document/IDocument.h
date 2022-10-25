@@ -6,17 +6,19 @@
 #include <optional>
 #include <string>
 
-#include "common.h"
-
+#include "../Iterator/Iterator.hpp"
 #include "Elements/DocumentItem.h"
 #include "Elements/IImage.h"
 #include "Elements/IParagraph.h"
 #include "IDocument_fwd.h"
+#include "common.h"
 
 class IDocument
 {
 public:
 	using Path = StdPath;
+	using Iterator = BidirectionalIterator<DocumentItem>;
+	using ConstIterator = BidirectionalIterator<const DocumentItem>;
 
 	virtual IParagraphSharedPtr InsertParagraph(const std::string& text,
 		std::optional<size_t> position = std::nullopt)
@@ -47,6 +49,11 @@ public:
 	// Пути к изображениям указываются относительно пути к сохраняемому HTML файлу
 	virtual void Save(const Path& path) const = 0;
 
+	virtual Iterator begin() = 0;
+	//virtual BidirectionalIterator<const DocumentItem>& begin() const = 0;
+	virtual Iterator end() = 0;
+	//virtual BidirectionalIterator<const DocumentItem>& end() const = 0;
+
 	virtual ~IDocument() = default;
 };
 
@@ -56,6 +63,6 @@ namespace document_item_types
 constexpr auto PARAGRAPH_TYPE_STR = "Paragraph";
 constexpr auto IMAGE_TYPE_STR = "Image";
 
-}; // namespace html_document_item_types
+}; // namespace document_item_types
 
 #endif

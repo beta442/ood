@@ -185,10 +185,11 @@ std::string GetDetailInfoAboutDocumentItem(const DocumentItem& item)
 void Editor::ListDocument()
 {
 	m_outputEcho << "Title: " << m_document->GetTitle() << '\n';
-	const auto itemsCount = m_document->GetItemsCount();
-	for (size_t i = 0; i < itemsCount; ++i)
+	
+	size_t itemIndex = 1;
+	for (auto& item : *m_document)
 	{
-		m_outputEcho << i << ". " << GetDetailInfoAboutDocumentItem(m_document->GetItem(i)) << '\n';
+		m_outputEcho << itemIndex << ". " << GetDetailInfoAboutDocumentItem(item) << '\n';
 	}
 }
 

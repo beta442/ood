@@ -181,6 +181,7 @@
     <ClInclude Include="include\Document\IDocument.h" />
     <ClInclude Include="include\Document\IDocument_fwd.h" />
     <ClInclude Include="include\Editor\Editor.h" />
+    <ClInclude Include="include\Iterator\Iterator.hpp" />
     <ClInclude Include="include\Menu\Menu.h" />
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\utility.hpp" />

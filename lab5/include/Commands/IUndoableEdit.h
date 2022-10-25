@@ -10,8 +10,8 @@ class IUndoableEdit
 public:
 	virtual void Execute() = 0;
 
-	virtual bool CanUndo() const noexcept = 0;
-	virtual bool CanRedo() const noexcept = 0;
+	virtual bool CanUndo() const = 0;
+	virtual bool CanRedo() const = 0;
 
 	virtual void Undo() = 0;
 	virtual void Redo() = 0;
@@ -20,7 +20,7 @@ public:
 	virtual bool AddEdit(const IUndoableEditSharedPtr& edit) = 0;
 	virtual bool ReplaceEdit(const IUndoableEditSharedPtr& edit) = 0;
 
-	virtual const std::string_view& GetName() const noexcept = 0;
+	virtual const std::string& GetName() const = 0;
 
 	virtual void operator()() = 0;
 

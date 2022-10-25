@@ -40,12 +40,12 @@ void AbstractUndoableEdit::Redo()
 	m_wasExecuted = DerivedRedo();
 }
 
-bool AbstractUndoableEdit::CanUndo() const noexcept
+bool AbstractUndoableEdit::CanUndo() const
 {
 	return m_wasExecuted;
 }
 
-bool AbstractUndoableEdit::CanRedo() const noexcept
+bool AbstractUndoableEdit::CanRedo() const
 {
 	return !m_wasExecuted;
 }
@@ -64,7 +64,7 @@ bool AbstractUndoableEdit::ReplaceEdit(const IUndoableEditSharedPtr& edit)
 	return false;
 }
 
-const std::string_view& AbstractUndoableEdit::GetName() const noexcept
+const std::string& AbstractUndoableEdit::GetName() const
 {
 	return m_name;
 }

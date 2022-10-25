@@ -112,3 +112,29 @@ void HTMLDocument::Save(const StdPath& path) const
 
 	// std::ofstream fHandler = CreateHTMLHandler(path);
 }
+
+using Iterator = HTMLDocument::Iterator;
+using ConstIterator = HTMLDocument::ConstIterator;
+
+Iterator HTMLDocument::begin()
+{
+	return RandomAccessIteratorWrapper<DocumentItem, decltype(m_items.begin())>(m_items.begin(), m_items.end());
+}
+
+//ConstIterator& HTMLDocument::begin() const
+//{
+//	auto a = RandomAccessIteratorWrapper<const DocumentItem, decltype(m_items.begin())>(m_items.begin(), m_items.end());
+//	m_cBegin = a;
+//	return m_cBegin;
+//}
+
+Iterator HTMLDocument::end()
+{
+	return RandomAccessIteratorWrapper<DocumentItem, decltype(m_items.begin())>(m_items.end(), m_items.end());
+}
+
+//ConstIterator& HTMLDocument::end() const
+//{
+//	m_cEnd = RandomAccessIteratorWrapper<const DocumentItem, decltype(m_items.begin())>(m_items.end(), m_items.end());
+//	return m_cEnd;
+//}

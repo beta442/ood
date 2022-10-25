@@ -6,13 +6,13 @@
 class UndoManager : private CompoundEdit
 {
 public:
+	using CompoundEdit::Undo;
+	using CompoundEdit::Redo;
+
 	UndoManager() = default;
 
-	bool CanUndo() const noexcept final;
-	bool CanRedo() const noexcept final;
-
-	void Undo() final;
-	void Redo() final;
+	bool CanUndo() const final;
+	bool CanRedo() const final;
 
 	void AddAndExecuteEdit(const IUndoableEditSharedPtr& edit);
 
