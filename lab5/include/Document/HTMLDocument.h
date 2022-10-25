@@ -48,11 +48,10 @@ public:
 	void Save(const StdPath& path) const final;
 
 	Iterator begin() final;
-	//ConstIterator& begin() const final;
-	Iterator end() final;
-	//ConstIterator& end() const final;
+	ConstIterator begin() const final;
 
 private:
+
 	std::string m_title = "Title";
 	Container m_items{};
 

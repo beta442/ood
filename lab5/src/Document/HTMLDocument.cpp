@@ -118,23 +118,10 @@ using ConstIterator = HTMLDocument::ConstIterator;
 
 Iterator HTMLDocument::begin()
 {
-	return RandomAccessIteratorWrapper<DocumentItem, decltype(m_items.begin())>(m_items.begin(), m_items.end());
+	return std::make_unique<IteratorWrapper<DocumentItem, Container::iterator>>(m_items.begin(), m_items.end());
 }
 
-//ConstIterator& HTMLDocument::begin() const
-//{
-//	auto a = RandomAccessIteratorWrapper<const DocumentItem, decltype(m_items.begin())>(m_items.begin(), m_items.end());
-//	m_cBegin = a;
-//	return m_cBegin;
-//}
-
-Iterator HTMLDocument::end()
+ConstIterator HTMLDocument::begin() const
 {
-	return RandomAccessIteratorWrapper<DocumentItem, decltype(m_items.begin())>(m_items.end(), m_items.end());
+	return std::make_unique<IteratorWrapper<const DocumentItem, Container::const_iterator>>(m_items.begin(), m_items.end());
 }
-
-//ConstIterator& HTMLDocument::end() const
-//{
-//	m_cEnd = RandomAccessIteratorWrapper<const DocumentItem, decltype(m_items.begin())>(m_items.end(), m_items.end());
-//	return m_cEnd;
-//}

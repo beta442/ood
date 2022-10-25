@@ -17,8 +17,8 @@ class IDocument
 {
 public:
 	using Path = StdPath;
-	using Iterator = BidirectionalIterator<DocumentItem>;
-	using ConstIterator = BidirectionalIterator<const DocumentItem>;
+	using Iterator = IIteratorPtr<DocumentItem>;
+	using ConstIterator = IIteratorPtr<const DocumentItem>;
 
 	virtual IParagraphSharedPtr InsertParagraph(const std::string& text,
 		std::optional<size_t> position = std::nullopt)
@@ -50,9 +50,7 @@ public:
 	virtual void Save(const Path& path) const = 0;
 
 	virtual Iterator begin() = 0;
-	//virtual BidirectionalIterator<const DocumentItem>& begin() const = 0;
-	virtual Iterator end() = 0;
-	//virtual BidirectionalIterator<const DocumentItem>& end() const = 0;
+	virtual ConstIterator begin() const = 0;
 
 	virtual ~IDocument() = default;
 };

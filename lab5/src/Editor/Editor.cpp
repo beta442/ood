@@ -186,10 +186,12 @@ void Editor::ListDocument()
 {
 	m_outputEcho << "Title: " << m_document->GetTitle() << '\n';
 	
+	auto it = m_document->begin();
 	size_t itemIndex = 1;
-	for (auto& item : *m_document)
+	while (it->HasNext())
 	{
-		m_outputEcho << itemIndex << ". " << GetDetailInfoAboutDocumentItem(item) << '\n';
+		m_outputEcho << itemIndex++ << ". " << GetDetailInfoAboutDocumentItem(it->Get()) << '\n';
+		it->Next();
 	}
 }
 
