@@ -20,6 +20,7 @@ private:
 	void DeleteItem(std::istream& is);
 	void InsertParagparh(std::istream& is);
 	void ListDocument();
+	void ReplaceText(std::istream& is);
 	void Save(std::istream& is);
 	void SetTitle(std::istream& is);
 

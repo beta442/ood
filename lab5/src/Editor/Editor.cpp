@@ -15,6 +15,7 @@ constexpr auto INSERT_PARAGRAPH_CMND = "InsertParagraph";
 constexpr auto LIST_CMND = "List";
 constexpr auto REDO_CMND = "Redo";
 constexpr auto RENAME_CMND = SET_TITLE_COMMAND_NAME;
+constexpr auto REPLACE_TEXT_CMND = REPLACE_DOCUMENT_PARAGRAPH_COMMAND_NAME;
 constexpr auto SAVE_CMND = "Save";
 constexpr auto UNDO_CMND = "Undo";
 
@@ -26,10 +27,11 @@ namespace descriptions
 constexpr auto DELETE_CMND_DSCRP = "Deletes item at certain <pos>. Args: {pos}";
 constexpr auto EXIT_CMND_DSCRP = "Stops editing document";
 constexpr auto HELP_CMND_DSCRP = "Shows list of available commands";
-constexpr auto INSERT_PARAGRAPH_CMND_DSCRP = "Inserts a paragraph before <pos>. Args: {end|<pos>}";
+constexpr auto INSERT_PARAGRAPH_CMND_DSCRP = "Inserts a paragraph before <pos>. Args: {end|<pos>} <text>";
 constexpr auto LIST_CMND_DSCRP = "Lists document's content";
 constexpr auto REDO_CMND_DSCRP = "Redo undone action";
 constexpr auto RENAME_CMND_DSCRP = "Changes title. Args: <new-title>";
+constexpr auto REPLACE_TEXT_CMND_DSCRP = "Replaces text item at <pos> with new content. Args: {end|<pos>}, <text>";
 constexpr auto SAVE_CMND_DSCRP = "Saves document. Args: <path>";
 constexpr auto UNDO_CMND_DSCRP = "Undo previous action";
 
@@ -63,6 +65,9 @@ Editor::Editor(IDocumentPtr&& document, std::istream& inputS, std::ostream& outp
 	m_menu.AddItem(INSERT_PARAGRAPH_CMND, INSERT_PARAGRAPH_CMND_DSCRP, [this](std::istream& is) {
 		InsertParagparh(is);
 	});
+	m_menu.AddItem(REPLACE_TEXT_CMND, REPLACE_TEXT_CMND_DSCRP, [this](std::istream& is) {
+		ReplaceText(is);
+	});
 	m_menu.AddItem(RENAME_CMND, RENAME_CMND_DSCRP, [this](std::istream& is) {
 		SetTitle(is);
 	});
@@ -95,7 +100,7 @@ void Editor::DeleteItem(std::istream& is)
 	{
 		m_document->DeleteItem(IEqualStrings(index, editor_commands::INSERT_END_ARG)
 				? m_document->GetItemsCount() - 1
-				: std::stoi(index));
+				: static_cast<size_t>(std::stoi(index)) - 1);
 	}
 	catch (const std::exception& e)
 	{
@@ -130,6 +135,8 @@ void Editor::Undo()
 	m_document->Undo();
 }
 
+constexpr auto BAD_TEXT_OR_INSERT_ARGUMENTS_MSG = "Failed to read text or insert position arguments\n";
+
 void Editor::InsertParagparh(std::istream& is)
 {
 	if (!std::istream::sentry(is))
@@ -141,13 +148,41 @@ void Editor::InsertParagparh(std::istream& is)
 	std::string text{}, paragraphIndex{};
 	if (!(is >> paragraphIndex) || !(is >> text))
 	{
-		m_outputEcho << "Failed to read text or insert position arguments\n";
+		m_outputEcho << BAD_TEXT_OR_INSERT_ARGUMENTS_MSG;
 		return;
 	}
 
 	try
 	{
 		m_document->InsertParagraph(text,
+			IEqualStrings(paragraphIndex, editor_commands::INSERT_END_ARG)
+				? m_document->GetItemsCount()
+				: std::stoi(paragraphIndex));
+	}
+	catch (std::exception& exception)
+	{
+		m_outputEcho << exception.what() << std::endl;
+	}
+}
+
+void Editor::ReplaceText(std::istream& is)
+{
+	if (!std::istream::sentry(is))
+	{
+		m_outputEcho << BAD_STREAM_MSG;
+		return;
+	}
+
+	std::string text{}, paragraphIndex{};
+	if (!(is >> paragraphIndex) || !(is >> text))
+	{
+		m_outputEcho << BAD_TEXT_OR_INSERT_ARGUMENTS_MSG;
+		return;
+	}
+
+	try
+	{
+		m_document->ReplaceParagraph(text,
 			IEqualStrings(paragraphIndex, editor_commands::INSERT_END_ARG)
 				? m_document->GetItemsCount()
 				: std::stoi(paragraphIndex));

@@ -4,9 +4,10 @@
 namespace document_commands
 {
 
-constexpr auto SET_TITLE_COMMAND_NAME = "SetTitle";
-constexpr auto INSERT_DOCUMENT_ITEM_COMMAND_NAME = "InsertDocumentItem";
 constexpr auto DELETE_DOCUMENT_ITEM_COMMAND_NAME = "DeleteItem";
+constexpr auto INSERT_DOCUMENT_ITEM_COMMAND_NAME = "InsertDocumentItem";
+constexpr auto REPLACE_DOCUMENT_PARAGRAPH_COMMAND_NAME = "ReplaceText";
+constexpr auto SET_TITLE_COMMAND_NAME = "SetTitle";
 
 }; // namespace document_commands
 

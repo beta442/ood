@@ -20,8 +20,8 @@ public:
 	template <typename StringT = std::string>
 	HTMLDocument(StringT&& string)
 		: m_title(std::forward<StringT>(string))
-		, m_undoManager()
 		, m_items()
+		, m_undoManager()
 	{
 	}
 
@@ -29,6 +29,9 @@ public:
 		std::optional<size_t> position = std::nullopt) final;
 
 	IImageSharedPtr InsertImage(const Path& path, size_t width, size_t height,
+		std::optional<size_t> position = std::nullopt) final;
+
+	IParagraphSharedPtr ReplaceParagraph(const std::string& newText,
 		std::optional<size_t> position = std::nullopt) final;
 
 	size_t GetItemsCount() const final;
@@ -51,11 +54,10 @@ public:
 	ConstIterator begin() const final;
 
 private:
-
 	std::string m_title = "Title";
-	Container m_items{};
 
-	UndoManager m_undoManager{};
+	Container m_items;
+	UndoManager m_undoManager;
 };
 
 #endif // !COMMAND_DOCUMENT_HTML_DOCUMENT_H_

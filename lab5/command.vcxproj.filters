@@ -188,5 +188,8 @@
     <ClInclude Include="include\Iterator\Iterator.hpp">
       <Filter>Header Files\Iterator</Filter>
     </ClInclude>
+    <ClInclude Include="include\Document\Commands\CReplaceDocumentParagraph.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -27,7 +27,7 @@ public:
 
 	using reference_type = typename MyBase::reference_type;
 
-	IteratorWrapper(IteratorT begin, IteratorT end)
+	IteratorWrapper(const IteratorT& begin, const IteratorT& end)
 		: m_it(begin)
 		, m_end(end)
 	{
@@ -45,6 +45,10 @@ public:
 
 	void Next() override
 	{
+		if (m_it == m_end)
+		{
+			throw std::out_of_range("Cannot increment end iterator");
+		}
 		++m_it;
 	}
 

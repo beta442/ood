@@ -40,7 +40,7 @@ private:
 	std::istream& m_input;
 	std::ostream& m_output;
 
-	std::vector<Item> m_items{};
+	std::vector<Item> m_items;
 	bool m_exit = false;
 };
 

@@ -14,8 +14,8 @@ public:
 	CInsertDocumentItem(DocumentInnerContainerT& target, const DocumentItem& docItem, size_t index)
 		: AbstractUndoableEdit(document_commands::INSERT_DOCUMENT_ITEM_COMMAND_NAME)
 		, m_target(target)
-		, m_state(docItem)
 		, m_index(index)
+		, m_state(docItem)
 	{
 	}
 
@@ -52,7 +52,7 @@ private:
 
 	DocumentInnerContainerT& m_target;
 
-	size_t m_index{};
+	size_t m_index;
 	DocumentItem m_state;
 };
 

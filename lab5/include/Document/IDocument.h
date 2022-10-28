@@ -21,14 +21,15 @@ public:
 	using ConstIterator = IIteratorPtr<const DocumentItem>;
 
 	virtual IParagraphSharedPtr InsertParagraph(const std::string& text,
-		std::optional<size_t> position = std::nullopt)
-		= 0;
+		std::optional<size_t> position = std::nullopt) = 0;
 
 	// При вставке изображение должно копироваться в подкаталог images
 	// под автоматически сгенерированным именем
 	virtual IImageSharedPtr InsertImage(const Path& path, size_t width, size_t height,
-		std::optional<size_t> position = std::nullopt)
-		= 0;
+		std::optional<size_t> position = std::nullopt) = 0;
+
+	virtual IParagraphSharedPtr ReplaceParagraph(const std::string& newText,
+		std::optional<size_t> position = std::nullopt) = 0;
 
 	virtual size_t GetItemsCount() const = 0;
 

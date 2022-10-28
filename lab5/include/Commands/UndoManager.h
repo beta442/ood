@@ -3,12 +3,9 @@
 
 #include "CompoundEdit.h"
 
-class UndoManager : private CompoundEdit
+class UndoManager : public CompoundEdit
 {
 public:
-	using CompoundEdit::Undo;
-	using CompoundEdit::Redo;
-
 	UndoManager() = default;
 
 	bool CanUndo() const final;

@@ -166,6 +166,7 @@
     <ClInclude Include="include\Document\Commands\CDeleteDocumentItem.hpp" />
     <ClInclude Include="include\Document\Commands\CInsertDocumentItem.hpp" />
     <ClInclude Include="include\Document\Commands\common.h" />
+    <ClInclude Include="include\Document\Commands\CReplaceDocumentParagraph.hpp" />
     <ClInclude Include="include\Document\Commands\CSetTitle.h" />
     <ClInclude Include="include\Document\common.h" />
     <ClInclude Include="include\Document\Elements\IElement.h" />

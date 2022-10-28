@@ -2,6 +2,7 @@
 
 #include "../../include/Document/Commands/CDeleteDocumentItem.hpp"
 #include "../../include/Document/Commands/CInsertDocumentItem.hpp"
+#include "../../include/Document/Commands/CReplaceDocumentParagraph.hpp"
 #include "../../include/Document/Commands/CSetTitle.h"
 #include "../../include/Document/Elements/Paragraph.h"
 #include "../../include/Document/HTMLDocument.h"
@@ -12,7 +13,7 @@ IParagraphSharedPtr HTMLDocument::InsertParagraph(const std::string& text,
 	auto newParagraph = std::make_shared<Paragraph>(text);
 	auto newDocumentItem = DocumentItem{ newParagraph };
 	m_undoManager.AddAndExecuteEdit(
-		std::make_shared<CInsertDocumentItem<decltype(m_items)>>(m_items,
+		std::make_shared<CInsertDocumentItem<Container>>(m_items,
 			newDocumentItem,
 			(position.has_value()) ? *position : GetItemsCount()));
 
@@ -23,6 +24,19 @@ IImageSharedPtr HTMLDocument::InsertImage(const Path& path, size_t width, size_t
 	std::optional<size_t> position)
 {
 	return nullptr;
+}
+
+IParagraphSharedPtr HTMLDocument::ReplaceParagraph(const std::string& newText,
+	std::optional<size_t> position)
+{
+	auto newParagraph = std::make_shared<Paragraph>(newText);
+	auto newDocumentItem = DocumentItem{ newParagraph };
+	m_undoManager.AddAndExecuteEdit(
+		std::make_shared<CReplaceDocumentParagraph<Container>>(m_items,
+			newDocumentItem,
+			(position.has_value()) ? *position : GetItemsCount()));
+
+	return newParagraph;
 }
 
 size_t HTMLDocument::GetItemsCount() const
@@ -47,7 +61,9 @@ void HTMLDocument::DeleteItem(size_t index)
 		throw std::out_of_range("Failed to delete item in HTMLDocument. Given index is out of range");
 	}
 
-	m_undoManager.AddAndExecuteEdit(std::make_shared<CDeleteDocumentItem<decltype(m_items)>>(m_items, GetItem(index), index));
+	m_undoManager.AddAndExecuteEdit(std::make_shared<CDeleteDocumentItem<Container>>(m_items,
+		GetItem(index),
+		index));
 }
 
 const std::string& HTMLDocument::GetTitle() const
@@ -67,11 +83,6 @@ bool HTMLDocument::CanUndo() const
 
 void HTMLDocument::Undo()
 {
-	if (!CanUndo())
-	{
-		return;
-	}
-
 	m_undoManager.Undo();
 }
 
@@ -82,11 +93,6 @@ bool HTMLDocument::CanRedo() const
 
 void HTMLDocument::Redo()
 {
-	if (!CanRedo())
-	{
-		return;
-	}
-
 	m_undoManager.Redo();
 }
 

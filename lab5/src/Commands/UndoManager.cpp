@@ -45,16 +45,14 @@ bool UndoManager::DerivedExecute()
 
 bool UndoManager::DerivedUndo()
 {
-	m_edits[m_nextEditIndex - 1]->Undo();
-	--m_nextEditIndex;
+	m_edits[--m_nextEditIndex]->Undo();
 
 	return true;
 }
 
 bool UndoManager::DerivedRedo()
 {
-	m_edits[m_nextEditIndex]->Redo();
-	++m_nextEditIndex;
+	m_edits[m_nextEditIndex++]->Redo();
 
 	return true;
 }
