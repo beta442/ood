@@ -176,9 +176,6 @@
     <ClInclude Include="include\Document\Commands\CInsertDocumentItem.hpp">
       <Filter>Header Files\Document\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="include\Document\Commands\CDeleteDocumentItem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Document\Commands\CDeleteDocumentItem.hpp">
       <Filter>Header Files\Document\Commands</Filter>
     </ClInclude>
@@ -188,8 +185,8 @@
     <ClInclude Include="include\Iterator\Iterator.hpp">
       <Filter>Header Files\Iterator</Filter>
     </ClInclude>
-    <ClInclude Include="include\Document\Commands\CReplaceDocumentParagraph.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\Document\Commands\CReplaceDocumentItem.hpp">
+      <Filter>Header Files\Document\Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

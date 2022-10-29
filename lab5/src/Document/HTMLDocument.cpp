@@ -2,7 +2,7 @@
 
 #include "../../include/Document/Commands/CDeleteDocumentItem.hpp"
 #include "../../include/Document/Commands/CInsertDocumentItem.hpp"
-#include "../../include/Document/Commands/CReplaceDocumentParagraph.hpp"
+#include "../../include/Document/Commands/CReplaceDocumentItem.hpp"
 #include "../../include/Document/Commands/CSetTitle.h"
 #include "../../include/Document/Elements/Image.h"
 #include "../../include/Document/Elements/Paragraph.h"
