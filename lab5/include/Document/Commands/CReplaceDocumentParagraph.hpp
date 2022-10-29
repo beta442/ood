@@ -12,27 +12,24 @@
 #include "common.h"
 
 template <typename DocumentInnerContainerT>
-class CReplaceDocumentParagraph : public CompoundEdit
+class CReplaceDocumentItem : public CompoundEdit
 {
 public:
-	CReplaceDocumentParagraph(DocumentInnerContainerT& target, const DocumentItem& newDocItem, size_t index)
-		: CompoundEdit(document_commands::REPLACE_DOCUMENT_PARAGRAPH_COMMAND_NAME)
+	CReplaceDocumentItem(DocumentInnerContainerT& target,
+		const DocumentItem& oldDocItem,
+		const DocumentItem& newDocItem,
+		size_t index)
+		: CompoundEdit(document_commands::REPLACE_DOCUMENT_ITEM_COMMAND_NAME)
 		, m_target(target)
 		, m_index(index)
 	{
-		if (m_index >= m_target.size())
+		if (index >= target.size())
 		{
-			throw std::out_of_range("Failed to replace paragraph's text in Document. Given index is out of range");
-		}
-
-		auto oldItem = target[index];
-		if (oldItem.GetParagraph() == nullptr)
-		{
-			throw std::invalid_argument("Document doesn't contain paragraph at given index.");
+			throw std::out_of_range("Failed to replace item in Document. Given index is out of range");
 		}
 
 		auto firstC = std::make_shared<CDeleteDocumentItem<DocumentInnerContainerT>>(target,
-			oldItem,
+			oldDocItem,
 			index);
 		auto secondC = std::make_shared<CInsertDocumentItem<DocumentInnerContainerT>>(target,
 			newDocItem,

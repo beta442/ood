@@ -21,6 +21,32 @@ IParagraphSharedPtr HTMLDocument::InsertParagraph(const std::string& text,
 	return newParagraph;
 }
 
+IParagraphSharedPtr HTMLDocument::ReplaceParagraph(const std::string& newText,
+	std::optional<size_t> position)
+{
+	auto index = (position.has_value()) ? *position : m_items.size() - 1;
+	if (index >= m_items.size())
+	{
+		throw std::out_of_range("Failed to replace paragraph's text in Document. Given index is out of range");
+	}
+
+	auto oldItem = m_items[index];
+	if (oldItem.GetParagraph() == nullptr)
+	{
+		throw std::invalid_argument("Document doesn't contain paragraph at given index.");
+	}
+
+	auto newParagraph = std::make_shared<Paragraph>(newText);
+	auto newDocumentItem = DocumentItem{ newParagraph };
+	m_undoManager.AddAndExecuteEdit(
+		std::make_shared<CReplaceDocumentItem<Container>>(m_items,
+			oldItem,
+			newDocumentItem,
+			(position.has_value()) ? *position : GetItemsCount()));
+
+	return newParagraph;
+}
+
 IImageSharedPtr HTMLDocument::InsertImage(const Path& path, size_t width, size_t height,
 	std::optional<size_t> position)
 {
@@ -34,17 +60,31 @@ IImageSharedPtr HTMLDocument::InsertImage(const Path& path, size_t width, size_t
 	return newImage;
 }
 
-IParagraphSharedPtr HTMLDocument::ReplaceParagraph(const std::string& newText,
+IImageSharedPtr HTMLDocument::ResizeImage(size_t width, size_t height,
 	std::optional<size_t> position)
 {
-	auto newParagraph = std::make_shared<Paragraph>(newText);
-	auto newDocumentItem = DocumentItem{ newParagraph };
+	auto index = (position.has_value()) ? *position : m_items.size() - 1;
+	if (index >= m_items.size())
+	{
+		throw std::out_of_range("Failed to replace image in Document. Given index is out of range");
+	}
+
+	auto oldItem = m_items[index];
+	auto oldImage = m_items[index].GetImage();
+	if (oldImage == nullptr)
+	{
+		throw std::invalid_argument("Document doesn't contain paragraph at given index.");
+	}
+
+	auto newImage = std::make_shared<Image>(oldImage->GetPath(), width, height);
+	auto newDocumentItem = DocumentItem{ newImage };
 	m_undoManager.AddAndExecuteEdit(
-		std::make_shared<CReplaceDocumentParagraph<Container>>(m_items,
+		std::make_shared<CReplaceDocumentItem<Container>>(m_items,
+			oldItem,
 			newDocumentItem,
 			(position.has_value()) ? *position : GetItemsCount()));
 
-	return newParagraph;
+	return newImage;
 }
 
 size_t HTMLDocument::GetItemsCount() const
