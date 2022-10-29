@@ -1,8 +1,8 @@
 #ifndef COMMAND_ITERATOR_ITERATOR_HPP_
 #define COMMAND_ITERATOR_ITERATOR_HPP_
 
-#include <memory>
 #include <iterator>
+#include <memory>
 #include <stdexcept>
 
 template <typename T>

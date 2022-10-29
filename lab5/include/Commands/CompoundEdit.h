@@ -1,7 +1,6 @@
 #ifndef COMMAND_COMMANDS_COMPOUND_EDIT_H_
 #define COMMAND_COMMANDS_COMPOUND_EDIT_H_
 
-#include <string>
 #include <deque>
 
 #include "AbstractUndoableEdit.h"
@@ -9,9 +8,9 @@
 class CompoundEdit : public AbstractUndoableEdit
 {
 public:
-	template <typename EditName = std::string>
-	CompoundEdit(EditName&& editName)
-		: AbstractUndoableEdit(std::forward<EditName>(editName))
+	template <typename StringT>
+	CompoundEdit(StringT&& editName)
+		: AbstractUndoableEdit(std::forward<StringT>(editName))
 		, m_inCompose(true)
 		, m_edits()
 	{

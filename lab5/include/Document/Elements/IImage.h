@@ -1,8 +1,6 @@
 #ifndef COMMAND_DOCUMENT_ELEMENTS_IIMAGE_H_
 #define COMMAND_DOCUMENT_ELEMENTS_IIMAGE_H_
 
-#include <string_view>
-
 #include "../common.h"
 #include "IElement.h"
 #include "Image_fwd.h"

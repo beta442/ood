@@ -1,7 +1,6 @@
 #ifndef COMMAND_DOCUMENT_ELEMENTS_IPARAGRAPH_H_
 #define COMMAND_DOCUMENT_ELEMENTS_IPARAGRAPH_H_
 
-#include <ostream>
 #include <string>
 
 #include "IElement.h"

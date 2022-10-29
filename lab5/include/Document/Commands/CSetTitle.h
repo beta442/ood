@@ -9,11 +9,11 @@
 class CSetTitle : public AbstractUndoableEdit
 {
 public:
-	template <typename Title = std::string>
-	CSetTitle(std::string& target, Title&& name)
+	template <typename StringT = std::string>
+	CSetTitle(std::string& target, StringT&& name)
 		: AbstractUndoableEdit(document_commands::SET_TITLE_COMMAND_NAME)
 		, m_target(target)
-		, m_state(std::forward<Title>(name))
+		, m_state(std::forward<StringT>(name))
 	{
 	}
 

@@ -11,13 +11,13 @@ namespace editor_commands
 constexpr auto DELETE_CMND = DELETE_DOCUMENT_ITEM_COMMAND_NAME;
 constexpr auto EXIT_CMND = "Exit";
 constexpr auto HELP_CMND = "Help";
-constexpr auto INSERT_PARAGRAPH_CMND = "InsertParagraph";
 constexpr auto INSERT_IMAGE_CMND = "InsertImage";
+constexpr auto INSERT_PARAGRAPH_CMND = "InsertParagraph";
 constexpr auto LIST_CMND = "List";
 constexpr auto REDO_CMND = "Redo";
 constexpr auto RENAME_CMND = SET_TITLE_COMMAND_NAME;
-constexpr auto RESIZE_IMAGE_CMND = "ResizeImage";
 constexpr auto REPLACE_TEXT_CMND = "ReplaceText";
+constexpr auto RESIZE_IMAGE_CMND = "ResizeImage";
 constexpr auto SAVE_CMND = "Save";
 constexpr auto UNDO_CMND = "Undo";
 
@@ -29,13 +29,13 @@ namespace descriptions
 constexpr auto DELETE_CMND_DSCRP = "Deletes item at certain <pos>. Args: {pos}";
 constexpr auto EXIT_CMND_DSCRP = "Stops editing document";
 constexpr auto HELP_CMND_DSCRP = "Shows list of available commands";
-constexpr auto INSERT_PARAGRAPH_CMND_DSCRP = "Inserts a paragraph before <pos>. Args: {end|<pos>} <text>";
 constexpr auto INSERT_IMAGE_CMND_DSCRP = "Inserts an image at <path> before <pos> with <width> and <height>. Args: {end|<pos>} <width> <height> <path>";
+constexpr auto INSERT_PARAGRAPH_CMND_DSCRP = "Inserts a paragraph before <pos>. Args: {end|<pos>} <text>";
 constexpr auto LIST_CMND_DSCRP = "Lists document's content";
 constexpr auto REDO_CMND_DSCRP = "Redo undone action";
 constexpr auto RENAME_CMND_DSCRP = "Changes title. Args: <new-title>";
-constexpr auto RESIZE_IMAGE_CMND_DSCRP = "Resizes image item at <pos> with given <width> and <height>. Args: {end|<pos>} <width> <height>";
 constexpr auto REPLACE_TEXT_CMND_DSCRP = "Replaces text item at <pos> with new content. Args: {end|<pos>}, <text>";
+constexpr auto RESIZE_IMAGE_CMND_DSCRP = "Resizes image item at <pos> with given <width> and <height>. Args: {end|<pos>} <width> <height>";
 constexpr auto SAVE_CMND_DSCRP = "Saves document. Args: <path>";
 constexpr auto UNDO_CMND_DSCRP = "Undo previous action";
 
@@ -165,7 +165,7 @@ void Editor::InsertParagparh(std::istream& is)
 	{
 		m_document->InsertParagraph(text,
 			IEqualStrings(paragraphIndex, editor_commands::INSERT_END_ARG)
-				? m_document->GetItemsCount()
+				? std::optional<size_t>()
 				: std::stoi(paragraphIndex));
 	}
 	catch (std::exception& exception)
@@ -196,7 +196,7 @@ void Editor::InsertImage(std::istream& is)
 			width,
 			height,
 			IEqualStrings(imageIndex, editor_commands::INSERT_END_ARG)
-				? m_document->GetItemsCount()
+				? std::optional<size_t>()
 				: std::stoi(imageIndex));
 	}
 	catch (std::exception& exception)
@@ -226,7 +226,7 @@ void Editor::RsizeImage(std::istream& is)
 		m_document->ResizeImage(width,
 			height,
 			IEqualStrings(imageIndex, editor_commands::INSERT_END_ARG)
-				? m_document->GetItemsCount() - 1
+				? std::optional<size_t>()
 				: std::stoi(imageIndex));
 	}
 	catch (std::exception& exception)
@@ -254,7 +254,7 @@ void Editor::ReplaceText(std::istream& is)
 	{
 		m_document->ReplaceParagraph(text,
 			IEqualStrings(paragraphIndex, editor_commands::INSERT_END_ARG)
-				? m_document->GetItemsCount() - 1
+				? std::optional<size_t>()
 				: std::stoi(paragraphIndex));
 	}
 	catch (std::exception& exception)
