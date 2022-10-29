@@ -12,6 +12,7 @@ constexpr auto DELETE_CMND = DELETE_DOCUMENT_ITEM_COMMAND_NAME;
 constexpr auto EXIT_CMND = "Exit";
 constexpr auto HELP_CMND = "Help";
 constexpr auto INSERT_PARAGRAPH_CMND = "InsertParagraph";
+constexpr auto INSERT_IMAGE_CMND = "InsertImage";
 constexpr auto LIST_CMND = "List";
 constexpr auto REDO_CMND = "Redo";
 constexpr auto RENAME_CMND = SET_TITLE_COMMAND_NAME;
@@ -28,6 +29,7 @@ constexpr auto DELETE_CMND_DSCRP = "Deletes item at certain <pos>. Args: {pos}";
 constexpr auto EXIT_CMND_DSCRP = "Stops editing document";
 constexpr auto HELP_CMND_DSCRP = "Shows list of available commands";
 constexpr auto INSERT_PARAGRAPH_CMND_DSCRP = "Inserts a paragraph before <pos>. Args: {end|<pos>} <text>";
+constexpr auto INSERT_IMAGE_CMND_DSCRP = "Inserts an image at <path> before <pos> with <width> and <height>. Args: {end|<pos>} <width> <height> <path>";
 constexpr auto LIST_CMND_DSCRP = "Lists document's content";
 constexpr auto REDO_CMND_DSCRP = "Redo undone action";
 constexpr auto RENAME_CMND_DSCRP = "Changes title. Args: <new-title>";
@@ -65,6 +67,9 @@ Editor::Editor(IDocumentPtr&& document, std::istream& inputS, std::ostream& outp
 	m_menu.AddItem(INSERT_PARAGRAPH_CMND, INSERT_PARAGRAPH_CMND_DSCRP, [this](std::istream& is) {
 		InsertParagparh(is);
 	});
+	m_menu.AddItem(INSERT_IMAGE_CMND, INSERT_IMAGE_CMND_DSCRP, [this](std::istream& is) {
+		InsertImage(is);
+	});
 	m_menu.AddItem(REPLACE_TEXT_CMND, REPLACE_TEXT_CMND_DSCRP, [this](std::istream& is) {
 		ReplaceText(is);
 	});
@@ -79,7 +84,7 @@ Editor::Editor(IDocumentPtr&& document, std::istream& inputS, std::ostream& outp
 	});
 }
 
-constexpr auto BAD_STREAM_MSG = "Failed to read argument. Input stream is bad\n";
+constexpr auto BAD_STREAM_MSG = "Failed to read arguments. Nothing to read or input stream is bad\n";
 
 void Editor::DeleteItem(std::istream& is)
 {
@@ -165,6 +170,37 @@ void Editor::InsertParagparh(std::istream& is)
 	}
 }
 
+void Editor::InsertImage(std::istream& is)
+{
+	if (!std::istream::sentry(is))
+	{
+		m_outputEcho << BAD_STREAM_MSG;
+		return;
+	}
+
+	size_t width{}, height{};
+	std::string path{}, imageIndex{};
+	if (!(is >> imageIndex) || !(is >> width) || !(is >> height) || !(is >> path))
+	{
+		m_outputEcho << "Failed to read <pos> or <width> or <height> or <path> arguments for inserting Image\n";
+		return;
+	}
+
+	try
+	{
+		m_document->InsertImage(path,
+			width,
+			height,
+			IEqualStrings(imageIndex, editor_commands::INSERT_END_ARG)
+				? m_document->GetItemsCount()
+				: std::stoi(imageIndex));
+	}
+	catch (std::exception& exception)
+	{
+		m_outputEcho << exception.what() << std::endl;
+	}
+}
+
 void Editor::ReplaceText(std::istream& is)
 {
 	if (!std::istream::sentry(is))
@@ -220,7 +256,7 @@ std::string GetDetailInfoAboutDocumentItem(const DocumentItem& item)
 void Editor::ListDocument()
 {
 	m_outputEcho << "Title: " << m_document->GetTitle() << '\n';
-	
+
 	auto it = m_document->begin();
 	size_t itemIndex = 1;
 	while (it->HasNext())

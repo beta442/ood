@@ -2,9 +2,11 @@
 #define COMMAND_PCH_H_
 
 #include <algorithm>
+#include <array>
 #include <fstream>
 #include <iostream>
 #include <optional>
+#include <random>
 #include <sstream>
 #include <stdexcept>
 

@@ -4,6 +4,7 @@
 #include "../../include/Document/Commands/CInsertDocumentItem.hpp"
 #include "../../include/Document/Commands/CReplaceDocumentParagraph.hpp"
 #include "../../include/Document/Commands/CSetTitle.h"
+#include "../../include/Document/Elements/Image.h"
 #include "../../include/Document/Elements/Paragraph.h"
 #include "../../include/Document/HTMLDocument.h"
 
@@ -23,7 +24,14 @@ IParagraphSharedPtr HTMLDocument::InsertParagraph(const std::string& text,
 IImageSharedPtr HTMLDocument::InsertImage(const Path& path, size_t width, size_t height,
 	std::optional<size_t> position)
 {
-	return nullptr;
+	auto newImage = std::make_shared<Image>(path, width, height);
+	auto newDocumentItem = DocumentItem{ newImage };
+	m_undoManager.AddAndExecuteEdit(
+		std::make_shared<CInsertDocumentItem<Container>>(m_items,
+			newDocumentItem,
+			(position.has_value()) ? *position : GetItemsCount()));
+
+	return newImage;
 }
 
 IParagraphSharedPtr HTMLDocument::ReplaceParagraph(const std::string& newText,

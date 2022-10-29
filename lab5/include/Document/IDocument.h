@@ -16,7 +16,7 @@
 class IDocument
 {
 public:
-	using Path = StdPath;
+	using Path = document_elements_common::StdPath;
 	using Iterator = IIteratorPtr<DocumentItem>;
 	using ConstIterator = IIteratorPtr<const DocumentItem>;
 
