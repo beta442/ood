@@ -14,7 +14,7 @@ void OutputStreamEnCrypter::WriteByte(uint8_t data)
 
 void OutputStreamEnCrypter::DerivedWriteBlock(const void* srcData, std::streamsize size)
 {
-	auto buffer = static_cast<const uint8_t*>(srcData);
+	auto buffer = static_cast<const unsigned char*>(srcData);
 
 	for (auto index = 0; index < size; ++index)
 	{

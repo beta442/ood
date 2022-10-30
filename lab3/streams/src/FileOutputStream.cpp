@@ -4,13 +4,13 @@
 FileOutputStream::FileOutputStream(const char* fileName)
 	: OutputStreamBase()
 {
-	TryOpenFile(m_ofStream, fileName);
+	TryOpenFile(m_ofStream, std::ios_base::binary, fileName);
 }
 
 FileOutputStream::FileOutputStream(const std::string& fileName)
 	: OutputStreamBase()
 {
-	TryOpenFile(m_ofStream, fileName);
+	TryOpenFile(m_ofStream, std::ios_base::binary, fileName);
 }
 
 FileOutputStream::~FileOutputStream()

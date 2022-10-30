@@ -20,7 +20,7 @@ void OutputStreamRLECompressor::WriteByte(uint8_t data)
 		return;
 	}
 
-	if (m_byteSequenceInfo.byte == data && m_byteSequenceInfo.size < std::numeric_limits<uint8_t>::max())
+	if (m_byteSequenceInfo.byte == data && m_byteSequenceInfo.size < std::numeric_limits<unsigned char>::max())
 	{
 		++m_byteSequenceInfo.size;
 		return;
@@ -32,7 +32,7 @@ void OutputStreamRLECompressor::WriteByte(uint8_t data)
 
 void OutputStreamRLECompressor::DerivedWriteBlock(const void* srcData, std::streamsize size)
 {
-	auto buffer = static_cast<const uint8_t*>(srcData);
+	auto buffer = static_cast<const unsigned char*>(srcData);
 
 	for (std::streamsize index = 0; index < size; ++index)
 	{

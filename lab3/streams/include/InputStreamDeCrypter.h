@@ -14,7 +14,7 @@ private:
 	uint8_t DerivedReadByte() final;
 	std::streamsize DerivedReadBlock(void* dstBuffer, std::streamsize size) final;
 
-	std::vector<uint8_t> m_deCryptTable;
+	std::vector<unsigned char> m_deCryptTable;
 };
 
 #endif // !INPUT_STREAM_DE_CRYPTER_H

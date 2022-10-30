@@ -24,7 +24,7 @@ uint8_t InputStreamRLEDeCompressor::DerivedReadByte()
 
 std::streamsize InputStreamRLEDeCompressor::DerivedReadBlock(void* dstBuffer, std::streamsize size)
 {
-	auto buffer = static_cast<uint8_t*>(dstBuffer);
+	auto buffer = static_cast<unsigned char*>(dstBuffer);
 
 	for (std::streamsize i = 0; i < size; ++i, ++buffer)
 	{

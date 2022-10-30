@@ -30,7 +30,7 @@ void MemoryOutputStream::DerivedWriteBlock(const void* srcData, std::streamsize 
 	{
 		m_oMemoryStream.reserve(m_oMemoryStream.size() + size);
 
-		std::copy(static_cast<const uint8_t*>(srcData), static_cast<const uint8_t*>(srcData) + size, std::back_inserter(m_oMemoryStream));
+		std::copy(static_cast<const unsigned char*>(srcData), static_cast<const unsigned char*>(srcData) + size, std::back_inserter(m_oMemoryStream));
 	}
 	catch (...)
 	{

@@ -7,13 +7,13 @@ FileInputStream::FileInputStream(const char* fileName)
 	: InputStreamBase()
 	, m_ifStream()
 {
-	TryOpenFile(m_ifStream, fileName);
+	TryOpenFile(m_ifStream, std::ios_base::binary, fileName);
 }
 
 FileInputStream::FileInputStream(const std::string& fileName)
 	: m_ifStream()
 {
-	TryOpenFile(m_ifStream, fileName);
+	TryOpenFile(m_ifStream, std::ios_base::binary, fileName);
 }
 
 FileInputStream::~FileInputStream()
@@ -30,10 +30,10 @@ constexpr auto READ_BYTE_FAILURE_MSG = "Failed byte read attempt";
 
 uint8_t FileInputStream::DerivedReadByte()
 {
-	uint8_t byte;
+	unsigned char byte;
 	try
 	{
-		byte = static_cast<uint8_t>(m_ifStream.get());
+		byte = static_cast<unsigned char>(m_ifStream.get());
 	}
 	catch (...)
 	{

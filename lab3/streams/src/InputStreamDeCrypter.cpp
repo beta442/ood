@@ -20,7 +20,7 @@ std::streamsize InputStreamDeCrypter::DerivedReadBlock(void* dstBuffer, std::str
 {
 	auto res = m_wrappedStream->ReadBlock(dstBuffer, size);
 
-	std::for_each(static_cast<uint8_t*>(dstBuffer), static_cast<uint8_t*>(dstBuffer) + res, [this](auto& val) {
+	std::for_each(static_cast<unsigned char*>(dstBuffer), static_cast<unsigned char*>(dstBuffer) + res, [this](auto& val) {
 		val = m_deCryptTable[val];
 	});
 

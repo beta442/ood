@@ -26,7 +26,7 @@ std::streamsize MemoryInputStream::DerivedReadBlock(void* dstBuffer, std::stream
 {
 	size = std::min(size, static_cast<std::streamsize>(m_iMemoryStream.size() - m_offset - 1));
 
-	std::copy(m_iMemoryStream.begin(), m_iMemoryStream.begin() + size, static_cast<uint8_t*>(dstBuffer));
+	std::copy(m_iMemoryStream.begin(), m_iMemoryStream.begin() + size, static_cast<unsigned char*>(dstBuffer));
 	m_offset += size + 1;
 
 	return size;

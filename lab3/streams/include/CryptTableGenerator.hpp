@@ -12,9 +12,9 @@ enum class CryptMode
 };
 
 template <CryptMode MODE = CryptMode::ENCRYPT>
-std::vector<uint8_t> GenerateCryptTable(unsigned char key)
+std::vector<unsigned char> GenerateCryptTable(unsigned char key)
 {
-	std::vector<uint8_t> res;
+	std::vector<unsigned char> res;
 	res.resize(256);
 
 	std::for_each(res.begin(), res.end(), [counter = 0](auto& val) mutable noexcept {
@@ -24,7 +24,7 @@ std::vector<uint8_t> GenerateCryptTable(unsigned char key)
 
 	if constexpr (MODE == CryptMode::DECRYPT)
 	{
-		std::vector<uint8_t> inverted = res;
+		std::vector<unsigned char> inverted = res;
 		std::for_each(res.begin(), res.end(), [&, counter = 0](auto& val) mutable noexcept {
 			inverted[val] = counter++;
 		});
