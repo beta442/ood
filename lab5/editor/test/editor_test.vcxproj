@@ -167,6 +167,7 @@
     <ClCompile Include="..\src\Menu\Menu.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="unit\Editor.test.cpp" />
     <ClCompile Include="unit\HTMLDocument.test.cpp" />
     <ClCompile Include="unit\Image.test.cpp" />
     <ClCompile Include="unit\Menu.test.cpp" />

@@ -187,6 +187,11 @@
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\utility.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="test\editor_test.vcxproj">
+      <Project>{f3168024-b648-4c8f-a982-4ffb139279c2}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
