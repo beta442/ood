@@ -92,6 +92,22 @@ Editor::Editor(IDocumentPtr&& document, std::istream& inputS, std::ostream& outp
 constexpr auto BAD_STREAM_MSG = "Failed to read arguments. Nothing to read or input stream is bad\n";
 constexpr auto BAD_ARGUMENTS_MSG = "Failed to read command's arguments. See help\n";
 
+size_t GetCorrectIndexOfDocumentItem(size_t totalItemsInDocument, const std::string& userInput)
+{
+	bool isEndInsert = (IEqualStrings(userInput, editor_commands::INSERT_END_ARG));
+
+	size_t itemIndex = isEndInsert
+		? totalItemsInDocument
+		: std::stoi(userInput);
+
+	if (totalItemsInDocument != 0 && !isEndInsert)
+	{
+		--itemIndex;
+	}
+
+	return itemIndex;
+}
+
 void Editor::DeleteItem(std::istream& is)
 {
 	if (!std::istream::sentry(is))
@@ -109,9 +125,8 @@ void Editor::DeleteItem(std::istream& is)
 
 	try
 	{
-		m_document->DeleteItem(IEqualStrings(index, editor_commands::INSERT_END_ARG)
-				? m_document->GetItemsCount() - 1
-				: static_cast<size_t>(std::stoi(index)) - 1);
+		auto deleteIndex = GetCorrectIndexOfDocumentItem(m_document->GetItemsCount(), index);
+		m_document->DeleteItem(deleteIndex);
 	}
 	catch (const std::exception& e)
 	{
@@ -163,10 +178,8 @@ void Editor::InsertParagparh(std::istream& is)
 
 	try
 	{
-		m_document->InsertParagraph(text,
-			IEqualStrings(paragraphIndex, editor_commands::INSERT_END_ARG)
-				? std::optional<size_t>()
-				: std::stoi(paragraphIndex));
+		auto insertIndex = GetCorrectIndexOfDocumentItem(m_document->GetItemsCount(), paragraphIndex);
+		m_document->InsertParagraph(text, insertIndex);
 	}
 	catch (std::exception& exception)
 	{
@@ -192,12 +205,8 @@ void Editor::InsertImage(std::istream& is)
 
 	try
 	{
-		m_document->InsertImage(path,
-			width,
-			height,
-			IEqualStrings(imageIndex, editor_commands::INSERT_END_ARG)
-				? std::optional<size_t>()
-				: std::stoi(imageIndex));
+		auto insertIndex = GetCorrectIndexOfDocumentItem(m_document->GetItemsCount(), imageIndex);
+		m_document->InsertImage(path, width, height, insertIndex);
 	}
 	catch (std::exception& exception)
 	{
@@ -223,11 +232,8 @@ void Editor::RsizeImage(std::istream& is)
 
 	try
 	{
-		m_document->ResizeImage(width,
-			height,
-			IEqualStrings(imageIndex, editor_commands::INSERT_END_ARG)
-				? std::optional<size_t>()
-				: std::stoi(imageIndex));
+		auto index = GetCorrectIndexOfDocumentItem(m_document->GetItemsCount(), imageIndex);
+		m_document->ResizeImage(width, height, index);
 	}
 	catch (std::exception& exception)
 	{
@@ -252,10 +258,8 @@ void Editor::ReplaceText(std::istream& is)
 
 	try
 	{
-		m_document->ReplaceParagraph(text,
-			IEqualStrings(paragraphIndex, editor_commands::INSERT_END_ARG)
-				? std::optional<size_t>()
-				: std::stoi(paragraphIndex));
+		auto index = GetCorrectIndexOfDocumentItem(m_document->GetItemsCount(), paragraphIndex);
+		m_document->ReplaceParagraph(text, index);
 	}
 	catch (std::exception& exception)
 	{

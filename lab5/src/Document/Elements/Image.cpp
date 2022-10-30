@@ -61,13 +61,26 @@ StdPath TryCopyImage(const StdPath& from, const std::optional<StdPath>& to, cons
 		auto imagePath = (imagesPath / fileName);
 		imagePath.replace_extension(from.extension());
 
-		std::filesystem::copy(from, imagePath);
+		if (!std::filesystem::exists(imagePath))
+		{
+			if (std::filesystem::exists(from))
+			{
+				std::filesystem::copy(from, imagePath);
+			}
+			else
+			{
+				throw std::domain_error("Failed to create image at images directory. Missing source file at temp directory. Image: " + fileName);
+			}
+		}
 
 		return imagePath;
 	}
-	catch (std::exception& e)
+	catch (std::domain_error&)
 	{
-		std::cout << e.what() << std::endl;
+		throw;
+	}
+	catch (...)
+	{
 		throw std::domain_error("Failed to create images working dir or copy image");
 	}
 }
@@ -125,6 +138,5 @@ void Image::Resize(size_t width, size_t height)
 void Image::Save(const StdPath& path) const
 {
 	auto newPath = TryCopyImage(m_path, path, m_name);
-	std::filesystem::remove(m_path);
 	m_path = newPath;
 }

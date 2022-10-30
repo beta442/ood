@@ -5,6 +5,7 @@
 #include <array>
 #include <fstream>
 #include <iostream>
+#include <map>
 #include <optional>
 #include <random>
 #include <sstream>

@@ -11,12 +11,12 @@
 IParagraphSharedPtr HTMLDocument::InsertParagraph(const std::string& text,
 	std::optional<size_t> position)
 {
+	auto index = (position.has_value()) ? *position : m_items.size() - 1;
+
 	auto newParagraph = std::make_shared<Paragraph>(text);
 	auto newDocumentItem = DocumentItem{ newParagraph };
-	m_undoManager.AddAndExecuteEdit(
-		std::make_shared<CInsertDocumentItem<Container>>(m_items,
-			newDocumentItem,
-			(position.has_value()) ? *position : GetItemsCount()));
+
+	m_undoManager.AddAndExecuteEdit(std::make_shared<CInsertDocumentItem<Container>>(m_items, newDocumentItem, index));
 
 	return newParagraph;
 }
@@ -38,11 +38,7 @@ IParagraphSharedPtr HTMLDocument::ReplaceParagraph(const std::string& newText,
 
 	auto newParagraph = std::make_shared<Paragraph>(newText);
 	auto newDocumentItem = DocumentItem{ newParagraph };
-	m_undoManager.AddAndExecuteEdit(
-		std::make_shared<CReplaceDocumentItem<Container>>(m_items,
-			oldItem,
-			newDocumentItem,
-			(position.has_value()) ? *position : GetItemsCount()));
+	m_undoManager.AddAndExecuteEdit(std::make_shared<CReplaceDocumentItem<Container>>(m_items, oldItem, newDocumentItem, index));
 
 	return newParagraph;
 }
@@ -50,12 +46,12 @@ IParagraphSharedPtr HTMLDocument::ReplaceParagraph(const std::string& newText,
 IImageSharedPtr HTMLDocument::InsertImage(const Path& path, size_t width, size_t height,
 	std::optional<size_t> position)
 {
+	auto index = (position.has_value()) ? *position : m_items.size() - 1;
+
 	auto newImage = std::make_shared<Image>(path, width, height);
 	auto newDocumentItem = DocumentItem{ newImage };
-	m_undoManager.AddAndExecuteEdit(
-		std::make_shared<CInsertDocumentItem<Container>>(m_items,
-			newDocumentItem,
-			(position.has_value()) ? *position : GetItemsCount()));
+
+	m_undoManager.AddAndExecuteEdit(std::make_shared<CInsertDocumentItem<Container>>(m_items, newDocumentItem, index));
 
 	return newImage;
 }
@@ -78,11 +74,7 @@ IImageSharedPtr HTMLDocument::ResizeImage(size_t width, size_t height,
 
 	auto newImage = std::make_shared<Image>(oldImage->GetPath(), width, height);
 	auto newDocumentItem = DocumentItem{ newImage };
-	m_undoManager.AddAndExecuteEdit(
-		std::make_shared<CReplaceDocumentItem<Container>>(m_items,
-			oldItem,
-			newDocumentItem,
-			(position.has_value()) ? *position : GetItemsCount()));
+	m_undoManager.AddAndExecuteEdit(std::make_shared<CReplaceDocumentItem<Container>>(m_items, oldItem, newDocumentItem, index));
 
 	return newImage;
 }
@@ -155,7 +147,6 @@ std::tuple<std::ofstream, StdPath> CreateHTMLHandler(const StdPath& path, const 
 	return std::make_tuple(std::ofstream{ correctPath.generic_string() }, correctPath);
 }
 
-
 std::string MakeImageTag(const IImageSharedPtrConst& image)
 {
 	auto imageSrc = StdPath(".");
@@ -169,21 +160,154 @@ std::string MakeImageTag(const IImageSharedPtrConst& image)
 	return std::string("<img src=\"") + imageSrc.generic_string() + "\" width=\"" + imageWidth + "\" height=\"" + imageHeight + "\"/>";
 }
 
+namespace html_spec_symb
+{
+
+const std::map<char, std::string_view> SPEC_SYMBS_TO_HTML_SYMBS{
+	{ '<', "&lt;" },
+	{ '>', "&gt;" },
+	{ '"', "&Prime;" },
+	{ '\'', "&prime;" },
+	{ '&', "&amp;" }
+};
+
+std::string GetEncodedHtmlString(const std::string& src)
+{
+	std::string res{};
+	res.reserve(src.size());
+
+	const auto endIt = SPEC_SYMBS_TO_HTML_SYMBS.end();
+	for (const auto& ch : src)
+	{
+		if (auto it = SPEC_SYMBS_TO_HTML_SYMBS.find(ch);
+			it != endIt)
+		{
+			res += it->second;
+		}
+		else
+		{
+			res += ch;
+		}
+	}
+
+	return res;
+}
+
+}; // namespace html_spec_symb
+
 constexpr auto INDENT_SIZE = 2;
+
+void SaveHead(std::ostream& output, size_t indentIndex, const std::string& title)
+{
+	output << MakeSpaceIndentString(' ', INDENT_SIZE, ++indentIndex) + "<head>\n"
+		   << MakeSpaceIndentString(' ', INDENT_SIZE, ++indentIndex) + "<title>" + title + "</title>\n"
+		   << MakeSpaceIndentString(' ', INDENT_SIZE, --indentIndex) + "</head>\n";
+}
+
+void SaveImage(const IImageSharedPtrConst& imagePtr, std::ostream& output, const StdPath& imagesSavePath)
+{
+	if (imagePtr != nullptr)
+	{
+		imagePtr->Save(imagesSavePath);
+		output << MakeImageTag(imagePtr);
+	}
+}
+
+void SaveParagraph(const IParagraphSharedPtrConst& paragraphPtr, std::ostream& output)
+{
+	if (paragraphPtr != nullptr)
+	{
+		using namespace html_spec_symb;
+
+		output << "<p>" + GetEncodedHtmlString(paragraphPtr->GetText()) + "</p>";
+	}
+}
+
 constexpr auto DOCTYPE_STR = "<!DOCTYPE html>\n";
 
-void FormHtmlDocument(const std::string& title, const HTMLDocument::Container& items, std::ostream& output, const StdPath& savePath)
+class ExceptionsHolder : public std::exception
+{
+public:
+	ExceptionsHolder() = default;
+
+	template <typename ExceptionT>
+	void AddMessage(ExceptionT&& e)
+	{
+		m_items.emplace_back(std::forward<ExceptionT>(e));
+	}
+
+	const char* what() const override
+	{
+		if (m_msg.empty())
+		{
+			for (const auto& e : m_items)
+			{
+				m_msg += std::string(e.what()) + '\n';
+			}
+		}
+
+		return m_msg.c_str();
+	}
+
+	bool Empty() const
+	{
+		return m_items.size() == 0;
+	}
+
+private:
+	mutable std::string m_msg;
+	std::vector<std::exception> m_items;
+};
+
+void FormHtmlDocument(const std::string& title, const HTMLDocument::Container& items, std::ostream& output, const StdPath& imagesSavePath)
 {
 	output << DOCTYPE_STR;
 
 	size_t indentIndex{};
-	output << "<html lang=\"en\">\n"
-		   << MakeSpaceIndentString(' ', INDENT_SIZE, ++indentIndex) + "<head>\n"
-		   << MakeSpaceIndentString(' ', INDENT_SIZE, ++indentIndex) + "<title>" + title + "</title>\n"
-		   << MakeSpaceIndentString(' ', INDENT_SIZE, --indentIndex) + "</head>\n"
-		   << MakeSpaceIndentString(' ', INDENT_SIZE, indentIndex) + "<body>\n";
+	output << "<html lang=\"en\">\n";
+	
+	SaveHead(output, indentIndex, title);
 
-	StdPath imagesSavePath = std::filesystem::current_path(), relativeImagesPath = savePath;
+	output << MakeSpaceIndentString(' ', INDENT_SIZE, ++indentIndex) + "<body>\n";
+
+	ExceptionsHolder holder{};
+
+	++indentIndex;
+	for (const auto& item : items)
+	{
+		auto imagePtr = item.GetImage();
+		auto paragraphPtr = item.GetParagraph();
+
+		output << MakeSpaceIndentString(' ', INDENT_SIZE, indentIndex);
+
+		try
+		{
+			SaveImage(imagePtr, output, imagesSavePath);
+		}
+		catch (std::exception& e)
+		{
+			output << "<!--Failed to save '" + imagePtr->GetName() + "' image-->";
+			holder.AddMessage(e);
+		}
+
+		SaveParagraph(paragraphPtr, output);
+
+		output << std::endl;
+	}
+	--indentIndex;
+
+	output << MakeSpaceIndentString(' ', INDENT_SIZE, indentIndex) + "</body>\n"
+		   << "</html>" << std::endl;
+
+	if (!holder.Empty())
+	{
+		throw holder;
+	}
+}
+
+StdPath MakeImagesDirectory(const StdPath& where)
+{
+	StdPath imagesSavePath = std::filesystem::current_path(), relativeImagesPath = where;
 	relativeImagesPath /= IMAGES_SAVE_DIR_NAME;
 	imagesSavePath /= relativeImagesPath;
 
@@ -192,36 +316,7 @@ void FormHtmlDocument(const std::string& title, const HTMLDocument::Container& i
 		std::filesystem::create_directory(imagesSavePath);
 	}
 
-	++indentIndex;
-	for (const auto& item : items)
-	{
-		auto imagePtr = item.GetImage();
-		auto paragraphPtr = item.GetParagraph();
-
-		if (imagePtr != nullptr)
-		{
-			output << MakeSpaceIndentString(' ', INDENT_SIZE, indentIndex);
-			try
-			{
-				imagePtr->Save(imagesSavePath);
-				output << MakeImageTag(imagePtr);
-			}
-			catch (...)
-			{
-				output << "<!--Failed to save '" + imagePtr->GetName() + "' image-->";
-			}
-		}
-
-		if (paragraphPtr != nullptr)
-		{
-			output << MakeSpaceIndentString(' ', INDENT_SIZE, indentIndex) + "<p>" + paragraphPtr->GetText() + "</p>";
-		}
-		output << '\n';
-	}
-	--indentIndex;
-
-	output << MakeSpaceIndentString(' ', INDENT_SIZE, indentIndex) + "</body>\n"
-		   << "</html>" << std::endl;
+	return imagesSavePath;
 }
 
 void HTMLDocument::Save(const StdPath& path) const
@@ -231,9 +326,11 @@ void HTMLDocument::Save(const StdPath& path) const
 		std::filesystem::create_directory(path);
 	}
 
-	auto [fHandler, savePath] = CreateHTMLHandler(path, GetTitle());
+	auto [fHandler, savePath] = CreateHTMLHandler(path, m_title);
 
-	FormHtmlDocument(m_title, m_items, fHandler, savePath.parent_path());
+	auto imagesDir = MakeImagesDirectory(savePath.parent_path());
+
+	FormHtmlDocument(m_title, m_items, fHandler, imagesDir);
 }
 
 using Iterator = HTMLDocument::Iterator;
