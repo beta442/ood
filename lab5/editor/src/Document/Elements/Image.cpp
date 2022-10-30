@@ -131,6 +131,7 @@ size_t Image::GetHeight() const
 
 void Image::Resize(size_t width, size_t height)
 {
+	TryCheckAreDimensionsInBounds(width, height, MIN_DIMENSION_SIZE, MAX_DIMENSION_SIZE);
 	m_width = width;
 	m_height = height;
 }
