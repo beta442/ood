@@ -1,0 +1,34 @@
+﻿HASH // Unknown command
+Help // Shows help info
+InsertParagraph end end // Inserts paragraph with 'end' text
+InsertParagraph en end // Fails bc of invalid argument
+InsertParagraph 1 <>"'& // Inserts paragraph with escaped-sequence
+InsertParagraph 15 <>"'& // Fails bc of invalid argument
+InsertParagraph 2 Regular "paragraph" // Inserts paragraph
+InsertImage 200 100 100 h // Fails bc of file doesn't exists
+InsertImage 200 200 100 100 lil.jpg // Fails bc of invalid insert index
+InsertImage -200 200 100 100 lil.jpg // Fails bc of invalid insert index
+InsertImage 3 100 100 lil.jpg
+InsertImage 3 0 100 lil.jpg // Fails bc of invalid width argument
+InsertImage 3 100 0 lil.jpg // Fails bc of invalid height argument
+InsertImage 3 100000 0 lil.jpg // Same
+InsertImage 3 0 100000 lil.jpg // Same
+InsertImage 3 100 100 lil.hahas // Fails bc of invalid file extension
+SetTitle lololol go // Sets file' title and name
+ReplaceText 100 REPLACED! // Fails bc of bad position argument
+ReplaceText 1 REPLACED! // Works!
+ReplaceText end REPLACED AGAIN! // Works!
+ResizeImage end 100 100 // Fails bc item at end position isn't image
+List // Shows current state
+ResizeImage 3 300 300 // Works!
+ResizeImage 3 0 300 // Fails bc of bad width argument
+ResizeImage 3 100000 300 // Fails bc of bad width argument
+ResizeImage 3 300 0  // Fails bc of bad height argument
+ResizeImage 3 300 100000 // Fails bc of bad height argument
+DeleteItem 100500 // Fails bc of bad position argument
+DeleteItem end // Works!
+DeleteItem 1 // Works!
+Undo // Works!
+InsertParagraph end step
+Redo // Doesn't nothing
+List
