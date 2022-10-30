@@ -86,7 +86,8 @@
       <AdditionalLibraryDirectories>$(BOOST_DIR)\stage\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>$(TargetPath)</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -109,7 +110,8 @@
       <AdditionalLibraryDirectories>$(BOOST_DIR)\stage\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>$(TargetPath)</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -128,7 +130,8 @@
       <AdditionalLibraryDirectories>$(BOOST_DIR)\stage\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>$(TargetPath)</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -151,7 +154,8 @@
       <AdditionalLibraryDirectories>$(BOOST_DIR)\stage\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>$(TargetPath)</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -167,6 +171,7 @@
     <ClCompile Include="..\src\Menu\Menu.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="unit\HTMLDocument.test.cpp" />
     <ClCompile Include="unit\Image.test.cpp" />
     <ClCompile Include="unit\Paragraph.test.cpp" />
   </ItemGroup>

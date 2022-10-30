@@ -14,6 +14,8 @@ BOOST_AUTO_TEST_SUITE(Image_tests)
 		BOOST_CHECK(i.GetWidth() == expectedWidth);
 		BOOST_CHECK(i.GetName() == IMG_JPG_SRC);
 		BOOST_CHECK(i.GetPath().parent_path() == IMAGES_PATH);
+
+		std::filesystem::remove_all(IMAGES_PATH);
 	}
 
 	BOOST_AUTO_TEST_CASE(Image_ctor_throws_test)
@@ -24,6 +26,8 @@ BOOST_AUTO_TEST_SUITE(Image_tests)
 		BOOST_CHECK_THROW(Image some(IMG_JPG_SRC, 100, MIN_DIMENSION_SIZE - 1), std::invalid_argument);
 		BOOST_CHECK_THROW(Image some(IMG_JPG_SRC, MAX_DIMENSION_SIZE + 1, 100), std::invalid_argument);
 		BOOST_CHECK_THROW(Image some(IMG_JPG_SRC, 100, MAX_DIMENSION_SIZE + 1), std::invalid_argument);
+
+		std::filesystem::remove_all(IMAGES_PATH);
 	}
 
 	BOOST_AUTO_TEST_CASE(Change_image_size_test)
@@ -35,6 +39,8 @@ BOOST_AUTO_TEST_SUITE(Image_tests)
 
 		BOOST_CHECK(i.GetWidth() == expectedWidth - changeByValue);
 		BOOST_CHECK(i.GetHeight() == expectedHeight + changeByValue);
+
+		std::filesystem::remove_all(IMAGES_PATH);
 	}
 
 	BOOST_AUTO_TEST_CASE(Change_image_size_throws)
@@ -46,6 +52,8 @@ BOOST_AUTO_TEST_SUITE(Image_tests)
 		BOOST_CHECK_THROW(i.Resize(100, MIN_DIMENSION_SIZE - 1), std::invalid_argument);
 		BOOST_CHECK_THROW(i.Resize(MAX_DIMENSION_SIZE + 1, 100), std::invalid_argument);
 		BOOST_CHECK_THROW(i.Resize(100, MAX_DIMENSION_SIZE + 1), std::invalid_argument);
+
+		std::filesystem::remove_all(IMAGES_PATH);
 	}
 
 	BOOST_AUTO_TEST_CASE(Save_img_test)
@@ -56,6 +64,8 @@ BOOST_AUTO_TEST_SUITE(Image_tests)
 		i.Save(IMAGES_PATH);
 
 		BOOST_CHECK(i.GetPath() == (StdPath(IMAGES_PATH) /= IMG_JPG_SRC));
+
+		std::filesystem::remove_all(IMAGES_PATH);
 	}
 
 BOOST_AUTO_TEST_SUITE_END();

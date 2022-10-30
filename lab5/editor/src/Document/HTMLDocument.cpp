@@ -8,10 +8,24 @@
 #include "../../include/Document/Elements/Paragraph.h"
 #include "../../include/Document/HTMLDocument.h"
 
+size_t GetCorrectInsertIndex(const HTMLDocument::Container& items,
+	const std::optional<size_t>& pos = std::nullopt)
+{
+	bool isEndInsert = !pos.has_value();
+
+	size_t itemIndex = isEndInsert
+		? (items.size() != 0)
+			? items.size() - 1
+			: 0
+		: *pos;
+
+	return itemIndex;
+}
+
 IParagraphSharedPtr HTMLDocument::InsertParagraph(const std::string& text,
 	std::optional<size_t> position)
 {
-	auto index = (position.has_value()) ? *position : m_items.size() - 1;
+	const auto index = (position.has_value()) ? *position : m_items.size();
 
 	auto newParagraph = std::make_shared<Paragraph>(text);
 	auto newDocumentItem = DocumentItem{ newParagraph };
@@ -24,7 +38,7 @@ IParagraphSharedPtr HTMLDocument::InsertParagraph(const std::string& text,
 IParagraphSharedPtr HTMLDocument::ReplaceParagraph(const std::string& newText,
 	std::optional<size_t> position)
 {
-	auto index = (position.has_value()) ? *position : m_items.size() - 1;
+	const auto index = GetCorrectInsertIndex(m_items, position);
 	if (index >= m_items.size())
 	{
 		throw std::out_of_range("Failed to replace paragraph's text in Document. Given index is out of range");
@@ -46,7 +60,7 @@ IParagraphSharedPtr HTMLDocument::ReplaceParagraph(const std::string& newText,
 IImageSharedPtr HTMLDocument::InsertImage(const Path& path, size_t width, size_t height,
 	std::optional<size_t> position)
 {
-	auto index = (position.has_value()) ? *position : m_items.size() - 1;
+	auto index = (position.has_value()) ? *position : m_items.size();
 
 	auto newImage = std::make_shared<Image>(path, width, height);
 	auto newDocumentItem = DocumentItem{ newImage };
@@ -59,7 +73,7 @@ IImageSharedPtr HTMLDocument::InsertImage(const Path& path, size_t width, size_t
 IImageSharedPtr HTMLDocument::ResizeImage(size_t width, size_t height,
 	std::optional<size_t> position)
 {
-	auto index = (position.has_value()) ? *position : m_items.size() - 1;
+	const auto index = GetCorrectInsertIndex(m_items, position);
 	if (index >= m_items.size())
 	{
 		throw std::out_of_range("Failed to replace image in Document. Given index is out of range");
@@ -340,12 +354,12 @@ using ConstIterator = HTMLDocument::ConstIterator;
 
 Iterator HTMLDocument::begin()
 {
-	return std::make_unique<IteratorWrapper<DocumentItem, Container::iterator>>(m_items.begin(), m_items.end());
+	return std::make_shared<IteratorWrapper<DocumentItem, Container::iterator>>(m_items.begin(), m_items.end());
 }
 
 ConstIterator HTMLDocument::begin() const
 {
-	return std::make_unique<IteratorWrapper<const DocumentItem, Container::const_iterator>>(m_items.begin(), m_items.end());
+	return std::make_shared<IteratorWrapper<const DocumentItem, Container::const_iterator>>(m_items.begin(), m_items.end());
 }
 
 size_t HTMLDocument::CountImages() const

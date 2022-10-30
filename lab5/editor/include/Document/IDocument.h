@@ -15,8 +15,8 @@ class IDocument
 {
 public:
 	using Path = document_elements_common::StdPath;
-	using Iterator = IIteratorPtr<DocumentItem>;
-	using ConstIterator = IIteratorPtr<const DocumentItem>;
+	using Iterator = IIteratorSharedPtr<DocumentItem>;
+	using ConstIterator = IIteratorSharedPtr<const DocumentItem>;
 
 	virtual void SetTitle(const std::string& title) = 0;
 	virtual const std::string& GetTitle() const = 0;

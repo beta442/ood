@@ -99,6 +99,9 @@
     <ClCompile Include="unit\Paragraph.test.cpp">
       <Filter>Source Files\Unit\Document\Elements\Paragraph</Filter>
     </ClCompile>
+    <ClCompile Include="unit\HTMLDocument.test.cpp">
+      <Filter>Source Files\Unit\Document</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">

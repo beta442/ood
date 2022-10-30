@@ -19,6 +19,9 @@ public:
 template <typename T>
 using IIteratorPtr = std::unique_ptr<IIterator<T>>;
 
+template <typename T>
+using IIteratorSharedPtr = std::shared_ptr<IIterator<T>>;
+
 template <typename T, typename IteratorT>
 class IteratorWrapper : public IIterator<T>
 {
@@ -40,6 +43,10 @@ public:
 
 	reference_type Get() const override
 	{
+		if (m_it == m_end)
+		{
+			throw std::out_of_range("Cannot dereference end iterator");
+		}
 		return *m_it;
 	}
 
