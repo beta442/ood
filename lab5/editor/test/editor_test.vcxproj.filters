@@ -43,11 +43,20 @@
     <Filter Include="Source Files\Testing Source\Menu">
       <UniqueIdentifier>{7cd59478-e145-4213-a728-095f52102c8b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Unit\Document">
+      <UniqueIdentifier>{db104079-5b3f-4064-9e54-fb27524cd593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Unit\Document\Elements">
+      <UniqueIdentifier>{008a117c-fbd5-4747-b077-a00082a7b9bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Unit\Document\Elements\Image">
+      <UniqueIdentifier>{070d152e-18f5-48da-a9ed-acd1541fe50d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Unit\Document\Elements\Paragraph">
+      <UniqueIdentifier>{5fcb71a0-47a4-43cb-af34-b55078ee48d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="unit\Image.test.cpp">
-      <Filter>Source Files\Unit</Filter>
-    </ClCompile>
     <ClCompile Include="src\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -83,6 +92,12 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="unit\Image.test.cpp">
+      <Filter>Source Files\Unit\Document\Elements\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="unit\Paragraph.test.cpp">
+      <Filter>Source Files\Unit\Document\Elements\Paragraph</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
