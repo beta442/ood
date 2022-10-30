@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Unit">
+      <UniqueIdentifier>{f602bad0-daa5-420c-8e48-04522da6721c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source">
+      <UniqueIdentifier>{b0ee3aad-4f21-41ac-9f88-ea97aa180fa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source\Commands">
+      <UniqueIdentifier>{ceaeeec6-8f61-4825-aff6-e65396076f29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source\Document">
+      <UniqueIdentifier>{f27cd803-6779-480c-949d-beff418dacf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source\Document\Elements">
+      <UniqueIdentifier>{c90d5780-6625-472c-8b25-ab8ba27061e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source\Document\Elements\Paragraph">
+      <UniqueIdentifier>{888dbba0-b3a7-44b0-895d-e57797561e17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source\Document\Elements\Image">
+      <UniqueIdentifier>{f5e4d236-9593-4c18-b974-b5cbcacbd911}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source\Document\Commands">
+      <UniqueIdentifier>{c3e4b8fa-5695-47b0-9529-11af45d0b5d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source\Editor">
+      <UniqueIdentifier>{1ece4fc1-1833-48a6-bd26-8e5690f6ba9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source\Menu">
+      <UniqueIdentifier>{7cd59478-e145-4213-a728-095f52102c8b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="unit\Unit.test.cpp">
+      <Filter>Source Files\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Commands\AbstractUndoableEdit.cpp">
+      <Filter>Source Files\Testing Source\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Commands\CompoundEdit.cpp">
+      <Filter>Source Files\Testing Source\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Commands\UndoManager.cpp">
+      <Filter>Source Files\Testing Source\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Document\HTMLDocument.cpp">
+      <Filter>Source Files\Testing Source\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Document\Elements\DocumentItem.cpp">
+      <Filter>Source Files\Testing Source\Document\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Document\Elements\Paragraph.cpp">
+      <Filter>Source Files\Testing Source\Document\Elements\Paragraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Document\Elements\Image.cpp">
+      <Filter>Source Files\Testing Source\Document\Elements\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Document\Commands\CSetTitle.cpp">
+      <Filter>Source Files\Testing Source\Document\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Editor\Editor.cpp">
+      <Filter>Source Files\Testing Source\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Menu\Menu.cpp">
+      <Filter>Source Files\Testing Source\Menu</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
