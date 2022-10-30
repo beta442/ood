@@ -138,15 +138,6 @@ void HTMLDocument::Redo()
 
 constexpr auto HTML_EXTENSION = ".html";
 
-std::tuple<std::ofstream, StdPath> CreateHTMLHandler(const StdPath& path, const std::string& fileName)
-{
-	StdPath correctPath = path;
-	correctPath /= fileName;
-	correctPath = correctPath.replace_extension(HTML_EXTENSION);
-
-	return std::make_tuple(std::ofstream{ correctPath.generic_string() }, correctPath);
-}
-
 std::string MakeImageTag(const IImageSharedPtrConst& image)
 {
 	auto imageSrc = StdPath(".");
@@ -319,6 +310,15 @@ StdPath MakeImagesDirectory(const StdPath& where)
 	return imagesSavePath;
 }
 
+std::tuple<std::ofstream, StdPath> CreateHTMLHandler(const StdPath& path, const std::string& fileName)
+{
+	StdPath correctPath = path;
+	correctPath /= fileName;
+	correctPath = correctPath.replace_extension(HTML_EXTENSION);
+
+	return std::make_tuple(std::ofstream{ correctPath.generic_string() }, correctPath);
+}
+
 void HTMLDocument::Save(const StdPath& path) const
 {
 	if (!std::filesystem::is_directory(path))
@@ -328,7 +328,9 @@ void HTMLDocument::Save(const StdPath& path) const
 
 	auto [fHandler, savePath] = CreateHTMLHandler(path, m_title);
 
-	auto imagesDir = MakeImagesDirectory(savePath.parent_path());
+	auto imagesDir = (CountImages() != 0)
+		? MakeImagesDirectory(savePath.parent_path())
+		: "";
 
 	FormHtmlDocument(m_title, m_items, fHandler, imagesDir);
 }
@@ -344,4 +346,18 @@ Iterator HTMLDocument::begin()
 ConstIterator HTMLDocument::begin() const
 {
 	return std::make_unique<IteratorWrapper<const DocumentItem, Container::const_iterator>>(m_items.begin(), m_items.end());
+}
+
+size_t HTMLDocument::CountImages() const
+{
+	size_t res{};
+	for (const auto& item : m_items)
+	{
+		if (item.GetImage() != nullptr)
+		{
+			++res;
+		}
+	}
+
+	return res;
 }

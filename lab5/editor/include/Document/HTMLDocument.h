@@ -54,6 +54,8 @@ public:
 	ConstIterator begin() const final;
 
 private:
+	size_t CountImages() const;
+
 	std::string m_title = "Title";
 
 	Container m_items;
