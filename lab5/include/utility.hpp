@@ -1,10 +1,12 @@
 #ifndef COMMAND_UTILITY_HPP_
 #define COMMAND_UTILITY_HPP_
 
+#include <algorithm>
 #include <cctype>
 #include <cstring>
 #include <cwctype>
 #include <random>
+#include <string>
 
 template <typename StringSource, typename StringTest>
 inline bool IEqualStrings(StringSource&& str1, StringTest&& str2)
@@ -56,6 +58,20 @@ template <typename BoundsT, typename ValT>
 inline bool IsInBounds(const BoundsT& lowerBound, const BoundsT& upperBound, const ValT& val)
 {
 	return (lowerBound <= val) && (val <= upperBound);
+}
+
+inline std::string MakeSpaceIndentString(char indentSymb, size_t indentSize, size_t nestingIndex)
+{
+	std::string pattern(indentSize, indentSymb);
+	std::string s(indentSize * nestingIndex, '\0');
+	std::generate(s.begin(), s.end(),
+		[&pattern, patternIt = pattern.cbegin()]() mutable noexcept -> char {
+			if (patternIt == pattern.end())
+				patternIt = pattern.begin();
+			return *patternIt++;
+		});
+
+	return s;
 }
 
 #endif // !COMMAND_UTILITY_HPP_

@@ -52,22 +52,23 @@ void TryCheckAreDimensionsInBounds(size_t width, size_t height, const BoundsT& l
 	}
 }
 
-StdPath TryCopyImage(const StdPath& from)
+StdPath TryCopyImage(const StdPath& from, const std::optional<StdPath>& to, const std::string& fileName)
 {
 	try
 	{
-		auto imagesPath = CreateImagesDir();
+		auto imagesPath = (to.has_value()) ? *to : CreateImagesDir();
 
-		auto imagePath = (imagesPath / MakeRandomFileName(TEMP_FILE_NAME_SIZE, 'a', 'z'));
+		auto imagePath = (imagesPath / fileName);
 		imagePath.replace_extension(from.extension());
 
 		std::filesystem::copy(from, imagePath);
 
 		return imagePath;
 	}
-	catch (...)
+	catch (std::exception& e)
 	{
-		throw std::domain_error("Failed to create images working dir or copy image to working dir");
+		std::cout << e.what() << std::endl;
+		throw std::domain_error("Failed to create images working dir or copy image");
 	}
 }
 
@@ -81,7 +82,18 @@ Image::Image(const StdPath& path, size_t width, size_t height)
 
 	TryCheckAreDimensionsInBounds(width, height, MIN_DIMENSION_SIZE, MAX_DIMENSION_SIZE);
 
-	m_path = TryCopyImage(m_path);
+	m_path = TryCopyImage(m_path, std::optional<StdPath>(), MakeRandomFileName(TEMP_FILE_NAME_SIZE, 'a', 'z'));
+}
+
+Image::~Image()
+{
+	try
+	{
+		std::filesystem::remove(m_path);
+	}
+	catch (...)
+	{
+	}
 }
 
 const StdPath& Image::GetPath() const
@@ -108,4 +120,11 @@ void Image::Resize(size_t width, size_t height)
 {
 	m_width = width;
 	m_height = height;
+}
+
+void Image::Save(const StdPath& path) const
+{
+	auto newPath = TryCopyImage(m_path, path, m_name);
+	std::filesystem::remove(m_path);
+	m_path = newPath;
 }

@@ -11,6 +11,7 @@ class Image : public IImage
 {
 public:
 	Image(const StdPath& path, size_t width, size_t height);
+	~Image();
 
 	const StdPath& GetPath() const final;
 	const std::string& GetName() const final;
@@ -18,11 +19,13 @@ public:
 	size_t GetHeight() const final;
 	void Resize(size_t width, size_t height) final;
 
+	void Save(const StdPath& path) const final;
+
 private:
 	std::string m_name;
 	size_t m_width, m_height;
 
-	StdPath m_path;
+	mutable StdPath m_path;
 };
 
 #endif // !COMMAND_DOCUMENT_ELEMENTS_IMAGE_H_

@@ -315,7 +315,14 @@ void Editor::Save(std::istream& is)
 		return;
 	}
 
-	m_document->Save(path);
+	try
+	{
+		m_document->Save(path);
+	}
+	catch (const std::exception& e)
+	{
+		m_outputEcho << e.what() << std::endl;
+	}
 }
 
 void Editor::SetTitle(std::istream& is)

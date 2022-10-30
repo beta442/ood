@@ -17,6 +17,8 @@ public:
 	virtual size_t GetHeight() const = 0;
 
 	virtual void Resize(size_t width, size_t height) = 0;
+
+	virtual void Save(const StdPath& path) const = 0;
 };
 
 #endif // !COMMAND_DOCUMENT_ELEMENTS_IIMAGE_H_

@@ -146,25 +146,94 @@ void HTMLDocument::Redo()
 
 constexpr auto HTML_EXTENSION = ".html";
 
-// std::ofstream CreateHTMLHandler(const StdPath& path)
-//{
-//	return std::ofstream{ (path.extension() == HTML_EXTENSION)
-//			? path.generic_string()
-//			: path.generic_string() + HTML_EXTENSION };
-// }
+std::tuple<std::ofstream, StdPath> CreateHTMLHandler(const StdPath& path, const std::string& fileName)
+{
+	StdPath correctPath = path;
+	correctPath /= fileName;
+	correctPath = correctPath.replace_extension(HTML_EXTENSION);
 
-constexpr auto IMAGES_DIRECTORY = "images";
+	return std::make_tuple(std::ofstream{ correctPath.generic_string() }, correctPath);
+}
+
+
+std::string MakeImageTag(const IImageSharedPtrConst& image)
+{
+	auto imageSrc = StdPath(".");
+	imageSrc /= IMAGES_SAVE_DIR_NAME;
+	imageSrc /= image->GetName();
+	imageSrc.replace_extension(image->GetPath().extension());
+
+	auto imageWidth = std::to_string(image->GetWidth());
+	auto imageHeight = std::to_string(image->GetHeight());
+
+	return std::string("<img src=\"") + imageSrc.generic_string() + "\" width=\"" + imageWidth + "\" height=\"" + imageHeight + "\"/>";
+}
+
+constexpr auto INDENT_SIZE = 2;
+constexpr auto DOCTYPE_STR = "<!DOCTYPE html>\n";
+
+void FormHtmlDocument(const std::string& title, const HTMLDocument::Container& items, std::ostream& output, const StdPath& savePath)
+{
+	output << DOCTYPE_STR;
+
+	size_t indentIndex{};
+	output << "<html lang=\"en\">\n"
+		   << MakeSpaceIndentString(' ', INDENT_SIZE, ++indentIndex) + "<head>\n"
+		   << MakeSpaceIndentString(' ', INDENT_SIZE, ++indentIndex) + "<title>" + title + "</title>\n"
+		   << MakeSpaceIndentString(' ', INDENT_SIZE, --indentIndex) + "</head>\n"
+		   << MakeSpaceIndentString(' ', INDENT_SIZE, indentIndex) + "<body>\n";
+
+	StdPath imagesSavePath = std::filesystem::current_path(), relativeImagesPath = savePath;
+	relativeImagesPath /= IMAGES_SAVE_DIR_NAME;
+	imagesSavePath /= relativeImagesPath;
+
+	if (!std::filesystem::exists(imagesSavePath))
+	{
+		std::filesystem::create_directory(imagesSavePath);
+	}
+
+	++indentIndex;
+	for (const auto& item : items)
+	{
+		auto imagePtr = item.GetImage();
+		auto paragraphPtr = item.GetParagraph();
+
+		if (imagePtr != nullptr)
+		{
+			output << MakeSpaceIndentString(' ', INDENT_SIZE, indentIndex);
+			try
+			{
+				imagePtr->Save(imagesSavePath);
+				output << MakeImageTag(imagePtr);
+			}
+			catch (...)
+			{
+				output << "<!--Failed to save '" + imagePtr->GetName() + "' image-->";
+			}
+		}
+
+		if (paragraphPtr != nullptr)
+		{
+			output << MakeSpaceIndentString(' ', INDENT_SIZE, indentIndex) + "<p>" + paragraphPtr->GetText() + "</p>";
+		}
+		output << '\n';
+	}
+	--indentIndex;
+
+	output << MakeSpaceIndentString(' ', INDENT_SIZE, indentIndex) + "</body>\n"
+		   << "</html>" << std::endl;
+}
 
 void HTMLDocument::Save(const StdPath& path) const
 {
-	const auto directory = std::filesystem::path(path).parent_path() / IMAGES_DIRECTORY;
-
-	if (!std::filesystem::is_directory(directory))
+	if (!std::filesystem::is_directory(path))
 	{
-		std::filesystem::create_directory(directory);
+		std::filesystem::create_directory(path);
 	}
 
-	// std::ofstream fHandler = CreateHTMLHandler(path);
+	auto [fHandler, savePath] = CreateHTMLHandler(path, GetTitle());
+
+	FormHtmlDocument(m_title, m_items, fHandler, savePath.parent_path());
 }
 
 using Iterator = HTMLDocument::Iterator;
