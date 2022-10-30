@@ -45,8 +45,6 @@ public:
 	virtual bool CanRedo() const = 0;
 	virtual void Redo() = 0;
 
-	// ��������� �������� � ������� html. ����������� ����������� � ���������� images.
-	// ���� � ������������ ����������� ������������ ���� � ������������ HTML �����
 	virtual void Save(const Path& path) const = 0;
 
 	virtual Iterator begin() = 0;

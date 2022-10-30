@@ -26,7 +26,7 @@ void TryCheckIsImage(const StdPath& path)
 		bool isImage = IsImageExtention(HTML_IMAGES_EXTENSIONS, path.extension().generic_string());
 		if (!std::filesystem::is_regular_file(path) || !isImage)
 		{
-			throw std::invalid_argument("Given path doesn't represent a file. Check if file exists and its extension. Given path: " + path.generic_string());
+			throw std::invalid_argument("Given path doesn't represent a file. Check if file exists and its extension. Given path: '" + path.generic_string() + '\'');
 		}
 	}
 	catch (std::invalid_argument&)

@@ -170,11 +170,13 @@ void Editor::InsertParagparh(std::istream& is)
 	}
 
 	std::string text{}, paragraphIndex{};
-	if (!(is >> paragraphIndex) || !(is >> text))
+	if (!(is >> paragraphIndex) || !std::getline(is, text))
 	{
 		m_outputEcho << BAD_ARGUMENTS_MSG;
 		return;
 	}
+
+	trim(text);
 
 	try
 	{
@@ -197,11 +199,13 @@ void Editor::InsertImage(std::istream& is)
 
 	size_t width{}, height{};
 	std::string path{}, imageIndex{};
-	if (!(is >> imageIndex) || !(is >> width) || !(is >> height) || !(is >> path))
+	if (!(is >> imageIndex) || !(is >> width) || !(is >> height) || !std::getline(is, path))
 	{
 		m_outputEcho << BAD_ARGUMENTS_MSG;
 		return;
 	}
+
+	trim(path);
 
 	try
 	{
@@ -250,11 +254,13 @@ void Editor::ReplaceText(std::istream& is)
 	}
 
 	std::string text{}, paragraphIndex{};
-	if (!(is >> paragraphIndex) || !(is >> text))
+	if (!(is >> paragraphIndex) || !std::getline(is, text))
 	{
 		m_outputEcho << BAD_ARGUMENTS_MSG;
 		return;
 	}
+
+	trim(text);
 
 	try
 	{
@@ -312,12 +318,14 @@ void Editor::Save(std::istream& is)
 		return;
 	}
 
-	StdPath path;
-	if (!(is >> path))
+	std::string path;
+	if (!std::getline(is, path))
 	{
 		m_outputEcho << BAD_ARGUMENTS_MSG;
 		return;
 	}
+
+	trim(path);
 
 	try
 	{
@@ -338,11 +346,13 @@ void Editor::SetTitle(std::istream& is)
 	}
 
 	std::string title;
-	if (!(is >> title))
+	if (!std::getline(is, title))
 	{
 		m_outputEcho << BAD_ARGUMENTS_MSG;
 		return;
 	}
+
+	trim(title);
 
 	m_document->SetTitle(title);
 }
