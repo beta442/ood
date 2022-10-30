@@ -55,6 +55,9 @@
     <Filter Include="Source Files\Unit\Document\Elements\Paragraph">
       <UniqueIdentifier>{5fcb71a0-47a4-43cb-af34-b55078ee48d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Unit\Menu">
+      <UniqueIdentifier>{e3480bcb-8ccc-4451-a38d-2cc12e5c6397}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\pch.cpp">
@@ -101,6 +104,9 @@
     </ClCompile>
     <ClCompile Include="unit\HTMLDocument.test.cpp">
       <Filter>Source Files\Unit\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="unit\Menu.test.cpp">
+      <Filter>Source Files\Unit\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
