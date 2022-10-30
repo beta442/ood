@@ -94,4 +94,5 @@ static inline void trim(std::string& s)
 	ltrim(s);
 	rtrim(s);
 }
+
 #endif // !COMMAND_UTILITY_HPP_
