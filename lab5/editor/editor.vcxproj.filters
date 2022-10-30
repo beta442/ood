@@ -25,23 +25,11 @@
     <Filter Include="Header Files\Document\Elements\Image">
       <UniqueIdentifier>{9c493cfd-c989-4f54-ae2b-d7a4bed2f7b6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Document">
-      <UniqueIdentifier>{6f832577-c1c7-4e78-a236-c11918ecef35}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Document\Elements">
-      <UniqueIdentifier>{23e6fd32-a190-4674-af89-09086418d34f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Commands">
       <UniqueIdentifier>{6b3e9d8a-62d5-4aa2-998c-6c1cf3684784}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Document\Commands">
       <UniqueIdentifier>{771d515a-bb9f-47a9-bbdb-8ff84bfc8869}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Commands">
-      <UniqueIdentifier>{9d30689a-a91b-4680-b6ce-7521ce1716a2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Document\Commands">
-      <UniqueIdentifier>{b7ddac1a-d4be-44ab-a98f-354b7033ab76}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Menu">
       <UniqueIdentifier>{eaf5575b-0d7a-4680-a710-2f075d4276ee}</UniqueIdentifier>
@@ -55,14 +43,26 @@
     <Filter Include="Source Files\Editor">
       <UniqueIdentifier>{1e155b56-c054-4613-b576-8d5be40dd9a7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Document\Elements\Paragraph">
-      <UniqueIdentifier>{314b86ec-5936-4528-8247-c51c27d603b0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Document\Elements\Image">
-      <UniqueIdentifier>{2afc115c-21b6-44b4-afc7-55751a47e50c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Iterator">
       <UniqueIdentifier>{339b937e-d61c-4504-b84a-6663494b4cca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands">
+      <UniqueIdentifier>{2c1b4d6f-4942-4c1a-994b-4c3b5a220932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Document">
+      <UniqueIdentifier>{ee88a10c-84c8-45fc-91f0-16a2795a0fc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Document\Elements">
+      <UniqueIdentifier>{0669be56-069d-4740-b09e-c0a994fe5c3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Document\Elements\Paragraph">
+      <UniqueIdentifier>{59546ed2-f5f9-40eb-a1b1-ae6691ed5a24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Document\Elements\Image">
+      <UniqueIdentifier>{7eaf6297-94b9-4872-a97d-95d3c3a9564c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Document\Commands">
+      <UniqueIdentifier>{0f9f25ff-1a28-433d-bf87-38cbb51cd99d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -72,14 +72,14 @@
     <ClCompile Include="include\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Menu\Menu.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Editor\Editor.cpp">
+      <Filter>Source Files\Editor</Filter>
+    </ClCompile>
     <ClCompile Include="src\Commands\AbstractUndoableEdit.cpp">
       <Filter>Source Files\Commands</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Document\Commands\CSetTitle.cpp">
-      <Filter>Source Files\Document\Commands</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Document\HTMLDocument.cpp">
-      <Filter>Source Files\Document</Filter>
     </ClCompile>
     <ClCompile Include="src\Commands\CompoundEdit.cpp">
       <Filter>Source Files\Commands</Filter>
@@ -87,20 +87,20 @@
     <ClCompile Include="src\Commands\UndoManager.cpp">
       <Filter>Source Files\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="src\Menu\Menu.cpp">
-      <Filter>Source Files\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Editor\Editor.cpp">
-      <Filter>Source Files\Editor</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Document\Elements\Paragraph.cpp">
-      <Filter>Source Files\Document\Elements\Paragraph</Filter>
+    <ClCompile Include="src\Document\HTMLDocument.cpp">
+      <Filter>Source Files\Document</Filter>
     </ClCompile>
     <ClCompile Include="src\Document\Elements\DocumentItem.cpp">
       <Filter>Source Files\Document\Elements</Filter>
     </ClCompile>
+    <ClCompile Include="src\Document\Elements\Paragraph.cpp">
+      <Filter>Source Files\Document\Elements\Paragraph</Filter>
+    </ClCompile>
     <ClCompile Include="src\Document\Elements\Image.cpp">
       <Filter>Source Files\Document\Elements\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Document\Commands\CSetTitle.cpp">
+      <Filter>Source Files\Document\Commands</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -120,9 +120,6 @@
       <Filter>Header Files\Commands</Filter>
     </ClInclude>
     <ClInclude Include="include\Commands\IUndoableEdit_fwd.h">
-      <Filter>Header Files\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Commands\AbstractUndoableEdit.h">
       <Filter>Header Files\Commands</Filter>
     </ClInclude>
     <ClInclude Include="include\Document\Commands\CSetTitle.h">
@@ -187,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="include\Document\Commands\CReplaceDocumentItem.hpp">
       <Filter>Header Files\Document\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cmake_2/s\AbstractUndoableEdit.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -7,6 +7,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "editor", "editor\editor.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "robot", "robot\robot.vcxproj", "{F4151E3F-EDF8-4BA7-AAB1-096FB2B0F975}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B4ADB7AF-0BE5-41EC-9748-403C1F9C197B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "editor_test", "editor\test\editor_test.vcxproj", "{F3168024-B648-4C8F-A982-4FFB139279C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,9 +35,20 @@ Global
 		{F4151E3F-EDF8-4BA7-AAB1-096FB2B0F975}.Release|x64.Build.0 = Release|x64
 		{F4151E3F-EDF8-4BA7-AAB1-096FB2B0F975}.Release|x86.ActiveCfg = Release|Win32
 		{F4151E3F-EDF8-4BA7-AAB1-096FB2B0F975}.Release|x86.Build.0 = Release|Win32
+		{F3168024-B648-4C8F-A982-4FFB139279C2}.Debug|x64.ActiveCfg = Debug|x64
+		{F3168024-B648-4C8F-A982-4FFB139279C2}.Debug|x64.Build.0 = Debug|x64
+		{F3168024-B648-4C8F-A982-4FFB139279C2}.Debug|x86.ActiveCfg = Debug|Win32
+		{F3168024-B648-4C8F-A982-4FFB139279C2}.Debug|x86.Build.0 = Debug|Win32
+		{F3168024-B648-4C8F-A982-4FFB139279C2}.Release|x64.ActiveCfg = Release|x64
+		{F3168024-B648-4C8F-A982-4FFB139279C2}.Release|x64.Build.0 = Release|x64
+		{F3168024-B648-4C8F-A982-4FFB139279C2}.Release|x86.ActiveCfg = Release|Win32
+		{F3168024-B648-4C8F-A982-4FFB139279C2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F3168024-B648-4C8F-A982-4FFB139279C2} = {B4ADB7AF-0BE5-41EC-9748-403C1F9C197B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E9AA7205-1B49-467E-8CA7-79009D09D6E4}

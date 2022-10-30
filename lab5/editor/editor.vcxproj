@@ -147,13 +147,13 @@
     <ClCompile Include="include\pch.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Commands\AbstractUndoableEdit.cpp" />
-    <ClCompile Include="src\cmake_2/s\CompoundEdit.cpp" />
-    <ClCompile Include="src\cmake_2/s\UndoManager.cpp" />
-    <ClCompile Include="src\Document\cmake_2/s\CSetTitle.cpp" />
+    <ClCompile Include="src\Commands\CompoundEdit.cpp" />
+    <ClCompile Include="src\Commands\UndoManager.cpp" />
+    <ClCompile Include="src\Document\Commands\CSetTitle.cpp" />
+    <ClCompile Include="src\Document\Elements\DocumentItem.cpp" />
     <ClCompile Include="src\Document\Elements\Image.cpp" />
     <ClCompile Include="src\Document\Elements\Paragraph.cpp" />
     <ClCompile Include="src\Document\HTMLDocument.cpp" />
-    <ClCompile Include="src\Document\Elements\DocumentItem.cpp" />
     <ClCompile Include="src\Editor\Editor.cpp" />
     <ClCompile Include="src\Menu\Menu.cpp" />
   </ItemGroup>
