@@ -226,4 +226,27 @@ BOOST_AUTO_TEST_SUITE(HTMLDocument_tests)
 		std::filesystem::remove_all(IMAGES_PATH);
 	}
 
+	BOOST_AUTO_TEST_CASE(Insert_command_test)
+	{
+		HTMLDocument doc{};
+		const IImageSharedPtrConst i1 = doc.InsertImage(IMG_JPG_SRC, 200, 200);
+		const IParagraphSharedPtrConst p1 = doc.InsertParagraph("Some text");
+
+		doc.Undo();
+		doc.Redo();
+		BOOST_CHECK(doc.GetItemsCount() == 2);
+	}
+
+	BOOST_AUTO_TEST_CASE(Delete_command_test)
+	{
+		HTMLDocument doc{};
+		const IImageSharedPtrConst i1 = doc.InsertImage(IMG_JPG_SRC, 200, 200);
+		const IParagraphSharedPtrConst p1 = doc.InsertParagraph("Some text");
+		doc.DeleteItem(0);
+
+		doc.Undo();
+		doc.Redo();
+		BOOST_CHECK(doc.GetItemsCount() == 1);
+	}
+
 BOOST_AUTO_TEST_SUITE_END();
