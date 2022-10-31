@@ -76,6 +76,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -106,6 +108,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,10 +136,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\CMacro.cpp" />
+    <ClCompile Include="src\CStop.cpp" />
+    <ClCompile Include="src\CTurnOff.cpp" />
+    <ClCompile Include="src\CTurnOn.cpp" />
+    <ClCompile Include="src\CWalk.cpp" />
+    <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\pch.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\CMacro.h" />
+    <ClInclude Include="include\CStop.h" />
+    <ClInclude Include="include\CTurnOff.h" />
+    <ClInclude Include="include\CTurnOn.h" />
+    <ClInclude Include="include\CWalk.h" />
+    <ClInclude Include="include\ICommand_fwd.h" />
+    <ClInclude Include="include\ICommand.h" />
+    <ClInclude Include="include\Menu.h" />
     <ClInclude Include="include\pch.h" />
+    <ClInclude Include="include\Robot.h" />
+    <ClInclude Include="src\Robot.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

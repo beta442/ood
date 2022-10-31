@@ -158,7 +158,7 @@
     <ClCompile Include="src\Menu\Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\cmake_2/s\AbstractUndoableEdit.h" />
+    <ClInclude Include="include\Commands\AbstractUndoableEdit.h" />
     <ClInclude Include="include\Commands\CompoundEdit.h" />
     <ClInclude Include="include\Commands\IUndoableEdit.h" />
     <ClInclude Include="include\Commands\IUndoableEdit_fwd.h" />

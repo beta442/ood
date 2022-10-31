@@ -185,7 +185,7 @@
     <ClInclude Include="include\Document\Commands\CReplaceDocumentItem.hpp">
       <Filter>Header Files\Document\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="include\cmake_2/s\AbstractUndoableEdit.h">
+    <ClInclude Include="include\Commands\AbstractUndoableEdit.h">
       <Filter>Header Files\Commands</Filter>
     </ClInclude>
   </ItemGroup>

@@ -13,6 +13,30 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Robot">
+      <UniqueIdentifier>{e6ef1382-9d3e-4eb5-8449-a8d5e5593a14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Robot">
+      <UniqueIdentifier>{3c3d6a43-5862-4a86-8b5d-cf86ec5746a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menu">
+      <UniqueIdentifier>{fda3a00a-43b6-4644-8abf-bdec9882de13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{1589f791-0b00-4351-b450-2f1049cfd2f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Commands">
+      <UniqueIdentifier>{d158c215-fe8e-4ffb-abf1-791aea2f94ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Robot\Commands">
+      <UniqueIdentifier>{597ac16a-aa08-43eb-87f2-4a7fc81581da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Robot\Commands">
+      <UniqueIdentifier>{400bf7e2-32d3-4cac-ab4c-c799970ff987}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands">
+      <UniqueIdentifier>{353a1f53-775b-4f2d-8f70-37e4f87c8ba7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,10 +45,58 @@
     <ClCompile Include="src\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Menu.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CTurnOn.cpp">
+      <Filter>Source Files\Robot\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CTurnOff.cpp">
+      <Filter>Source Files\Robot\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CWalk.cpp">
+      <Filter>Source Files\Robot\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CStop.cpp">
+      <Filter>Source Files\Robot\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CMacro.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Robot.h">
+      <Filter>Header Files\Robot</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Robot.cpp">
+      <Filter>Source Files\Robot</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Menu.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ICommand_fwd.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ICommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CTurnOn.h">
+      <Filter>Header Files\Robot\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CTurnOff.h">
+      <Filter>Header Files\Robot\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CWalk.h">
+      <Filter>Header Files\Robot\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CStop.h">
+      <Filter>Header Files\Robot\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CMacro.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
