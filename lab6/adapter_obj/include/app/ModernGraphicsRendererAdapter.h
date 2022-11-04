@@ -21,6 +21,7 @@ public:
 private:
 	Renderer& m_adaptee;
 	modern_graphics_lib::Point m_beginPoint;
+	bool m_drawing;
 };
 
 } // namespace app

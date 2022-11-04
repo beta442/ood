@@ -1,5 +1,4 @@
 #include "shape_drawing_lib/Triangle.h"
-#include "shape_drawing_lib/common.h"
 
 namespace shape_drawing_lib
 {
@@ -13,8 +12,11 @@ Triangle::Triangle(const Point& p1, const Point& p2, const Point& p3)
 
 void Triangle::Draw(const Canvas& canvas) const
 {
-	DrawLine(canvas, m_p1, m_p2);
-	DrawLine(canvas, m_p2, m_p3);
+	canvas->MoveTo(m_p1.x, m_p1.y);
+
+	canvas->LineTo(m_p2.x, m_p2.y);
+	canvas->LineTo(m_p3.x, m_p3.y);
+	canvas->LineTo(m_p1.x, m_p1.y);
 }
 
 } // namespace shape_drawing_lib

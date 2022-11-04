@@ -146,7 +146,6 @@
     <ClCompile Include="src\graphics_lib\Canvas.cpp" />
     <ClCompile Include="src\modern_graphics_lib\ModernGraphicsRenderer.cpp" />
     <ClCompile Include="src\shape_drawing_lib\CanvasPainter.cpp" />
-    <ClCompile Include="src\shape_drawing_lib\common.cpp" />
     <ClCompile Include="src\shape_drawing_lib\Rectangle.cpp" />
     <ClCompile Include="src\shape_drawing_lib\Triangle.cpp" />
   </ItemGroup>
@@ -160,7 +159,6 @@
     <ClInclude Include="include\modern_graphics_lib\Point.hpp" />
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\shape_drawing_lib\CanvasPainter.h" />
-    <ClInclude Include="include\shape_drawing_lib\common.h" />
     <ClInclude Include="include\shape_drawing_lib\ICanvasDrawable.h" />
     <ClInclude Include="include\shape_drawing_lib\ICanvasDrawable_fwd.h" />
     <ClInclude Include="include\shape_drawing_lib\Point.hpp" />

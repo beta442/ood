@@ -1,7 +1,6 @@
 #include "pch.h"
 
 #include "shape_drawing_lib/Rectangle.h"
-#include "shape_drawing_lib/common.h"
 
 namespace shape_drawing_lib
 {
@@ -21,19 +20,17 @@ Rectangle::Rectangle(const Point& leftTop, int width, int height)
 	m_rightBottom.y = m_leftTop.y + height;
 }
 
-void Draw2Lines(const Rectangle::Canvas& canvas, const Point& from, const Point& to1, const Point& to2)
-{
-	DrawLine(canvas, from, to1);
-	DrawLine(canvas, from, to2);
-}
-
 void Rectangle::Draw(const Canvas& canvas) const
 {
 	auto rightTop = Point{ m_rightBottom.x, m_leftTop.y };
 	auto leftBottom = Point{ m_leftTop.x, m_rightBottom.y };
 
-	Draw2Lines(canvas, m_leftTop, rightTop, leftBottom);
-	Draw2Lines(canvas, m_rightBottom, rightTop, leftBottom);
+	canvas->MoveTo(m_leftTop.x, m_leftTop.y);
+
+	canvas->LineTo(rightTop.x, rightTop.y);
+	canvas->LineTo(m_rightBottom.x, m_rightBottom.y);
+	canvas->LineTo(leftBottom.x, leftBottom.y);
+	canvas->LineTo(m_leftTop.x, m_leftTop.y);
 }
 
 } // namespace shape_drawing_lib
