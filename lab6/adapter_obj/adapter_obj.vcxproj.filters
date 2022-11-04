@@ -43,6 +43,12 @@
     <Filter Include="Source Files\App">
       <UniqueIdentifier>{53bec8e4-c02b-458f-b000-da356acbf587}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Modern Graphics Lib">
+      <UniqueIdentifier>{9d31da2f-458c-4a49-b103-4719acaf4d64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Modern Graphics Lib">
+      <UniqueIdentifier>{c2b440f8-dcf6-4e33-af21-67b3a819c89c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -67,6 +73,12 @@
       <Filter>Source Files\Shape Drawing Lib\Painters</Filter>
     </ClCompile>
     <ClCompile Include="src\app\PaintPictureOnCanvas.cpp">
+      <Filter>Source Files\App</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modern_graphics_lib\ModernGraphicsRenderer.cpp">
+      <Filter>Source Files\Modern Graphics Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\ModernGraphicsRendererAdapter.cpp">
       <Filter>Source Files\App</Filter>
     </ClCompile>
   </ItemGroup>
@@ -105,6 +117,15 @@
       <Filter>Header Files\Shape Drawing Lib</Filter>
     </ClInclude>
     <ClInclude Include="include\app\PaintPictureOnCanvas.h">
+      <Filter>Header Files\App</Filter>
+    </ClInclude>
+    <ClInclude Include="include\modern_graphics_lib\Point.hpp">
+      <Filter>Header Files\Modern Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\modern_graphics_lib\ModernGraphicsRenderer.h">
+      <Filter>Header Files\Modern Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\app\ModernGraphicsRendererAdapter.h">
       <Filter>Header Files\App</Filter>
     </ClInclude>
   </ItemGroup>

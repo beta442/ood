@@ -2,6 +2,7 @@
 
 #include "app/PaintPictureOnCanvas.h"
 
+#include "app/ModernGraphicsRendererAdapter.h"
 #include "graphics_lib/Canvas.h"
 #include "modern_graphics_lib/ModernGraphicsRenderer.h"
 
@@ -33,12 +34,10 @@ void PaintPictureOnCanvas()
 void PaintPictureOnModernGraphicsRenderer()
 {
 	modern_graphics_lib::ModernGraphicsRenderer renderer(std::cout);
-	(void)&renderer; // устраняем предупреждение о неиспользуемой переменной
+	graphics_lib::ICanvasSharedPtr simpleCanvas = std::make_shared<ModernGraphicsRendererAdapter>(renderer);
+	shape_drawing_lib::CanvasPainter painter(simpleCanvas);
 
-	// TODO: при помощи существующей функции PaintPicture() нарисовать
-	// картину на renderer
-	// Подсказка: используйте паттерн "Адаптер"
-	//PaintPicture(renderer);
+	PaintPicture(painter);
 }
 
 } // namespace app
