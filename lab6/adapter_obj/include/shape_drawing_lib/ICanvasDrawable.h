@@ -10,7 +10,7 @@ namespace shape_drawing_lib
 class ICanvasDrawable
 {
 public:
-	using Canvas = graphics_lib::ICanvasSharedPtr;
+	using Canvas = graphics_lib::ICanvasPtr;
 
 	virtual void Draw(const Canvas& canvas) const = 0;
 

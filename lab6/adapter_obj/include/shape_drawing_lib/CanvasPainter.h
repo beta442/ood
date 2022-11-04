@@ -12,9 +12,9 @@ namespace shape_drawing_lib
 class CanvasPainter
 {
 public:
-	using Canvas = graphics_lib::ICanvasSharedPtr;
+	using Canvas = graphics_lib::ICanvasPtr;
 
-	CanvasPainter(const Canvas& canvas);
+	CanvasPainter(Canvas&& canvas);
 
 	void Draw(const ICanvasDrawableSharedPtr& drawable);
 

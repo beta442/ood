@@ -3,8 +3,8 @@
 namespace shape_drawing_lib
 {
 
-CanvasPainter::CanvasPainter(const Canvas& canvas)
-	: m_canvas(canvas)
+CanvasPainter::CanvasPainter(Canvas&& canvas)
+	: m_canvas(std::move(canvas))
 {
 	if (m_canvas == nullptr)
 	{

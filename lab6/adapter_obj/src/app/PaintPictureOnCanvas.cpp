@@ -26,16 +26,16 @@ void PaintPicture(shape_drawing_lib::CanvasPainter& painter)
 
 void PaintPictureOnCanvas()
 {
-	graphics_lib::ICanvasSharedPtr simpleCanvas = std::make_shared<graphics_lib::Canvas>();
-	shape_drawing_lib::CanvasPainter painter(simpleCanvas);
+	graphics_lib::ICanvasPtr simpleCanvas = std::make_unique<graphics_lib::Canvas>();
+	shape_drawing_lib::CanvasPainter painter(std::move(simpleCanvas));
 	PaintPicture(painter);
 }
 
 void PaintPictureOnModernGraphicsRenderer()
 {
 	modern_graphics_lib::ModernGraphicsRenderer renderer(std::cout);
-	graphics_lib::ICanvasSharedPtr simpleCanvas = std::make_shared<ModernGraphicsRendererAdapter>(renderer);
-	shape_drawing_lib::CanvasPainter painter(simpleCanvas);
+	graphics_lib::ICanvasPtr simpleCanvas = std::make_unique<ModernGraphicsRendererAdapter>(renderer);
+	shape_drawing_lib::CanvasPainter painter(std::move(simpleCanvas));
 
 	PaintPicture(painter);
 }
