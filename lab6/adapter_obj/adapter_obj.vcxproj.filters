@@ -13,6 +13,36 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Graphics Lib">
+      <UniqueIdentifier>{5b32e063-974e-4667-bbe7-8877998b09e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics Lib">
+      <UniqueIdentifier>{5f94ed07-c6b8-487c-bb0a-023ad56e7358}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shape Drawing Lib">
+      <UniqueIdentifier>{626066b0-0bb5-4121-a875-32cf40241c4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shape Drawing Lib">
+      <UniqueIdentifier>{5a25d47c-ec40-401d-b416-4b27c97c7b6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shape Drawing Lib\Drawables">
+      <UniqueIdentifier>{5e73bfc6-4e4f-41f6-9c6c-d973f61de8a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shape Drawing Lib\Drawables">
+      <UniqueIdentifier>{ffc2d7e7-a2fb-47d4-a884-6cd22653aac1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shape Drawing Lib\Painters">
+      <UniqueIdentifier>{9a002cb4-9ccb-43dc-9b8b-eb1073f0200c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shape Drawing Lib\Painters">
+      <UniqueIdentifier>{db72a8f4-e97c-4742-9c93-b336ff218796}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\App">
+      <UniqueIdentifier>{a29fa592-b451-410c-b11c-c56f364c02fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\App">
+      <UniqueIdentifier>{53bec8e4-c02b-458f-b000-da356acbf587}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,10 +51,61 @@
     <ClCompile Include="include\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\graphics_lib\Canvas.cpp">
+      <Filter>Source Files\Graphics Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shape_drawing_lib\Triangle.cpp">
+      <Filter>Source Files\Shape Drawing Lib\Drawables</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shape_drawing_lib\Rectangle.cpp">
+      <Filter>Source Files\Shape Drawing Lib\Drawables</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shape_drawing_lib\common.cpp">
+      <Filter>Source Files\Shape Drawing Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shape_drawing_lib\CanvasPainter.cpp">
+      <Filter>Source Files\Shape Drawing Lib\Painters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\PaintPictureOnCanvas.cpp">
+      <Filter>Source Files\App</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\graphics_lib\ICanvas.h">
+      <Filter>Header Files\Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\graphics_lib\Canvas.h">
+      <Filter>Header Files\Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shape_drawing_lib\Point.hpp">
+      <Filter>Header Files\Shape Drawing Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shape_drawing_lib\ICanvasDrawable.h">
+      <Filter>Header Files\Shape Drawing Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shape_drawing_lib\Triangle.h">
+      <Filter>Header Files\Shape Drawing Lib\Drawables</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shape_drawing_lib\Rectangle.h">
+      <Filter>Header Files\Shape Drawing Lib\Drawables</Filter>
+    </ClInclude>
+    <ClInclude Include="include\graphics_lib\ICanvas_fwd.h">
+      <Filter>Header Files\Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shape_drawing_lib\common.h">
+      <Filter>Header Files\Shape Drawing Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shape_drawing_lib\CanvasPainter.h">
+      <Filter>Header Files\Shape Drawing Lib\Painters</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shape_drawing_lib\ICanvasDrawable_fwd.h">
+      <Filter>Header Files\Shape Drawing Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\app\PaintPictureOnCanvas.h">
+      <Filter>Header Files\App</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

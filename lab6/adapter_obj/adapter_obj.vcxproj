@@ -78,6 +78,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -94,6 +95,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -110,6 +112,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,6 +129,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -137,9 +141,26 @@
   <ItemGroup>
     <ClCompile Include="include\pch.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\app\PaintPictureOnCanvas.cpp" />
+    <ClCompile Include="src\graphics_lib\Canvas.cpp" />
+    <ClCompile Include="src\shape_drawing_lib\CanvasPainter.cpp" />
+    <ClCompile Include="src\shape_drawing_lib\common.cpp" />
+    <ClCompile Include="src\shape_drawing_lib\Rectangle.cpp" />
+    <ClCompile Include="src\shape_drawing_lib\Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\app\PaintPictureOnCanvas.h" />
+    <ClInclude Include="include\graphics_lib\Canvas.h" />
+    <ClInclude Include="include\graphics_lib\ICanvas.h" />
+    <ClInclude Include="include\graphics_lib\ICanvas_fwd.h" />
     <ClInclude Include="include\pch.h" />
+    <ClInclude Include="include\shape_drawing_lib\CanvasPainter.h" />
+    <ClInclude Include="include\shape_drawing_lib\common.h" />
+    <ClInclude Include="include\shape_drawing_lib\ICanvasDrawable.h" />
+    <ClInclude Include="include\shape_drawing_lib\ICanvasDrawable_fwd.h" />
+    <ClInclude Include="include\shape_drawing_lib\Point.hpp" />
+    <ClInclude Include="include\shape_drawing_lib\Rectangle.h" />
+    <ClInclude Include="include\shape_drawing_lib\Triangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
