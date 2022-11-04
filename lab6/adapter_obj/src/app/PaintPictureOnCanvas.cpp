@@ -41,5 +41,4 @@ void PaintPictureOnModernGraphicsRenderer()
 	//PaintPicture(renderer);
 }
 
-
 } // namespace app
