@@ -1,4 +1,13 @@
+#include "pch.h"
+
 #include "app/PaintPictureOnCanvas.h"
+
+#include "graphics_lib/Canvas.h"
+#include "modern_graphics_lib/ModernGraphicsRenderer.h"
+
+#include "shape_drawing_lib/CanvasPainter.h"
+#include "shape_drawing_lib/Rectangle.h"
+#include "shape_drawing_lib/Triangle.h"
 
 namespace app
 {
@@ -20,5 +29,17 @@ void PaintPictureOnCanvas()
 	shape_drawing_lib::CanvasPainter painter(simpleCanvas);
 	PaintPicture(painter);
 }
+
+void PaintPictureOnModernGraphicsRenderer()
+{
+	modern_graphics_lib::ModernGraphicsRenderer renderer(std::cout);
+	(void)&renderer; // устраняем предупреждение о неиспользуемой переменной
+
+	// TODO: при помощи существующей функции PaintPicture() нарисовать
+	// картину на renderer
+	// Подсказка: используйте паттерн "Адаптер"
+	//PaintPicture(renderer);
+}
+
 
 } // namespace app

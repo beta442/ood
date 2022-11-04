@@ -3,5 +3,6 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <string>
 
 #endif // !ADAPTER_OBJ_PCH_H_
