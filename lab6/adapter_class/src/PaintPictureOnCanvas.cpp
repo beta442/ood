@@ -4,7 +4,6 @@
 
 #include "../include/ModernGraphicsRendererAdapter.h"
 #include "graphics_lib/Canvas.h"
-#include "modern_graphics_lib/ModernGraphicsRenderer.h"
 
 #include "shape_drawing_lib/CanvasPainter.h"
 #include "shape_drawing_lib/Rectangle.h"
