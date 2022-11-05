@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "adapter_obj_test", "adapter
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "adapter_class_test", "adapter_class\test\adapter_class_test\adapter_class_test.vcxproj", "{293D0CBB-34F3-4541-A7F9-F37778D41EA2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "adapter_color", "adapter_color\adapter_color.vcxproj", "{0CF22517-510D-4507-9CD1-4194EB19F61C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -53,6 +55,14 @@ Global
 		{293D0CBB-34F3-4541-A7F9-F37778D41EA2}.Release|x64.Build.0 = Release|x64
 		{293D0CBB-34F3-4541-A7F9-F37778D41EA2}.Release|x86.ActiveCfg = Release|Win32
 		{293D0CBB-34F3-4541-A7F9-F37778D41EA2}.Release|x86.Build.0 = Release|Win32
+		{0CF22517-510D-4507-9CD1-4194EB19F61C}.Debug|x64.ActiveCfg = Debug|x64
+		{0CF22517-510D-4507-9CD1-4194EB19F61C}.Debug|x64.Build.0 = Debug|x64
+		{0CF22517-510D-4507-9CD1-4194EB19F61C}.Debug|x86.ActiveCfg = Debug|Win32
+		{0CF22517-510D-4507-9CD1-4194EB19F61C}.Debug|x86.Build.0 = Debug|Win32
+		{0CF22517-510D-4507-9CD1-4194EB19F61C}.Release|x64.ActiveCfg = Release|x64
+		{0CF22517-510D-4507-9CD1-4194EB19F61C}.Release|x64.Build.0 = Release|x64
+		{0CF22517-510D-4507-9CD1-4194EB19F61C}.Release|x86.ActiveCfg = Release|Win32
+		{0CF22517-510D-4507-9CD1-4194EB19F61C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
