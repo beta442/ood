@@ -5,11 +5,12 @@
 namespace shape_drawing_lib
 {
 
-Rectangle::Rectangle(const Point& leftTop, int width, int height)
+Rectangle::Rectangle(const Point& leftTop, int width, int height, Color color)
 	: m_leftTop(leftTop)
 	, m_rightBottom()
 	, m_width(width)
 	, m_height(height)
+	, m_color(color)
 {
 	if (m_width < 0 || m_height < 0)
 	{
@@ -24,6 +25,8 @@ void Rectangle::Draw(const Canvas& canvas) const
 {
 	auto rightTop = Point{ m_rightBottom.x, m_leftTop.y };
 	auto leftBottom = Point{ m_leftTop.x, m_rightBottom.y };
+
+	canvas->SetColor(m_color);
 
 	canvas->MoveTo(m_leftTop.x, m_leftTop.y);
 

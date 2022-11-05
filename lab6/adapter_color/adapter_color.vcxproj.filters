@@ -66,6 +66,9 @@
     <ClCompile Include="src\shape_drawing_lib\Triangle.cpp">
       <Filter>Source Files\Shape Drawing Lib</Filter>
     </ClCompile>
+    <ClCompile Include="src\modern_graphics_lib\RGBAColor.cpp">
+      <Filter>Source Files\Modern Graphics Lib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">
@@ -108,6 +111,12 @@
       <Filter>Header Files\Shape Drawing Lib</Filter>
     </ClInclude>
     <ClInclude Include="include\shape_drawing_lib\Triangle.h">
+      <Filter>Header Files\Shape Drawing Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\modern_graphics_lib\RGBAColor.h">
+      <Filter>Header Files\Modern Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shape_drawing_lib\common.h">
       <Filter>Header Files\Shape Drawing Lib</Filter>
     </ClInclude>
   </ItemGroup>

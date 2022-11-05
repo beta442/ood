@@ -1,9 +1,10 @@
 #ifndef ADAPTER_OBJ_MODERN_GRAPHICS_LIB_MODERN_GRAPHICS_RENDERER_H_
 #define ADAPTER_OBJ_MODERN_GRAPHICS_LIB_MODERN_GRAPHICS_RENDERER_H_
 
-#include "Point.hpp"
-
 #include <ostream>
+
+#include "Point.hpp"
+#include "RGBAColor.h"
 
 namespace modern_graphics_lib
 {
@@ -15,7 +16,7 @@ public:
 	~ModernGraphicsRenderer();
 
 	void BeginDraw();
-	void DrawLine(const Point& start, const Point& end);
+	void DrawLine(const Point& start, const Point& end, const RGBAColor& color);
 	void EndDraw();
 
 private:

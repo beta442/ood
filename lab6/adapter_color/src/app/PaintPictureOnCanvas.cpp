@@ -17,7 +17,8 @@ void PaintPicture(shape_drawing_lib::CanvasPainter& painter)
 {
 	using namespace shape_drawing_lib;
 
-	ICanvasDrawableSharedPtr triangle = std::make_shared<Triangle>(Point{ 10, 15 }, Point{ 100, 200 }, Point{ 150, 250 });
+	Color darkGrey = 0x4c4c4c;
+	ICanvasDrawableSharedPtr triangle = std::make_shared<Triangle>(Point{ 10, 15 }, Point{ 100, 200 }, Point{ 150, 250 }, darkGrey);
 	ICanvasDrawableSharedPtr rectangle = std::make_shared<Rectangle>(Point{ 30, 40 }, 18, 24);
 
 	painter.Draw(triangle);

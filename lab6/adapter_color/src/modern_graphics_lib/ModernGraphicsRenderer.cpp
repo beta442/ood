@@ -29,13 +29,25 @@ void ModernGraphicsRenderer::BeginDraw()
 	m_drawing = true;
 }
 
-void ModernGraphicsRenderer::DrawLine(const Point& start, const Point& end)
+std::string XMLColorString(const RGBAColor& color)
+{
+	// clang-format off
+	return "<color r=\"" + std::to_string(color.r) +
+		"\" g=\"" + std::to_string(color.g) +
+		"\" b=\"" + std::to_string(color.b) +
+		"\" a=\"" + std::to_string(color.a) + "\" />";
+	// clang-format on
+}
+
+void ModernGraphicsRenderer::DrawLine(const Point& start, const Point& end, const RGBAColor& color)
 {
 	if (!m_drawing)
 	{
 		throw std::logic_error("DrawLine is allowed between BeginDraw()/EndDraw() only");
 	}
-	m_out << "<line fromX=\"" << start.x << "\" fromY=\"" << start.y << "\" toX=\"" << end.x << "\" toY=\"" << end.y << "\" />"
+	m_out << "<line fromX=\"" << start.x << "\" fromY=\"" << start.y << "\" toX=\"" << end.x << "\" toY=\"" << end.y << "\">\n"
+		  << "  " << XMLColorString(color)
+		  << "\n</line>"
 		  << std::endl;
 }
 
