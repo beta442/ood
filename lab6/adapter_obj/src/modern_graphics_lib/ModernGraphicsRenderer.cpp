@@ -35,7 +35,7 @@ void ModernGraphicsRenderer::DrawLine(const Point& start, const Point& end)
 	{
 		throw std::logic_error("DrawLine is allowed between BeginDraw()/EndDraw() only");
 	}
-	m_out << "<line fromX=\"" << start.x << "\" fromY=\"" << start.y << "\" toX =\"" << end.x << "\" toY=\"" << end.y << "\" />"
+	m_out << "<line fromX=\"" << start.x << "\" fromY=\"" << start.y << "\" toX=\"" << end.x << "\" toY=\"" << end.y << "\" />"
 		  << std::endl;
 }
 
