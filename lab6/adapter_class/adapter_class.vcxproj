@@ -45,6 +45,11 @@
     <ClInclude Include="..\adapter_obj\include\shape_drawing_lib\Triangle.h" />
     <ClInclude Include="include\ModernGraphicsRendererAdapter.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="test\adapter_class_test\adapter_class_test.vcxproj">
+      <Project>{293d0cbb-34f3-4541-a7f9-f37778d41ea2}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
