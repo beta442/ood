@@ -84,4 +84,20 @@ BOOST_AUTO_TEST_SUITE(Adapter_tests)
 		BOOST_CHECK_EQUAL(ss.str(), expectedCanvasOutput);
 	}
 
+	BOOST_AUTO_TEST_CASE(SetColor_tests)
+	{
+		const int fromX = 0, fromY = 0, toX = 100, toY = 100;
+		const graphics_lib::Color color = 0xFF00FF;
+		const modern_graphics_lib::RGBAColor rgbaColor{ 1, 0, 1, 1 };
+		const std::string expectedCanvasOutput = CreateExpectedAdapterOutput(fromX, fromY, toX, toY, rgbaColor);
+		std::stringstream ss{};
+		auto adapter = CreateAdapter(ss);
+
+		adapter->SetColor(color);
+		adapter->MoveTo(fromX, fromY);
+		adapter->LineTo(toX, toY);
+
+		BOOST_CHECK_EQUAL(ss.str(), expectedCanvasOutput);
+	}
+
 BOOST_AUTO_TEST_SUITE_END()
