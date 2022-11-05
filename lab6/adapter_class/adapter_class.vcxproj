@@ -18,6 +18,33 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\adapter_obj\include\pch.cpp" />
+    <ClCompile Include="..\adapter_obj\main.cpp" />
+    <ClCompile Include="..\adapter_obj\src\graphics_lib\Canvas.cpp" />
+    <ClCompile Include="..\adapter_obj\src\modern_graphics_lib\ModernGraphicsRenderer.cpp" />
+    <ClCompile Include="..\adapter_obj\src\shape_drawing_lib\CanvasPainter.cpp" />
+    <ClCompile Include="..\adapter_obj\src\shape_drawing_lib\Rectangle.cpp" />
+    <ClCompile Include="..\adapter_obj\src\shape_drawing_lib\Triangle.cpp" />
+    <ClCompile Include="src\ModernGraphicsRendererAdapter.cpp" />
+    <ClCompile Include="src\PaintPictureOnCanvas.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\adapter_obj\include\app\PaintPictureOnCanvas.h" />
+    <ClInclude Include="..\adapter_obj\include\graphics_lib\Canvas.h" />
+    <ClInclude Include="..\adapter_obj\include\graphics_lib\ICanvas.h" />
+    <ClInclude Include="..\adapter_obj\include\graphics_lib\ICanvas_fwd.h" />
+    <ClInclude Include="..\adapter_obj\include\modern_graphics_lib\ModernGraphicsRenderer.h" />
+    <ClInclude Include="..\adapter_obj\include\modern_graphics_lib\Point.hpp" />
+    <ClInclude Include="..\adapter_obj\include\pch.h" />
+    <ClInclude Include="..\adapter_obj\include\shape_drawing_lib\CanvasPainter.h" />
+    <ClInclude Include="..\adapter_obj\include\shape_drawing_lib\ICanvasDrawable.h" />
+    <ClInclude Include="..\adapter_obj\include\shape_drawing_lib\ICanvasDrawable_fwd.h" />
+    <ClInclude Include="..\adapter_obj\include\shape_drawing_lib\Point.hpp" />
+    <ClInclude Include="..\adapter_obj\include\shape_drawing_lib\Rectangle.h" />
+    <ClInclude Include="..\adapter_obj\include\shape_drawing_lib\Triangle.h" />
+    <ClInclude Include="include\ModernGraphicsRendererAdapter.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -78,6 +105,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(SolutionDir)adapter_obj\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -94,6 +122,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(SolutionDir)adapter_obj\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -110,6 +139,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(SolutionDir)adapter_obj\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,6 +156,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(SolutionDir)adapter_obj\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,13 +165,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="include\pch.cpp" />
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="include\pch.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

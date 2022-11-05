@@ -13,18 +13,114 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\App">
+      <UniqueIdentifier>{5f2f8bd4-48dd-4f16-b8dd-08509494d523}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics Lib">
+      <UniqueIdentifier>{99a6e56a-e7e0-483b-a6ff-97834de3aa84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Modern Graphics Lib">
+      <UniqueIdentifier>{37e21e78-8202-4b9c-9b04-bba2d58e73a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shape Drawing Lib">
+      <UniqueIdentifier>{93684560-482e-4441-af07-295082b010d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shape Drawing Lib\Drawables">
+      <UniqueIdentifier>{2e0a8730-9a78-4d48-9754-68659061e7cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shape Drawing Lib\Painters">
+      <UniqueIdentifier>{ee70720c-a3a1-4492-83a7-bd7b7a2400fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\App">
+      <UniqueIdentifier>{162671c2-ad58-4108-8124-65232d2211e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphics Lib">
+      <UniqueIdentifier>{9ecde118-0e7f-4d1d-8662-9a5f5300f45b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Modern Graphics Lib">
+      <UniqueIdentifier>{66ccdc49-6dd7-4fa1-93af-206e4b4feb46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shape Drawing Lib">
+      <UniqueIdentifier>{fa34ece9-5780-4ba2-9180-1b9ec551958f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shape Drawing Lib\Drawables">
+      <UniqueIdentifier>{ad481faa-6b34-4d76-b706-509746004664}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shape Drawing Lib\Painters">
+      <UniqueIdentifier>{47836893-12ce-479e-a6f1-58db1541ffeb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="..\adapter_obj\src\graphics_lib\Canvas.cpp">
+      <Filter>Source Files\Graphics Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\adapter_obj\src\modern_graphics_lib\ModernGraphicsRenderer.cpp">
+      <Filter>Source Files\Modern Graphics Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\adapter_obj\src\shape_drawing_lib\Rectangle.cpp">
+      <Filter>Source Files\Shape Drawing Lib\Drawables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\adapter_obj\src\shape_drawing_lib\Triangle.cpp">
+      <Filter>Source Files\Shape Drawing Lib\Drawables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\adapter_obj\src\shape_drawing_lib\CanvasPainter.cpp">
+      <Filter>Source Files\Shape Drawing Lib\Painters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\adapter_obj\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="include\pch.cpp">
+    <ClCompile Include="..\adapter_obj\include\pch.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModernGraphicsRendererAdapter.cpp">
+      <Filter>Source Files\App</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PaintPictureOnCanvas.cpp">
+      <Filter>Source Files\App</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\pch.h">
+    <ClInclude Include="..\adapter_obj\include\app\PaintPictureOnCanvas.h">
+      <Filter>Header Files\App</Filter>
+    </ClInclude>
+    <ClInclude Include="..\adapter_obj\include\graphics_lib\Canvas.h">
+      <Filter>Header Files\Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\adapter_obj\include\graphics_lib\ICanvas.h">
+      <Filter>Header Files\Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\adapter_obj\include\graphics_lib\ICanvas_fwd.h">
+      <Filter>Header Files\Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\adapter_obj\include\modern_graphics_lib\ModernGraphicsRenderer.h">
+      <Filter>Header Files\Modern Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\adapter_obj\include\modern_graphics_lib\Point.hpp">
+      <Filter>Header Files\Modern Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\adapter_obj\include\shape_drawing_lib\ICanvasDrawable.h">
+      <Filter>Header Files\Shape Drawing Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\adapter_obj\include\shape_drawing_lib\ICanvasDrawable_fwd.h">
+      <Filter>Header Files\Shape Drawing Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\adapter_obj\include\shape_drawing_lib\Point.hpp">
+      <Filter>Header Files\Shape Drawing Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\adapter_obj\include\shape_drawing_lib\Rectangle.h">
+      <Filter>Header Files\Shape Drawing Lib\Drawables</Filter>
+    </ClInclude>
+    <ClInclude Include="..\adapter_obj\include\shape_drawing_lib\Triangle.h">
+      <Filter>Header Files\Shape Drawing Lib\Drawables</Filter>
+    </ClInclude>
+    <ClInclude Include="..\adapter_obj\include\shape_drawing_lib\CanvasPainter.h">
+      <Filter>Header Files\Shape Drawing Lib\Painters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\adapter_obj\include\pch.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ModernGraphicsRendererAdapter.h">
+      <Filter>Header Files\App</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
