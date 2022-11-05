@@ -7,3 +7,4 @@
 3. Decorator
 4. Factory
 5. Command
+6. Adapter
