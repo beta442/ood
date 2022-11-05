@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\App">
+      <UniqueIdentifier>{4b47b94e-faa2-4888-92b0-688aa23fe580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphics Lib">
+      <UniqueIdentifier>{5e7bc02d-aa58-44fb-ace0-524bc5de4c18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Modern Graphics Lib">
+      <UniqueIdentifier>{42882b8d-6c53-4124-bec8-4114b9303ffb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shape Drawing Lib">
+      <UniqueIdentifier>{0318b73c-abae-497a-a141-e7990cb80a3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\App">
+      <UniqueIdentifier>{d2525405-0381-46e4-b036-c1a39397536d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics Lib">
+      <UniqueIdentifier>{2570008d-2495-4cbe-b9c1-dfec8a761147}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Modern Graphics Lib">
+      <UniqueIdentifier>{8f8e18ba-595e-4844-8eee-edcfa8ea6586}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shape Drawing Lib">
+      <UniqueIdentifier>{2128d3c3-12d7-4324-b1ed-6147c486b71a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\ModernGraphicsRendererAdapter.cpp">
+      <Filter>Source Files\App</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\PaintPictureOnCanvas.cpp">
+      <Filter>Source Files\App</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics_lib\Canvas.cpp">
+      <Filter>Source Files\Graphics Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modern_graphics_lib\ModernGraphicsRenderer.cpp">
+      <Filter>Source Files\Modern Graphics Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shape_drawing_lib\CanvasPainter.cpp">
+      <Filter>Source Files\Shape Drawing Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shape_drawing_lib\Rectangle.cpp">
+      <Filter>Source Files\Shape Drawing Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shape_drawing_lib\Triangle.cpp">
+      <Filter>Source Files\Shape Drawing Lib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\app\ModernGraphicsRendererAdapter.h">
+      <Filter>Header Files\App</Filter>
+    </ClInclude>
+    <ClInclude Include="include\app\PaintPictureOnCanvas.h">
+      <Filter>Header Files\App</Filter>
+    </ClInclude>
+    <ClInclude Include="include\graphics_lib\Canvas.h">
+      <Filter>Header Files\Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\graphics_lib\ICanvas.h">
+      <Filter>Header Files\Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\graphics_lib\ICanvas_fwd.h">
+      <Filter>Header Files\Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\modern_graphics_lib\ModernGraphicsRenderer.h">
+      <Filter>Header Files\Modern Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\modern_graphics_lib\Point.hpp">
+      <Filter>Header Files\Modern Graphics Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shape_drawing_lib\CanvasPainter.h">
+      <Filter>Header Files\Shape Drawing Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shape_drawing_lib\ICanvasDrawable.h">
+      <Filter>Header Files\Shape Drawing Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shape_drawing_lib\ICanvasDrawable_fwd.h">
+      <Filter>Header Files\Shape Drawing Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shape_drawing_lib\Point.hpp">
+      <Filter>Header Files\Shape Drawing Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shape_drawing_lib\Rectangle.h">
+      <Filter>Header Files\Shape Drawing Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shape_drawing_lib\Triangle.h">
+      <Filter>Header Files\Shape Drawing Lib</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
