@@ -9,6 +9,7 @@ namespace graphics_lib
 class Canvas : public ICanvas
 {
 public:
+	void SetColor(Color rgbColor) override;
 	void MoveTo(int x, int y) override;
 	void LineTo(int x, int y) override;
 };
