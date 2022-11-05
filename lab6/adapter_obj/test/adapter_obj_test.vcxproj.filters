@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Unit">
+      <UniqueIdentifier>{0bbeabbd-1e9d-4a2f-93ec-f59d25741d64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Unit\Graphics Lib">
+      <UniqueIdentifier>{f6baacc3-8686-4ce3-8e92-1f2df73e82ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Unit\Modern Graphics Lib">
+      <UniqueIdentifier>{87df5947-c52b-4040-a022-b797abdc1c5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Unit\Shape Drawing Lib">
+      <UniqueIdentifier>{a6068e9c-ab80-46b2-bce3-ecdd35f3afa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Unit\App">
+      <UniqueIdentifier>{75b02a92-a302-4005-aeb7-82b0ac93023e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source">
+      <UniqueIdentifier>{027f6af9-2cb0-4768-a5d7-1b7c0e0d766c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source\App">
+      <UniqueIdentifier>{64515634-335f-4860-8528-a265decbfeac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source\Graphics Lib">
+      <UniqueIdentifier>{85f28451-d2dd-4747-9998-ea18146410eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source\Modern Graphics Lib">
+      <UniqueIdentifier>{08b5a50b-446d-45ff-8841-c76239af98dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source\Shape Drawing Lib">
+      <UniqueIdentifier>{f950a0dc-5b81-4490-8d41-999ffe260e26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source\Shape Drawing Lib\Drawables">
+      <UniqueIdentifier>{574c83f8-1a36-4376-a3dd-68d32f28bc49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Testing Source\Shape Drawing Lib\Painters">
+      <UniqueIdentifier>{331008d0-f6e9-4947-839f-125c119bddf6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="main.test.cpp">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\app\ModernGraphicsRendererAdapter.cpp">
+      <Filter>Source Files\Testing Source\App</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\app\PaintPictureOnCanvas.cpp">
+      <Filter>Source Files\Testing Source\App</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics_lib\Canvas.cpp">
+      <Filter>Source Files\Testing Source\Graphics Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\modern_graphics_lib\ModernGraphicsRenderer.cpp">
+      <Filter>Source Files\Testing Source\Modern Graphics Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shape_drawing_lib\Rectangle.cpp">
+      <Filter>Source Files\Testing Source\Shape Drawing Lib\Drawables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shape_drawing_lib\Triangle.cpp">
+      <Filter>Source Files\Testing Source\Shape Drawing Lib\Drawables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shape_drawing_lib\CanvasPainter.cpp">
+      <Filter>Source Files\Testing Source\Shape Drawing Lib\Painters</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
