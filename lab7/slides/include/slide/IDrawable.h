@@ -10,7 +10,8 @@ namespace slide
 class IDrawable
 {
 public:
-	virtual void Draw(canvas::ICanvas& canvas) = 0;
+	using Canvas = canvas::ICanvas;
+	virtual void Draw(Canvas& canvas) = 0;
 
 	virtual ~IDrawable() = default;
 };

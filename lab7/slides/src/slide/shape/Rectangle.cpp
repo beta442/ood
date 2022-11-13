@@ -6,17 +6,27 @@ namespace slide
 namespace shape
 {
 
-Rectangle::Rectangle(const RectD& rect, const Style& outlineStyle, const Style& fillStyle)
-	: MyBase(rect, outlineStyle, fillStyle)
+Rectangle::Rectangle(const RectD& rect)
+	: MyBase(rect)
 {
 }
 
-Rectangle::Rectangle(RectD&& rect, Style&& outlineStyle, Style&& fillStyle)
+Rectangle::Rectangle(RectD&& rect)
+	: MyBase(std::move(rect))
+{
+}
+
+Rectangle::Rectangle(const RectD& rect, IStylePtr&& outlineStyle, IStylePtr&& fillStyle)
+	: MyBase(rect, std::move(outlineStyle), std::move(fillStyle))
+{
+}
+
+Rectangle::Rectangle(RectD&& rect, IStylePtr&& outlineStyle, IStylePtr&& fillStyle)
 	: MyBase(std::move(rect), std::move(outlineStyle), std::move(fillStyle))
 {
 }
 
-void Rectangle::Draw(canvas::ICanvas& canvas)
+void Rectangle::Draw(Canvas& canvas)
 {
 }
 

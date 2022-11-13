@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
 
 #include "ICanvas.h"
 
@@ -13,19 +13,19 @@ namespace canvas
 class SFMLCanvas final : public ICanvas
 {
 public:
-	using SFMLWindowSharedPtr = std::shared_ptr<sf::RenderWindow>;
+	using RenderTarget = std::unique_ptr<sf::RenderTarget>;
 
-	SFMLCanvas(const SFMLWindowSharedPtr& sfmlWindow);
+	SFMLCanvas(RenderTarget&& sfmlWindow);
 
-	void SetLineColor(slides_common::RGBAColor color) override;
-	void BeginFill(slides_common::RGBAColor color) override;
+	void SetLineColor(RGBAColor color) override;
+	void BeginFill(RGBAColor color) override;
 	void EndFill() override;
 	void MoveTo(double x, double y) override;
 	void LineTo(double x, double y) override;
 	void DrawEllipse(double left, double top, double width, double height) override;
 
 private:
-	SFMLWindowSharedPtr m_sfmlWindow;
+	RenderTarget m_sfmlWindow;
 };
 
 } // namespace canvas

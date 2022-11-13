@@ -46,6 +46,9 @@
     <Filter Include="Header Files\Slide\Shape\CStyles">
       <UniqueIdentifier>{09aa1fa2-2135-4af3-9fa3-02019dd6abd6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Slide\Shape\CShapes">
+      <UniqueIdentifier>{26a68c8a-e4d9-4bc8-8c08-019d8ae259dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -60,19 +63,25 @@
     <ClCompile Include="src\slide\Slide.cpp">
       <Filter>Source Files\Slide</Filter>
     </ClCompile>
-    <ClCompile Include="src\slide\shape\Style.cpp">
-      <Filter>Source Files\Slide\Shape</Filter>
-    </ClCompile>
-    <ClCompile Include="src\slide\shape\GroupShape.cpp">
-      <Filter>Source Files\Slide\Shape</Filter>
-    </ClCompile>
     <ClCompile Include="src\slide\shape\BaseShape.cpp">
       <Filter>Source Files\Slide\Shape</Filter>
     </ClCompile>
-    <ClCompile Include="src\slide\common.cpp">
-      <Filter>Source Files\Slide</Filter>
+    <ClCompile Include="src\slide\shape\GroupShape.cpp">
+      <Filter>Source Files\Slide\Shape\CShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\shape\Style.cpp">
+      <Filter>Source Files\Slide\Shape\CShapes</Filter>
     </ClCompile>
     <ClCompile Include="src\slide\shape\Rectangle.cpp">
+      <Filter>Source Files\Slide\Shape\CShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\shape\Triangle.cpp">
+      <Filter>Source Files\Slide\Shape\CShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slides_common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\shapes_common.cpp">
       <Filter>Source Files\Slide\Shape</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,7 +95,7 @@
     <ClInclude Include="include\canvas\ICanvas.h">
       <Filter>Header Files\Canvas</Filter>
     </ClInclude>
-    <ClInclude Include="include\common.h">
+    <ClInclude Include="include\slides_common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\slide\IDrawable.h">
@@ -140,11 +149,14 @@
     <ClInclude Include="include\slide\shape\BaseShape.h">
       <Filter>Header Files\Slide\Shape</Filter>
     </ClInclude>
-    <ClInclude Include="include\slide\common.h">
-      <Filter>Header Files\Slide</Filter>
-    </ClInclude>
     <ClInclude Include="include\slide\shape\Rectangle.h">
       <Filter>Header Files\Slide\Shape\CShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\shape\Triangle.h">
+      <Filter>Header Files\Slide\Shape\CShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\shapes_common.h">
+      <Filter>Header Files\Slide\Shape</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -5,8 +5,8 @@
 void PrintFrameInfo(const slide::RectD& frame)
 {
 	std::cout << "Frame:\n"
-			  << "       x: " << frame.x << '\n'
-			  << "       y: " << frame.y << '\n'
+			  << "       x: " << frame.leftTop.x << '\n'
+			  << "       y: " << frame.leftTop.y << '\n'
 			  << "   width: " << frame.width << '\n'
 			  << "  height: " << frame.height << std::endl;
 }
@@ -43,6 +43,11 @@ void PrintShapeInfo(const slide::shape::IShape& shape)
 	PrintStyleInfo(shape.GetOutlineStyle());
 }
 
+slide::shape::IStylePtr CreateStyle(slide::RGBAColor color, bool enableOnInit = true)
+{
+	return std::make_unique<slide::shape::Style>(color, enableOnInit);
+}
+
 int main()
 {
 	using namespace slide;
@@ -52,16 +57,15 @@ int main()
 	std::cout << "Rect1:" << std::endl;
 	PrintShapeInfo(rect1);
 
-	Rectangle rect2{ RectD{}, Style{ 1234567890 }, Style{ 987654321, false } };
+	Rectangle rect2{ RectD{}, CreateStyle(1234567890), CreateStyle(987654321, false) };
 	std::cout << "\nRect2:" << std::endl;
 	PrintShapeInfo(rect2);
 
 	auto rectD = RectD{};
-	rectD.x = 100;
-	rectD.y = 150;
+	rectD.leftTop = { 100, 150 };
 	rectD.width = 150;
 	rectD.height = 20;
-	Rectangle rect3{ rectD, Style{ 1234567890 }, Style{ 987654321, true } };
+	Rectangle rect3{ rectD, CreateStyle(1234567890), CreateStyle(987654321, true) };
 	std::cout << "\nRect3:" << std::endl;
 	PrintShapeInfo(rect3);
 

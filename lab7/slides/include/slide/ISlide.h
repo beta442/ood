@@ -11,8 +11,6 @@ namespace slide
 class ISlide : public IDrawable
 {
 public:
-	using RGBAColor = slides_common::RGBAColor;
-
 	using IShapes = shape::IShapes;
 
 	virtual double GetWidth() const = 0;

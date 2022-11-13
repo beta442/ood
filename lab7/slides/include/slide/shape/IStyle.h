@@ -4,7 +4,7 @@
 #include <optional>
 
 #include "IStyle_fwd.h"
-#include "common.h"
+#include "slides_common.h"
 
 namespace slide
 {
@@ -16,8 +16,6 @@ class IStyle
 {
 public:
 	using BoolO = std::optional<bool>;
-
-	using RGBAColor = slides_common::RGBAColor;
 	using RGBAColorO = std::optional<RGBAColor>;
 
 	virtual BoolO IsEnabled() const = 0;

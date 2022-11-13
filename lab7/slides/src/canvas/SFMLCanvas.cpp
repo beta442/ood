@@ -3,10 +3,8 @@
 namespace canvas
 {
 
-using namespace slides_common;
-
-SFMLCanvas::SFMLCanvas(const SFMLWindowSharedPtr& sfmlWindow)
-	: m_sfmlWindow(sfmlWindow)
+SFMLCanvas::SFMLCanvas(RenderTarget&& sfmlWindow)
+	: m_sfmlWindow(std::move(sfmlWindow))
 {
 }
 

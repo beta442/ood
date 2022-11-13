@@ -8,24 +8,45 @@ namespace slide
 namespace shape
 {
 
-BaseShape::BaseShape(const RectD& frame, const Style& outlineStyle, const Style& fillStyle)
-	: m_frame(frame)
-	, m_outlineStyle(outlineStyle)
-	, m_fillStyle(fillStyle)
+BaseShape::BaseShape()
+	: m_frame()
+	, m_fillStyle(std::make_unique<Style>())
+	, m_outlineStyle(std::make_unique<Style>())
 {
-	TryCheckRectD(m_frame);
-	TryCheckStyle(m_outlineStyle);
-	TryCheckStyle(m_fillStyle);
 }
 
-BaseShape::BaseShape(RectD&& frame, Style&& outlineStyle, Style&& fillStyle)
+BaseShape::BaseShape(const RectD& frame)
+	: BaseShape()
+{
+	TryCheckRectD(frame);
+	m_frame = frame;
+}
+
+BaseShape::BaseShape(RectD&& frame)
+	: BaseShape()
+{
+	TryCheckRectD(frame);
+	m_frame = std::move(frame);
+}
+
+BaseShape::BaseShape(const RectD& frame, IStylePtr&& outlineStyle, IStylePtr&& fillStyle)
+	: m_frame(frame)
+	, m_outlineStyle(std::move(outlineStyle))
+	, m_fillStyle(std::move(fillStyle))
+{
+	TryCheckRectD(m_frame);
+	TryCheckStyle(*m_outlineStyle);
+	TryCheckStyle(*m_fillStyle);
+}
+
+BaseShape::BaseShape(RectD&& frame, IStylePtr&& outlineStyle, IStylePtr&& fillStyle)
 	: m_frame(std::move(frame))
 	, m_outlineStyle(std::move(outlineStyle))
 	, m_fillStyle(std::move(fillStyle))
 {
 	TryCheckRectD(m_frame);
-	TryCheckStyle(m_outlineStyle);
-	TryCheckStyle(m_fillStyle);
+	TryCheckStyle(*m_outlineStyle);
+	TryCheckStyle(*m_fillStyle);
 }
 
 RectD BaseShape::GetFrame() const
@@ -39,37 +60,24 @@ void BaseShape::SetFrame(const RectD& rect)
 	m_frame = rect;
 }
 
-void TryEmplaceStyle(Style& dst, const IStyle& src)
+IStyle& BaseShape::GetOutlineStyle()
 {
-	TryCheckStyle(src);
-	if (src.IsEnabled().has_value())
-	{
-		dst.Enable(src.IsEnabled().value());
-	}
-	if (src.GetColor().has_value())
-	{
-		dst.SetColor(src.GetColor().value());
-	}
-}
-
-void BaseShape::SetOutlineStyle(const IStyle& style)
-{
-	TryEmplaceStyle(m_outlineStyle, style);
+	return *m_outlineStyle;
 }
 
 const IStyle& BaseShape::GetOutlineStyle() const
 {
-	return m_outlineStyle;
+	return *m_outlineStyle;
 }
 
-void BaseShape::SetFillStyle(const IStyle& style)
+IStyle& BaseShape::GetFillStyle()
 {
-	TryEmplaceStyle(m_outlineStyle, style);
+	return *m_fillStyle;
 }
 
 const IStyle& BaseShape::GetFillStyle() const
 {
-	return m_fillStyle;
+	return *m_fillStyle;
 }
 
 IGroupShapeSharedPtr BaseShape::GetGroup()

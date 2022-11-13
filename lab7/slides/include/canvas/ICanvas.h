@@ -2,7 +2,7 @@
 #define SLIDES_CANVAS_ICANVAS_H_
 
 #include "ICanvas_fwd.h"
-#include "common.h"
+#include "slides_common.h"
 
 namespace canvas
 {
@@ -10,8 +10,10 @@ namespace canvas
 class ICanvas
 {
 public:
-	virtual void SetLineColor(slides_common::RGBAColor color) = 0;
-	virtual void BeginFill(slides_common::RGBAColor color) = 0;
+	using RGBAColor = slide::RGBAColor;
+
+	virtual void SetLineColor(RGBAColor color) = 0;
+	virtual void BeginFill(RGBAColor color) = 0;
 	virtual void EndFill() = 0;
 	virtual void MoveTo(double x, double y) = 0;
 	virtual void LineTo(double x, double y) = 0;

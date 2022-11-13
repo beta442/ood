@@ -15,10 +15,10 @@ public:
 	RectD GetFrame() const override;
 	void SetFrame(const RectD& rect) override;
 
-	void SetOutlineStyle(const IStyle& style) override;
+	IStyle& GetOutlineStyle() override;
 	const IStyle& GetOutlineStyle() const override;
 
-	void SetFillStyle(const IStyle& style) override;
+	IStyle& GetFillStyle() override;
 	const IStyle& GetFillStyle() const override;
 
 	IGroupShapeSharedPtr GetGroup() override;

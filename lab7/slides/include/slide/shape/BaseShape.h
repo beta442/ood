@@ -16,23 +16,25 @@ public:
 	RectD GetFrame() const override;
 	void SetFrame(const RectD& rect) override;
 
-	void SetOutlineStyle(const IStyle& style) override;
+	IStyle& GetOutlineStyle() override;
 	const IStyle& GetOutlineStyle() const override;
 
-	void SetFillStyle(const IStyle& style) override;
+	IStyle& GetFillStyle() override;
 	const IStyle& GetFillStyle() const override;
 
 	IGroupShapeSharedPtr GetGroup() override;
 	IGroupShapeConstSharedPtr GetGroup() const override;
 
 protected:
-	BaseShape() = default;
-	BaseShape(const RectD& frame, const Style& outlineStyle, const Style& fillStyle);
-	BaseShape(RectD&& frame, Style&& outlineStyle, Style&& fillStyle);
+	BaseShape();
+	BaseShape(const RectD& frame);
+	BaseShape(RectD&& frame);
+	BaseShape(const RectD& frame, IStylePtr&& outlineStyle, IStylePtr&& fillStyle);
+	BaseShape(RectD&& frame, IStylePtr&& outlineStyle, IStylePtr&& fillStyle);
 
 private:
 	RectD m_frame;
-	Style m_outlineStyle, m_fillStyle;
+	IStylePtr m_outlineStyle, m_fillStyle;
 };
 
 } // namespace shape

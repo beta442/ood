@@ -15,10 +15,12 @@ public:
 	using MyBase = BaseShape;
 
 	Rectangle() = default;
-	Rectangle(const RectD& rect, const Style& outlineStyle, const Style& fillStyle);
-	Rectangle(RectD&& rect, Style&& outlineStyle, Style&& fillStyle);
+	Rectangle(const RectD& rect);
+	Rectangle(RectD&& rect);
+	Rectangle(const RectD& rect, IStylePtr&& outlineStyle, IStylePtr&& fillStyle);
+	Rectangle(RectD&& rect, IStylePtr&& outlineStyle, IStylePtr&& fillStyle);
 
-	void Draw(canvas::ICanvas& canvas) final;
+	void Draw(Canvas& canvas) final;
 };
 
 } // namespace shape
