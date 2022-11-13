@@ -13,6 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Canvas">
+      <UniqueIdentifier>{488662ed-dedf-4fcc-bb75-0f07dffc269d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Canvas">
+      <UniqueIdentifier>{cd4d67eb-3a5c-47f6-aaba-1ccfb9abe7b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide">
+      <UniqueIdentifier>{b9535f7d-6bae-4286-be91-76e935dcdc8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide">
+      <UniqueIdentifier>{6b97d838-4fd1-40cc-a158-c28b1cb03bad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Shape">
+      <UniqueIdentifier>{a519757e-9257-481f-a594-b41364b20582}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Shape">
+      <UniqueIdentifier>{104fc9a7-0340-48b1-90fb-4cfe21b20663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Shape\FID">
+      <UniqueIdentifier>{29b15211-b345-4c0f-979b-f6843d4cc205}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\FID">
+      <UniqueIdentifier>{b94d7bed-f339-4e01-a9ed-58c6009b33ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\CSlides">
+      <UniqueIdentifier>{f307e900-1bd4-4473-8e55-4e1b5dc4b219}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,10 +48,64 @@
     <ClCompile Include="include\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\canvas\SFMLCanvas.cpp">
+      <Filter>Source Files\Canvas</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\canvas\ICanvas_fwd.h">
+      <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="include\canvas\ICanvas.h">
+      <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="include\common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\canvas\SFMLCanvas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\IDrawable.h">
+      <Filter>Header Files\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\shape\IStyle.h">
+      <Filter>Header Files\Slide\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\shape\IShape.h">
+      <Filter>Header Files\Slide\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\shape\IShapes.h">
+      <Filter>Header Files\Slide\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\shape\IGroupShape.h">
+      <Filter>Header Files\Slide\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\shape\IShape_fwd.h">
+      <Filter>Header Files\Slide\Shape\FID</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\shape\IGroupShape_fwd.h">
+      <Filter>Header Files\Slide\Shape\FID</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\shape\IShapes_fwd.h">
+      <Filter>Header Files\Slide\Shape\FID</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\shape\IStyle_fwd.h">
+      <Filter>Header Files\Slide\Shape\FID</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\IDrawable_fwd.h">
+      <Filter>Header Files\Slide\FID</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\ISlide_fwd.h">
+      <Filter>Header Files\Slide\FID</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\ISlide.h">
+      <Filter>Header Files\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\Slide.h">
+      <Filter>Header Files\Slide\CSlides</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
