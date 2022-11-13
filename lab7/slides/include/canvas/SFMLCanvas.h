@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 
 #include "ICanvas.h"
 
@@ -25,9 +25,7 @@ public:
 	void DrawEllipse(double left, double top, double width, double height) override;
 
 private:
-	using SFMLWindowWeakPtr = std::weak_ptr<sf::RenderWindow>;
-
-	SFMLWindowWeakPtr m_sfmlWindow;
+	SFMLWindowSharedPtr m_sfmlWindow;
 };
 
 } // namespace canvas
