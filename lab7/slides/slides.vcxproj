@@ -150,8 +150,10 @@
     <ClCompile Include="include\pch.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\canvas\SFMLCanvas.cpp" />
+    <ClCompile Include="src\slide\common.cpp" />
     <ClCompile Include="src\slide\shape\BaseShape.cpp" />
     <ClCompile Include="src\slide\shape\GroupShape.cpp" />
+    <ClCompile Include="src\slide\shape\Rectangle.cpp" />
     <ClCompile Include="src\slide\shape\Style.cpp" />
     <ClCompile Include="src\slide\Slide.cpp" />
   </ItemGroup>
@@ -175,8 +177,10 @@
     <ClInclude Include="include\slide\shape\IShape_fwd.h" />
     <ClInclude Include="include\slide\shape\IStyle.h" />
     <ClInclude Include="include\slide\shape\IStyle_fwd.h" />
+    <ClInclude Include="include\slide\shape\Rectangle.h" />
     <ClInclude Include="include\slide\shape\Style.h" />
     <ClInclude Include="include\slide\Slide.h" />
+    <ClInclude Include="include\slide\common.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

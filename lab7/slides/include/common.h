@@ -12,7 +12,7 @@ template <typename T>
 struct Rect
 {
 	T x, y;
-	T widht, height;
+	T width, height;
 };
 
 } // namespace slides_common

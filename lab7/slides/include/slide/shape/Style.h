@@ -12,6 +12,10 @@ namespace shape
 class Style : public IStyle
 {
 public:
+	Style() = default;
+	Style(RGBAColor color);
+	Style(RGBAColor color, bool enableOnInit);
+
 	BoolO IsEnabled() const override;
 	void Enable(bool enable) override;
 

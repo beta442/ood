@@ -8,7 +8,7 @@ namespace slide
 namespace shape
 {
 
-//GroupShape::RectD GroupShape::GetFrame()
+//RectD GroupShape::GetFrame()
 //{
 //}
 //
@@ -34,10 +34,12 @@ namespace shape
 //
 //IGroupShapeSharedPtr GroupShape::GetGroup()
 //{
+//	return *this;
 //}
 //
 //IGroupShapeConstSharedPtr GroupShape::GetGroup() const
 //{
+//	return *this;
 //}
 //
 //size_t GroupShape::GetShapesCount() const

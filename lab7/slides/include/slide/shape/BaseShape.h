@@ -2,6 +2,7 @@
 #define SLIDES_SLIDE_SHAPE_BASE_SHAPE_H_
 
 #include "IShape.h"
+#include "Style.h"
 
 namespace slide
 {
@@ -12,13 +13,13 @@ namespace shape
 class BaseShape : public IShape
 {
 public:
-	RectD GetFrame() override;
+	RectD GetFrame() const override;
 	void SetFrame(const RectD& rect) override;
 
-	IStyle& GetOutlineStyle() override;
+	void SetOutlineStyle(const IStyle& style) override;
 	const IStyle& GetOutlineStyle() const override;
 
-	IStyle& GetFillStyle() override;
+	void SetFillStyle(const IStyle& style) override;
 	const IStyle& GetFillStyle() const override;
 
 	IGroupShapeSharedPtr GetGroup() override;
@@ -26,9 +27,12 @@ public:
 
 protected:
 	BaseShape() = default;
+	BaseShape(const RectD& frame, const Style& outlineStyle, const Style& fillStyle);
+	BaseShape(RectD&& frame, Style&& outlineStyle, Style&& fillStyle);
 
 private:
-
+	RectD m_frame;
+	Style m_outlineStyle, m_fillStyle;
 };
 
 } // namespace shape

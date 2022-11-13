@@ -1,6 +1,7 @@
 #ifndef SLIDES_PCH_H_
 #define SLIDES_PCH_H_
 
+#include <iomanip>
 #include <iostream>
 #include <stdexcept>
 

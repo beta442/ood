@@ -12,13 +12,13 @@ namespace shape
 class GroupShape final : public IGroupShape
 {
 public:
-	RectD GetFrame() override;
+	RectD GetFrame() const override;
 	void SetFrame(const RectD& rect) override;
 
-	IStyle& GetOutlineStyle() override;
+	void SetOutlineStyle(const IStyle& style) override;
 	const IStyle& GetOutlineStyle() const override;
 
-	IStyle& GetFillStyle() override;
+	void SetFillStyle(const IStyle& style) override;
 	const IStyle& GetFillStyle() const override;
 
 	IGroupShapeSharedPtr GetGroup() override;

@@ -33,7 +33,7 @@ namespace slide
 //{
 //}
 //
-//void Slide::Draw(const canvas::ICanvas& canvas)
+//void Slide::Draw(canvas::ICanvas& canvas)
 //{
 //}
 

@@ -12,12 +12,15 @@ public:
 	Slide() = default;
 	Slide(double width, double height);
 
-	double GetWidth() const;
-	double GetHeight() const;
+	double GetWidth() const override;
+	double GetHeight() const override;
 
-	IShapes& GetShapes() const;
+	IShapes& GetShapes() const override;
 
-	void Draw(const canvas::ICanvas& canvas);
+	RGBAColor GetBackgroundColor() const override;
+	void SetBackgroundColor(RGBAColor color) override;
+
+	void Draw(canvas::ICanvas& canvas) override;
 
 private:
 	double m_width, m_height;

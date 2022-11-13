@@ -69,6 +69,12 @@
     <ClCompile Include="src\slide\shape\BaseShape.cpp">
       <Filter>Source Files\Slide\Shape</Filter>
     </ClCompile>
+    <ClCompile Include="src\slide\common.cpp">
+      <Filter>Source Files\Slide</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\shape\Rectangle.cpp">
+      <Filter>Source Files\Slide\Shape</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">
@@ -133,6 +139,12 @@
     </ClInclude>
     <ClInclude Include="include\slide\shape\BaseShape.h">
       <Filter>Header Files\Slide\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\common.h">
+      <Filter>Header Files\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\shape\Rectangle.h">
+      <Filter>Header Files\Slide\Shape\CShapes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
