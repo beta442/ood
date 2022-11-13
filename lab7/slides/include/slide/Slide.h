@@ -9,6 +9,9 @@ namespace slide
 class Slide : public ISlide
 {
 public:
+	Slide() = default;
+	Slide(double width, double height);
+
 	double GetWidth() const;
 	double GetHeight() const;
 
@@ -17,6 +20,7 @@ public:
 	void Draw(const canvas::ICanvas& canvas);
 
 private:
+	double m_width, m_height;
 };
 
 } // namespace slide

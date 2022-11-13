@@ -38,6 +38,4 @@ public:
 
 } // namespace slide
 
-#include "IGroupShape.h"
-
 #endif // !SLIDES_SLIDE_SHAPE_ISHAPE_H_

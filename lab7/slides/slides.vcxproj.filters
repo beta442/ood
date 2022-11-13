@@ -40,6 +40,12 @@
     <Filter Include="Header Files\Slide\CSlides">
       <UniqueIdentifier>{f307e900-1bd4-4473-8e55-4e1b5dc4b219}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Slide\Shape\CShapes">
+      <UniqueIdentifier>{f11c6bb0-a4d2-476d-943e-fca34d162385}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Shape\CStyles">
+      <UniqueIdentifier>{09aa1fa2-2135-4af3-9fa3-02019dd6abd6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -50,6 +56,18 @@
     </ClCompile>
     <ClCompile Include="src\canvas\SFMLCanvas.cpp">
       <Filter>Source Files\Canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\Slide.cpp">
+      <Filter>Source Files\Slide</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\shape\Style.cpp">
+      <Filter>Source Files\Slide\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\shape\GroupShape.cpp">
+      <Filter>Source Files\Slide\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\shape\BaseShape.cpp">
+      <Filter>Source Files\Slide\Shape</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -63,9 +81,6 @@
       <Filter>Header Files\Canvas</Filter>
     </ClInclude>
     <ClInclude Include="include\common.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\canvas\SFMLCanvas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\slide\IDrawable.h">
@@ -106,6 +121,18 @@
     </ClInclude>
     <ClInclude Include="include\slide\Slide.h">
       <Filter>Header Files\Slide\CSlides</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\shape\GroupShape.h">
+      <Filter>Header Files\Slide\Shape\CShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\canvas\SFMLCanvas.h">
+      <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\shape\Style.h">
+      <Filter>Header Files\Slide\Shape\CStyles</Filter>
+    </ClInclude>
+    <ClInclude Include="include\slide\shape\BaseShape.h">
+      <Filter>Header Files\Slide\Shape</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

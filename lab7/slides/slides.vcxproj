@@ -150,6 +150,10 @@
     <ClCompile Include="include\pch.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\canvas\SFMLCanvas.cpp" />
+    <ClCompile Include="src\slide\shape\BaseShape.cpp" />
+    <ClCompile Include="src\slide\shape\GroupShape.cpp" />
+    <ClCompile Include="src\slide\shape\Style.cpp" />
+    <ClCompile Include="src\slide\Slide.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\canvas\ICanvas.h" />
@@ -161,6 +165,8 @@
     <ClInclude Include="include\slide\IDrawable_fwd.h" />
     <ClInclude Include="include\slide\ISlide.h" />
     <ClInclude Include="include\slide\ISlide_fwd.h" />
+    <ClInclude Include="include\slide\shape\BaseShape.h" />
+    <ClInclude Include="include\slide\shape\GroupShape.h" />
     <ClInclude Include="include\slide\shape\IGroupShape.h" />
     <ClInclude Include="include\slide\shape\IGroupShape_fwd.h" />
     <ClInclude Include="include\slide\shape\IShape.h" />
@@ -169,6 +175,7 @@
     <ClInclude Include="include\slide\shape\IShape_fwd.h" />
     <ClInclude Include="include\slide\shape\IStyle.h" />
     <ClInclude Include="include\slide\shape\IStyle_fwd.h" />
+    <ClInclude Include="include\slide\shape\Style.h" />
     <ClInclude Include="include\slide\Slide.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

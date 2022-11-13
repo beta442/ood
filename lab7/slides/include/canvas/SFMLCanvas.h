@@ -2,6 +2,7 @@
 #define SLIDES_CANVAS_SFML_CANVAS_H_
 
 #include <memory>
+
 #include <SFML/Graphics.hpp>
 
 #include "ICanvas.h"
