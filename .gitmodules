@@ -1,3 +1,6 @@
 [submodule "ood_course"]
 	path = ood_course
 	url = https://github.com/alexey-malov/ood.git
+[submodule "lab9"]
+	path = lab9
+	url = https://github.com/beta442/study_ood_course_work.git
