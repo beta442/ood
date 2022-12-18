@@ -21,16 +21,16 @@ public:
 	void EjectQuarter();
 	void TurnCrank();
 
+	size_t GetBallCount() const noexcept override;
+
+private:
+	using State = state::IStatePtr;
+
 	void ReleaseBall() override;
 	void SetHasQuarterState() override;
 	void SetNoQuarterState() override;
 	void SetSoldOutState() override;
 	void SetSoldState() override;
-
-	size_t GetBallCount() const noexcept override;
-
-private:
-	using State = state::IStatePtr;
 
 	size_t m_count = 0;
 	State m_currentState;
