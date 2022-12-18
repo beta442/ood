@@ -7,20 +7,23 @@
 #include "../state/CState/SoldOutState.h"
 #include "../state/CState/SoldState.h"
 
+#include "../Description.h"
+#include "../state/CState/msg/Sold.h"
+
 namespace gumball_machine
 {
 
 GumballMachine::GumballMachine(REchoStream echoOutput)
 	: m_count(0)
-	, m_currentState(std::make_unique<state::SoldOutState>(*this, m_echoOutput))
 	, m_echoOutput(echoOutput)
+	, m_currentState(new state::SoldOutState(*this, m_echoOutput))
 {
 }
 
 GumballMachine::GumballMachine(size_t ballsCount, REchoStream echoOutput)
 	: m_count(ballsCount)
-	, m_currentState()
 	, m_echoOutput(echoOutput)
+	, m_currentState()
 {
 	(ballsCount > 0)
 		? SetNoQuarterState()
@@ -43,13 +46,13 @@ void GumballMachine::TurnCrank()
 	m_currentState->Dispense();
 }
 
-constexpr auto MSG_RELEASE_BALL = "A gumball comes rolling out the slot...\n";
-
 void GumballMachine::ReleaseBall()
 {
+	namespace msgs = state::msg::sold;
+
 	if (m_count != 0)
 	{
-		m_echoOutput << MSG_RELEASE_BALL;
+		m_echoOutput << msgs::DISPENSE_MSG;
 		--m_count;
 	}
 }
@@ -77,6 +80,13 @@ void GumballMachine::SetSoldState()
 size_t GumballMachine::GetBallCount() const noexcept
 {
 	return m_count;
+}
+
+std::string GumballMachine::Description() const
+{
+	auto fmt = boost::format(gumball_machine::dscrp::BOOST_FORMAT_MACHINE_WITH_STATE_DSCRP);
+
+	return (fmt % "dynamic" % m_count % (m_count != 1 ? "s" : "") % m_currentState->Description()).str();
 }
 
 } // namespace gumball_machine

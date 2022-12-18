@@ -37,6 +37,11 @@ void SoldOutState::TurnCrank()
 	m_echoOutput << msgs::TURN_CRANK_MSG;
 }
 
+std::string SoldOutState::Description() const
+{
+	return msgs::STATE_DSCRP_MSG;
+}
+
 } // namespace state
 
 } // namespace gumball_machine

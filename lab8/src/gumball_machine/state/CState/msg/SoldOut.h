@@ -12,6 +12,8 @@ namespace msg
 namespace sold_out
 {
 
+constexpr auto STATE_DSCRP_MSG = "Sold out. Waiting for refill\n";
+
 constexpr auto DISPENSE_MSG = "No gumball dispensed\n";
 constexpr auto EJECT_MSG = "You can't eject, you haven't inserted a quarter yet\n";
 constexpr auto INSERT_MSG = "You can't insert a quarter, the machine is sold out\n";

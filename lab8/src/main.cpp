@@ -1,21 +1,25 @@
 #include "pch.h"
 
 #include "gumball_machine/CGumballMachine/GumballMachine.h"
+#include "gumball_machine/CGumballMachine/NaiveGumballMachine.h"
 
-void TestGumballMachine(gumball_machine::GumballMachine& m)
+template <typename GumbalMachineT>
+void TestGumballMachine(GumbalMachineT& m)
 {
-	// std::cout << m.ToString() << std::endl;
+	std::cout << m.Description() << std::endl;
 
 	m.InsertQuarter();
 	m.TurnCrank();
 
-	// std::cout << m.ToString() << std::endl;
+	std::cout << '\n'
+			  << m.Description() << std::endl;
 
 	m.InsertQuarter();
 	m.EjectQuarter();
 	m.TurnCrank();
 
-	// std::cout << m.ToString() << std::endl;
+	std::cout << '\n'
+			  << m.Description() << std::endl;
 
 	m.InsertQuarter();
 	m.TurnCrank();
@@ -23,7 +27,8 @@ void TestGumballMachine(gumball_machine::GumballMachine& m)
 	m.TurnCrank();
 	m.EjectQuarter();
 
-	// std::cout << m.ToString() << std::endl;
+	std::cout << '\n'
+			  << m.Description() << std::endl;
 
 	m.InsertQuarter();
 	m.InsertQuarter();
@@ -33,20 +38,26 @@ void TestGumballMachine(gumball_machine::GumballMachine& m)
 	m.InsertQuarter();
 	m.TurnCrank();
 
-	// std::cout << m.ToString() << std::endl;
+	std::cout << '\n'
+			  << m.Description() << std::endl;
+}
+
+void TestNaiveGumballMachine()
+{
+	gumball_machine::NaiveGumballMachine m(5);
+	TestGumballMachine(m);
 }
 
 void TestGumballMachineWithDynamicState()
 {
-	using namespace gumball_machine;
-
-	GumballMachine m(5);
+	gumball_machine::GumballMachine m(5);
 	TestGumballMachine(m);
 }
 
 int main(int, char**)
 {
 	TestGumballMachineWithDynamicState();
+	TestNaiveGumballMachine();
 
 	return 0;
 }

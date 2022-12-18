@@ -1,9 +1,10 @@
 #pragma once
 
 #include <iostream>
+#include <string>
 
-#include "IState.h"
 #include "../IGumballMachine.h"
+#include "IState.h"
 
 namespace gumball_machine
 {
@@ -19,6 +20,8 @@ protected:
 
 	explicit BaseState(RGumballMachine gumballMachine,
 		REchoStream echoOutput = std::cout);
+
+	std::string Description() const override = 0;
 
 	REchoStream m_echoOutput;
 	RGumballMachine m_gumballMachine;

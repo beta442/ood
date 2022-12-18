@@ -1,7 +1,9 @@
 #include "pch.h"
 
-#include "../state/CState/msg/all.h"
 #include "NaiveGumballMachine.h"
+
+#include "../Description.h"
+#include "../state/CState/msg/all.h"
 
 namespace gumball_machine
 {
@@ -28,6 +30,7 @@ void NaiveGumballMachine::InsertQuarter()
 	{
 	case State::HasQuarter: {
 		m_echoOutput << msgs::has_quarter::INSERT_MSG;
+		break;
 	}
 	case State::NoQuarter: {
 		m_echoOutput << msgs::no_quarter::INSERT_MSG;
@@ -36,9 +39,11 @@ void NaiveGumballMachine::InsertQuarter()
 	}
 	case State::Sold: {
 		m_echoOutput << msgs::sold::INSERT_MSG;
+		break;
 	}
 	case State::SoldOut: {
 		m_echoOutput << msgs::sold_out::INSERT_MSG;
+		break;
 	}
 	}
 }
@@ -98,6 +103,20 @@ void NaiveGumballMachine::Refill(size_t numBalls)
 	m_state = (numBalls > 0)
 		? State::NoQuarter
 		: State::SoldOut;
+}
+
+std::string NaiveGumballMachine::Description() const
+{
+	std::string state = (m_state == State::SoldOut)
+		? msgs::sold_out::STATE_DSCRP_MSG
+		: (m_state == State::NoQuarter)
+		? msgs::no_quarter::STATE_DSCRP_MSG
+		: (m_state == State::HasQuarter)
+		? msgs::has_quarter::STATE_DSCRP_MSG
+		: msgs::sold::STATE_DSCRP_MSG;
+	auto fmt = boost::format(gumball_machine::dscrp::BOOST_FORMAT_MACHINE_WITH_STATE_DSCRP);
+
+	return (fmt % "naive" % m_count % (m_count != 1 ? "s" : "") % state).str();
 }
 
 void NaiveGumballMachine::Dispense()

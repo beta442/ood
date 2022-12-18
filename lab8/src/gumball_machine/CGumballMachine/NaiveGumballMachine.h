@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <string>
 
 namespace gumball_machine
 {
@@ -25,6 +26,8 @@ public:
 	void EjectQuarter();
 	void TurnCrank();
 	void Refill(size_t numBalls);
+
+	std::string Description() const;
 
 private:
 	void Dispense();

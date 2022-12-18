@@ -20,6 +20,9 @@ public:
 	void EjectQuarter() override;
 	void InsertQuarter() override;
 	void TurnCrank() override;
+
+private:
+	std::string Description() const override;
 };
 
 } // namespace state

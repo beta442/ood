@@ -39,6 +39,11 @@ void HasQuarterState::TurnCrank()
 	m_gumballMachine.SetSoldState();
 }
 
+std::string HasQuarterState::Description() const
+{
+	return msgs::STATE_DSCRP_MSG;
+}
+
 } // namespace state
 
 } // namespace gumball_machine

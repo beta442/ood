@@ -1,5 +1,8 @@
 #pragma once
 
+#include <ostream>
+#include <string>
+
 namespace gumball_machine
 {
 
@@ -14,7 +17,21 @@ public:
 	virtual void SetSoldState() = 0;
 	virtual void SetHasQuarterState() = 0;
 
+	virtual std::string Description() const = 0;
+
 	virtual ~IGumballMachine() = default;
 };
+
+static inline std::ostream& operator<<(std::ostream& os, const IGumballMachine& machine)
+{
+	if (!std::ostream::sentry(os))
+	{
+		return os;
+	}
+
+	os << machine.Description();
+
+	return os;
+}
 
 } // namespace gumball_machine

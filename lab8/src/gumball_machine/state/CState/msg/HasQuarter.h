@@ -12,6 +12,8 @@ namespace msg
 namespace has_quarter
 {
 
+constexpr auto STATE_DSCRP_MSG = "Has quarter. Waiting for turn of crank\n";
+
 constexpr auto DISPENSE_MSG = "No gumball dispensed\n";
 constexpr auto EJECT_MSG = "Quarter returned\n";
 constexpr auto INSERT_MSG = "You can't insert another quarter\n";

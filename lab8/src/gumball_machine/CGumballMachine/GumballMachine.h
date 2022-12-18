@@ -23,6 +23,8 @@ public:
 
 	size_t GetBallCount() const noexcept override;
 
+	std::string Description() const override;
+
 private:
 	using State = state::IStatePtr;
 
