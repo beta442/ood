@@ -16,6 +16,18 @@
     <Filter Include="Source Files\Unit">
       <UniqueIdentifier>{f1bc3d71-3640-4acd-8585-07df3fdf9d98}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\GumballMachine">
+      <UniqueIdentifier>{7998bf76-30db-425a-acc2-9b770198cbb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GumballMachine\State">
+      <UniqueIdentifier>{fcacd5a0-8929-4c9e-bb95-4c9acb0357df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GumballMachine\State\CState">
+      <UniqueIdentifier>{60dbd818-d5be-40f1-a26f-f1928e8b18e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GumballMachine\CGumballMachine">
+      <UniqueIdentifier>{d4faac29-ff10-42a0-b7f1-8b70479dd84a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.test.cpp">
@@ -26,6 +38,27 @@
     </ClCompile>
     <ClCompile Include="src\unit\state_pattern.test.cpp">
       <Filter>Source Files\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gumball_machine\state\BaseState.cpp">
+      <Filter>Source Files\GumballMachine\State</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gumball_machine\state\CState\NoQuarterState.cpp">
+      <Filter>Source Files\GumballMachine\State\CState</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gumball_machine\state\CState\HasQuarterState.cpp">
+      <Filter>Source Files\GumballMachine\State\CState</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gumball_machine\state\CState\SoldOutState.cpp">
+      <Filter>Source Files\GumballMachine\State\CState</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gumball_machine\state\CState\SoldState.cpp">
+      <Filter>Source Files\GumballMachine\State\CState</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gumball_machine\CGumballMachine\GumballMachine.cpp">
+      <Filter>Source Files\GumballMachine\CGumballMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gumball_machine\CGumballMachine\NaiveGumballMachine.cpp">
+      <Filter>Source Files\GumballMachine\CGumballMachine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -19,16 +19,17 @@ SoldState::SoldState(RGumballMachine gumballMachine,
 
 void SoldState::Dispense()
 {
-	m_gumballMachine.ReleaseBall();
-	if (m_gumballMachine.GetBallCount() == 0)
-	{
-		m_echoOutput << msgs::DISPENSE_ON_SOLD_OUT_MSG;
-		m_gumballMachine.SetSoldOutState();
-	}
-	else
-	{
-		m_gumballMachine.SetNoQuarterState();
-	}
+	const bool zeroBallsBeforeDispenseTry = (m_gumballMachine.GetBallCount() == 0);
+
+	(zeroBallsBeforeDispenseTry)
+		? (void)(m_echoOutput << msgs::DISPENSE_ON_SOLD_OUT_MSG)
+		: m_gumballMachine.ReleaseBall();
+
+	const bool zeroBallsAfterDispenseTry = (m_gumballMachine.GetBallCount() == 0);
+
+	(zeroBallsAfterDispenseTry)
+		? m_gumballMachine.SetSoldOutState()
+		: m_gumballMachine.SetNoQuarterState();
 }
 
 void SoldState::EjectQuarter()
