@@ -120,7 +120,7 @@
       <Filter>Header Files\GumballMachine\CGumballMachine</Filter>
     </ClInclude>
     <ClInclude Include="src\gumball_machine\Description.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GumballMachine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

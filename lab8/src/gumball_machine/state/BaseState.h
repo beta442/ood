@@ -21,8 +21,6 @@ protected:
 	explicit BaseState(RGumballMachine gumballMachine,
 		REchoStream echoOutput = std::cout);
 
-	std::string Description() const override = 0;
-
 	REchoStream m_echoOutput;
 	RGumballMachine m_gumballMachine;
 };
