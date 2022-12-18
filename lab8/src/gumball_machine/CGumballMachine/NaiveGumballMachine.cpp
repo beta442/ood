@@ -9,15 +9,15 @@ namespace gumball_machine
 {
 
 NaiveGumballMachine::NaiveGumballMachine(REchoStream echoOutput)
-	: m_count(0)
+	: m_gumCount(0)
 	, m_state(State::SoldOut)
 	, m_echoOutput(echoOutput)
 {
 }
 
-NaiveGumballMachine::NaiveGumballMachine(size_t initGumCount, REchoStream echoOutput)
-	: m_count(initGumCount)
-	, m_state((initGumCount > 0) ? State::NoQuarter : State::SoldOut)
+NaiveGumballMachine::NaiveGumballMachine(size_t onInitBallCount, REchoStream echoOutput)
+	: m_gumCount(onInitBallCount)
+	, m_state((onInitBallCount > 0) ? State::NoQuarter : State::SoldOut)
 	, m_echoOutput(echoOutput)
 {
 }
@@ -99,7 +99,7 @@ void NaiveGumballMachine::TurnCrank()
 
 void NaiveGumballMachine::Refill(size_t numBalls)
 {
-	m_count = numBalls;
+	m_gumCount = numBalls;
 	m_state = (numBalls > 0)
 		? State::NoQuarter
 		: State::SoldOut;
@@ -116,7 +116,7 @@ std::string NaiveGumballMachine::Description() const
 		: msgs::sold::STATE_DSCRP_MSG;
 	auto fmt = boost::format(gumball_machine::dscrp::BOOST_FORMAT_MACHINE_WITH_STATE_DSCRP);
 
-	return (fmt % "naive" % m_count % (m_count != 1 ? "s" : "") % state).str();
+	return (fmt % "naive" % m_gumCount % (m_gumCount != 1 ? "s" : "") % 0 % ((0 != 1) ? "s" : "") % state).str();
 }
 
 void NaiveGumballMachine::Dispense()
@@ -124,10 +124,10 @@ void NaiveGumballMachine::Dispense()
 	switch (m_state)
 	{
 	case State::Sold: {
-		bool zeroGumballs = m_count == 0;
-		m_count = (zeroGumballs)
-			? m_count
-			: --m_count;
+		bool zeroGumballs = m_gumCount == 0;
+		m_gumCount = (zeroGumballs)
+			? m_gumCount
+			: --m_gumCount;
 		m_state = (zeroGumballs)
 			? State::SoldOut
 			: State::NoQuarter;

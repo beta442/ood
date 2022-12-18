@@ -144,9 +144,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\gumball_machine\CGumballMachine\GumballMachine.cpp" />
+    <ClCompile Include="..\src\gumball_machine\CGumballMachine\multi\MultiGumballMachine.cpp" />
     <ClCompile Include="..\src\gumball_machine\CGumballMachine\NaiveGumballMachine.cpp" />
     <ClCompile Include="..\src\gumball_machine\state\BaseState.cpp" />
     <ClCompile Include="..\src\gumball_machine\state\CState\HasQuarterState.cpp" />
+    <ClCompile Include="..\src\gumball_machine\state\CState\multi\MultiHasQuarterState.cpp" />
+    <ClCompile Include="..\src\gumball_machine\state\CState\multi\MultiSoldOutState.cpp" />
     <ClCompile Include="..\src\gumball_machine\state\CState\NoQuarterState.cpp" />
     <ClCompile Include="..\src\gumball_machine\state\CState\SoldOutState.cpp" />
     <ClCompile Include="..\src\gumball_machine\state\CState\SoldState.cpp" />

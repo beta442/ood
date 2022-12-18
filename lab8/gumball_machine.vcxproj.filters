@@ -40,6 +40,21 @@
     <Filter Include="Source Files\GumballMachine\CGumballMachine">
       <UniqueIdentifier>{ae0daf91-a4eb-4ffa-becf-ef3eaccba864}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GumballMachine\CGumballMachine\Multi">
+      <UniqueIdentifier>{0e705201-f0f5-430e-8eab-59f3fff008e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GumballMachine\CGumballMachine\Multi">
+      <UniqueIdentifier>{d0299e05-b559-40fb-a40c-d6b884c8fed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GumballMachine\State\CState\Multi">
+      <UniqueIdentifier>{b8c02571-8b65-4b4b-bcd9-6a8ed6f44148}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GumballMachine\State\CState\Multi\Messages">
+      <UniqueIdentifier>{4aa1c5e2-7e91-4334-a22b-e2740bc191ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GumballMachine\State\CState\Multi">
+      <UniqueIdentifier>{1f1a7c92-6709-46ad-8773-ff9049e7f0f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -68,6 +83,18 @@
     </ClCompile>
     <ClCompile Include="src\gumball_machine\CGumballMachine\NaiveGumballMachine.cpp">
       <Filter>Source Files\GumballMachine\CGumballMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gumball_machine\CGumballMachine\multi\MultiGumballMachine.cpp">
+      <Filter>Source Files\GumballMachine\CGumballMachine\Multi</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gumball_machine\state\CState\multi\MultiHasQuarterState.cpp">
+      <Filter>Source Files\GumballMachine\State\CState\Multi</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gumball_machine\state\CState\multi\MultiSoldOutState.cpp">
+      <Filter>Source Files\GumballMachine\State\CState\Multi</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gumball_machine\state\CState\multi\MultiSoldState.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +148,27 @@
     </ClInclude>
     <ClInclude Include="src\gumball_machine\Description.h">
       <Filter>Header Files\GumballMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gumball_machine\CGumballMachine\multi\MultiGumballMachine.h">
+      <Filter>Header Files\GumballMachine\CGumballMachine\Multi</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gumball_machine\state\CState\multi\MultiHasQuarterState.h">
+      <Filter>Header Files\GumballMachine\State\CState\Multi</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gumball_machine\state\CState\multi\MultiSoldOutState.h">
+      <Filter>Header Files\GumballMachine\State\CState\Multi</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gumball_machine\state\CState\multi\msg\all.h">
+      <Filter>Header Files\GumballMachine\State\CState\Multi\Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gumball_machine\state\CState\multi\msg\HasQuarter.h">
+      <Filter>Header Files\GumballMachine\State\CState\Multi\Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gumball_machine\state\CState\multi\msg\SoldOut.h">
+      <Filter>Header Files\GumballMachine\State\CState\Multi\Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gumball_machine\state\CState\multi\MultiSoldState.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

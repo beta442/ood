@@ -1,21 +1,23 @@
 #pragma once
 
 #include <iostream>
-#include <memory>
 
-#include "../IGumballMachine.h"
-#include "../state/IState.h"
+#include "../../IGumballMachine.h"
+#include "../../state/IState.h"
 
 namespace gumball_machine
 {
 
-class GumballMachine final : private IGumballMachine
+namespace multi
+{
+
+class GumballMachine final : public IGumballMachine
 {
 public:
 	using REchoStream = std::ostream&;
 
-	explicit GumballMachine(REchoStream echoOutput = std::cout);
-	explicit GumballMachine(size_t onInitBallsCount, REchoStream echoOutput = std::cout);
+	explicit GumballMachine(size_t maxQuartersInHold = 1, REchoStream echoOutput = std::cout);
+	explicit GumballMachine(size_t maxQuartersInHold = 1, size_t onInitBallsCount = 0, REchoStream echoOutput = std::cout);
 
 	void InsertQuarter();
 	void EjectQuarter();
@@ -36,10 +38,13 @@ private:
 	void SetSoldOutState() override;
 	void SetSoldState() override;
 
-	size_t m_gumCount;
+	const size_t m_maxQuartersInHoldCount;
+	size_t m_gumCount, m_quarterCount;
 	State m_currentState;
 
 	REchoStream m_echoOutput;
 };
+
+} // namespace multi
 
 } // namespace gumball_machine

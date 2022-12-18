@@ -11,6 +11,8 @@ class IGumballMachine
 public:
 	virtual void ReleaseBall() = 0;
 	virtual size_t GetBallCount() const noexcept = 0;
+	virtual size_t GetQuarterCount() const noexcept = 0;
+	virtual size_t GetMaxQuarterCount() const noexcept = 0;
 
 	virtual void SetSoldOutState() = 0;
 	virtual void SetNoQuarterState() = 0;

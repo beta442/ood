@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../BaseState.h"
+#include "../../BaseState.h"
 
 namespace gumball_machine
 {
@@ -8,12 +8,15 @@ namespace gumball_machine
 namespace state
 {
 
-class SoldState final : public BaseState
+namespace multi
+{
+
+class SoldOutState final : public BaseState
 {
 public:
 	using MyBase = BaseState;
 
-	explicit SoldState(RGumballMachine gumballMachine,
+	explicit SoldOutState(RGumballMachine gumballMachine,
 		REchoStream echoOutput = std::cout);
 
 	void Dispense() override;
@@ -24,6 +27,8 @@ public:
 private:
 	std::string Description() const override;
 };
+
+} // namespace multi
 
 } // namespace state
 

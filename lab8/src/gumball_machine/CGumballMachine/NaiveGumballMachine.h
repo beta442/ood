@@ -20,7 +20,7 @@ public:
 	};
 
 	explicit NaiveGumballMachine(REchoStream echoOutput = std::cout);
-	explicit NaiveGumballMachine(size_t initGumCount, REchoStream echoOutput = std::cout);
+	explicit NaiveGumballMachine(size_t onInitBallCount, REchoStream echoOutput = std::cout);
 
 	void InsertQuarter();
 	void EjectQuarter();
@@ -34,7 +34,7 @@ private:
 
 	REchoStream m_echoOutput;
 
-	size_t m_count;
+	size_t m_gumCount;
 	State m_state;
 };
 

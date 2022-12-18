@@ -1,11 +1,14 @@
 #pragma once
 
-#include "../BaseState.h"
+#include "../../BaseState.h"
 
 namespace gumball_machine
 {
 
 namespace state
+{
+
+namespace multi
 {
 
 class SoldState final : public BaseState
@@ -24,6 +27,8 @@ public:
 private:
 	std::string Description() const override;
 };
+
+} // namespace multi
 
 } // namespace state
 

@@ -9,23 +9,24 @@
 
 #include "../Description.h"
 #include "../state/CState/msg/Sold.h"
+#include "../state/CState/msg/HasQuarter.h"
 
 namespace gumball_machine
 {
 
 GumballMachine::GumballMachine(REchoStream echoOutput)
-	: m_count(0)
+	: m_gumCount(0)
 	, m_echoOutput(echoOutput)
 	, m_currentState(new state::SoldOutState(*this, m_echoOutput))
 {
 }
 
-GumballMachine::GumballMachine(size_t ballsCount, REchoStream echoOutput)
-	: m_count(ballsCount)
+GumballMachine::GumballMachine(size_t onInitBallsCount, REchoStream echoOutput)
+	: m_gumCount(onInitBallsCount)
 	, m_echoOutput(echoOutput)
 	, m_currentState()
 {
-	(ballsCount > 0)
+	(m_gumCount > 0)
 		? SetNoQuarterState()
 		: SetSoldOutState();
 }
@@ -48,12 +49,10 @@ void GumballMachine::TurnCrank()
 
 void GumballMachine::ReleaseBall()
 {
-	namespace msgs = state::msg::sold;
-
-	if (m_count != 0)
+	if (m_gumCount != 0)
 	{
-		m_echoOutput << msgs::DISPENSE_MSG;
-		--m_count;
+		m_echoOutput << state::msg::sold::DISPENSE_MSG;
+		--m_gumCount;
 	}
 }
 
@@ -79,14 +78,27 @@ void GumballMachine::SetSoldState()
 
 size_t GumballMachine::GetBallCount() const noexcept
 {
-	return m_count;
+	return m_gumCount;
+}
+
+size_t GumballMachine::GetQuarterCount() const noexcept
+{
+	const bool isHasQuarterState = (m_currentState->Description() == state::msg::has_quarter::STATE_DSCRP_MSG);
+	return (isHasQuarterState) ? 1 : 0;
+}
+
+size_t GumballMachine::GetMaxQuarterCount() const noexcept
+{
+	return 1;
 }
 
 std::string GumballMachine::Description() const
 {
+	bool isHasQuarterState = (m_currentState->Description() == state::msg::has_quarter::STATE_DSCRP_MSG);
+	const auto quarterCount = (isHasQuarterState) ? 1 : 0;
 	auto fmt = boost::format(gumball_machine::dscrp::BOOST_FORMAT_MACHINE_WITH_STATE_DSCRP);
 
-	return (fmt % "dynamic" % m_count % (m_count != 1 ? "s" : "") % m_currentState->Description()).str();
+	return (fmt % "dynamic" % m_gumCount % ((m_gumCount != 1) ? "s" : "") % quarterCount % ((quarterCount != 1) ? "s" : "") % m_currentState->Description()).str();
 }
 
 } // namespace gumball_machine
