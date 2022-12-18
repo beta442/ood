@@ -9,3 +9,5 @@
 5. Command
 6. Adapter
 7. Composite
+8. State
+9. Cool project with several patterns inside
