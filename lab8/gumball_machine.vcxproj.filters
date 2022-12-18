@@ -66,6 +66,9 @@
     <ClCompile Include="src\gumball_machine\CGumballMachine\GumballMachine.cpp">
       <Filter>Source Files\GumballMachine\CGumballMachine</Filter>
     </ClCompile>
+    <ClCompile Include="src\gumball_machine\CGumballMachine\NaiveGumballMachine.cpp">
+      <Filter>Source Files\GumballMachine\CGumballMachine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\pch.h">
@@ -112,6 +115,9 @@
     </ClInclude>
     <ClInclude Include="src\gumball_machine\state\IState_fwd.h">
       <Filter>Header Files\GumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gumball_machine\CGumballMachine\NaiveGumballMachine.h">
+      <Filter>Header Files\GumballMachine\CGumballMachine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

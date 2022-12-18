@@ -9,7 +9,7 @@
 namespace gumball_machine
 {
 
-class GumballMachine final : public IGumballMachine
+class GumballMachine final : private IGumballMachine
 {
 public:
 	using REchoStream = std::ostream&;

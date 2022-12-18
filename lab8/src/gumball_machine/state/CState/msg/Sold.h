@@ -12,6 +12,7 @@ namespace msg
 namespace sold
 {
 
+constexpr auto DISPENSE_MSG = "A gumball comes rolling out the slot\n";
 constexpr auto DISPENSE_ON_SOLD_OUT_MSG = "Oops, out of gumballs\n";
 constexpr auto EJECT_MSG = "Sorry you already turned the crank\n";
 constexpr auto INSERT_MSG = "Please wait, we're already giving you a gumball\n";

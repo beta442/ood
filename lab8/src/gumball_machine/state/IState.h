@@ -16,8 +16,6 @@ public:
 	virtual void TurnCrank() = 0;
 	virtual void Dispense() = 0;
 
-	// virtual std::string ToString() const = 0;
-
 	virtual ~IState() = default;
 };
 
