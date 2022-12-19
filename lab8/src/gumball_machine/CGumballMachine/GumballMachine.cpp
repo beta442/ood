@@ -45,10 +45,7 @@ void GumballMachine::InsertQuarter()
 void GumballMachine::EjectQuarter()
 {
 	m_currentState->EjectQuarter();
-	if (m_quarterCount > 0)
-	{
-		m_quarterCount = 0;
-	}
+	m_quarterCount = 0;
 }
 
 void GumballMachine::TurnCrank()

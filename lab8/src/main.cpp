@@ -3,6 +3,7 @@
 #include "gumball_machine/CGumballMachine/GumballMachine.h"
 #include "gumball_machine/CGumballMachine/NaiveGumballMachine.h"
 #include "gumball_machine/CGumballMachine/multi/MultiGumballMachine.h"
+#include "gumball_machine/CGumballMachine/multi/MultiNaiveGumballMachine.h"
 
 template <typename GumbalMachineT>
 void TestGumballMachine(GumbalMachineT& m)
@@ -51,9 +52,7 @@ void TestGumballMachine(GumbalMachineT& m)
 	m.InsertQuarter();
 	m.InsertQuarter();
 	m.InsertQuarter();
-	std::cout << m.Description() << std::endl;
 	m.EjectQuarter();
-	std::cout << m.Description() << std::endl;
 	m.EjectQuarter();
 
 	std::cout << '\n'
@@ -78,11 +77,18 @@ void TestGumballMachineWithMultiQuarterState()
 	TestGumballMachine(m);
 }
 
+void TestNaiveGumballMachineWithMultiQuarterState()
+{
+	gumball_machine::multi::NaiveGumballMachine m(3, 7);
+	TestGumballMachine(m);
+}
+
 int main(int, char**)
 {
 	TestGumballMachineWithDynamicState();
 	TestNaiveGumballMachine();
 	TestGumballMachineWithMultiQuarterState();
+	TestNaiveGumballMachineWithMultiQuarterState();
 
 	return 0;
 }
