@@ -157,7 +157,9 @@
     <ClCompile Include="..\src\gumball_machine\state\CState\SoldState.cpp" />
     <ClCompile Include="src\main.test.cpp" />
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\unit\state_pattern.test.cpp" />
+    <ClCompile Include="src\unit\Multi.Naive.test.cpp" />
+    <ClCompile Include="src\unit\Multi.StatePattern.test.cpp" />
+    <ClCompile Include="src\unit\StatePattern.test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\pch.h" />

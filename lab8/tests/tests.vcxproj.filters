@@ -45,7 +45,7 @@
     <ClCompile Include="src\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\unit\state_pattern.test.cpp">
+    <ClCompile Include="src\unit\StatePattern.test.cpp">
       <Filter>Source Files\Unit</Filter>
     </ClCompile>
     <ClCompile Include="..\src\gumball_machine\state\BaseState.cpp">
@@ -83,6 +83,12 @@
     </ClCompile>
     <ClCompile Include="..\src\gumball_machine\CGumballMachine\multi\MultiNaiveGumballMachine.cpp">
       <Filter>Source Files\TestingSource\GumballMachine\CGumballMachine\Multi</Filter>
+    </ClCompile>
+    <ClCompile Include="src\unit\Multi.Naive.test.cpp">
+      <Filter>Source Files\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="src\unit\Multi.StatePattern.test.cpp">
+      <Filter>Source Files\Unit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -138,6 +138,21 @@ void NaiveGumballMachine::Refill(size_t numBalls)
 		: State::SoldOut;
 }
 
+size_t NaiveGumballMachine::GetBallCount() const noexcept
+{
+	return m_gumCount;
+}
+
+size_t NaiveGumballMachine::GetMaxQuarterCount() const noexcept
+{
+	return m_maxQuarterInHoldCount;
+}
+
+size_t NaiveGumballMachine::GetQuarterCount() const noexcept
+{
+	return m_quarterCount;
+}
+
 std::string NaiveGumballMachine::Description() const
 {
 	std::string state = (m_state == State::SoldOut)
@@ -149,7 +164,7 @@ std::string NaiveGumballMachine::Description() const
 		: msgs::sold::STATE_DSCRP_MSG;
 	auto fmt = boost::format(gumball_machine::dscrp::BOOST_FORMAT_MACHINE_WITH_STATE_DSCRP);
 
-	return (fmt % "naive" % m_gumCount % (m_gumCount != 1 ? "s" : "") % m_quarterCount % ((m_quarterCount != 1) ? "s" : "") % state).str();
+	return (fmt % "multi-naive" % m_gumCount % (m_gumCount != 1 ? "s" : "") % m_quarterCount % ((m_quarterCount != 1) ? "s" : "") % state).str();
 }
 
 void NaiveGumballMachine::Dispense()

@@ -30,6 +30,10 @@ public:
 	void TurnCrank();
 	void Refill(size_t numBalls);
 
+	size_t GetBallCount() const noexcept;
+	size_t GetMaxQuarterCount() const noexcept;
+	size_t GetQuarterCount() const noexcept;
+
 	std::string Description() const;
 
 private:

@@ -11,7 +11,7 @@ namespace gumball_machine
 namespace multi
 {
 
-class GumballMachine final : public IGumballMachine
+class GumballMachine final : private IGumballMachine
 {
 public:
 	using REchoStream = std::ostream&;

@@ -1,11 +1,9 @@
 #include "pch.h"
 
-#include "../../src/gumball_machine/Description.h"
-#include "../../src/gumball_machine/state/CState/msg/all.h"
-
 #include "../../src/gumball_machine/CGumballMachine/GumballMachine.h"
 
-#include "../../src/gumball_machine/state/CState/NoQuarterState.h"
+#include "../../src/gumball_machine/Description.h"
+#include "../../src/gumball_machine/state/CState/msg/all.h"
 
 struct GMWith10GumballsFx
 {
@@ -35,13 +33,13 @@ struct GMWith0GumballsFx
 	gumball_machine::GumballMachine gMachine;
 };
 
-std::string GetMachineDescription(size_t gumCount, const std::string& stateDescription, size_t quartersCount)
+static inline std::string GetMachineDescription(size_t gumCount, const std::string& stateDescription, size_t quartersCount)
 {
 	auto fmt = boost::format(gumball_machine::dscrp::BOOST_FORMAT_MACHINE_WITH_STATE_DSCRP);
 	return (fmt % "dynamic" % gumCount % (gumCount != 1 ? "s" : "") % quartersCount % (quartersCount != 1 ? "s" : "") % stateDescription).str();
 }
 
-std::string Repeat(const std::string& src, size_t times)
+static inline std::string Repeat(const std::string& src, size_t times)
 {
 	std::ostringstream repeated;
 	std::fill_n(std::ostream_iterator<std::string>(repeated), times, src);
@@ -54,10 +52,10 @@ BOOST_AUTO_TEST_SUITE(Test_gumball_machine_state_pattern)
 
 	BOOST_FIXTURE_TEST_CASE(Test_initial_info, GMWith10GumballsFx)
 	{
+		const auto expectedMachineDscrp = GetMachineDescription(INITIAL_GUMBALLS_COUNT, states_msgs::no_quarter::STATE_DSCRP_MSG, gMachine.GetQuarterCount());
 		oTestStream << gMachine.Description();
-		auto machineDscrp = GetMachineDescription(INITIAL_GUMBALLS_COUNT, states_msgs::no_quarter::STATE_DSCRP_MSG, gMachine.GetQuarterCount());
 
-		BOOST_CHECK_EQUAL(oTestStream.str(), machineDscrp);
+		BOOST_CHECK_EQUAL(expectedMachineDscrp, oTestStream.str());
 	}
 
 	BOOST_FIXTURE_TEST_CASE(Test_eject_quarter_at_init, GMWith10GumballsFx)
