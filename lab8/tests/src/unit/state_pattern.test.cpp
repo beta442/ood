@@ -35,10 +35,10 @@ struct GMWith0GumballsFx
 	gumball_machine::GumballMachine gMachine;
 };
 
-std::string GetMachineDescription(size_t gumCount, const std::string& stateDescription)
+std::string GetMachineDescription(size_t gumCount, const std::string& stateDescription, size_t quartersCount)
 {
 	auto fmt = boost::format(gumball_machine::dscrp::BOOST_FORMAT_MACHINE_WITH_STATE_DSCRP);
-	return (fmt % "dynamic" % gumCount % (gumCount != 1 ? "s" : "") % stateDescription).str();
+	return (fmt % "dynamic" % gumCount % (gumCount != 1 ? "s" : "") % quartersCount % (quartersCount != 1 ? "s" : "") % stateDescription).str();
 }
 
 std::string Repeat(const std::string& src, size_t times)
@@ -55,7 +55,7 @@ BOOST_AUTO_TEST_SUITE(Test_gumball_machine_state_pattern)
 	BOOST_FIXTURE_TEST_CASE(Test_initial_info, GMWith10GumballsFx)
 	{
 		oTestStream << gMachine.Description();
-		auto machineDscrp = GetMachineDescription(INITIAL_GUMBALLS_COUNT, states_msgs::no_quarter::STATE_DSCRP_MSG);
+		auto machineDscrp = GetMachineDescription(INITIAL_GUMBALLS_COUNT, states_msgs::no_quarter::STATE_DSCRP_MSG, gMachine.GetQuarterCount());
 
 		BOOST_CHECK_EQUAL(oTestStream.str(), machineDscrp);
 	}
@@ -86,7 +86,7 @@ BOOST_AUTO_TEST_SUITE(Test_gumball_machine_state_pattern)
 	{
 		// clang-format off
 		const auto expectedOutput = std::string(states_msgs::no_quarter::INSERT_MSG) +
-			GetMachineDescription(INITIAL_GUMBALLS_COUNT, states_msgs::has_quarter::STATE_DSCRP_MSG);
+			GetMachineDescription(INITIAL_GUMBALLS_COUNT, states_msgs::has_quarter::STATE_DSCRP_MSG, 1);
 		// clang-format on
 
 		gMachine.InsertQuarter();
@@ -100,7 +100,7 @@ BOOST_AUTO_TEST_SUITE(Test_gumball_machine_state_pattern)
 		// clang-format off
 		const auto expectedOutput = std::string(states_msgs::no_quarter::INSERT_MSG) +
 			states_msgs::has_quarter::INSERT_MSG +
-			GetMachineDescription(INITIAL_GUMBALLS_COUNT, states_msgs::has_quarter::STATE_DSCRP_MSG);
+			GetMachineDescription(INITIAL_GUMBALLS_COUNT, states_msgs::has_quarter::STATE_DSCRP_MSG, 1);
 		// clang-format on
 
 		gMachine.InsertQuarter();
@@ -115,7 +115,7 @@ BOOST_AUTO_TEST_SUITE(Test_gumball_machine_state_pattern)
 		// clang-format off
 		const auto expectedOutput = std::string(states_msgs::no_quarter::INSERT_MSG) +
 			states_msgs::has_quarter::EJECT_MSG +
-			GetMachineDescription(INITIAL_GUMBALLS_COUNT, states_msgs::no_quarter::STATE_DSCRP_MSG);
+			GetMachineDescription(INITIAL_GUMBALLS_COUNT, states_msgs::no_quarter::STATE_DSCRP_MSG, 0);
 		// clang-format on
 
 		gMachine.InsertQuarter();
@@ -132,7 +132,7 @@ BOOST_AUTO_TEST_SUITE(Test_gumball_machine_state_pattern)
 		const auto expectedOutput = std::string(states_msgs::no_quarter::INSERT_MSG) +
 			states_msgs::has_quarter::TURN_CRANK_MSG +
 			states_msgs::sold::DISPENSE_MSG +
-			GetMachineDescription(expectedBallCount, states_msgs::no_quarter::STATE_DSCRP_MSG);
+			GetMachineDescription(expectedBallCount, states_msgs::no_quarter::STATE_DSCRP_MSG, 0);
 		// clang-format on
 
 		gMachine.InsertQuarter();
@@ -150,7 +150,7 @@ BOOST_AUTO_TEST_SUITE(Test_gumball_machine_state_pattern)
 		const auto expectedOutput = std::string(states_msgs::sold_out::INSERT_MSG) +
 				states_msgs::sold_out::TURN_CRANK_MSG +
 				states_msgs::sold_out::DISPENSE_MSG +
-				GetMachineDescription(expectedBallCount, states_msgs::sold_out::STATE_DSCRP_MSG);
+				GetMachineDescription(expectedBallCount, states_msgs::sold_out::STATE_DSCRP_MSG, 1);
 		// clang-format on
 
 		gMachine.InsertQuarter();
@@ -166,7 +166,7 @@ BOOST_AUTO_TEST_SUITE(Test_gumball_machine_state_pattern)
 		const auto expectedBallCount = 0;
 		// clang-format off
 		const auto expectedOutput = std::string(states_msgs::sold_out::INSERT_MSG) +
-				GetMachineDescription(expectedBallCount, states_msgs::sold_out::STATE_DSCRP_MSG);
+				GetMachineDescription(expectedBallCount, states_msgs::sold_out::STATE_DSCRP_MSG, 1);
 		// clang-format on
 
 		gMachine.InsertQuarter();
@@ -181,7 +181,7 @@ BOOST_AUTO_TEST_SUITE(Test_gumball_machine_state_pattern)
 		const auto expectedBallCount = 0;
 		// clang-format off
 		const auto expectedOutput = std::string(states_msgs::sold_out::EJECT_MSG) +
-				GetMachineDescription(expectedBallCount, states_msgs::sold_out::STATE_DSCRP_MSG);
+				GetMachineDescription(expectedBallCount, states_msgs::sold_out::STATE_DSCRP_MSG, 0);
 		// clang-format on
 
 		gMachine.EjectQuarter();
@@ -197,7 +197,7 @@ BOOST_AUTO_TEST_SUITE(Test_gumball_machine_state_pattern)
 		// clang-format off
 		const auto expectedOutput = std::string(states_msgs::sold_out::TURN_CRANK_MSG) +
 				states_msgs::sold_out::DISPENSE_MSG +
-				GetMachineDescription(expectedBallCount, states_msgs::sold_out::STATE_DSCRP_MSG);
+				GetMachineDescription(expectedBallCount, states_msgs::sold_out::STATE_DSCRP_MSG, 0);
 		// clang-format on
 
 		gMachine.TurnCrank();

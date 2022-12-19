@@ -94,7 +94,10 @@
       <Filter>Source Files\GumballMachine\State\CState\Multi</Filter>
     </ClCompile>
     <ClCompile Include="src\gumball_machine\state\CState\multi\MultiSoldState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GumballMachine\State\CState\Multi</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gumball_machine\CGumballMachine\multi\MultiNaiveGumballMachine.cpp">
+      <Filter>Source Files\GumballMachine\CGumballMachine\Multi</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -168,7 +171,10 @@
       <Filter>Header Files\GumballMachine\State\CState\Multi\Messages</Filter>
     </ClInclude>
     <ClInclude Include="src\gumball_machine\state\CState\multi\MultiSoldState.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GumballMachine\State\CState\Multi</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gumball_machine\CGumballMachine\multi\MultiNaiveGumballMachine.h">
+      <Filter>Header Files\GumballMachine\CGumballMachine\Multi</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

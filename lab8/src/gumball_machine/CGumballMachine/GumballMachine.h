@@ -36,7 +36,8 @@ private:
 	void SetSoldOutState() override;
 	void SetSoldState() override;
 
-	size_t m_gumCount;
+	const size_t m_maxQuartersInHoldCount = 1;
+	size_t m_gumCount, m_quarterCount;
 	State m_currentState;
 
 	REchoStream m_echoOutput;

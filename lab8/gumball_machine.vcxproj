@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClCompile Include="src\gumball_machine\CGumballMachine\GumballMachine.cpp" />
     <ClCompile Include="src\gumball_machine\CGumballMachine\multi\MultiGumballMachine.cpp" />
+    <ClCompile Include="src\gumball_machine\CGumballMachine\multi\MultiNaiveGumballMachine.cpp" />
     <ClCompile Include="src\gumball_machine\CGumballMachine\NaiveGumballMachine.cpp" />
     <ClCompile Include="src\gumball_machine\state\CState\multi\MultiHasQuarterState.cpp" />
     <ClCompile Include="src\gumball_machine\state\CState\multi\MultiSoldOutState.cpp" />
@@ -157,6 +158,7 @@
   <ItemGroup>
     <ClInclude Include="src\gumball_machine\CGumballMachine\GumballMachine.h" />
     <ClInclude Include="src\gumball_machine\CGumballMachine\multi\MultiGumballMachine.h" />
+    <ClInclude Include="src\gumball_machine\CGumballMachine\multi\MultiNaiveGumballMachine.h" />
     <ClInclude Include="src\gumball_machine\CGumballMachine\NaiveGumballMachine.h" />
     <ClInclude Include="src\gumball_machine\Description.h" />
     <ClInclude Include="src\gumball_machine\state\CState\multi\msg\all.h" />

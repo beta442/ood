@@ -18,6 +18,7 @@ GumballMachine::GumballMachine(REchoStream echoOutput)
 	: m_gumCount(0)
 	, m_echoOutput(echoOutput)
 	, m_currentState(new state::SoldOutState(*this, m_echoOutput))
+	, m_quarterCount(0)
 {
 }
 
@@ -25,6 +26,7 @@ GumballMachine::GumballMachine(size_t onInitBallsCount, REchoStream echoOutput)
 	: m_gumCount(onInitBallsCount)
 	, m_echoOutput(echoOutput)
 	, m_currentState()
+	, m_quarterCount(0)
 {
 	(m_gumCount > 0)
 		? SetNoQuarterState()
@@ -34,11 +36,19 @@ GumballMachine::GumballMachine(size_t onInitBallsCount, REchoStream echoOutput)
 void GumballMachine::InsertQuarter()
 {
 	m_currentState->InsertQuarter();
+	if (m_quarterCount < m_maxQuartersInHoldCount)
+	{
+		++m_quarterCount;
+	}
 }
 
 void GumballMachine::EjectQuarter()
 {
 	m_currentState->EjectQuarter();
+	if (m_quarterCount > 0)
+	{
+		m_quarterCount = 0;
+	}
 }
 
 void GumballMachine::TurnCrank()
@@ -53,6 +63,7 @@ void GumballMachine::ReleaseBall()
 	{
 		m_echoOutput << state::msg::sold::DISPENSE_MSG;
 		--m_gumCount;
+		--m_quarterCount;
 	}
 }
 
@@ -83,8 +94,7 @@ size_t GumballMachine::GetBallCount() const noexcept
 
 size_t GumballMachine::GetQuarterCount() const noexcept
 {
-	const bool isHasQuarterState = (m_currentState->Description() == state::msg::has_quarter::STATE_DSCRP_MSG);
-	return (isHasQuarterState) ? 1 : 0;
+	return m_quarterCount;
 }
 
 size_t GumballMachine::GetMaxQuarterCount() const noexcept
@@ -94,11 +104,9 @@ size_t GumballMachine::GetMaxQuarterCount() const noexcept
 
 std::string GumballMachine::Description() const
 {
-	bool isHasQuarterState = (m_currentState->Description() == state::msg::has_quarter::STATE_DSCRP_MSG);
-	const auto quarterCount = (isHasQuarterState) ? 1 : 0;
 	auto fmt = boost::format(gumball_machine::dscrp::BOOST_FORMAT_MACHINE_WITH_STATE_DSCRP);
 
-	return (fmt % "dynamic" % m_gumCount % ((m_gumCount != 1) ? "s" : "") % quarterCount % ((quarterCount != 1) ? "s" : "") % m_currentState->Description()).str();
+	return (fmt % "dynamic" % m_gumCount % ((m_gumCount != 1) ? "s" : "") % m_quarterCount % ((m_quarterCount != 1) ? "s" : "") % m_currentState->Description()).str();
 }
 
 } // namespace gumball_machine

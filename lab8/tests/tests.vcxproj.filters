@@ -20,22 +20,22 @@
       <UniqueIdentifier>{7998bf76-30db-425a-acc2-9b770198cbb6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\TestingSource\GumballMachine">
-      <UniqueIdentifier>{af1c0d39-091c-4d61-b986-c852065ecbd4}</UniqueIdentifier>
+      <UniqueIdentifier>{6e54e620-5b0d-4430-a299-c14980f7d314}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\TestingSource\GumballMachine\State">
-      <UniqueIdentifier>{345eb1e9-59c4-48e0-a798-df869c2f087d}</UniqueIdentifier>
+      <UniqueIdentifier>{9ae95ec7-14ca-4785-a7f7-f80aa5c5a08b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\TestingSource\GumballMachine\State\CState">
-      <UniqueIdentifier>{6d58ff1a-351e-4979-af7c-988fe6ad8923}</UniqueIdentifier>
+      <UniqueIdentifier>{001fee15-0b4b-4fdd-b208-a90096315fb9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\TestingSource\GumballMachine\State\CState\Multi">
-      <UniqueIdentifier>{4e8e4e2b-5455-423f-b932-119adc216d36}</UniqueIdentifier>
+      <UniqueIdentifier>{7de8662d-70d4-4637-ad63-354c6cf49410}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\TestingSource\GumballMachine\CGumballMachine">
-      <UniqueIdentifier>{2656b8c6-98da-4967-9ce3-1e3e153d785c}</UniqueIdentifier>
+      <UniqueIdentifier>{c35df37d-0f7b-4d36-8c83-d4ab1b9f5df4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\TestingSource\GumballMachine\CGumballMachine\Multi">
-      <UniqueIdentifier>{4bdbe3cf-dca2-4596-a4ae-fbdae800376f}</UniqueIdentifier>
+      <UniqueIdentifier>{e809bbfe-90bc-4848-929a-d941d85539fc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +69,9 @@
     <ClCompile Include="..\src\gumball_machine\state\CState\multi\MultiSoldOutState.cpp">
       <Filter>Source Files\TestingSource\GumballMachine\State\CState\Multi</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\gumball_machine\state\CState\multi\MultiSoldState.cpp">
+      <Filter>Source Files\TestingSource\GumballMachine\State\CState\Multi</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\gumball_machine\CGumballMachine\GumballMachine.cpp">
       <Filter>Source Files\TestingSource\GumballMachine\CGumballMachine</Filter>
     </ClCompile>
@@ -76,6 +79,9 @@
       <Filter>Source Files\TestingSource\GumballMachine\CGumballMachine</Filter>
     </ClCompile>
     <ClCompile Include="..\src\gumball_machine\CGumballMachine\multi\MultiGumballMachine.cpp">
+      <Filter>Source Files\TestingSource\GumballMachine\CGumballMachine\Multi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gumball_machine\CGumballMachine\multi\MultiNaiveGumballMachine.cpp">
       <Filter>Source Files\TestingSource\GumballMachine\CGumballMachine\Multi</Filter>
     </ClCompile>
   </ItemGroup>
