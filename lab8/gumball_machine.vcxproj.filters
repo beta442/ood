@@ -55,6 +55,27 @@
     <Filter Include="Source Files\GumballMachine\State\CState\Multi">
       <UniqueIdentifier>{1f1a7c92-6709-46ad-8773-ff9049e7f0f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{d71c6aa9-2b9d-4f01-8a5a-250e968d048b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI\Menu">
+      <UniqueIdentifier>{7c8bcf3f-8d5e-44ee-b590-f72a8f5914f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI\Editor">
+      <UniqueIdentifier>{618cee97-16b9-43dc-862d-e929be31b401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{a5ea6718-d91a-477a-819f-6eee431db592}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI\Menu">
+      <UniqueIdentifier>{a8234b0d-8362-404e-82a9-d688ac2c0c29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI\Editor">
+      <UniqueIdentifier>{5314bcea-0ebc-4ffc-8673-0b46faf16b3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{f3b6fc5e-771b-4bf8-a297-826aa69a716a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -98,6 +119,12 @@
     </ClCompile>
     <ClCompile Include="src\gumball_machine\CGumballMachine\multi\MultiNaiveGumballMachine.cpp">
       <Filter>Source Files\GumballMachine\CGumballMachine\Multi</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\editor\Editor.cpp">
+      <Filter>Source Files\UI\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\menu\Menu.cpp">
+      <Filter>Source Files\UI\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +205,21 @@
     </ClInclude>
     <ClInclude Include="src\gumball_machine\state\CState\msg\common.h">
       <Filter>Header Files\GumballMachine\State\CState\Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\menu\Menu.h">
+      <Filter>Header Files\UI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\editor\Editor.h">
+      <Filter>Header Files\UI\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\editor\commands.h">
+      <Filter>Header Files\UI\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gumball_machine\IGumballMachine_fwd.h">
+      <Filter>Header Files\GumballMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\std_string.hpp">
+      <Filter>Header Files\Utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

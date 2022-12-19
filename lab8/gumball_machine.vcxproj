@@ -153,6 +153,8 @@
     <ClCompile Include="src\gumball_machine\state\CState\SoldState.cpp" />
     <ClCompile Include="src\gumball_machine\state\BaseState.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\ui\editor\Editor.cpp" />
+    <ClCompile Include="src\ui\menu\Menu.cpp" />
     <ClCompile Include="src\pch.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +163,7 @@
     <ClInclude Include="src\gumball_machine\CGumballMachine\multi\MultiNaiveGumballMachine.h" />
     <ClInclude Include="src\gumball_machine\CGumballMachine\NaiveGumballMachine.h" />
     <ClInclude Include="src\gumball_machine\Description.h" />
+    <ClInclude Include="src\gumball_machine\IGumballMachine_fwd.h" />
     <ClInclude Include="src\gumball_machine\state\CState\msg\common.h" />
     <ClInclude Include="src\gumball_machine\state\CState\multi\msg\all.h" />
     <ClInclude Include="src\gumball_machine\state\CState\multi\msg\HasQuarter.h" />
@@ -181,7 +184,11 @@
     <ClInclude Include="src\gumball_machine\state\CState\msg\all.h" />
     <ClInclude Include="src\gumball_machine\state\IState.h" />
     <ClInclude Include="src\gumball_machine\state\IState_fwd.h" />
+    <ClInclude Include="src\ui\editor\commands.h" />
+    <ClInclude Include="src\ui\editor\Editor.h" />
+    <ClInclude Include="src\ui\menu\Menu.h" />
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\utility\std_string.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="tests\tests.vcxproj">

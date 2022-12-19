@@ -23,7 +23,7 @@ GumballMachine::GumballMachine(size_t maxQuartersInHold, REchoStream echoOutput)
 	, m_echoOutput(echoOutput)
 	, m_gumCount(0)
 	, m_quarterCount(0)
-	, m_currentState(new state::multi::SoldOutState(*this, m_echoOutput))
+	, m_currentState(new state::multi::SoldOutState(*this, echoOutput))
 {
 	if (m_maxQuartersInHoldCount == 0)
 	{
@@ -36,7 +36,7 @@ GumballMachine::GumballMachine(size_t maxQuartersInHold, size_t onInitBallsCount
 	, m_echoOutput(echoOutput)
 	, m_gumCount(onInitBallsCount)
 	, m_quarterCount(0)
-	, m_currentState(new state::multi::SoldOutState(*this, m_echoOutput))
+	, m_currentState(new state::multi::SoldOutState(*this, echoOutput))
 {
 	if (m_maxQuartersInHoldCount == 0)
 	{
@@ -51,7 +51,7 @@ GumballMachine::GumballMachine(size_t maxQuartersInHold, size_t onInitBallsCount
 void GumballMachine::InsertQuarter()
 {
 	m_currentState->InsertQuarter();
-	if (m_quarterCount < m_maxQuartersInHoldCount)
+	if (m_gumCount > 0 && m_quarterCount < m_maxQuartersInHoldCount)
 	{
 		++m_quarterCount;
 	}

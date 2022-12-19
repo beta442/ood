@@ -3,6 +3,8 @@
 #include <ostream>
 #include <string>
 
+#include "IGumballMachine_fwd.h"
+
 namespace gumball_machine
 {
 
