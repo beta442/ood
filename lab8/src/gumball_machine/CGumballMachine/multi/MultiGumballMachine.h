@@ -22,6 +22,7 @@ public:
 	void InsertQuarter();
 	void EjectQuarter();
 	void TurnCrank();
+	void RefillBalls(size_t amount);
 
 	size_t GetBallCount() const noexcept override;
 	size_t GetQuarterCount() const noexcept override;
@@ -32,6 +33,7 @@ public:
 private:
 	using State = state::IStatePtr;
 
+	void Refill(size_t amount) noexcept override;
 	void ReleaseBall() override;
 	void SetHasQuarterState() override;
 	void SetNoQuarterState() override;

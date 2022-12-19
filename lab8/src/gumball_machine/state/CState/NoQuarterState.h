@@ -18,6 +18,7 @@ public:
 
 	void Dispense() override;
 	void EjectQuarter() override;
+	void Refill(size_t amount) override;
 	void InsertQuarter() override;
 	void TurnCrank() override;
 

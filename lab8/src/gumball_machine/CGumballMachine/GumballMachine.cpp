@@ -54,6 +54,10 @@ void GumballMachine::TurnCrank()
 	m_currentState->Dispense();
 }
 
+void GumballMachine::Refill(size_t) noexcept
+{
+}
+
 void GumballMachine::ReleaseBall()
 {
 	if (m_gumCount != 0)

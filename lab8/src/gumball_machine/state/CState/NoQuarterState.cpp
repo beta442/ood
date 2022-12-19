@@ -2,6 +2,7 @@
 
 #include "NoQuarterState.h"
 #include "msg/NoQuarter.h"
+#include "msg/common.h"
 
 namespace gumball_machine
 {
@@ -30,6 +31,12 @@ void NoQuarterState::InsertQuarter()
 {
 	m_echoOutput << msgs::INSERT_MSG;
 	m_gumballMachine.SetHasQuarterState();
+}
+
+void NoQuarterState::Refill(size_t amount)
+{
+	m_gumballMachine.Refill(amount);
+	m_echoOutput << (boost::format(msg::common::REFILL_MSG) % amount % ((amount != 1) ? "s" : "")).str();
 }
 
 void NoQuarterState::TurnCrank()

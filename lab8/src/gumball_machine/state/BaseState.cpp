@@ -14,6 +14,10 @@ BaseState::BaseState(RGumballMachine gumballMachine, REchoStream echoOutput)
 {
 }
 
+void BaseState::Refill(size_t)
+{
+}
+
 } // namespace state
 
 } // namespace gumball_machine

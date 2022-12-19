@@ -1,5 +1,6 @@
 #include "pch.h"
 
+#include "../msg/common.h"
 #include "MultiSoldOutState.h"
 #include "msg/SoldOut.h"
 
@@ -31,6 +32,16 @@ void SoldOutState::EjectQuarter()
 	m_echoOutput << ((quartersCount != 0)
 			? (boost::format(msgs::EJECT_MSG) % quartersCount % ((quartersCount != 1) ? "s" : "")).str()
 			: msgs::EJECT_ON_NO_QUARTERS_MSG);
+}
+
+void SoldOutState::Refill(size_t amount)
+{
+	m_gumballMachine.Refill(amount);
+	m_echoOutput << (boost::format(state::msg::common::REFILL_MSG) % amount % ((amount != 1) ? "s" : "")).str();
+
+	(m_gumballMachine.GetQuarterCount() == 0)
+		? m_gumballMachine.SetNoQuarterState()
+		: m_gumballMachine.SetHasQuarterState();
 }
 
 void SoldOutState::InsertQuarter()

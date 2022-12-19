@@ -21,6 +21,8 @@ protected:
 	explicit BaseState(RGumballMachine gumballMachine,
 		REchoStream echoOutput = std::cout);
 
+	void Refill(size_t) override;
+
 	REchoStream m_echoOutput;
 	RGumballMachine m_gumballMachine;
 };

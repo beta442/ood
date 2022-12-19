@@ -75,6 +75,11 @@ void TestGumballMachineWithMultiQuarterState()
 {
 	gumball_machine::multi::GumballMachine m(3, 7);
 	TestGumballMachine(m);
+
+	m.RefillBalls(100);
+
+	std::cout << '\n'
+			  << m.Description() << std::endl;
 }
 
 void TestNaiveGumballMachineWithMultiQuarterState()

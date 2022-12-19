@@ -69,6 +69,16 @@ void GumballMachine::TurnCrank()
 	m_currentState->Dispense();
 }
 
+void GumballMachine::RefillBalls(size_t amount)
+{
+	m_currentState->Refill(amount);
+}
+
+void GumballMachine::Refill(size_t amount) noexcept
+{
+	m_gumCount = amount;
+}
+
 size_t GumballMachine::GetBallCount() const noexcept
 {
 	return m_gumCount;

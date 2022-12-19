@@ -161,6 +161,7 @@
     <ClInclude Include="src\gumball_machine\CGumballMachine\multi\MultiNaiveGumballMachine.h" />
     <ClInclude Include="src\gumball_machine\CGumballMachine\NaiveGumballMachine.h" />
     <ClInclude Include="src\gumball_machine\Description.h" />
+    <ClInclude Include="src\gumball_machine\state\CState\msg\common.h" />
     <ClInclude Include="src\gumball_machine\state\CState\multi\msg\all.h" />
     <ClInclude Include="src\gumball_machine\state\CState\multi\msg\HasQuarter.h" />
     <ClInclude Include="src\gumball_machine\state\CState\multi\msg\SoldOut.h" />
@@ -181,6 +182,11 @@
     <ClInclude Include="src\gumball_machine\state\IState.h" />
     <ClInclude Include="src\gumball_machine\state\IState_fwd.h" />
     <ClInclude Include="src\pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="tests\tests.vcxproj">
+      <Project>{468e0ddc-9691-4144-8cdc-05edccd7ca65}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

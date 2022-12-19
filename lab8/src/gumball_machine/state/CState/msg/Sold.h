@@ -20,6 +20,8 @@ constexpr auto EJECT_MSG = "Sorry you already turned the crank\n";
 constexpr auto INSERT_MSG = "Please wait, we're already giving you a gumball\n";
 constexpr auto TURN_CRANK_MSG = "Turning twice doesn't get you another gumball\n";
 
+constexpr auto REFILL_MSG = "Unable to refill in sold state\n";
+
 } // namespace sold
 
 } // namespace msg

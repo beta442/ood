@@ -176,5 +176,8 @@
     <ClInclude Include="src\gumball_machine\CGumballMachine\multi\MultiNaiveGumballMachine.h">
       <Filter>Header Files\GumballMachine\CGumballMachine\Multi</Filter>
     </ClInclude>
+    <ClInclude Include="src\gumball_machine\state\CState\msg\common.h">
+      <Filter>Header Files\GumballMachine\State\CState\Messages</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

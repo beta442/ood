@@ -1,5 +1,6 @@
 #include "pch.h"
 
+#include "../msg/common.h"
 #include "MultiHasQuarterState.h"
 #include "msg/HasQuarter.h"
 
@@ -36,8 +37,14 @@ void HasQuarterState::InsertQuarter()
 {
 	const auto quarterCount = m_gumballMachine.GetQuarterCount();
 	m_echoOutput << ((quarterCount < m_gumballMachine.GetMaxQuarterCount())
-		? msgs::INSERT_MSG
-		: (boost::format(msgs::INSERT_AT_MAX_MSG) % quarterCount % ((quarterCount != 1) ? "s" : "")).str());
+			? msgs::INSERT_MSG
+			: (boost::format(msgs::INSERT_AT_MAX_MSG) % quarterCount % ((quarterCount != 1) ? "s" : "")).str());
+}
+
+void HasQuarterState::Refill(size_t amount)
+{
+	m_gumballMachine.Refill(amount);
+	m_echoOutput << (boost::format(state::msg::common::REFILL_MSG) % amount % ((amount != 1) ? "s" : "")).str();
 }
 
 void HasQuarterState::TurnCrank()

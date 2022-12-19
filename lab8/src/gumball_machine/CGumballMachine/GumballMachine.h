@@ -21,6 +21,8 @@ public:
 	void EjectQuarter();
 	void TurnCrank();
 
+	void Refill(size_t) noexcept override;
+
 	size_t GetBallCount() const noexcept override;
 	size_t GetQuarterCount() const noexcept override;
 	size_t GetMaxQuarterCount() const noexcept override;

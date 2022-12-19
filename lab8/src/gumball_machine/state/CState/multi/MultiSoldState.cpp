@@ -50,6 +50,11 @@ void SoldState::EjectQuarter()
 	m_echoOutput << msgs::EJECT_MSG;
 }
 
+void SoldState::Refill(size_t amount)
+{
+	m_echoOutput << gumball_machine::state::msg::sold::REFILL_MSG;
+}
+
 void SoldState::InsertQuarter()
 {
 	m_echoOutput << msgs::INSERT_MSG;

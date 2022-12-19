@@ -4,6 +4,7 @@
 
 #include "../../src/gumball_machine/Description.h"
 #include "../../src/gumball_machine/state/CState/msg/all.h"
+#include "../../src/gumball_machine/state/CState/msg/common.h"
 #include "../../src/gumball_machine/state/CState/multi/msg/all.h"
 
 static inline std::string GetMachineDescription(size_t gumCount, const std::string& stateDescription, size_t quartersCount)
@@ -169,6 +170,37 @@ BOOST_AUTO_TEST_SUITE(Test_suite_gumball_machine_with_multi_quarters)
 
 		BOOST_CHECK_EQUAL(expectedMachineDscrp, oTestStream.str());
 		BOOST_CHECK_EQUAL(expectedQuartersCount, gMachine.GetQuarterCount());
+	}
+
+	BOOST_FIXTURE_TEST_CASE(Test_refill, GMWith_4_MaxQuartersInHoldWith_3_GumballsFx)
+	{
+		const size_t expectedQuartersCount = 0, expectedGumballs = 3;
+		// clang-format off
+		const std::string _1Iteration = std::string(states_msgs::no_quarter::INSERT_MSG) +
+			Repeat(states_multi_msg::has_quarter::INSERT_MSG, 2) +
+			Repeat(std::string(states_multi_msg::has_quarter::TURN_CRANK_MSG) + states_msgs::sold::DISPENSE_MSG, expectedGumballs) +
+			(boost::format(gumball_machine::state::msg::common::REFILL_MSG) % gMachine.GetBallCount() % ((gMachine.GetBallCount() != 1) ? "s" : "")).str() +
+			GetMachineDescription(gMachine.GetBallCount(), states_msgs::no_quarter::STATE_DSCRP_MSG, expectedQuartersCount);
+		const auto expectedMachineDscrp = Repeat(_1Iteration, 2);
+		// clang-format on
+
+		for (size_t j = 0; j < 2; ++j)
+		{
+			for (size_t i = 1; i < MAX_QUARTERS_IN_HOLD; ++i)
+			{
+				gMachine.InsertQuarter();
+			}
+			for (size_t i = 0, total = INITIAL_GUMBALLS_COUNT; i < total; ++i)
+			{
+				gMachine.TurnCrank();
+			}
+			gMachine.RefillBalls(3);
+			oTestStream << gMachine.Description();
+		}
+
+		BOOST_CHECK_EQUAL(expectedMachineDscrp, oTestStream.str());
+		BOOST_CHECK_EQUAL(expectedQuartersCount, gMachine.GetQuarterCount());
+		BOOST_CHECK_EQUAL(expectedGumballs, gMachine.GetBallCount());
 	}
 
 BOOST_AUTO_TEST_SUITE_END()
