@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="src\canvas\CCanvas\sfml_canvas\SFMLCanvas.cpp" />
+    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\pch.cpp" />
     <ClCompile Include="src\slide\common\point\Point.cpp" />
     <ClCompile Include="src\slide\CSlide\Slide.cpp" />
