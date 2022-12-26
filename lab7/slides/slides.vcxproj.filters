@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Canvas">
+      <UniqueIdentifier>{55017eb4-585b-41fb-848b-bb7c532324ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide">
+      <UniqueIdentifier>{05ced8ca-ac7a-4f8a-9029-ed0bee3db61e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Canvas">
+      <UniqueIdentifier>{e84067b2-844e-43c2-a64d-1d4ac7b76bbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide">
+      <UniqueIdentifier>{c4299490-2567-441a-bc2a-75ef39e79733}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Canvas\CCanvas">
+      <UniqueIdentifier>{c623e51a-b4db-4f17-88f0-ebce1f69e00c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\CSlide">
+      <UniqueIdentifier>{1f98653f-de5a-4a69-a054-61960c18710f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Drawable">
+      <UniqueIdentifier>{52cd3217-4b3b-4011-a002-c383528fdb28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Drawable\Shape">
+      <UniqueIdentifier>{a7cbb316-6006-4334-918c-87defc0cb709}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Drawable">
+      <UniqueIdentifier>{c6f8a285-5e7d-4885-b74e-b881923046f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Drawable\Shape">
+      <UniqueIdentifier>{72441df0-4a7a-41c4-b200-9a2cc755dd28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Drawable\Shape\CShape">
+      <UniqueIdentifier>{0ad08e77-3a76-4701-bcb8-ee9d728d9437}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Drawable\Shape\GroupShape">
+      <UniqueIdentifier>{c7dbcbab-5803-4c1e-a3e4-b7e4d7a046fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Drawable\Shape\Shapes">
+      <UniqueIdentifier>{00a25c14-648b-4287-901e-82d301fa36b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Drawable\Shape\Style">
+      <UniqueIdentifier>{8af12c21-546e-4a15-951f-745b5627f72d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Drawable\Shape\GroupShape\CGroupShape">
+      <UniqueIdentifier>{785561c2-5373-4855-bc08-4ba933890338}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Drawable\Shape\CShape\Rectangle">
+      <UniqueIdentifier>{978778e4-07f6-44e2-a473-0c475494bfaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Drawable\Shape\CShape\Triangle">
+      <UniqueIdentifier>{51cb5b6f-3421-4a44-b802-d052aa76ed3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Drawable\Shape\Style\CStyle">
+      <UniqueIdentifier>{5ddb2a84-fe33-47f3-a707-909f3bd3d2c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Drawable\Shape\CShape">
+      <UniqueIdentifier>{61e2938a-12bb-41cd-bf5e-7d33b715d408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Drawable\Shape\CShape\Rectangle">
+      <UniqueIdentifier>{9fc3a3aa-7b1e-4b2d-ba53-6267d042d68c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Drawable\Shape\CShape\Triangle">
+      <UniqueIdentifier>{974e4232-0227-4a88-b73f-806a356e515f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Drawable\Shape\Style">
+      <UniqueIdentifier>{fed5fb69-65af-4207-b145-58fa90dfd3f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Drawable\Shape\Style\CStyle">
+      <UniqueIdentifier>{21685deb-2ac2-47e5-8fa1-f88c6736cee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Drawable\Shape\GroupShape">
+      <UniqueIdentifier>{24ef8633-0c46-4a13-b782-8d030b2cca21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Drawable\Shape\GroupShape\CGroupShape">
+      <UniqueIdentifier>{915d0e78-6b1f-40a9-a47e-d719526b8066}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\CSlide">
+      <UniqueIdentifier>{1b4289a6-8c2a-4eb5-ac36-c6293eace5c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Canvas\CCanvas">
+      <UniqueIdentifier>{be4a09b0-d824-432a-a836-e215dc932006}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Canvas\CCanvas\SFML">
+      <UniqueIdentifier>{bc33e8d2-2e5b-4746-9c91-bd01cef855b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Canvas\CCanvas\SFML">
+      <UniqueIdentifier>{7fe310ff-3aa0-41ea-a436-73e6ca8484f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Common">
+      <UniqueIdentifier>{633c38a2-4873-46d7-a61c-f79c53a4d338}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Common\Rect">
+      <UniqueIdentifier>{49e47d1b-cb04-45b7-9553-d132ffebdf5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Common\Color">
+      <UniqueIdentifier>{2627d0a1-273f-4353-ba6d-447e9c273316}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Common\Point">
+      <UniqueIdentifier>{e07b727d-3867-4030-b525-55cf90a35b53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Common">
+      <UniqueIdentifier>{feb30e4a-4b4f-4d9a-84f8-b8f4965a9679}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Common\Point">
+      <UniqueIdentifier>{d8743040-6dd5-4c33-909a-d01f3bb1b4c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Drawable\Shape\Style\Common">
+      <UniqueIdentifier>{fef5b539-6a42-4eb1-a486-ffe946a8b30c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Drawable\Shape\Style\Common">
+      <UniqueIdentifier>{d683ad57-b70b-4356-b9f4-2eb0c2b3d933}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Drawer">
+      <UniqueIdentifier>{9fcfa87d-d8b0-48bb-92aa-c052e20832d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enumerator">
+      <UniqueIdentifier>{612b425c-d6da-4cd5-aee8-4e8539eb158e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Drawable\Shape\Style\Enumerators">
+      <UniqueIdentifier>{d1f45143-a84d-49c8-874e-494b50685127}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Drawer">
+      <UniqueIdentifier>{9c25c8fe-a6e8-4d83-9263-6f3e09ee468f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Former">
+      <UniqueIdentifier>{df095b8f-6d9a-4686-b5e0-77d1ff0ed36d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Former">
+      <UniqueIdentifier>{a6ce7053-627c-450d-848d-154674cc6cdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Slide\Drawable\Shape\CShape\Ellipse">
+      <UniqueIdentifier>{af1d346a-c58a-4b26-832d-08e6e18ad084}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Slide\Drawable\Shape\CShape\Ellipse">
+      <UniqueIdentifier>{05e4f2ba-73a8-4fc2-9944-7ff34b755205}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\drawable\shape\CShape\triangle\Triangle.cpp">
+      <Filter>Source Files\Slide\Drawable\Shape\CShape\Triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\drawable\shape\CShape\rectangle\Rectangle.cpp">
+      <Filter>Source Files\Slide\Drawable\Shape\CShape\Rectangle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\drawable\shape\CShape\BaseShape.cpp">
+      <Filter>Source Files\Slide\Drawable\Shape\CShape</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\drawable\shape\style\CStyle\Style.cpp">
+      <Filter>Source Files\Slide\Drawable\Shape\Style\CStyle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\drawable\shape\group_shape\CGroupShape\GroupShape.cpp">
+      <Filter>Source Files\Slide\Drawable\Shape\GroupShape\CGroupShape</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\CSlide\Slide.cpp">
+      <Filter>Source Files\Slide\CSlide</Filter>
+    </ClCompile>
+    <ClCompile Include="src\canvas\CCanvas\sfml_canvas\SFMLCanvas.cpp">
+      <Filter>Source Files\Canvas\CCanvas\SFML</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\common\point\Point.cpp">
+      <Filter>Source Files\Slide\Common\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\drawable\shape\style\common\styles_common.cpp">
+      <Filter>Source Files\Slide\Drawable\Shape\Style\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\drawer\DrawerSFML.cpp">
+      <Filter>Source Files\Drawer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\drawable\shape\style\CStyle\StyleComposite.cpp">
+      <Filter>Source Files\Slide\Drawable\Shape\Style\CStyle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\former\Examples.cpp">
+      <Filter>Source Files\Slide\Former</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slide\drawable\shape\CShape\ellipse\Ellipse.cpp">
+      <Filter>Source Files\Slide\Drawable\Shape\CShape\Ellipse</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\canvas\ICanvas_fwd.h">
+      <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="src\canvas\ICanvas.h">
+      <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\CSlide\Slide.h">
+      <Filter>Header Files\Slide\CSlide</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\IDrawable_fwd.h">
+      <Filter>Header Files\Slide\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\IDrawable.h">
+      <Filter>Header Files\Slide\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\ISlide.h">
+      <Filter>Header Files\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\ISlide_fwd.h">
+      <Filter>Header Files\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\IShape.h">
+      <Filter>Header Files\Slide\Drawable\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\IShape_fwd.h">
+      <Filter>Header Files\Slide\Drawable\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\style\IStyle.h">
+      <Filter>Header Files\Slide\Drawable\Shape\Style</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\style\IStyle_fwd.h">
+      <Filter>Header Files\Slide\Drawable\Shape\Style</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\shapes\IShapes_fwd.h">
+      <Filter>Header Files\Slide\Drawable\Shape\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\shapes\IShapes.h">
+      <Filter>Header Files\Slide\Drawable\Shape\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\group_shape\IGroupShape.h">
+      <Filter>Header Files\Slide\Drawable\Shape\GroupShape</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\group_shape\IGroupShape_fwd.h">
+      <Filter>Header Files\Slide\Drawable\Shape\GroupShape</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\CShape\BaseShape.h">
+      <Filter>Header Files\Slide\Drawable\Shape\CShape</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\group_shape\CGroupShape\GroupShape.h">
+      <Filter>Header Files\Slide\Drawable\Shape\GroupShape\CGroupShape</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\CShape\rectangle\Rectangle.h">
+      <Filter>Header Files\Slide\Drawable\Shape\CShape\Rectangle</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\CShape\triangle\Triangle.h">
+      <Filter>Header Files\Slide\Drawable\Shape\CShape\Triangle</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\style\CStyle\Style.h">
+      <Filter>Header Files\Slide\Drawable\Shape\Style\CStyle</Filter>
+    </ClInclude>
+    <ClInclude Include="src\canvas\CCanvas\sfml_canvas\SFMLCanvas.h">
+      <Filter>Header Files\Canvas\CCanvas\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\common\slides_common.h">
+      <Filter>Header Files\Slide\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\common\color\RGBAColor.h">
+      <Filter>Header Files\Slide\Common\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\common\point\Point.h">
+      <Filter>Header Files\Slide\Common\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\common\point\PointD.h">
+      <Filter>Header Files\Slide\Common\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\common\rect\Rect.h">
+      <Filter>Header Files\Slide\Common\Rect</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\common\rect\RectD.h">
+      <Filter>Header Files\Slide\Common\Rect</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\style\common\styles_common.h">
+      <Filter>Header Files\Slide\Drawable\Shape\Style\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\drawer\DrawerSFML.h">
+      <Filter>Header Files\Drawer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\enumarator\IEnumerator_fwd.h">
+      <Filter>Header Files\Enumerator</Filter>
+    </ClInclude>
+    <ClInclude Include="src\enumarator\IEnumerator.h">
+      <Filter>Header Files\Enumerator</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\style\CStyle\StyleComposite.h">
+      <Filter>Header Files\Slide\Drawable\Shape\Style\CStyle</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\style\enumerator\FillStyleEnumerator.hpp">
+      <Filter>Header Files\Slide\Drawable\Shape\Style\Enumerators</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\style\enumerator\OutlineStyleEnumerator.hpp">
+      <Filter>Header Files\Slide\Drawable\Shape\Style\Enumerators</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lecture_sample.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\former\Examples.h">
+      <Filter>Header Files\Slide\Former</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slide\drawable\shape\CShape\ellipse\Ellipse.h">
+      <Filter>Header Files\Slide\Drawable\Shape\CShape\Ellipse</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
