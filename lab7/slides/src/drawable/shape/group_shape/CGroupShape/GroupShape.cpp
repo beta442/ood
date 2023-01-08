@@ -11,6 +11,24 @@
 namespace drawable::shape
 {
 
+IGroupShapeSharedPtr GroupShape::Create()
+{
+	// clang-format off
+	struct make_shared_enabler : public GroupShape {};
+	// clang-format on
+
+	return std::make_shared<make_shared_enabler>();
+}
+
+IGroupShapePtr GroupShape::CreateUnique()
+{
+	// clang-format off
+	struct make_unique_enabler : public GroupShape {};
+	// clang-format on
+
+	return std::make_unique<make_unique_enabler>();
+}
+
 GroupShape::GroupShape()
 	: m_groupRect()
 	, m_containerShapes()
@@ -87,12 +105,12 @@ const IStyle& GroupShape::GetFillStyle() const
 
 IGroupShapeSharedPtr GroupShape::GetGroup()
 {
-	return IGroupShapeSharedPtr(this);
+	return shared_from_this();
 }
 
 IGroupShapeConstSharedPtr GroupShape::GetGroup() const
 {
-	return IGroupShapeConstSharedPtr(this);
+	return shared_from_this();
 }
 
 size_t GroupShape::GetShapesCount() const
@@ -101,7 +119,12 @@ size_t GroupShape::GetShapesCount() const
 }
 
 void GroupShape::InsertShape(const IShapeSharedPtr& shape, std::optional<size_t> position)
-{ // TODO: prevent self insert
+{
+	if (std::addressof(*shape) == this)
+	{
+		return;
+	}
+
 	const auto index = (position.has_value())
 		? std::min(*position, m_containerShapes.size())
 		: m_containerShapes.size();
@@ -140,7 +163,8 @@ void GroupShape::RemoveShapeAtIndex(size_t index)
 
 void GroupShape::Draw(Canvas& canvas)
 {
-	for (auto& shape : m_containerShapes)
+	auto m_cSCopy = m_containerShapes;
+	for (auto& shape : m_cSCopy)
 	{
 		shape->Draw(canvas);
 	}

@@ -22,7 +22,7 @@ void FormSlideWithComputerScreenPicture(ISlide& slide)
 	using RectD = shape::Rectangle::RectD;
 	using PointD = drawable::common::PointD;
 
-	auto shapesGroup = std::make_shared<shape::GroupShape>();
+	auto shapesGroup = shape::GroupShape::Create();
 
 	auto screenWrapperRect = std::make_shared<shape::Rectangle>(RectD{ 4, 4, 840, 660 }, CreateStyle(0x00AD00FF), CreateStyle(0x000000FF));
 	auto screen = std::make_shared<shape::Rectangle>(RectD{ 24, 34, 800, 600 }, CreateStyle(0x7F7E85FF), CreateStyle(0x7F7E85FF));
@@ -31,11 +31,13 @@ void FormSlideWithComputerScreenPicture(ISlide& slide)
 
 	auto startBtn = std::make_shared<shape::Triangle>(PointD{ 38, 630 }, PointD{ 53, 610 }, PointD{ 68, 630 }, CreateStyle(0x24ACF2FF), CreateStyle(0x24ACF2FF));
 
-	auto wallpaper = std::make_shared<shape::GroupShape>();
+	auto wallpaper = shape::GroupShape::Create();
 	auto firstEllipse = std::make_shared<shape::Ellipse>(PointD{ 300, 200 }, 200, 100, CreateStyle(0x7F7E85FF), CreateStyle(0x2A3B43FF));
 	auto secondEllipse = std::make_shared<shape::Ellipse>(PointD{ 325, 120 }, 100, 200, CreateStyle(0x2A3B43FF), CreateStyle(0x7F7E85FF));
 	wallpaper->InsertShape(firstEllipse);
 	wallpaper->InsertShape(secondEllipse);
+
+	auto s = wallpaper->GetGroup();
 
 	shapesGroup->InsertShape(screenWrapperRect);
 	shapesGroup->InsertShape(screen);

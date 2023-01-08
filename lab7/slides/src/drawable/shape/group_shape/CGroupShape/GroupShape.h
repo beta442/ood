@@ -10,29 +10,34 @@
 namespace drawable::shape
 {
 
-class GroupShape final : public IGroupShape
-{ // TODO: enable_shared_from_this
+class GroupShape : public IGroupShape
+	, public std::enable_shared_from_this<GroupShape>
+{
 public:
+	static IGroupShapeSharedPtr Create();
+	static IGroupShapePtr CreateUnique();
+
+	const RectD& GetFrame() const final;
+	void SetFrame(const RectD& rect) final;
+
+	IStyle& GetOutlineStyle() final;
+	const IStyle& GetOutlineStyle() const final;
+
+	IStyle& GetFillStyle() final;
+	const IStyle& GetFillStyle() const final;
+
+	IGroupShapeSharedPtr GetGroup() final;
+	IGroupShapeConstSharedPtr GetGroup() const final;
+
+	size_t GetShapesCount() const final;
+	void InsertShape(const IShapeSharedPtr& shape, std::optional<size_t> position = std::nullopt) final;
+	const IShapeSharedPtr& GetShapeAtIndex(size_t index) final;
+	void RemoveShapeAtIndex(size_t index) final;
+
+	void Draw(Canvas& canvas) final;
+
+protected:
 	explicit GroupShape();
-
-	const RectD& GetFrame() const override;
-	void SetFrame(const RectD& rect) override;
-
-	IStyle& GetOutlineStyle() override;
-	const IStyle& GetOutlineStyle() const override;
-
-	IStyle& GetFillStyle() override;
-	const IStyle& GetFillStyle() const override;
-
-	IGroupShapeSharedPtr GetGroup() override;
-	IGroupShapeConstSharedPtr GetGroup() const override;
-
-	size_t GetShapesCount() const override;
-	void InsertShape(const IShapeSharedPtr& shape, std::optional<size_t> position = std::nullopt) override;
-	const IShapeSharedPtr& GetShapeAtIndex(size_t index) override;
-	void RemoveShapeAtIndex(size_t index) override;
-
-	void Draw(Canvas& canvas) override;
 
 private:
 	using ShapesContainer = std::list<IShapeSharedPtr>;

@@ -8,8 +8,7 @@ namespace drawable::slide
 {
 
 Slide::Slide()
-	: m_shapeGroup(std::move(
-		std::make_unique<shape::GroupShape>()))
+	: m_shapeGroup(std::move(shape::GroupShape::CreateUnique()))
 {
 }
 
