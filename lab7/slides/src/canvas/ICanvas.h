@@ -2,8 +2,8 @@
 
 #include "ICanvas_fwd.h"
 
-#include "slide/drawable/shape/style/IStyle.h"
-#include "slide/common/point/PointD.h"
+#include "drawable/shape/style/IStyle.h"
+#include "drawable/common/point/PointD.h"
 
 namespace canvas
 {
@@ -11,9 +11,9 @@ namespace canvas
 class ICanvas
 {
 public:
-	using Style = slide::shape::IStyle;
+	using Style = drawable::shape::IStyle;
 	using RGBAColor = Style::RGBAColor;
-	using PointD = slide::common::PointD;
+	using PointD = drawable::common::PointD;
 
 	virtual void SetLineColor(const Style& color) = 0;
 	virtual void SetFillColor(const Style& color) = 0;

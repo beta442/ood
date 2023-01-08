@@ -1,16 +1,13 @@
 #include "pch.h"
 
-#include "slide/CSlide/Slide.h"
+#include "drawable/slide/CSlide/Slide.h"
 
 #include "drawer/DrawerSFML.h"
 
-#include "slide/former/Examples.h"
+#include "drawable/former/Examples.h"
 
 int main()
 {
-	using namespace slide;
-	using namespace drawer;
-
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8;
 
@@ -20,11 +17,16 @@ int main()
 		sf::Style::Titlebar | sf::Style::Close,
 		settings);
 
-	auto slide = std::make_shared<Slide>();
-	auto sfmlDrawer = DrawerSFML(renderWindow, slide);
+	auto slide = std::make_shared<drawable::slide::Slide>();
+	auto sfmlDrawer = drawer::DrawerSFML(renderWindow, slide);
 
-	demo::FormSlideWithComputerScreenPicture(*slide);
+	using drawable::slide::demo::FormSlideWithComputerScreenPicture;
+	using drawable::slide::demo::SetFillColorToShapesInSlide;
+	using drawable::slide::demo::SetSizeToShapesInSlide;
 
+	FormSlideWithComputerScreenPicture(*slide);
+
+	unsigned step = 0;
 	while (renderWindow->isOpen())
 	{
 		renderWindow->clear(sf::Color(255, 255, 255));
@@ -37,6 +39,26 @@ int main()
 			if (event.type == sf::Event::Closed || event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
 			{
 				renderWindow->close();
+			}
+
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
+			{
+				if (step % 3 == 0)
+				{
+					SetSizeToShapesInSlide(*slide);
+				}
+				if (step % 3 == 1)
+				{
+					SetFillColorToShapesInSlide(*slide);
+				}
+				if (step % 3 == 2)
+				{
+					FormSlideWithComputerScreenPicture(*slide);
+				}
+				if (++step == 3)
+				{
+					step = 0;
+				}
 			}
 		}
 

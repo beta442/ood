@@ -4,9 +4,6 @@
 
 #include "canvas/CCanvas/sfml_canvas/SFMLCanvas.h"
 
-namespace slide
-{
-
 namespace drawer
 {
 
@@ -15,8 +12,7 @@ constexpr auto ERR_SET_NULL_SLIDE = "Cant set DrawerSFML with slide ptr that poi
 
 DrawerSFML::DrawerSFML(const RenderTarget& sfmlRenderTarget, const SlideSharedPtr& slide)
 	: m_sfmlCanvas(std::move(
-		std::make_shared<canvas::SFMLCanvas>(sfmlRenderTarget)
-	))
+		std::make_shared<canvas::SFMLCanvas>(sfmlRenderTarget)))
 	, m_slide(slide)
 {
 	if (m_slide.get() == nullptr)
@@ -41,5 +37,3 @@ void DrawerSFML::Draw()
 }
 
 } // namespace drawer
-
-} // namespace slide
